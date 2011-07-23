@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;..\..\vendor\Lua\current&quot;;&quot;..\rSDK\Inc&quot;"
+				AdditionalIncludeDirectories="&quot;E:\Workspace\SVN Managed\click\trunk\rSDK\Inc&quot;;..\..\..\working\rSDK\Inc;..\..\..\vendor\Lua\current;..\..\..\trunk"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -58,9 +58,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="xlua.lib mmfs2.lib Opengl32.lib"
+				AdditionalDependencies="xlua.lib mmfs2.lib Opengl32.lib glu32.lib"
 				OutputFile="$(IntDir)\opengl.dll"
-				AdditionalLibraryDirectories="&quot;..\XLua\Release&quot;;&quot;..\rSDK\Lib&quot;"
+				AdditionalLibraryDirectories="&quot;E:\Workspace\SVN Managed\click\trunk\XLua\Release&quot;;&quot;E:\Workspace\SVN Managed\click\trunk\rSDK\Lib&quot;"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>
@@ -113,7 +113,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;..\..\vendor\Lua\current&quot;;&quot;..\rSDK\Inc&quot;"
+				AdditionalIncludeDirectories="&quot;E:\Workspace\SVN Managed\click\trunk&quot;;&quot;E:\Workspace\SVN Managed\click\vendor\Lua\current&quot;;&quot;E:\Workspace\SVN Managed\click\trunk\rSDK\Inc&quot;"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				WarningLevel="3"
@@ -130,9 +130,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="xlua.lib mmfs2.lib Opengl32.lib"
+				AdditionalDependencies="xlua.lib mmfs2.lib Opengl32.lib glu32.lib"
 				OutputFile="$(IntDir)\opengl.dll"
-				AdditionalLibraryDirectories="&quot;..\XLua\Release&quot;;&quot;..\rSDK\Lib&quot;"
+				AdditionalLibraryDirectories="&quot;E:\Workspace\SVN Managed\click\trunk\XLua\Release&quot;;&quot;E:\Workspace\SVN Managed\click\trunk\rSDK\Lib&quot;"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -174,31 +174,123 @@
 				>
 			</File>
 			<File
+				RelativePath=".\glcommon.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\glext.c"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\LuaGL.c"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\LuaGL12.c"
+				RelativePath=".\LuaGL10.cpp"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\LuaGL11.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\LuaGL12.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\LuaGL13.c"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\LuaGL14.c"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\LuaGL15.c"
+				RelativePath=".\LuaGL15.cpp"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\LuaGL20.c"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\LuaGLU.c"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="1"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\LuaUtil.cpp"
 				>
 			</File>
 		</Filter>
@@ -221,6 +313,10 @@
 			</File>
 			<File
 				RelativePath=".\LuaGLExt.h"
+				>
+			</File>
+			<File
+				RelativePath=".\LuaUtil.h"
 				>
 			</File>
 			<File

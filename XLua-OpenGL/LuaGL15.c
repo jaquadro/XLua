@@ -10,21 +10,21 @@
  */
 int gl_bind_buffer(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments */
-	if(!(lua_isstring(L, 1) && lua_isnumber(L, 2)))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2)))
 		luaL_error(L, "incorrect argument to function 'gl.BindBuffer'");
 
 	/* get string value */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.BindBuffer'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.BindBuffer'");
 
 	/* call opengl function */
-	glBindBuffer(e, (GLuint)lua_tointeger(L, 2));
+	glBindBuffer((GLenum)lua_tointeger(L, 1), (GLuint)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -35,7 +35,8 @@ int gl_bind_buffer(lua_State *L)
  */
 int gl_buffer_data(lua_State *L)
 {
-	GLenum target, usage;
+	//GLenum target, usage;
+	GLenum target;
 	GLint size = 1, n, fullsize;
 	static GLfloat *array = 0;
 	static GLuint *uiarray = 0;
@@ -46,16 +47,17 @@ int gl_buffer_data(lua_State *L)
 		free(uiarray);
 
 	/* test arguments type */
-	if(!(lua_isstring(L, 1) && lua_istable(L, 2) && lua_isstring(L, 3)))
+	if(!(lua_isnumber(L, 1) && lua_istable(L, 2) && lua_isnumber(L, 3)))
 		luaL_error(L, "incorrect argument to function 'gl.BufferData'");
 
 	/* get parameters */
-	target = get_gl_enum(L, 1);
-	usage = get_gl_enum(L, 3);
+	//target = get_gl_enum(L, 1);
+	target = lua_tointeger(L, 1);
+	//usage = get_gl_enum(L, 3);
 
 	/* test arguments */
-	if(target == ENUM_ERROR || usage == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.BufferData'");
+	//if(target == ENUM_ERROR || usage == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.BufferData'");
 
 	/* Get data */
 	if (target == GL_ARRAY_BUFFER) {
@@ -84,10 +86,10 @@ int gl_buffer_data(lua_State *L)
 
 	/* call opengl function */
 	if (target == GL_ARRAY_BUFFER) {
-		glBufferData(target, (GLuint)(fullsize * sizeof(GLfloat)), (GLvoid*)array, usage);
+		glBufferData(target, (GLuint)(fullsize * sizeof(GLfloat)), (GLvoid*)array, (GLenum)lua_tointeger(L, 3));
 	}
 	else {
-		glBufferData(target, (GLuint)(fullsize * sizeof(GLuint)), (GLvoid*)uiarray, usage);
+		glBufferData(target, (GLuint)(fullsize * sizeof(GLuint)), (GLvoid*)uiarray, (GLenum)lua_tointeger(L, 3));
 	}
 
 	return 0;
@@ -110,16 +112,17 @@ int gl_buffer_sub_data(lua_State *L)
 		free(uiarray);
 
 	/* test arguments type */
-	if(!(lua_isstring(L, 1) && lua_isnumber(L, 2), lua_istable(L, 3)))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2), lua_istable(L, 3)))
 		luaL_error(L, "incorrect argument to function 'gl.BufferSubData'");
 
 	/* get parameters */
-	target = get_gl_enum(L, 1);
+	//target = get_gl_enum(L, 1);
+	target = lua_tointeger(L, 1);
 	offset = lua_tointeger(L, 2);
 
 	/* test arguments */
-	if(target == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.BufferSubData'");
+	//if(target == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.BufferSubData'");
 
 	/* Get data */
 	if (target == GL_ARRAY_BUFFER) {

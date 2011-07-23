@@ -10,24 +10,24 @@
  */
 int gl_blend_func_separate(lua_State *L)
 {
-	GLenum a, b, c, d;
+	//GLenum a, b, c, d;
 
 	/* test arguments */
-	if(!(lua_isstring(L, 1) && lua_isstring(L, 2) && lua_isstring(L, 3) && lua_isstring(L, 4)))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3) && lua_isnumber(L, 4)))
 		luaL_error(L, "incorrect argument to function 'gl.BlendFuncSeparate'");
 
 	/* get values */
-	a = (GLenum)get_gl_enum(L, 1);
-	b = (GLenum)get_gl_enum(L, 2);
-	c = (GLenum)get_gl_enum(L, 3);
-	d = (GLenum)get_gl_enum(L, 4);
+	//a = (GLenum)get_gl_enum(L, 1);
+	//b = (GLenum)get_gl_enum(L, 2);
+	//c = (GLenum)get_gl_enum(L, 3);
+	//d = (GLenum)get_gl_enum(L, 4);
 
 	/* test arguments */
-	if((a == ENUM_ERROR) || (b == ENUM_ERROR) || (c == ENUM_ERROR) || (d == ENUM_ERROR))
-		luaL_error(L, "incorrect string argument to function 'gl.BlendFuncSeparate'");
+	//if((a == ENUM_ERROR) || (b == ENUM_ERROR) || (c == ENUM_ERROR) || (d == ENUM_ERROR))
+	//	luaL_error(L, "incorrect string argument to function 'gl.BlendFuncSeparate'");
 
 	/* call opengl function */
-	glBlendFuncSeparate(a, b, c, d);
+	glBlendFuncSeparate((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLenum)lua_tointeger(L, 3), (GLenum)lua_tointeger(L, 4));
 
 	return 0;
 }
@@ -93,15 +93,17 @@ int gl_fog_coord_pointer(lua_State *L)
  */
 int gl_point_parameter(lua_State *L)
 {
-	GLenum name, p;
+	//GLenum name, p;
+	GLenum name;
 
 	/* if have there's no arguments show an error message */
-	if(!(lua_isstring(L, 1)))
+	if(!(lua_isnumber(L, 1)))
 		luaL_error(L, "incorrect argument to function 'gl.PointParameter'");
 
-	name = get_gl_enum(L, 1);
-	if (name == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PointParameter'");
+	//name = get_gl_enum(L, 1);
+	name = lua_tointeger(L, 1);
+	//if (name == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PointParameter'");
 
 	switch (name) {
 		case GL_POINT_SIZE_MIN:
@@ -114,12 +116,12 @@ int gl_point_parameter(lua_State *L)
 			break;
 
 		case GL_POINT_SPRITE_COORD_ORIGIN:
-			if (!lua_isstring(L, 2))
-				luaL_error(L, "incorrect argument to function 'gl.PointParameter'");
-			p = get_gl_enum(L, 2);
-			if (p == ENUM_ERROR)
-				luaL_error(L, "incorrect string argument to function 'gl.PointParameter'");
-			glPointParameteri(name, p);
+			//if (!lua_isstring(L, 2))
+			//	luaL_error(L, "incorrect argument to function 'gl.PointParameter'");
+			//p = get_gl_enum(L, 2);
+			//if (p == ENUM_ERROR)
+			//	luaL_error(L, "incorrect string argument to function 'gl.PointParameter'");
+			glPointParameteri(name, (GLenum)lua_tointeger(L, 2));
 			break;
 	}
 

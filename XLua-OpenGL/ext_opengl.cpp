@@ -1,5 +1,7 @@
 #include "ext_opengl.h"
 
+#include "LuaGL.h"
+
 static int ext_opengl_get_current_shader (lua_State* L) {
 	if (lua_gettop(L) < 1) {
 		return 0;
@@ -167,10 +169,35 @@ static const luaL_reg ext_opengllib[] = {
 };
 
 extern "C" const luaL_reg gllib[];
+extern "C" const luaL_reg glulib[];
 
 extern "C" __declspec(dllexport) int luaopen_ext_opengl (lua_State *L) {
 	// Register LuaGL library as a by-product of registering ext.opengl
 	luaL_register(L, "gl", gllib);
+
+	// Load GL enumerations
+	lua_getglobal(L, "gl");
+	int i = 0;
+
+	while (gl_str[i].str != 0) {
+		lua_pushinteger(L, gl_str[i].value);
+		lua_setfield(L, -2, gl_str[i].str);
+
+		i++;
+	}
+
+	// Register GLU library as well
+	luaL_register(L, "glu", glulib);
+
+	lua_getglobal(L, "glu");
+	i = 0;
+
+	while (glu_str[i].str != 0) {
+		lua_pushinteger(L, gl_str[i].value);
+		lua_setfield(L, -2, gl_str[i].str);
+
+		i++;
+	}
 
 	// Create the ext table if it is absent
 	lua_getglobal(L, "ext");

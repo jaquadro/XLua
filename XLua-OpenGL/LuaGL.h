@@ -48,6 +48,7 @@ extern "C" {
 
 #include "lualib.h"
 #include <GL/gl.h>
+#include <GL/glu.h>
 
 #include "glext.h"
 
@@ -81,6 +82,12 @@ typedef struct gl_str_value {
   const char *str;
   GLenum value;
 } gl_str_value;
+
+static const gl_str_value glu_str[] = {
+	{ "FALSE"										, 0 },
+	{ "TRUE"										, 1 },
+	{ 0, 0 }
+};
 
 static const gl_str_value gl_str[] = {
 	{ "VERSION_1_1"									, 1 },
@@ -140,9 +147,9 @@ static const gl_str_value gl_str[] = {
 	{ "INT"											, 0x1404 },
 	{ "UNSIGNED_INT"								, 0x1405 },
 	{ "FLOAT"										, 0x1406 },
-	{ "2_BYTES"										, 0x1407 },
-	{ "3_BYTES"										, 0x1408 },
-	{ "4_BYTES"										, 0x1409 },
+	{ "_2_BYTES"									, 0x1407 },
+	{ "_3_BYTES"									, 0x1408 },
+	{ "_4_BYTES"									, 0x1409 },
 	{ "DOUBLE"										, 0x140A },
 
 	{ "FRONT_LEFT"									, 0x0400 },
@@ -166,11 +173,11 @@ static const gl_str_value gl_str[] = {
 	{ "STACK_UNDERFLOW"								, 0x0504 },
 	{ "OUT_OF_MEMORY"								, 0x0505 },
 
-	{ "2D"											, 0x0600 },
-	{ "3D"											, 0x0601 },
-	{ "3D_COLOR"									, 0x0602 },
-	{ "3D_COLOR_TEXTURE"							, 0x0603 },
-	{ "4D_COLOR_TEXTURE"							, 0x0604 },
+	{ "_2D"											, 0x0600 },
+	{ "_3D"											, 0x0601 },
+	{ "_3D_COLOR"									, 0x0602 },
+	{ "_3D_COLOR_TEXTURE"							, 0x0603 },
+	{ "_4D_COLOR_TEXTURE"							, 0x0604 },
 
 	{ "PASS_THROUGH_TOKEN"							, 0x0700 },
 	{ "POINT_TOKEN"									, 0x0701 },
@@ -733,7 +740,9 @@ static const gl_str_value gl_str[] = {
 	{ "BLEND_DST_ALPHA"								, 0x80CA },
 	{ "BLEND_SRC_ALPHA"								, 0x80CB },
 
+	{ "BGR"											, 0x80E0 },
 	{ "BGR_EXT"										, 0x80E0 },
+	{ "BGRA"										, 0x80E1 },
 	{ "BGRA_EXT"									, 0x80E1 },
 	{ "COLOR_TABLE_FORMAT_EXT"						, 0x80D8 },
 	{ "COLOR_TABLE_WIDTH_EXT"						, 0x80D9 },
@@ -986,10 +995,14 @@ static const gl_str_value gl_str[] = {
 	{ "DYNAMIC_DRAW"								, 0x88E8 },
 	{ "DYNAMIC_READ"								, 0x88E9 },
 	{ "DYNAMIC_COPY"								, 0x88EA },
+	{ "PIXEL_PACK_BUFFER"							, 0x88EB },
 	{ "PIXEL_PACK_BUFFER_ARB"						, 0x88EB },
+	{ "PIXEL_UNPACK_BUFFER"							, 0x88EC },
 	{ "PIXEL_UNPACK_BUFFER_ARB"						, 0x88EC },
+	{ "PIXEL_PACK_BUFFER_BINDING"					, 0x88ED },
 	{ "PIXEL_PACK_BUFFER_BINDING_ARB"				, 0x88ED },
 
+	{ "PIXEL_UNPACK_BUFFER_BINDING"					, 0x88EF },
 	{ "PIXEL_UNPACK_BUFFER_BINDING_ARB"				, 0x88EF },
 
 	{ "MIRROR_CLAMP_TO_BORDER_EXT"					, 0x8912 },

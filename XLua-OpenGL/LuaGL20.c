@@ -42,15 +42,19 @@ int gl_bind_attrib_location (lua_State *L)
  */
 int gl_blend_equation_separate(lua_State *L)
 {
-	GLenum a, b;
+	//GLenum a, b;
 
-	a = (GLenum)get_gl_enum(L, 1);
-	b = (GLenum)get_gl_enum(L, 2);
+	/* test arguments type */
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2)))
+		luaL_error(L, "incorrect argument to function 'gl.BindAttribLocation'");
 
-	if (a == ENUM_ERROR || b == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.BlendEquationSeparate'");
+	//a = (GLenum)get_gl_enum(L, 1);
+	//b = (GLenum)get_gl_enum(L, 2);
 
-	glBlendEquationSeparate(a, b);
+	//if (a == ENUM_ERROR || b == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.BlendEquationSeparate'");
+
+	glBlendEquationSeparate((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -89,21 +93,21 @@ int gl_create_program (lua_State *L)
  */
 int gl_create_shader (lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.CreateShader'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.CreateShader'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.CreateShader'");
 
 	/* call opengl function */
-	lua_pushinteger(L, glCreateShader(e));
+	lua_pushinteger(L, glCreateShader((GLenum)lua_tointeger(L, 1)));
 
 	return 1;
 }
@@ -210,20 +214,20 @@ int gl_get_attrib_location (lua_State *L)
  */
 int gl_get_program (lua_State *L)
 {
-	GLenum pname;
+	//GLenum pname;
 	GLint param;
 
 	/* test arguments type */
-	if(!(lua_isnumber(L, 1) && lua_isstring(L, 2)))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2)))
 		luaL_error(L, "incorrect argument to function 'gl.GetProgram'");
 
-	pname = get_gl_enum(L, 2);
+	//pname = get_gl_enum(L, 2);
 
-	if(pname == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetProgram'");
+	//if(pname == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetProgram'");
 
 	/* call opengl function */
-	glGetProgramiv(lua_tointeger(L, 1), pname, &param);
+	glGetProgramiv(lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), &param);
 
 	lua_pushinteger(L, param);
 	return 1;
@@ -263,20 +267,20 @@ int gl_get_program_info_log (lua_State *L)
  */
 int gl_get_shader (lua_State *L)
 {
-	GLenum pname;
+	//GLenum pname;
 	GLint param;
 
 	/* test arguments type */
-	if(!(lua_isnumber(L, 1) && lua_isstring(L, 2)))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2)))
 		luaL_error(L, "incorrect argument to function 'gl.GetShader'");
 
-	pname = get_gl_enum(L, 2);
+	//pname = get_gl_enum(L, 2);
 
-	if(pname == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetShader'");
+	//if(pname == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetShader'");
 
 	/* call opengl function */
-	glGetShaderiv(lua_tointeger(L, 1), pname, &param);
+	glGetShaderiv(lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), &param);
 
 	lua_pushinteger(L, param);
 	return 1;

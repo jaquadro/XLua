@@ -36,4 +36,34 @@ typedef struct OpenGlStruct
 	GLenum glsl[256];*/
 } EXTOPENGL;
 
+typedef struct OGLBaseStruct
+{
+	headerObject rHo;
+	
+	short width;
+	short height;
+
+	HWND  hWnd; // Window handle
+	HDC   hDC;  // Device context handle
+	HGLRC hRC;  // Render context handle
+
+	BOOL autoSwapBuffers;
+
+	BYTE doubleBuffer;
+	BYTE stereoBuffer;
+
+	BYTE colorBits;
+	BYTE alphaBits;
+	BYTE depthBits;
+	BYTE accumBits;
+	BYTE stencilBits;
+
+	DWORD errorNo;
+
+	BOOL flagChangePos; // Set this after changing the position or size of the object
+
+	void (*createGLWindow)( OGLBaseStruct* rdPtr ); // Function pointer to the createGLWindow function ( for XLua to use );
+
+} EXTOPENGLBASE;
+
 #endif

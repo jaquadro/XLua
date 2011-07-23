@@ -464,23 +464,23 @@ const char *mask2str(int mask)
 static int gl_accum(lua_State *L)
 {
 	/* get string parameters */
-	GLenum e;
+	//GLenum e;
 
 	/* test argument */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1) || !lua_isnumber(L, 2))
 		luaL_error(L, "incorrect argument to function 'gl.Accum'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Accum'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Accum'");
 
-	if(!lua_isnumber(L, 2))
-		luaL_error(L, "incorrect argument to function 'gl.Accum'");
+	//if(!lua_isnumber(L, 2))
+	//	luaL_error(L, "incorrect argument to function 'gl.Accum'");
 
 	/* call opengl function */
-	glAccum(e, (GLfloat)lua_tonumber(L, 2));
+	glAccum((GLenum)lua_tointeger(L, 1), (GLfloat)lua_tonumber(L, 2));
 
 	return 0;
 }
@@ -489,23 +489,20 @@ static int gl_accum(lua_State *L)
 static int gl_alpha_func(lua_State *L)
 {
 	/* get string parameters */
-	GLenum e;
+	//GLenum e;
 
 	/* test argument */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1) || !lua_isnumber(L, 2))
 		luaL_error(L, "incorrect argument to function 'gl.AlphaFunc'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.AlphaFunc'");
-
-	if(!lua_isnumber(L, 2))
-		luaL_error(L, "incorrect argument to function 'gl.AlphaFunc'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.AlphaFunc'");
 
 	/* call opengl function */
-	glAlphaFunc(e, (GLclampf)lua_tonumber(L, 2));
+	glAlphaFunc((GLenum)lua_tointeger(L, 1), (GLclampf)lua_tonumber(L, 2));
 
 	return 0;
 }
@@ -558,20 +555,20 @@ static int gl_array_element(lua_State *L)
 /*Begin (mode) -> none*/
 static int gl_begin(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.Begin'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Begin'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Begin'");
 
 	/* call opengl function */
-	glBegin(e);
+	glBegin((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -579,21 +576,21 @@ static int gl_begin(lua_State *L)
 /*BindTexture (target, texture) -> none*/
 static int gl_bind_texture(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments */
-	if(!( lua_isstring(L, 1) && lua_isnumber(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.BindTexture'");
 
 	/* get string value */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.BindTexture'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.BindTexture'");
 
 	/* call opengl function */
-	glBindTexture(e, (GLuint)lua_tonumber(L, 2));
+	glBindTexture((GLenum)lua_tonumber(L, 1), (GLuint)lua_tonumber(L, 2));
 
 	return 0;
 }
@@ -621,22 +618,22 @@ static int gl_bitmap(lua_State *L)
 /*BlendFunc (sfactor, dfactor) -> none*/
 static int gl_blend_func(lua_State *L)
 {
-	GLenum a, b;
+	//GLenum a, b;
 
 	/* test arguments */
-	if(!(lua_isstring(L, 1) && lua_isstring(L, 2)))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2)))
 		luaL_error(L, "incorrect argument to function 'gl.BlendFunc'");
 
 	/* get values */
-	a = (GLenum)get_gl_enum(L, 1);
-	b = (GLenum)get_gl_enum(L, 2);
+	//a = (GLenum)get_gl_enum(L, 1);
+	//b = (GLenum)get_gl_enum(L, 2);
 
 	/* test arguments */
-	if((a == ENUM_ERROR) || (b == ENUM_ERROR))
-		luaL_error(L, "incorrect string argument to function 'gl.BlendFunc'");
+	//if((a == ENUM_ERROR) || (b == ENUM_ERROR))
+	//	luaL_error(L, "incorrect string argument to function 'gl.BlendFunc'");
 
 	/* call opengl function */
-	glBlendFunc(a, b);
+	glBlendFunc((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -678,20 +675,29 @@ static int gl_call_lists(lua_State *L)
 /*Clear (mask) -> none*/
 static int gl_clear(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
+	int i, paramCount;
+	GLbitfield accum = 0;
+
+	paramCount = lua_gettop(L);
+	for (i = 0; i < paramCount; i++) {
+		if (!lua_isnumber(L, i + 1))
+			luaL_error(L, "incorrect argument to function 'gl.Clear'");
+		accum |= lua_tointeger(L, i + 1);
+	}
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
-		luaL_error(L, "incorrect argument to function 'gl.Clear'");
+	//if(!lua_isstring(L, 1))
+	//	luaL_error(L, "incorrect argument to function 'gl.Clear'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Clear'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Clear'");
 
 	/* call opengl function */
-	glClear(e);
+	glClear(accum);
 
 	return 0;
 }
@@ -766,28 +772,28 @@ static int gl_clear_stencil(lua_State *L)
 /*ClipPlane (plane, equationArray) -> none*/
 static int gl_clip_plane(lua_State *L)
 {
-	GLenum plane;
+	//GLenum plane;
 	GLdouble *equation;
 
 	/* test arguments */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1) || !lua_istable(L, 2))
 		luaL_error(L, "incorrect argument to function 'gl.ClipPlane'");
 
-	if(!lua_istable(L, 2))
-		luaL_error(L, "incorrect argument to function 'gl.ClipPlane'");
+	//if(!lua_istable(L, 2))
+	//	luaL_error(L, "incorrect argument to function 'gl.ClipPlane'");
 
 	/* get values */
-	plane = get_gl_enum(L, 1);
+	//plane = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(plane == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.ClipPlane'");
+	//if(plane == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.ClipPlane'");
 
 	/* get array of equations */
 	get_arrayd(L, 2, &equation);
 
 	/* call opengl function */
-	glClipPlane(plane, equation);
+	glClipPlane((GLenum)lua_tointeger(L, 1), equation);
 
 	free(equation);
 
@@ -864,22 +870,22 @@ static int gl_color_mask(lua_State *L)
 /*ColorMaterial (face, mode) -> none*/
 static int gl_color_material(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
 
 	/* test arguments */
-	if(!( lua_isstring(L, 1) && lua_isstring(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.ColorMaterial'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
 
 	/* test strings */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.ColorMaterial'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.ColorMaterial'");
 
 	/* call opengl function */
-	glColorMaterial(e1, e2);
+	glColorMaterial((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -939,113 +945,45 @@ static int gl_color_pointer(lua_State *L)
 /*CopyPixels (x, y, width, height, type) -> none*/
 static int gl_copy_pixels(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments type */
 	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) &&
-			lua_isnumber(L, 3) && lua_isnumber(L, 4) && lua_isstring(L, 5) ))
+			lua_isnumber(L, 3) && lua_isnumber(L, 4) && lua_isnumber(L, 5) ))
 		luaL_error(L, "incorrect argument to function 'gl.CopyPixels'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 5);
+	//e = get_gl_enum(L, 5);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.CopyPixels'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.CopyPixels'");
 
 	/* call opengl function */
 	glCopyPixels((GLint)  lua_tonumber(L, 1), (GLint)  lua_tonumber(L, 2),
-					 (GLsizei)lua_tonumber(L, 3), (GLsizei)lua_tonumber(L, 4), (GLenum)e);
+					 (GLsizei)lua_tonumber(L, 3), (GLsizei)lua_tonumber(L, 4), (GLenum)lua_tointeger(L, 5));
 
-	return 0;
-}
-
-/*CopyTexImage (level, internalFormat, border, x, y, width[, height]) -> none*/
-static int gl_copy_tex_image(lua_State *L)
-{
-	GLenum internalFormat;
-
-	int num_args = lua_gettop(L);
-
-	/* test arguments type */
-	if(!(lua_isnumber(L, 1) && lua_isstring(L, 2) && lua_isnumber(L, 3) &&
-		  lua_isnumber(L, 4) && lua_isnumber(L, 5) && lua_isnumber(L, 6) ))
-		luaL_error(L, "incorrect argument to function 'gl.CopyTexImage'");
-
-	/* get string parameter */
-	internalFormat = get_gl_enum(L, 2);
-
-	/* test argument */
-	if(internalFormat == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.CopyTexImage'");
-
-	/* call opengl functions */
-	if (num_args > 6 && lua_isnumber(L, 7))
-	{
-		glCopyTexImage2D(GL_TEXTURE_2D, (GLint)lua_tonumber(L, 1), internalFormat,
-							  (GLint)lua_tonumber(L, 4), (GLint)lua_tonumber(L, 5),
-							  (GLsizei)lua_tonumber(L, 6), (GLsizei)lua_tonumber(L, 7),
-							  (GLint)lua_tonumber(L, 3));
-	}
-	else
-	{
-		glCopyTexImage1D(GL_TEXTURE_1D, (GLint)lua_tonumber(L, 1), internalFormat,
-							  (GLint)lua_tonumber(L, 4), (GLint)lua_tonumber(L, 5),
-							  (GLsizei)lua_tonumber(L, 6), (GLint)lua_tonumber(L, 3));
-	}
-	return 0;
-}
-
-/*CopyTexSubImage (level, x, y, xoffset, width[, yoffset, height]) -> none*/
-static int gl_copy_tex_sub_image(lua_State *L)
-{
-	int index;
-	int num_args = lua_gettop(L);
-
-	/* test arguments type */
-	for(index = 0; index < num_args; index++)
-	{
-		if(!lua_isnumber(L, index + 1))
-			luaL_error(L, "incorrect argument to function 'gl.CopyTexSubImage'");
-	}
-
-	/* call opengl funcitions */
-	if(num_args >= 7)
-	{
-		glCopyTexSubImage2D(GL_TEXTURE_2D,
-								  (GLint)lua_tonumber(L, 1), (GLint)lua_tonumber(L, 4),
-								  (GLint)lua_tonumber(L, 6), (GLint)lua_tonumber(L, 2),
-								  (GLint)lua_tonumber(L, 3), (GLint)lua_tonumber(L, 5),
-								  (GLint)lua_tonumber(L, 7));
-	}
-	else
-	{
-		glCopyTexSubImage1D(GL_TEXTURE_1D,
-								  (GLint)lua_tonumber(L, 1), (GLint)lua_tonumber(L, 4),
-								  (GLint)lua_tonumber(L, 2), (GLint)lua_tonumber(L, 3),
-								  (GLint)lua_tonumber(L, 5));
-	}
 	return 0;
 }
 
 /*CullFace (mode) -> none*/
 static int gl_cull_face(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.CullFace'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.CullFace'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.CullFace'");
 
 	/* call opengl function */
-	glCullFace(e);
+	glCullFace((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1087,21 +1025,21 @@ static int gl_delete_textures(lua_State *L)
 /*DepthFunc (func) -> none*/
 static int gl_depth_func(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.DepthFunc'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.DepthFunc'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.DepthFunc'");
 
 	/* call opengl function */
-	glDepthFunc(e);
+	glDepthFunc((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1135,21 +1073,21 @@ static int gl_depth_range(lua_State *L)
 /*Disable (cap) -> none*/
 static int gl_disable(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.Disable'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Disable'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Disable'");
 
 	/* call opengl function */
-	glDisable(e);
+	glDisable((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1157,21 +1095,21 @@ static int gl_disable(lua_State *L)
 /*DisableClientState (array) -> none*/
 static int gl_disable_client_state(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.DisableClientState'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.DisableClientState'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.DisableClientState'");
 
 	/* call opengl function */
-	glDisableClientState(e);
+	glDisableClientState((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1179,21 +1117,21 @@ static int gl_disable_client_state(lua_State *L)
 /*DrawArrays (mode, first, count) -> none*/
 static int gl_draw_arrays(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments type */
-	if(!(lua_isstring(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3) ))
+	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3) ))
 		luaL_error(L, "incorrect argument to function 'gl.DrawArrays'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.DrawArrays'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.DrawArrays'");
 
 	/* call opengl function */
-	glDrawArrays(e, (GLint)lua_tonumber(L, 2), (GLsizei)lua_tonumber(L, 3));
+	glDrawArrays((GLenum)lua_tointeger(L, 1), (GLint)lua_tointeger(L, 2), (GLsizei)lua_tointeger(L, 3));
 
 	return 0;
 }
@@ -1201,21 +1139,21 @@ static int gl_draw_arrays(lua_State *L)
 /*DrawBuffer (mode) -> none*/
 static int gl_draw_buffer(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.DrawBuffer'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.DrawBuffer'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.DrawBuffer'");
 
 	/* call opengl function */
-	glDrawBuffer(e);
+	glDrawBuffer((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1229,18 +1167,18 @@ static int gl_draw_elements(lua_State *L)
 {
 	int n, offset, size = 1;
 	GLuint *indices;
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.DrawElements'");
 
 	/* get parameters */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.DrawElements'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.DrawElements'");
 
 	if (lua_isnumber(L, 2)) {
 		offset = lua_tointeger(L, 2);
@@ -1248,7 +1186,7 @@ static int gl_draw_elements(lua_State *L)
 			luaL_error(L, "incorrect string argument to function 'gl.DrawElements'");
 		n = lua_tointeger(L, 3);
 
-		glDrawElements(e, n, GL_UNSIGNED_INT, (GLubyte*) NULL + offset * sizeof(GLuint));
+		glDrawElements((GLenum)lua_tointeger(L, 1), n, GL_UNSIGNED_INT, (GLubyte*) NULL + offset * sizeof(GLuint));
 	}
 	else if (lua_istable(L, 2)) {
 		n = get_array2ui(L, 2, &indices, &size);
@@ -1261,7 +1199,7 @@ static int gl_draw_elements(lua_State *L)
 		if (lua_isnumber(L, 3) && n > lua_tointeger(L, 3))
 			n = lua_tointeger(L, 3);
 
-		glDrawElements(e, n * size, GL_UNSIGNED_INT, indices);
+		glDrawElements((GLenum)lua_tointeger(L, 1), n * size, GL_UNSIGNED_INT, indices);
 
 		free(indices);
 	}
@@ -1272,53 +1210,6 @@ static int gl_draw_elements(lua_State *L)
 	return 0;
 }
 
-/*DrawPixels (width, height, format, pixels) -> none*/
-static int gl_draw_pixels(lua_State *L)
-{
-	GLenum e;
-	GLfloat *pixels;
-	int size = 1;
-	int n;
-	int width, height;
-
-	/* test arguments type */
-	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2) &&
-		  lua_isstring(L, 3) && lua_istable (L, 4)) )
-		luaL_error(L, "incorrect argument to function 'gl.DrawPixels'");
-
-	/* get parameters */
-	e = get_gl_enum(L, 3);
-	n = get_arrayf(L, 4, &pixels);
-
-	width = lua_tointeger(L, 1);
-	height = lua_tointeger(L, 2);
-
-	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.DrawPixels'");
-
-	/*switch (e) {
-		case GL_LUMINANCE_ALPHA:
-			size = 2;
-		case GL_RGB:
-		case GL_BGR:
-			size = 3; break;
-		case GL_RGBA:
-		case GL_BGRA:
-			size = 4; break;
-	}*/
-
-	//if (n < width * height * size) {
-	//	pixels = (GLfloat*)realloc(pixels, width * height * size * sizeof(GLfloat));
-	//}
-
-	/* call opengl function */
-	glDrawPixels((GLsizei)width, (GLsizei)height, e, GL_FLOAT, pixels);
-
-	free(pixels);
-
-	return 0;
-}
 
 /*EdgeFlag (flag) -> none*/
 static int gl_edge_flag(lua_State *L)
@@ -1389,42 +1280,42 @@ static int gl_edge_flag_pointer(lua_State *L)
 /*Enable (cap) -> none*/
 static int gl_enable(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.Enable'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Enable'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Enable'");
 
 	/* call opengl function */
-	glEnable(e);
+	glEnable((GLenum)lua_tointeger(L, 1));
 	return 0;
 }
 
 /*EnableClientState (array) -> none*/
 static int gl_enable_client_state(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.EnableClientState'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.EnableClientState'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.EnableClientState'");
 
 	/* call opengl function */
-	glEnableClientState(e);
+	glEnableClientState((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1492,13 +1383,13 @@ static int gl_eval_coord(lua_State *L)
 /*EvalMesh (mode, i1, i2[,j1, j2]) -> none*/
 static int gl_eval_mesh(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	int index;
 	int num_args = lua_gettop(L);
 
 	/* test arguments type */
-	if(!( lua_isstring(L, 1) && num_args > 2))
+	if(!( lua_isnumber(L, 1) && num_args > 2))
 		luaL_error(L, "incorrect argument to function 'gl.EvalMesh'");
 
 	for(index = 2; index < num_args; index++)
@@ -1506,17 +1397,17 @@ static int gl_eval_mesh(lua_State *L)
 			luaL_error(L, "incorrect argument to function 'gl.EvalMesh'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.EvalMesh'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.EvalMesh'");
 
 	/* call opengl function */
 	if(num_args < 5)
-		glEvalMesh1(e, (GLint)lua_tonumber(L, 2), (GLint)lua_tonumber(L, 3));
+		glEvalMesh1((GLenum)lua_tointeger(L, 1), (GLint)lua_tonumber(L, 2), (GLint)lua_tonumber(L, 3));
 	else
-		glEvalMesh2(e, (GLint)lua_tonumber(L, 2), (GLint)lua_tonumber(L, 3),
+		glEvalMesh2((GLenum)lua_tointeger(L, 1), (GLint)lua_tonumber(L, 2), (GLint)lua_tonumber(L, 3),
 							(GLint)lua_tonumber(L, 4), (GLint)lua_tonumber(L, 5));
 
 	return 0;
@@ -1550,25 +1441,25 @@ static int gl_eval_point(lua_State *L)
 static int gl_feedback_buffer(lua_State *L)
 {
 	GLfloat *array;
-	GLenum e;
+	//GLenum e;
 	GLsizei size;
 	int i;
 
-	if(!( lua_isnumber(L, 1) && lua_isstring(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.FeedbackBuffer'");
 
 	/* get parameters */
 	size = (GLsizei)lua_tonumber(L, 1);
-	e = get_gl_enum(L, 2);
+	//e = get_gl_enum(L, 2);
 
 	array = (GLfloat *)malloc(size * sizeof(GLfloat));
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.FeedbackBuffer'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.FeedbackBuffer'");
 
 	/* call opengl function */
-	glFeedbackBuffer (size, e, array);
+	glFeedbackBuffer (size, (GLenum)lua_tointeger(L, 2), array);
 
 	lua_newtable(L);
 
@@ -1602,62 +1493,65 @@ static int gl_fog(lua_State *L)
 	GLfloat *param;
 
 	/* test first argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.Fog'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	e = lua_tointeger(L, 1); //get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Fog'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Fog'");
 
-	if(lua_istable(L, 2))
+	switch (e)
 	{
-		get_arrayf(L, 2, &param);
+		case GL_FOG_MODE:
+		case GL_FOG_INDEX:
+		case GL_FOG_COORD_SRC:
+			if (!lua_isnumber(L, 2))
+				luaL_error(L, "incorrect argument to function 'gl.Fog'");
 
-		/* call opengl function */
-		glFogfv(e, (GLfloat*)param);
+			glFogi(e, lua_tointeger(L, 2));
+		break;
 
-		free(param);
+		case GL_FOG_COLOR:
+			if (!lua_istable(L, 2))
+				luaL_error(L, "incorrect argument to function 'gl.Fog'");
 
-		return 0;
+			get_arrayf(L, 2, &param);
+			glFogfv(e, (GLfloat*)param);
+			free(param);
+		break;
+
+		default:
+			if (!lua_isnumber(L, 2))
+				luaL_error(L, "incorrect argument to function 'gl.Fog'");
+
+			glFogf(e, (GLfloat)lua_tonumber(L, 2));
+		break;
 	}
-	/* test second argument */
-	else if(lua_isnumber(L, 2))
-	{
-		/* call opengl function */
-		glFogf(e, (GLfloat)lua_tonumber(L, 2));
-	}
-	else if(lua_isstring(L, 2))
-	{
-		/* call opengl function */
-		glFogi(e, get_gl_enum(L, 2));
-	}
-	else
-		luaL_error(L, "incorrect argument to function 'gl.Fog'");
 
 	return 0;
 }
 
 /*FrontFace (mode) -> none*/
-static gl_front_face(lua_State *L)
+static int gl_front_face(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.FrontFace'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.FrontFace'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.FrontFace'");
 
 	/* call opengl function */
-	glFrontFace(e);
+	glFrontFace((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -1729,11 +1623,12 @@ static int gl_get(lua_State *L)
 	int mask;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.Get'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
+	e = lua_tointeger(L, 1);
 
 	switch(e)
 	{
@@ -1783,9 +1678,9 @@ static int gl_get(lua_State *L)
 			size = 16;
 			break;
 
-		case ENUM_ERROR:
-			luaL_error(L, "incorrect string argument to function 'gl.Get'");
-			break;
+		//case ENUM_ERROR:
+		//	luaL_error(L, "incorrect string argument to function 'gl.Get'");
+		//	break;
 	}
 	params = (GLdouble *)malloc(size * sizeof(GLdouble));
 
@@ -1809,11 +1704,12 @@ static int gl_get_const(lua_State *L)
 	const char *str;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.GetConst'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
+	e = lua_tointeger(L, 1);
 
 	switch(e)
 	{
@@ -1854,8 +1750,8 @@ static int gl_get_const(lua_State *L)
 			break;
 	}
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetConst'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetConst'");
 
 	params = (GLenum *)malloc(size * sizeof(GLenum));
 
@@ -1881,15 +1777,16 @@ static int gl_get_array(lua_State *L)
 	GLdouble *params;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.GetArray'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
+	e = lua_tointeger(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetArray'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetArray'");
 
 	switch(e)
 	{
@@ -1949,24 +1846,24 @@ static int gl_get_array(lua_State *L)
 static int gl_get_clip_plane(lua_State *L)
 {
 	int i;
-	GLenum e;
+	//GLenum e;
 	GLdouble *equation;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.GetClipPlane'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetClipPlane'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetClipPlane'");
 
 	equation = (GLdouble *)malloc(4 * sizeof(GLdouble));
 
 	/* call opengl function */
-	glGetClipPlane(e, equation);
+	glGetClipPlane((GLenum)lua_tointeger(L, 1), equation);
 
 	lua_newtable(L);
 
@@ -1998,20 +1895,22 @@ static int gl_get_error(lua_State *L)
 static int gl_get_light(lua_State *L)
 {
 	int i, size = 1;
-	GLenum e1, e2;
+	//GLenum e1, e2;
+	GLenum e2;
 	GLfloat *params;
 
 	/* test arguments type */
-	if(!( lua_isstring(L, 1) && lua_isstring(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.GetLight'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
+	e2 = lua_tointeger(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetLight'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetLight'");
 
 	switch(e2)
 	{
@@ -2036,7 +1935,7 @@ static int gl_get_light(lua_State *L)
 	params = (GLfloat *)malloc(size * sizeof(GLfloat));
 
 	/* call opengl function */
-	glGetLightfv(e1, e2, params);
+	glGetLightfv((GLenum)lua_tointeger(L, 1), e2, params);
 
 	lua_newtable(L);
 
@@ -2052,7 +1951,8 @@ static int gl_get_light(lua_State *L)
 static int gl_get_map(lua_State *L)
 {
 	int i, size = 1;
-	GLenum e1, e2;
+	//GLenum e1, e2;
+	GLenum e1;
 	GLdouble *params;
 	GLint *order;
 
@@ -2060,16 +1960,17 @@ static int gl_get_map(lua_State *L)
 	order[0] = order[1] = 1;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2)) )
 		luaL_error(L, "incorrect argument to function 'gl.GetMap'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
+	e1 = lua_tointeger(L, 1);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetMap'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetMap'");
 
 	switch(e1)
 	{
@@ -2108,7 +2009,7 @@ static int gl_get_map(lua_State *L)
 	params = (GLdouble *)malloc(size * sizeof(GLdouble));
 
 	/* call opengl function */
-	glGetMapdv(e1, e2, params);
+	glGetMapdv(e1, (GLenum)lua_tointeger(L, 2), params);
 
 	lua_newtable(L);
 
@@ -2124,16 +2025,18 @@ static int gl_get_map(lua_State *L)
 static int gl_get_material(lua_State *L)
 {
 	int i, size = 1;
-	GLenum e1, e2;
+	//GLenum e1, e2;
+	GLenum e2;
 	GLfloat *params;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2)) )
 		luaL_error(L, "incorrect argument to function 'gl.GetMaterial'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
+	e2 = lua_tointeger(L, 2);
 
 	switch(e2)
 	{
@@ -2152,13 +2055,13 @@ static int gl_get_material(lua_State *L)
 	}
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetMaterial'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetMaterial'");
 
 	params = (GLfloat *)malloc(size * sizeof(GLfloat));
 
 	/* call opengl function */
-	glGetMaterialfv(e1, e2, params);
+	glGetMaterialfv((GLenum)lua_tointeger(L, 1), e2, params);
 
 	lua_newtable(L);
 
@@ -2179,15 +2082,16 @@ static int gl_get_pixel_map(lua_State *L)
 	GLfloat *values;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.GetPixelMap'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
+	e = lua_tointeger(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetPixelMap'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetPixelMap'");
 
 	switch(e)
 	{
@@ -2228,22 +2132,23 @@ static int gl_get_pointer(lua_State *L)
 	GLdouble *params;
 
 	/* test argument type */
-	if(!( lua_isstring(L, 1) && lua_isnumber(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.GetPointer'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
+	e = lua_tointeger(L, 1);
 	n = (int)lua_tonumber(L, 2);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetPointer'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetPointer'");
 
 	if(e == GL_EDGE_FLAG_ARRAY_POINTER)
 	{
 		flags = (GLboolean *)malloc(n * sizeof(GLboolean));
 
 		/* call opengl function */
-		glGetPointerv(e, (void *)&flags);
+		glGetPointerv(e, (void **)&flags);
 
 		if(flags == 0)
 			return 0;
@@ -2258,7 +2163,7 @@ static int gl_get_pointer(lua_State *L)
 		params = (GLdouble *)malloc(n * sizeof(GLdouble));
 
 		/* call opengl function */
-		glGetPointerv(e, (void *)&params);
+		glGetPointerv(e, (void **)&params);
 
 		if(params == 0)
 			return 0;
@@ -2291,22 +2196,22 @@ static int gl_get_polygon_stipple(lua_State *L)
 /*GetString (name) -> string*/
 static int gl_get_string(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 	const GLubyte *str;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.GetString'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetString'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetString'");
 
 	/* call opengl function */
-	str = glGetString(e);
+	str = glGetString((GLenum)lua_tointeger(L, 1));
 
 	lua_pushstring(L, (const char*)str);
 
@@ -2322,21 +2227,22 @@ static int gl_get_tex_env(lua_State *L)
 	int e2;
 
 	/* test arguments type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.GetTexEnv'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
+	//e1 = get_gl_enum(L, 1);
+	e1 = lua_tointeger(L, 1);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetTexEnv'");
+	//if(e1 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetTexEnv'");
 
 	if(e1 == GL_TEXTURE_ENV_MODE)
 	{
 		glGetTexEnviv(GL_TEXTURE_ENV, e1, &e2);
 
-		lua_pushstring(L, get_str_gl_enum(e2));
+		lua_pushinteger(L, e2);
 	}
 	else if(e1 == GL_TEXTURE_ENV_COLOR)
 	{
@@ -2363,34 +2269,36 @@ static int gl_get_tex_env(lua_State *L)
 static int gl_get_tex_gen(lua_State *L)
 {
 	int i;
-	GLenum e1, e2;
+	//GLenum e1, e2;
+	GLenum e2;
 	GLdouble *params;
 	int e3;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2)) )
 		luaL_error(L, "incorrect argument to function 'gl.GetTexGen'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
+	e2 = lua_tointeger(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.GetTexGen'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.GetTexGen'");
 	if(e2 == GL_TEXTURE_GEN_MODE)
 	{
 		/* call opengl function */
-		glGetTexGeniv(e1, e2, &e3);
+		glGetTexGeniv((GLenum)lua_tointeger(L, 1), e2, &e3);
 
-		lua_pushstring(L, get_str_gl_enum(e3));
+		lua_pushinteger(L, e3);
 	}
 	else
 	{
 		params = (GLdouble *)malloc(4 * sizeof(GLdouble));
 
 		/* call opengl function */
-		glGetTexGendv(e1, e2, params);
+		glGetTexGendv((GLenum)lua_tointeger(L, 1), e2, params);
 
 		lua_newtable(L);
 
@@ -2411,13 +2319,13 @@ static int gl_get_tex_image(lua_State *L)
 	GLfloat *pixels;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isnumber(L, 2) && lua_isstring(L, 3)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3)) )
 		luaL_error(L, "incorrect argument to function 'gl.GetTexImage'");
 
 	/* get string parameters */
-	target = get_gl_enum(L, 1);
+	target = lua_tointeger(L, 1); //get_gl_enum(L, 1);
 	level = (int)lua_tonumber(L, 2);
-	format = get_gl_enum(L, 3);
+	format = lua_tointeger(L, 3); //get_gl_enum(L, 3);
 
 	/* get width and height of image */
 	glGetTexLevelParameteriv(target, level, GL_TEXTURE_WIDTH, &width);
@@ -2452,21 +2360,21 @@ static int gl_get_tex_image(lua_State *L)
 /*GetTexLevelParameter (target, level, pname) -> param*/
 static int gl_get_tex_level_parameter(lua_State *L)
 {
-	int level;
-	GLenum target, pname;
+	//int level;
+	//GLenum target, pname;
 	GLfloat param;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isnumber(L, 2) && lua_isstring(L, 3)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3)) )
 		luaL_error(L, "incorrect argument to function 'gl.GetTexLevelParameter'");
 
 	/* get parameters */
-	target = get_gl_enum(L, 1);
-	level = (int)lua_tonumber(L, 2);
-	pname = get_gl_enum(L, 3);
+	//target = get_gl_enum(L, 1);
+	//level = (int)lua_tonumber(L, 2);
+	//pname = get_gl_enum(L, 3);
 
 	/* call opengl function */
-	glGetTexLevelParameterfv(target, level, pname, &param);
+	glGetTexLevelParameterfv((GLenum)lua_tointeger(L, 1), lua_tointeger(L, 2), (GLenum)lua_tointeger(L, 3), &param);
 
 	/* return parameter */
 	lua_pushnumber(L, param);
@@ -2478,17 +2386,18 @@ static int gl_get_tex_level_parameter(lua_State *L)
 static int gl_get_tex_parameter(lua_State *L)
 {
 	int i;
-	GLenum target, pname;
+	//GLenum target, pname;
+	GLenum pname;
 	GLfloat *params;
 	GLfloat param;
 	int e;
 
 	/* test arguments type */
-	if(! (lua_isstring(L, 1) && lua_isstring(L, 2) ))
+	if(! (lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.GetTexParameter'");
 
 	/* get string parameters */
-	target = get_gl_enum(L, 1);
+	//target = get_gl_enum(L, 1);
 	pname = get_gl_enum(L, 2);
 
 	if(pname == GL_TEXTURE_BORDER_COLOR)
@@ -2496,7 +2405,7 @@ static int gl_get_tex_parameter(lua_State *L)
 		params = (GLfloat *)malloc(4 * sizeof(float));
 
 		/* call opengl function */
-		glGetTexParameterfv(target, pname, params);
+		glGetTexParameterfv((GLenum)lua_tointeger(L, 1), pname, params);
 
 		/* return parameters */
 		lua_newtable(L);
@@ -2507,14 +2416,14 @@ static int gl_get_tex_parameter(lua_State *L)
 	else if(pname == GL_TEXTURE_PRIORITY)
 	{
 		/* call opengl function */
-		glGetTexParameterfv(target, pname, &param);
+		glGetTexParameterfv((GLenum)lua_tointeger(L, 1), pname, &param);
 
 		lua_pushnumber(L, param);
 	}
 	else
 	{
 		/* call opengl function */
-		glGetTexParameteriv(target, pname, &e);
+		glGetTexParameteriv((GLenum)lua_tointeger(L, 1), pname, &e);
 
 		lua_pushstring(L, get_str_gl_enum(e));
 	}
@@ -2524,21 +2433,21 @@ static int gl_get_tex_parameter(lua_State *L)
 /*Hint (target, mode) -> none*/
 static int gl_hint(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2)) )
 		luaL_error(L, "incorrect argument to function 'gl.Hint'");
 
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Hint'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Hint'");
 
 	/* call opengl function */
-	glHint(e1, e2);
+	glHint((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -2571,16 +2480,18 @@ static int gl_index(lua_State *L)
 /*IndexMask (mask) -> none*/
 static int gl_index_mask(lua_State *L)
 {
-	if(lua_type(L,1) == LUA_TSTRING)
-		/* call opengl function */
-		glIndexMask(str2mask(lua_tostring(L, 1)));
-
-	else if(lua_type(L,1) == LUA_TNUMBER)
-		/* call opengl function */
-		glIndexMask((GLuint)lua_tonumber(L, 1));
-
-	else
+	if (!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.IndexMask'");
+	//if(lua_type(L,1) == LUA_TSTRING)
+		/* call opengl function */
+	//	glIndexMask(str2mask(lua_tostring(L, 1)));
+
+	//else if(lua_type(L,1) == LUA_TNUMBER)
+		/* call opengl function */
+		glIndexMask((GLuint)lua_tointeger(L, 1));
+
+	//else
+	//	luaL_error(L, "incorrect argument to function 'gl.IndexMask'");
 
 	return 0;
 }
@@ -2638,27 +2549,27 @@ static int gl_init_names(lua_State *L)
 /*IsEnabled (cap) -> true/false*/
 static int gl_is_enabled(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.IsEnabled'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.IsEnabled'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.IsEnabled'");
 
 	/* call opengl function */
-	lua_pushboolean(L, glIsEnabled(e));
+	lua_pushboolean(L, glIsEnabled((GLenum)lua_tointeger(L, 1)));
 
 	return 1;
 }
 
 /*IsList (list) -> true/false*/
-static gl_is_list(lua_State *L)
+static int gl_is_list(lua_State *L)
 {
 	/* test argument type */
 	if(!lua_isnumber(L, 1))
@@ -2671,7 +2582,7 @@ static gl_is_list(lua_State *L)
 }
 
 /*IsTexture (texture) -> true/false*/
-static gl_is_texture(lua_State *L)
+static int gl_is_texture(lua_State *L)
 {
 	/* test argument type */
 	if(!lua_isnumber(L, 1))
@@ -2687,20 +2598,20 @@ static gl_is_texture(lua_State *L)
   Light (light, pname, paramsArray) -> none*/
 static int gl_light(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
 	GLfloat *params;
 
 	/* test arguments type */
-	if(!( lua_isstring(L, 1) && lua_isstring(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.Light'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Light'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Light'");
 
 	/* test argument type */
 	if(lua_istable(L, 3))
@@ -2709,7 +2620,7 @@ static int gl_light(lua_State *L)
 		get_arrayf(L, 3, &params);
 
 		/* call opengl function */
-		glLightfv(e1, e2, (GLfloat *)params);
+		glLightfv((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLfloat *)params);
 
 		free(params);
 	}
@@ -2717,7 +2628,7 @@ static int gl_light(lua_State *L)
 	else if(lua_isnumber(L, 3))
 	{
 		/* call opengl function */
-		glLightf(e1, e2, (GLfloat)lua_tonumber(L, 3));
+		glLightf((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLfloat)lua_tonumber(L, 3));
 	}
 	else
 		luaL_error(L, "incorrect argument to function 'gl.Light'");
@@ -2729,19 +2640,19 @@ static int gl_light(lua_State *L)
   LightModel (pname, paramsArray) -> none*/
 static int gl_light_model(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 	GLfloat *params;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.LightModel'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.LightModel'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.LightModel'");
 
 	/* test argument type */
 	if(lua_istable(L, 2))
@@ -2750,14 +2661,14 @@ static int gl_light_model(lua_State *L)
 		get_arrayf(L, 2, &params);
 
 		/* call opengl function */
-		glLightModelfv(e, (GLfloat *)params);
+		glLightModelfv((GLenum)lua_tointeger(L, 1), (GLfloat *)params);
 
 		free(params);
 	}
 	/* test argument type */
 	else if(lua_isnumber(L, 2))
 		/* call opengl function */
-		glLightModelf(e, (GLfloat)lua_tonumber(L, 2));
+		glLightModelf((GLenum)lua_tointeger(L, 1), (GLfloat)lua_tonumber(L, 2));
 
 	else
 		luaL_error(L, "incorrect argument to function 'gl.LightModel'");
@@ -2855,21 +2766,21 @@ static int gl_load_name(lua_State *L)
 /*LogicOp (opcode) -> none*/
 static int gl_logic_op(lua_State *L)
 {
-	GLenum opcode;
+	//GLenum opcode;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.LogicOp'");
 
 	/* get string parameter */
-	opcode = get_gl_enum(L, 1);
+	//opcode = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(opcode == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.LogicOp'");
+	//if(opcode == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.LogicOp'");
 
 	/* call opengl function */
-	glLogicOp(opcode);
+	glLogicOp((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -2884,10 +2795,11 @@ static int gl_map(lua_State *L)
 	GLint uorder, vorder;
 
 	/* test argument */
-	if(!( lua_isstring(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3) ))
 		luaL_error(L, "incorrect argument to function 'gl.Map'");
 
-	target = get_gl_enum(L, 1);
+	//target = get_gl_enum(L, 1);
+	target = lua_tointeger(L, 1);
 
 	switch(target)
 	{
@@ -2920,8 +2832,8 @@ static int gl_map(lua_State *L)
 	}
 
 	/* test argument */
-	if(target == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Map'");
+	//if(target == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Map'");
 
 	/* test number of argument in the array */
 	if(lua_gettop(L) < 6)
@@ -2997,20 +2909,20 @@ static int gl_map_grid(lua_State *L)
 /*Material (face, pname, param) -> none*/
 static int gl_material(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
 	GLfloat *params;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2)) )
 		luaL_error(L, "incorrect argument to function 'gl.Material'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.Material'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.Material'");
 
 	/* test argument type */
 	if(lua_istable(L, 3))
@@ -3019,7 +2931,7 @@ static int gl_material(lua_State *L)
 		get_arrayf(L, 3, &params);
 
 		/* call opengl function */
-		glMaterialfv(e1, e2, (GLfloat *)params);
+		glMaterialfv((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLfloat *)params);
 
 		free(params);
 	}
@@ -3027,7 +2939,7 @@ static int gl_material(lua_State *L)
 	else if(lua_isnumber(L, 3))
 	{
 		/* call opengl function */
-		glMaterialf(e1, e2, (GLfloat)lua_tonumber(L, 3));
+		glMaterialf((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLfloat)lua_tonumber(L, 3));
 	}
 	else
 		luaL_error(L, "incorrect argument to function 'gl.Material'");
@@ -3038,21 +2950,21 @@ static int gl_material(lua_State *L)
 /*MatrixMode (mode) -> none*/
 static int gl_matrix_mode(lua_State *L)
 {
-	GLenum mode;
+	//GLenum mode;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.MatrixMode'");
 
 	/* get string parameter */
-	mode = get_gl_enum(L, 1);
+	//mode = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(mode == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.MatrixMode'");
+	//if(mode == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.MatrixMode'");
 
 	/* call opengl function */
-	glMatrixMode(mode);
+	glMatrixMode((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -3080,21 +2992,21 @@ static int gl_mult_matrix(lua_State *L)
 /*NewList (list, mode) -> none*/
 static int gl_new_list(lua_State *L)
 {
-	GLenum e;
+	//GLenum e;
 
 	/* test arguments type */
-	if(!( lua_isnumber(L, 1) && lua_isstring(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.NewList'");
 
 	/* get string parameter */
-	e = get_gl_enum(L, 2);
+	//e = get_gl_enum(L, 2);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.NewList'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.NewList'");
 
 	/* call opengl function */
-	glNewList((GLint)lua_tonumber(L, 1), e);
+	glNewList((GLint)lua_tonumber(L, 1), (GLenum)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -3209,26 +3121,26 @@ static int gl_pass_through(lua_State *L)
 /*PixelMap (map, valuesArray) -> none*/
 static int gl_pixel_map(lua_State *L)
 {
-	GLenum map;
+	//GLenum map;
 	GLfloat *values;
 	int mapsize;
 
 	/* test arguments */
-	if(!( lua_isstring(L, 1) && lua_istable(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_istable(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.PixelMap'");
 
 	/* get values */
-	map = get_gl_enum(L, 1);
+	//map = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(map == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PixelMap'");
+	//if(map == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PixelMap'");
 
 	/* get array of equations */
 	mapsize = get_arrayf(L, 2, &values);
 
 	/* call opengl function */
-	glPixelMapfv(map, mapsize, values);
+	glPixelMapfv((GLenum)lua_tointeger(L, 1), mapsize, values);
 
 	free(values);
 
@@ -3239,25 +3151,25 @@ static int gl_pixel_map(lua_State *L)
 static int gl_pixel_store(lua_State *L)
 {
 	/* get string parameters */
-	GLenum e;
+	//GLenum e;
 	
 	/* test argument */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.PixelStore'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PixelStore'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PixelStore'");
 
 	if(lua_isnumber(L, 2))
 		/* call opengl function */
-		glPixelStoref(e, (GLfloat)lua_tonumber(L, 2));
+		glPixelStoref((GLenum)lua_tointeger(L, 1), (GLfloat)lua_tonumber(L, 2));
 
 	else if(lua_isboolean(L,2))
 		/* call opengl function */
-		glPixelStoref(e, (GLfloat)lua_toboolean(L, 2));
+		glPixelStoref((GLenum)lua_tointeger(L, 1), (GLfloat)lua_toboolean(L, 2));
 
 	else
 		luaL_error(L, "incorrect argument to function 'gl.PixelStore'");
@@ -3269,25 +3181,25 @@ static int gl_pixel_store(lua_State *L)
 static int gl_pixel_transfer(lua_State *L)
 {
 	/* get string parameters */
-	GLenum e;
+	//GLenum e;
 	
 	/* test argument */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.PixelTransfer'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PixelTransfer'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PixelTransfer'");
 
 	if(lua_isnumber(L, 2))
 		/* call opengl function */
-		glPixelTransferf(e, (GLfloat)lua_tonumber(L, 2));
+		glPixelTransferf((GLenum)lua_tointeger(L, 1), (GLfloat)lua_tonumber(L, 2));
 
 	else if(lua_isboolean(L,2))
 		/* call opengl function */
-		glPixelTransferf(e, (GLfloat)lua_toboolean(L, 2));
+		glPixelTransferf((GLenum)lua_tointeger(L, 1), (GLfloat)lua_toboolean(L, 2));
 
 	else
 		luaL_error(L, "incorrect argument to function 'gl.PixelTransfer'");
@@ -3324,22 +3236,22 @@ static int gl_point_size(lua_State *L)
 /*PolygonMode (face, mode) -> none*/
 static int gl_polygon_mode(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2)) )
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2)) )
 		luaL_error(L, "incorrect argument to function 'gl.PolygonMode'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PolygonMode'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PolygonMode'");
 
 	/* call opengl function */
-	glPolygonMode(e1, e2);
+	glPolygonMode((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2));
 
 	return 0;
 }
@@ -3439,20 +3351,30 @@ static int gl_prioritize_textures(lua_State *L)
 /*PushAttrib (mask) -> none*/
 static int gl_push_attrib(lua_State *L)
 {
-	GLbitfield e;
+	//GLbitfield e;
+
+	int i, paramCount;
+	GLenum accum;
+
+	paramCount = lua_gettop(L);
+	for (i = 0; i < paramCount; i++) {
+		if (!lua_isnumber(L, i + 1))
+			luaL_error(L, "incorrect argument to function 'gl.PushAttrib'");
+		accum |= lua_tointeger(L, i + 1);
+	}
 
 	/* test arguments type */
-	if(!lua_isstring(L, 1))
-		luaL_error(L, "incorrect argument to function 'gl.PushAttrib'");
+	//if(!lua_isstring(L, 1))
+	//	luaL_error(L, "incorrect argument to function 'gl.PushAttrib'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PushAttrib'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PushAttrib'");
 
 	/* call opengl function */
-	glPushAttrib(e);
+	glPushAttrib(accum);
 
 	return 0;
 }
@@ -3460,20 +3382,30 @@ static int gl_push_attrib(lua_State *L)
 /*PushClientAttrib (mask) -> none*/
 static int gl_push_client_attrib(lua_State *L)
 {
-	GLbitfield e;
+	//GLbitfield e;
+
+	int i, paramCount;
+	GLenum accum;
+
+	paramCount = lua_gettop(L);
+	for (i = 0; i < paramCount; i++) {
+		if (!lua_isnumber(L, i + 1))
+			luaL_error(L, "incorrect argument to function 'gl.PushClientAttrib'");
+		accum |= lua_tointeger(L, i + 1);
+	}
 
 	/* test arguments type */
-	if(!lua_isstring(L, 1))
-		luaL_error(L, "incorrect argument to function 'gl.PushClientAttrib'");
+	//if(!lua_isstring(L, 1))
+	//	luaL_error(L, "incorrect argument to function 'gl.PushClientAttrib'");
 
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	/* test arguments */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.PushClientAttrib'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.PushClientAttrib'");
 
 	/* call opengl function */
-	glPushClientAttrib(e);
+	glPushClientAttrib(accum);
 
 	return 0;
 }
@@ -3557,21 +3489,21 @@ static int gl_raster_pos(lua_State *L)
 /*ReadBuffer (mode) -> none*/
 static int gl_read_buffer(lua_State *L)
 {
-	GLenum mode;
+	//GLenum mode;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.ReadBuffer'");
 
 	/* get string parameter */
-	mode = get_gl_enum(L, 1);
+	//mode = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(mode == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.ReadBuffer'");
+	//if(mode == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.ReadBuffer'");
 
 	/* call opengl function */
-	glReadBuffer(mode);
+	glReadBuffer((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -3589,18 +3521,19 @@ static int gl_read_pixels(lua_State *L)
 	/* test arguments type */
 	if(!(lua_isnumber(L, 1) && lua_isnumber(L, 2) &&
 		  lua_isnumber(L, 3) && lua_isnumber(L, 4) &&
-		  lua_isstring(L, 5) && lua_istable (L, 6)) )
+		  lua_isnumber(L, 5) && lua_istable (L, 6)) )
 		luaL_error(L, "incorrect argument to function 'gl.ReadPixels'");
 
 	/* get parameters */
 	width = lua_tointeger(L, 3);
 	height = lua_tointeger(L, 4);
-	e = get_gl_enum(L, 5);
+	//e = get_gl_enum(L, 5);
+	e = lua_tointeger(L, 5);
 	//get_arrayf(L, 6, &pixels);
 
 	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.ReadPixels'");
+	//if(e == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.ReadPixels'");
 
 	switch (e) {
 		case GL_LUMINANCE_ALPHA:
@@ -3669,21 +3602,21 @@ static int gl_rect(lua_State *L)
 /*RenderMode (mode) -> none*/
 static int gl_render_mode(lua_State *L)
 {
-	GLenum mode;
+	//GLenum mode;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.RenderMode'");
 
 	/* get string parameter */
-	mode = get_gl_enum(L, 1);
+	//mode = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(mode == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.RenderMode'");
+	//if(mode == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.RenderMode'");
 
 	/* call opengl function */
-	glRenderMode(mode);
+	glRenderMode((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -3762,21 +3695,21 @@ static int gl_select_buffer(lua_State *L)
 /*ShadeModel (mode) -> none*/
 static int gl_shade_model(lua_State *L)
 {
-	GLenum mode;
+	//GLenum mode;
 
 	/* test argument type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.ShadeModel'");
 
 	/* get string parameter */
-	mode = get_gl_enum(L, 1);
+	//mode = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(mode == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.ShadeModel'");
+	//if(mode == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.ShadeModel'");
 
 	/* call opengl function */
-	glShadeModel(mode);
+	glShadeModel((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
@@ -3784,26 +3717,26 @@ static int gl_shade_model(lua_State *L)
 /*StencilFunc (func, ref, mask) -> none*/
 static int gl_stencil_func(lua_State *L)
 {
-	GLenum func;
+	//GLenum func;
 
 	/* test arguments type */
-	if(!( lua_isstring(L, 1) && lua_isnumber(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.StencilFunc'");
 
 	/* get string parameter */
-	func = get_gl_enum(L, 1);
+	//func = get_gl_enum(L, 1);
 
 	/* test argument */
-	if(func == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.StencilFunc'");
+	//if(func == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.StencilFunc'");
 
 	if(lua_type(L,3) == LUA_TSTRING)
 		/* call opengl function */
-		glStencilFunc(func, (GLint)lua_tonumber(L, 2), str2mask(lua_tostring(L, 3)));
+		glStencilFunc((GLenum)lua_tointeger(L, 1), (GLint)lua_tonumber(L, 2), str2mask(lua_tostring(L, 3)));
 
 	else if(lua_type(L,3) == LUA_TNUMBER)
 		/* call opengl function */
-		glStencilFunc(func, (GLint)lua_tonumber(L, 2), (GLuint)lua_tonumber(L, 3));
+		glStencilFunc((GLenum)lua_tointeger(L, 1), (GLint)lua_tonumber(L, 2), (GLuint)lua_tonumber(L, 3));
 
 	else
 		luaL_error(L, "incorrect argument to function 'gl.StencilFunc'");
@@ -3831,22 +3764,22 @@ static int gl_stencil_mask(lua_State *L)
 /*StencilOp (fail, zfail, zpass) -> none*/
 static int gl_stencil_op(lua_State *L)
 {
-	GLenum e1, e2, e3;
+	//GLenum e1, e2, e3;
 
 	/* test arguments type */
-	if( !(lua_isstring(L, 1) && lua_isstring(L, 2) && lua_isstring(L, 3) ))
+	if( !(lua_isnumber(L, 1) && lua_isnumber(L, 2) && lua_isnumber(L, 3) ))
 		luaL_error(L, "incorrect argument to function 'gl.StencilOp'");
 
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
-	e3 = get_gl_enum(L, 3);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
+	//e3 = get_gl_enum(L, 3);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR || e3 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.StencilOp'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR || e3 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.StencilOp'");
 
 	/* call opengl function */
-	glStencilOp(e1, e2, e3);
+	glStencilOp((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLenum)lua_tointeger(L, 3));
 
 	return 0;
 }
@@ -3960,40 +3893,41 @@ static int gl_tex_coord_pointer(lua_State *L)
 int static gl_tex_env(lua_State *L)
 {
 	GLfloat *param;
-	GLenum e, et;
+	//GLenum e, et;
+	GLenum et;
 
 	/* test arguments type */
-	if(!lua_isstring(L, 1))
+	if(!lua_isnumber(L, 1))
 		luaL_error(L, "incorrect argument to function 'gl.TexEnv'");
 
 	/* get string parameters */
-	e = get_gl_enum(L, 1);
+	//e = get_gl_enum(L, 1);
 
 	if (lua_isstring(L, 3))
-		et = get_gl_enum(L, 3);
+		et = lua_tointeger(L, 3); //get_gl_enum(L, 3);
 	else
 		et = GL_TEXTURE_ENV;
 
 	/* test argument */
-	if(e == ENUM_ERROR || et == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.TexEnv'");
+	//if(e == ENUM_ERROR || et == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.TexEnv'");
 
 	if(lua_istable(L, 2))
 	{
 		get_arrayf(L, 2, &param);
 
 		/* call opengl function */
-		glTexEnvfv(et, e, (GLfloat *)param);
+		glTexEnvfv(et, (GLenum)lua_tointeger(L, 1), (GLfloat *)param);
 
 		free(param);
 	}
 	else if(lua_isnumber(L, 2))
 		/* call opengl function */
-		glTexEnvf(et, e, (GLfloat)lua_tonumber(L, 2));
+		glTexEnvf(et, (GLenum)lua_tointeger(L, 1), (GLfloat)lua_tonumber(L, 2));
 
 	else if(lua_isstring(L, 2))
 		/* call opengl function */
-		glTexEnvi(et, e, get_gl_enum(L, 2));
+		glTexEnvi(et, (GLenum)lua_tointeger(L, 1), get_gl_enum(L, 2));
 
 	else
 		luaL_error(L, "incorrect argument to function 'gl.TexEnv'");
@@ -4005,177 +3939,88 @@ int static gl_tex_env(lua_State *L)
   TexGen (coord, pname, paramsArray) -> none*/
 int static gl_tex_gen(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
 	GLdouble *param;
 
 	/* test arguments type */
-	if(!( lua_isstring(L, 1) && lua_isstring(L, 2) ))
+	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.TexGen'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.TexGen'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.TexGen'");
 
 	if(lua_istable(L, 3))
 	{
 		get_arrayd(L, 3, &param);
 
 		/* call opengl function */
-		glTexGendv(e1, e2, (GLdouble *)param);
+		glTexGendv((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), (GLdouble *)param);
 
 		free(param);
 	}
 	else if(lua_isstring(L, 3))
 		/* call opengl function */
-		glTexGeni(e1, e2, get_gl_enum(L, 3));
+		glTexGeni((GLenum)lua_tointeger(L, 1), (GLenum)lua_tointeger(L, 2), get_gl_enum(L, 3));
 
 	else
 		luaL_error(L, "incorrect argument to function 'gl.TexGen'");
 	return 0;
 }
 
-/*TexImage(level, internalformat, format, pixels) -> none*/
-static int gl_tex_image(lua_State *L)
-{
-	GLenum e;
-	GLfloat *pixels;
-	GLsizei width, height;
-	int iformat;
-
-	/* test arguments type */
-	if(!( lua_isnumber(L, 1) && lua_isnumber(L, 2) &&
-			lua_isstring(L, 3) && lua_istable(L, 4) ))
-		luaL_error(L, "incorrect argument to function 'gl.TexImage'");
-
-	e = get_gl_enum(L, 3);
-
-	/* test argument */
-	if(e == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.TexImage'");
-
-	iformat = (int)lua_tonumber(L, 2);
-
-	if((height = get_array2f(L, 4, &pixels, &width)) != -1)
-	{
-		glTexImage2D(GL_TEXTURE_2D, (GLint)lua_tonumber(L, 1),
-						 iformat, width/iformat, height, 0, e, GL_FLOAT, pixels);
-	}
-	else
-	{
-		width = get_arrayf(L, 4, &pixels);
-		glTexImage1D(GL_TEXTURE_1D, (GLint)lua_tonumber(L, 1),
-						 iformat, width/iformat, 0, e, GL_FLOAT, pixels);
-	}
-
-	free(pixels);
-	return 0;
-}
-
-/*TexSubImage (level, format, pixels, xoffset) -> none
-  TexSubImage (level, format, pixels, xoffset, yoffset) -> none*/
-static int gl_tex_sub_image(lua_State *L)
-{
-	GLenum format;
-	GLfloat *pixels;
-	GLsizei width, height;
-	int size = 1;
-
-	/* test arguments type */
-	if(!( lua_isnumber(L, 1) && lua_isstring(L, 2) &&
-			lua_istable(L, 3) && lua_isnumber(L, 4) ))
-		luaL_error(L, "incorrect argument to function 'gl.TexSubImage'");
-
-	format = get_gl_enum(L, 2);
-	switch(format)
-	{
-		case GL_COLOR_INDEX:
-		case GL_RED:
-		case GL_GREEN:
-		case GL_BLUE:
-		case GL_ALPHA:
-		case GL_LUMINANCE:
-			size = 1;
-			break;
-
-		case GL_LUMINANCE_ALPHA:
-			size = 2;
-			break;
-
-		case GL_RGB:
-		case GL_BGR_EXT:
-			size = 3;
-			break;
-
-		case GL_RGBA:
-		case GL_BGRA_EXT:
-			size = 4;
-			break;
-	}
-
-	/* test argument */
-	if(format == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.TexSubImage'");
-
-	if((height = get_array2f(L, 3, &pixels, &width)) != -1)
-	{
-		glTexSubImage2D(GL_TEXTURE_2D, (GLint)lua_tonumber(L, 1), (GLint)lua_tonumber(L, 4),
-							 (GLint)lua_tonumber(L, 5), width/size, height, format, GL_FLOAT, pixels);
-	}
-	else
-	{
-		width = get_arrayf(L, 3, &pixels);
-		glTexSubImage1D(GL_TEXTURE_1D, (GLint)lua_tonumber(L, 1), (GLint)lua_tonumber(L, 4),
-							 width/size, format, GL_FLOAT, pixels);
-	}
-
-	free(pixels);
-	return 0;
-}
 
 /*TexParameter (target, pname, param) -> none
   TexParameter (target, pname, paramsArray) -> none*/
 static int gl_tex_parameter(lua_State *L)
 {
-	GLenum e1, e2;
+	//GLenum e1, e2;
+	GLenum e2;
 	GLfloat *param;
 
 	/* test arguments type */
-	if(! (lua_isstring(L, 1) && lua_isstring(L, 2) ))
+	if(! (lua_isnumber(L, 1) && lua_isnumber(L, 2) ))
 		luaL_error(L, "incorrect argument to function 'gl.TexParameter'");
 
 	/* get string parameters */
-	e1 = get_gl_enum(L, 1);
-	e2 = get_gl_enum(L, 2);
+	//e1 = get_gl_enum(L, 1);
+	//e2 = get_gl_enum(L, 2);
+	e2 = lua_tointeger(L, 2);
 
 	/* test argument */
-	if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.TexParameter'");
+	//if(e1 == ENUM_ERROR || e2 == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.TexParameter'");
 
-	if(lua_istable(L, 3))
+	switch (e2)
 	{
-		get_arrayf(L, 3, &param);
+		case GL_TEXTURE_MIN_LOD:
+		case GL_TEXTURE_MAX_LOD:
+		case GL_TEXTURE_PRIORITY:
+			if (!lua_isnumber(L, 3))
+				luaL_error(L, "incorrect argument to function 'gl.TexParameter'");
 
-		/* call opengl function */
-		glTexParameterfv(e1, e2, (GLfloat *)param);
+			glTexParameterf((GLenum)lua_tointeger(L, 1), e2, (GLfloat)lua_tonumber(L, 3));
+		break;
 
-		free(param);
+		case GL_TEXTURE_BORDER_COLOR:
+			if (!lua_istable(L, 3))
+				luaL_error(L, "incorrect argument to function 'gl.TexParameter'");
+			
+			get_arrayf(L, 3, &param);
+			glTexParameterfv((GLenum)lua_tointeger(L, 1), e2, (GLfloat *)param);
+			free(param);
+		break;
+
+		default:
+			if (!lua_isnumber(L, 3))
+				luaL_error(L, "incorrect argument to function 'gl.TexParameter'");
+
+			glTexParameteri((GLenum)lua_tointeger(L, 1), e2, (GLint)lua_tointeger(L, 3));
+		break;
 	}
-	else if(lua_isnumber(L, 3))
-	{
-		/* call opengl function */
-		glTexParameterf(e1, e2, (GLfloat)lua_tonumber(L, 3));
-	}
-	else if(lua_isstring(L, 3))
-	{
-		/* call opengl function */
-		glTexParameteri(e1, e2, get_gl_enum(L, 3));
-	}
-	else
-		luaL_error(L, "incorrect argument to function 'gl.TexParameter'");
 
 	return 0;
 }
@@ -4318,18 +4163,12 @@ static int gl_viewport(lua_State *L)
 extern int gl_active_texture(lua_State *L);
 extern int gl_attach_shader (lua_State *L);
 extern int gl_bind_attrib_location (lua_State *L);
-extern int gl_bind_buffer(lua_State *L);
-extern int gl_blend_color(lua_State *L);
-extern int gl_blend_equation(lua_State *L);
 extern int gl_blend_equation_separate(lua_State *L);
 extern int gl_blend_func_separate(lua_State *L);
-extern int gl_buffer_data(lua_State *L);
-extern int gl_buffer_sub_data(lua_State *L);
 extern int gl_client_active_texture(lua_State *L);
 extern int gl_compile_shader(lua_State *L);
 extern int gl_create_program (lua_State *L);
 extern int gl_create_shader(lua_State *L);
-extern int gl_delete_buffers(lua_State *L);
 extern int gl_delete_program (lua_State *L);
 extern int gl_delete_shader(lua_State *L);
 extern int gl_detach_shader (lua_State *L);
@@ -4337,7 +4176,6 @@ extern int gl_disable_vertex_attrib_array (lua_State *L);
 extern int gl_enable_vertex_attrib_array (lua_State *L);
 extern int gl_fog_coord(lua_State *L);
 extern int gl_fog_coord_pointer(lua_State *L);
-extern int gl_gen_buffers(lua_State *L);
 extern int gl_get_attrib_location (lua_State *L);
 extern int gl_get_program (lua_State *L);
 extern int gl_get_program_info_log (lua_State *L);
@@ -4362,6 +4200,28 @@ extern int gl_validate_program (lua_State *L);
 extern int gl_vertex_attrib_f (lua_State *L);
 extern int gl_vertex_attrib_pointer(lua_State *L);
 extern int gl_window_pos (lua_State *L);
+
+extern int gl_bind_buffer(lua_State *L);
+extern int gl_blend_color (lua_State *L);
+extern int gl_blend_equation (lua_State *L);
+extern int gl_buffer_data(lua_State *L);
+extern int gl_buffer_sub_data(lua_State *L);
+extern int gl_copy_tex_image_1d (lua_State *L);
+extern int gl_copy_tex_image_2d (lua_State *L);
+extern int gl_copy_tex_sub_image_1d (lua_State *L);
+extern int gl_copy_tex_sub_image_2d (lua_State *L);
+extern int gl_copy_tex_sub_image_3d (lua_State *L);
+extern int gl_delete_buffers(lua_State *L);
+extern int gl_draw_pixels (lua_State *L);
+extern int gl_gen_buffers(lua_State *L);
+extern int gl_tex_image_1d (lua_State *L);
+extern int gl_tex_image_2d (lua_State *L);
+extern int gl_tex_image_3d (lua_State *L);
+extern int gl_tex_sub_image_1d (lua_State *L);
+extern int gl_tex_sub_image_2d (lua_State *L);
+extern int gl_tex_sub_image_3d (lua_State *L);
+
+extern int gl_test (lua_State *L);
 
 const luaL_reg gllib[] = {
   {"Accum", gl_accum},
@@ -4398,8 +4258,11 @@ const luaL_reg gllib[] = {
   {"ColorPointer", gl_color_pointer},
   {"CompileShader", gl_compile_shader},
   {"CopyPixels", gl_copy_pixels},
-  {"CopyTexImage", gl_copy_tex_image},
-  {"CopyTexSubImage", gl_copy_tex_sub_image},
+  {"CopyTexImage1D", gl_copy_tex_image_1d},
+  {"CopyTexImage2D", gl_copy_tex_image_2d},
+  {"CopyTexSubImage1D", gl_copy_tex_sub_image_1d},
+  {"CopyTexSubImage2D", gl_copy_tex_sub_image_2d},
+  {"CopyTexSubImage3D", gl_copy_tex_sub_image_3d},
   {"CreateProgram", gl_create_program},
   {"CreateShader", gl_create_shader},
   {"CullFace",gl_cull_face},
@@ -4534,8 +4397,12 @@ const luaL_reg gllib[] = {
   {"TexCoordPointer", gl_tex_coord_pointer},
   {"TexEnv", gl_tex_env},
   {"TexGen", gl_tex_gen},
-  {"TexImage", gl_tex_image},
-  {"TexSubImage", gl_tex_sub_image},
+  {"TexImage1D", gl_tex_image_1d},
+  {"TexImage2D", gl_tex_image_2d},
+  {"TexImage3D", gl_tex_image_3d},
+  {"TexSubImage1D", gl_tex_sub_image_1d},
+  {"TexSubImage2D", gl_tex_sub_image_2d},
+  {"TexSubImage3D", gl_tex_sub_image_3d},
   {"TexParameter", gl_tex_parameter},
   {"Translate", gl_translate},
   {"Uniformf", gl_uniform_f},
@@ -4549,10 +4416,43 @@ const luaL_reg gllib[] = {
   {"VertexPointer", gl_vertex_pointer},
   {"Viewport", gl_viewport},
   {"WindowPos", gl_window_pos},
+  {"Test", gl_test},
   {NULL, NULL}
 };
 
+extern int glu_look_at (lua_State *L);
+extern int glu_ortho_2d (lua_State *L);
+extern int glu_perspective (lua_State *L);
+extern int glu_pick_matrix (lua_State *L);
+extern int glu_project (lua_State *L);
+extern int glu_unproject (lua_State *L);
+
+const luaL_reg glulib[] = {
+	{"LookAt", glu_look_at},
+	{"Ortho2D", glu_ortho_2d},
+	{"Perspective", glu_perspective},
+	{"PickMatrix", glu_pick_matrix},
+	{"Project", glu_project},
+	{"UnProject", glu_unproject},
+	{NULL, NULL}
+};
+
 LUAGL_API int luaopen_opengl (lua_State *L) {
-  luaL_openlib(L, "gl", gllib, 0);
-  return 1;
+	const gl_str_value* v;
+
+	luaL_openlib(L, "glu", glulib, 0);
+
+	for (v = glu_str; v->str != 0; v++) {
+		lua_pushinteger(L, v->value);
+		lua_setfield(L, -2, v->str);
+	}
+
+	luaL_openlib(L, "gl", gllib, 0);
+
+	for (v = gl_str; v->str != 0; v++) {
+		lua_pushinteger(L, v->value);
+		lua_setfield(L, -2, v->str);
+	}
+
+	return 1;
 }

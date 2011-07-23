@@ -21,7 +21,8 @@ GLAPI void APIENTRY glBlendColor (GLclampf red, GLclampf green, GLclampf blue, G
 	STATICFN(GLBLENDCOLOR, glBlendColor)
 	if (pglBlendColor == NULL)
 		glBlendColorEXT(red, green, blue, alpha);
-	pglBlendColor(red, green, blue, alpha);
+	else
+		pglBlendColor(red, green, blue, alpha);
 }
 
 GLAPI void APIENTRY glBlendColorEXT (GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha) {
@@ -35,12 +36,73 @@ GLAPI void APIENTRY glBlendEquation (GLenum mode) {
 	STATICFN(GLBLENDEQUATION, glBlendEquation)
 	if (pglBlendEquation == NULL)
 		glBlendEquationEXT(mode);
-	pglBlendEquation(mode);
+	else
+		pglBlendEquation(mode);
 }
 
 GLAPI void APIENTRY glBlendEquationEXT (GLenum mode) {
 	STATICFN_F(GLBLENDEQUATIONEXT, glBlendEquationEXT)
 	pglBlendEquationEXT(mode);
+}
+
+/* CopyTexSubImage3D */
+
+GLAPI void APIENTRY glCopyTexSubImage3D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height) {
+	STATICFN(GLCOPYTEXSUBIMAGE3D, glCopyTexSubImage3D)
+	if (pglCopyTexSubImage3D == NULL)
+		glCopyTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+	else
+		pglCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+}
+
+GLAPI void APIENTRY glCopyTexSubImage3DEXT (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height) {
+	STATICFN_F(GLCOPYTEXSUBIMAGE3DEXT, glCopyTexSubImage3DEXT)
+	pglCopyTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+}
+
+/* DrawRangeElements */
+
+GLAPI void APIENTRY glDrawRangeElements (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const GLvoid *indices) {
+	STATICFN(GLDRAWRANGEELEMENTS, glDrawRangeElements)
+	if (pglDrawRangeElements == NULL)
+		glDrawRangeElementsEXT(mode, start, end, count, type, indices);
+	else
+		pglDrawRangeElements(mode, start, end, count, type, indices);
+}
+
+GLAPI void APIENTRY glDrawRangeElementsEXT (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const GLvoid *indices) {
+	STATICFN_F(GLDRAWRANGEELEMENTSEXT, glDrawRangeElementsEXT)
+	pglDrawRangeElementsEXT(mode, start, end, count, type, indices);
+}
+
+/* TexImage3D */
+
+GLAPI void APIENTRY glTexImage3D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const GLvoid *pixels) {
+	STATICFN(GLTEXIMAGE3D, glTexImage3D)
+	if (pglTexImage3D == NULL)
+		glTexImage3DEXT(target, level, internalformat, width, height, depth, border, format, type, pixels);
+	else
+		pglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
+}
+
+GLAPI void APIENTRY glTexImage3DEXT (GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const GLvoid *pixels) {
+	STATICFN_F(GLTEXIMAGE3DEXT, glTexImage3DEXT)
+	pglTexImage3DEXT(target, level, internalformat, width, height, depth, border, format, type, pixels);
+}
+
+/* TexSubImage3D */
+
+GLAPI void APIENTRY glTexSubImage3D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const GLvoid *pixels) {
+	STATICFN(GLTEXSUBIMAGE3D, glTexSubImage3D)
+	if (pglTexSubImage3D == NULL)
+		glTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	else
+		pglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+}
+
+GLAPI void APIENTRY glTexSubImage3DEXT (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const GLvoid *pixels) {
+	STATICFN_F(GLTEXSUBIMAGE3DEXT, glTexSubImage3DEXT)
+	pglTexSubImage3DEXT(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
 
 /* *** GL 1.3 ********************* */
@@ -51,7 +113,8 @@ GLAPI void APIENTRY glActiveTexture (GLenum texture) {
 	STATICFN(GLACTIVETEXTURE, glActiveTexture)
 	if (pglActiveTexture == NULL)
 		glActiveTextureARB(texture);
-	pglActiveTexture(texture);
+	else
+		pglActiveTexture(texture);
 }
 
 GLAPI void APIENTRY glActiveTextureARB (GLenum texture) {
@@ -65,7 +128,8 @@ GLAPI void APIENTRY glClientActiveTexture (GLenum texture) {
 	STATICFN(GLCLIENTACTIVETEXTURE, glClientActiveTexture)
 	if (pglClientActiveTexture == NULL)
 		glClientActiveTextureARB(texture);
-	pglClientActiveTexture(texture);
+	else
+		pglClientActiveTexture(texture);
 }
 
 GLAPI void APIENTRY glClientActiveTextureARB (GLenum texture) {
@@ -79,7 +143,8 @@ GLAPI void APIENTRY glMultiTexCoord1f (GLenum target, GLfloat s) {
 	STATICFN(GLMULTITEXCOORD1F, glMultiTexCoord1f)
 	if (pglMultiTexCoord1f == NULL)
 		glMultiTexCoord1fARB(target, s);
-	pglMultiTexCoord1f(target, s);
+	else
+		pglMultiTexCoord1f(target, s);
 }
 
 GLAPI void APIENTRY glMultiTexCoord1fARB (GLenum target, GLfloat s) {
@@ -91,7 +156,8 @@ GLAPI void APIENTRY glMultiTexCoord2f (GLenum target, GLfloat s, GLfloat t) {
 	STATICFN(GLMULTITEXCOORD2F, glMultiTexCoord2f)
 	if (pglMultiTexCoord2f == NULL)
 		glMultiTexCoord2fARB(target, s, t);
-	pglMultiTexCoord2f(target, s, t);
+	else
+		pglMultiTexCoord2f(target, s, t);
 }
 
 GLAPI void APIENTRY glMultiTexCoord2fARB (GLenum target, GLfloat s, GLfloat t) {
@@ -103,7 +169,8 @@ GLAPI void APIENTRY glMultiTexCoord3f (GLenum target, GLfloat s, GLfloat t, GLfl
 	STATICFN(GLMULTITEXCOORD3F, glMultiTexCoord3f)
 	if (pglMultiTexCoord3f == NULL)
 		glMultiTexCoord3fARB(target, s, t, r);
-	pglMultiTexCoord3f(target, s, t, r);
+	else
+		pglMultiTexCoord3f(target, s, t, r);
 }
 
 GLAPI void APIENTRY glMultiTexCoord3fARB (GLenum target, GLfloat s, GLfloat t, GLfloat r) {
@@ -115,7 +182,8 @@ GLAPI void APIENTRY glMultiTexCoord4f (GLenum target, GLfloat s, GLfloat t, GLfl
 	STATICFN(GLMULTITEXCOORD4F, glMultiTexCoord4f)
 	if (pglMultiTexCoord4f == NULL)
 		glMultiTexCoord4fARB(target, s, t, r, q);
-	pglMultiTexCoord4f(target, s, t, r, q);
+	else
+		pglMultiTexCoord4f(target, s, t, r, q);
 }
 
 GLAPI void APIENTRY glMultiTexCoord4fARB (GLenum target, GLfloat s, GLfloat t, GLfloat r, GLfloat q) {
@@ -131,7 +199,8 @@ GLAPI void APIENTRY glBlendFuncSeparate (GLenum srcRGB, GLenum destRGB, GLenum s
 	STATICFN(GLBLENDFUNCSEPARATE, glBlendFuncSeparate)
 	if (pglBlendFuncSeparate == NULL)
 		glBlendFuncSeparateEXT(srcRGB, destRGB, srcAlpha, destAlpha);
-	pglBlendFuncSeparate(srcRGB, destRGB, srcAlpha, destAlpha);
+	else
+		pglBlendFuncSeparate(srcRGB, destRGB, srcAlpha, destAlpha);
 }
 
 GLAPI void APIENTRY glBlendFuncSeparateEXT (GLenum srcRGB, GLenum destRGB, GLenum srcAlpha, GLenum destAlpha) {
@@ -145,7 +214,8 @@ GLAPI void APIENTRY glFogCoordd (GLdouble coord) {
 	STATICFN(GLFOGCOORDD, glFogCoordd)
 	if (pglFogCoordd == NULL)
 		glFogCoorddEXT(coord);
-	pglFogCoordd(coord);
+	else
+		pglFogCoordd(coord);
 }
 
 GLAPI void APIENTRY glFogCoorddEXT (GLdouble coord) {
@@ -157,7 +227,8 @@ GLAPI void APIENTRY glFogCoordf (GLfloat coord) {
 	STATICFN(GLFOGCOORDF, glFogCoordf)
 	if (pglFogCoordf == NULL)
 		glFogCoordfEXT(coord);
-	pglFogCoordf(coord);
+	else
+		pglFogCoordf(coord);
 }
 
 GLAPI void APIENTRY glFogCoordfEXT (GLfloat coord) {
@@ -169,7 +240,8 @@ GLAPI void APIENTRY glFogCoorddv (const GLdouble* coord) {
 	STATICFN(GLFOGCOORDDV, glFogCoorddv)
 	if (pglFogCoorddv == NULL)
 		glFogCoorddvEXT(coord);
-	pglFogCoorddv(coord);
+	else
+		pglFogCoorddv(coord);
 }
 
 GLAPI void APIENTRY glFogCoorddvEXT (const GLdouble* coord) {
@@ -181,7 +253,8 @@ GLAPI void APIENTRY glFogCoordfv (const GLfloat* coord) {
 	STATICFN(GLFOGCOORDFV, glFogCoordfv)
 	if (pglFogCoordfv == NULL)
 		glFogCoordfvEXT(coord);
-	pglFogCoordfv(coord);
+	else
+		pglFogCoordfv(coord);
 }
 
 GLAPI void APIENTRY glFogCoordfvEXT (const GLfloat* coord) {
@@ -195,7 +268,8 @@ GLAPI void APIENTRY glFogCoordPointer (GLenum type, GLsizei stride, GLvoid* poin
 	STATICFN(GLFOGCOORDPOINTER, glFogCoordPointer)
 	if (pglFogCoordPointer == NULL)
 		glFogCoordPointerEXT(type, stride, pointer);
-	pglFogCoordPointer(type, stride, pointer);
+	else
+		pglFogCoordPointer(type, stride, pointer);
 }
 
 GLAPI void APIENTRY glFogCoordPointerEXT (GLenum type, GLsizei stride, GLvoid* pointer) {
@@ -209,7 +283,8 @@ GLAPI void APIENTRY glPointParameterf (GLenum pname, GLfloat param) {
 	STATICFN(GLPOINTPARAMETERF, glPointParameterf)
 	if (pglPointParameterf == NULL)
 		glPointParameterfARB(pname, param);
-	pglPointParameterf(pname, param);
+	else
+		pglPointParameterf(pname, param);
 }
 
 GLAPI void APIENTRY glPointParameterfARB (GLenum pname, GLfloat param) {
@@ -221,7 +296,8 @@ GLAPI void APIENTRY glPointParameterfv (GLenum pname, const GLfloat* params) {
 	STATICFN(GLPOINTPARAMETERFV, glPointParameterfv)
 	if (pglPointParameterfv == NULL)
 		glPointParameterfvARB(pname, params);
-	pglPointParameterfv(pname, params);
+	else
+		pglPointParameterfv(pname, params);
 }
 
 GLAPI void APIENTRY glPointParameterfvARB (GLenum pname, const GLfloat* params) {
@@ -245,7 +321,8 @@ GLAPI void APIENTRY glSecondaryColor3f (GLfloat red, GLfloat blue, GLfloat green
 	STATICFN(GLSECONDARYCOLOR3F, glSecondaryColor3f)
 	if (pglSecondaryColor3f == NULL)
 		glSecondaryColor3fEXT(red, blue, green);
-	pglSecondaryColor3f(red, blue, green);
+	else
+		pglSecondaryColor3f(red, blue, green);
 }
 
 GLAPI void APIENTRY glSecondaryColor3fEXT (GLfloat red, GLfloat blue, GLfloat green) {
@@ -257,7 +334,8 @@ GLAPI void APIENTRY glSecondaryColor3fv (const GLfloat* v) {
 	STATICFN(GLSECONDARYCOLOR3FV, glSecondaryColor3fv)
 	if (pglSecondaryColor3fv == NULL)
 		glSecondaryColor3fvEXT(v);
-	pglSecondaryColor3fv(v);
+	else
+		pglSecondaryColor3fv(v);
 }
 
 GLAPI void APIENTRY glSecondaryColor3fvEXT (const GLfloat* v) {
@@ -271,7 +349,8 @@ GLAPI void APIENTRY glSecondaryColorPointer (GLint size, GLenum type, GLsizei st
 	STATICFN(GLSECONDARYCOLORPOINTER, glSecondaryColorPointer)
 	if (pglSecondaryColorPointer == NULL)
 		glSecondaryColorPointerEXT(size, type, stride, pointer);
-	pglSecondaryColorPointer(size, type, stride, pointer);
+	else
+		pglSecondaryColorPointer(size, type, stride, pointer);
 }
 
 GLAPI void APIENTRY glSecondaryColorPointerEXT (GLint size, GLenum type, GLsizei stride, GLvoid* pointer) {
@@ -285,7 +364,8 @@ GLAPI void APIENTRY glWindowPos2f (GLfloat x, GLfloat y) {
 	STATICFN(GLWINDOWPOS2F, glWindowPos2f)
 	if (pglWindowPos2f == NULL)
 		glWindowPos2fARB(x, y);
-	pglWindowPos2f(x, y);
+	else
+		pglWindowPos2f(x, y);
 }
 
 GLAPI void APIENTRY glWindowPos2fARB (GLfloat x, GLfloat y) {
@@ -297,7 +377,8 @@ GLAPI void APIENTRY glWindowPos3f (GLfloat x, GLfloat y, GLfloat z) {
 	STATICFN(GLWINDOWPOS3F, glWindowPos3f)
 	if (pglWindowPos3f == NULL)
 		glWindowPos3fARB(x, y, z);
-	pglWindowPos3f(x, y, z);
+	else
+		pglWindowPos3f(x, y, z);
 }
 
 GLAPI void APIENTRY glWindowPos3fARB (GLfloat x, GLfloat y, GLfloat z) {
@@ -309,7 +390,8 @@ GLAPI void APIENTRY glWindowPos2fv (const GLfloat* v) {
 	STATICFN(GLWINDOWPOS2FV, glWindowPos2fv)
 	if (pglWindowPos2fv == NULL)
 		glWindowPos2fvARB(v);
-	pglWindowPos2fv(v);
+	else
+		pglWindowPos2fv(v);
 }
 
 GLAPI void APIENTRY glWindowPos2fvARB (const GLfloat* v) {
@@ -321,7 +403,8 @@ GLAPI void APIENTRY glWindowPos3fv (const GLfloat* v) {
 	STATICFN(GLWINDOWPOS3FV, glWindowPos3fv)
 	if (pglWindowPos3fv == NULL)
 		glWindowPos3fvARB(v);
-	pglWindowPos3fv(v);
+	else
+		pglWindowPos3fv(v);
 }
 
 GLAPI void APIENTRY glWindowPos3fvARB (const GLfloat* v) {
@@ -337,7 +420,8 @@ GLAPI void APIENTRY glBindBuffer (GLenum target, GLuint buffer) {
 	STATICFN(GLBINDBUFFER, glBindBuffer)
 	if (pglBindBuffer == NULL)
 		glBindBufferARB(target, buffer);
-	pglBindBuffer(target, buffer);
+	else
+		pglBindBuffer(target, buffer);
 }
 
 GLAPI void APIENTRY glBindBufferARB (GLenum target, GLuint buffer) {
@@ -351,7 +435,8 @@ GLAPI void APIENTRY glBufferData (GLenum target, GLsizeiptr size, const GLvoid* 
 	STATICFN(GLBUFFERDATA, glBufferData)
 	if (pglBufferData == NULL)
 		glBufferDataARB(target, size, data, usage);
-	pglBufferData(target, size, data, usage);
+	else
+		pglBufferData(target, size, data, usage);
 }
 
 GLAPI void APIENTRY glBufferDataARB (GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage) {
@@ -365,7 +450,8 @@ GLAPI void APIENTRY glBufferSubData (GLenum target, GLintptr offset, GLsizeiptr 
 	STATICFN(GLBUFFERSUBDATA, glBufferSubData)
 	if (pglBufferSubData == NULL)
 		glBufferSubDataARB(target, offset, size, data);
-	pglBufferSubData(target, offset, size, data);
+	else
+		pglBufferSubData(target, offset, size, data);
 }
 
 GLAPI void APIENTRY glBufferSubDataARB (GLenum target, GLintptr offset, GLsizeiptr size, const GLvoid* data) {
@@ -379,7 +465,8 @@ GLAPI void APIENTRY glDeleteBuffers (GLsizei n, const GLuint* buffers) {
 	STATICFN(GLDELETEBUFFERS, glDeleteBuffers)
 	if (pglDeleteBuffers == NULL)
 		glDeleteBuffersARB(n, buffers);
-	pglDeleteBuffers(n, buffers);
+	else
+		pglDeleteBuffers(n, buffers);
 }
 
 GLAPI void APIENTRY glDeleteBuffersARB (GLsizei n, const GLuint* buffers) {
@@ -393,7 +480,8 @@ GLAPI void APIENTRY glGenBuffers (GLsizei n, GLuint* buffers) {
 	STATICFN(GLGENBUFFERS, glGenBuffers)
 	if (pglGenBuffers == NULL)
 		glGenBuffersARB(n, buffers);
-	pglGenBuffers(n, buffers);
+	else
+		pglGenBuffers(n, buffers);
 }
 
 GLAPI void APIENTRY glGenBuffersARB (GLsizei n, GLuint* buffers) {
@@ -407,7 +495,8 @@ GLAPI void APIENTRY glGetBufferParameteriv (GLenum target, GLenum value, GLint* 
 	STATICFN(GLGETBUFFERPARAMETERIV, glGetBufferParameteriv)
 	if (pglGetBufferParameteriv == NULL)
 		glGetBufferParameterivARB(target, value, data);
-	pglGetBufferParameteriv(target, value, data);
+	else
+		pglGetBufferParameteriv(target, value, data);
 }
 
 GLAPI void APIENTRY glGetBufferParameterivARB (GLenum target, GLenum value, GLint* data) {
@@ -421,7 +510,8 @@ GLAPI void APIENTRY glGetBufferPointerv (GLenum target, GLenum pname, GLvoid** p
 	STATICFN(GLGETBUFFERPOINTERV, glGetBufferPointerv)
 	if (pglGetBufferPointerv == NULL)
 		glGetBufferPointervARB(target, pname, params);
-	pglGetBufferPointerv(target, pname, params);
+	else
+		pglGetBufferPointerv(target, pname, params);
 }
 
 GLAPI void APIENTRY glGetBufferPointervARB (GLenum target, GLenum pname, GLvoid** params) {
@@ -435,7 +525,8 @@ GLAPI void APIENTRY glGetBufferSubData (GLenum target, GLintptr offset, GLsizeip
 	STATICFN(GLGETBUFFERSUBDATA, glGetBufferSubData)
 	if (pglGetBufferSubData == NULL)
 		glGetBufferSubDataARB(target, offset, size, data);
-	pglGetBufferSubData(target, offset, size, data);
+	else
+		pglGetBufferSubData(target, offset, size, data);
 }
 
 GLAPI void APIENTRY glGetBufferSubDataARB (GLenum target, GLintptr offset, GLsizeiptr size, GLvoid* data) {
@@ -493,7 +584,8 @@ GLAPI void APIENTRY glAttachShader (GLuint program, GLuint shader) {
 	STATICFN(GLATTACHSHADER, glAttachShader)
 	if (pglAttachShader == NULL)
 		glAttachObjectARB(program, shader);
-	pglAttachShader(program, shader);
+	else
+		pglAttachShader(program, shader);
 }
 
 GLAPI void APIENTRY glAttachObjectARB (GLhandleARB program, GLhandleARB shader) {
@@ -507,7 +599,8 @@ GLAPI void APIENTRY glBindAttribLocation (GLuint program, GLuint index, const GL
 	STATICFN(GLBINDATTRIBLOCATION, glBindAttribLocation)
 	if (pglBindAttribLocation == NULL)
 		glBindAttribLocationARB(program, index, name);
-	pglBindAttribLocation(program, index, name);
+	else
+		pglBindAttribLocation(program, index, name);
 }
 
 GLAPI void APIENTRY glBindAttribLocationARB (GLhandleARB program, GLuint index, const GLcharARB *name) {
@@ -521,7 +614,8 @@ GLAPI void APIENTRY glBlendEquationSeparate (GLenum modeRGB, GLenum modeAlpha) {
 	STATICFN(GLBLENDEQUATIONSEPARATE, glBlendEquationSeparate)
 	if (pglBlendEquationSeparate == NULL)
 		glBlendEquationSeparateEXT(modeRGB, modeAlpha);
-	pglBlendEquationSeparate(modeRGB, modeAlpha);
+	else
+		pglBlendEquationSeparate(modeRGB, modeAlpha);
 }
 
 GLAPI void APIENTRY glBlendEquationSeparateEXT (GLenum modeRGB, GLenum modeAlpha) {
@@ -535,7 +629,8 @@ GLAPI void APIENTRY glCompileShader (GLuint shader) {
 	STATICFN(GLCOMPILESHADER, glCompileShader)
 	if (pglCompileShader == NULL)
 		glCompileShaderARB(shader);
-	pglCompileShader(shader);
+	else
+		pglCompileShader(shader);
 }
 
 GLAPI void APIENTRY glCompileShaderARB (GLuint shader) {
@@ -584,7 +679,8 @@ GLAPI void APIENTRY glDeleteShader (GLuint shader) {
 	STATICFN(GLDELETESHADER, glDeleteShader)
 	if (pglDeleteShader == NULL)
 		glDeleteObjectARB(shader);
-	pglDeleteShader(shader);
+	else
+		pglDeleteShader(shader);
 }
 
 GLAPI void APIENTRY glDeleteObjectARB (GLhandleARB shader) {
@@ -598,7 +694,8 @@ GLAPI void APIENTRY glDetachShader (GLuint program, GLuint shader) {
 	STATICFN(GLDETACHSHADER, glDetachShader)
 	if (pglDetachShader == NULL)
 		glDetachObjectARB(program, shader);
-	pglDetachShader(program, shader);
+	else
+		pglDetachShader(program, shader);
 }
 
 GLAPI void APIENTRY glDetachObjectARB (GLhandleARB program, GLhandleARB shader) {
@@ -612,7 +709,8 @@ GLAPI void APIENTRY glDisableVertexAttribArray (GLuint index) {
 	STATICFN(GLDISABLEVERTEXATTRIBARRAY, glDisableVertexAttribArray)
 	if (pglDisableVertexAttribArray == NULL)
 		glDisableVertexAttribArrayARB(index);
-	pglDisableVertexAttribArray(index);
+	else
+		pglDisableVertexAttribArray(index);
 }
 
 GLAPI void APIENTRY glDisableVertexAttribArrayARB (GLuint index) {
@@ -626,7 +724,8 @@ GLAPI void APIENTRY glDrawBuffers (GLsizei n, const GLenum *bufs) {
 	STATICFN(GLDRAWBUFFERS, glDrawBuffers)
 	if (pglDrawBuffers == NULL)
 		glDrawBuffersARB(n, bufs);
-	pglDrawBuffers(n, bufs);
+	else
+		pglDrawBuffers(n, bufs);
 }
 
 GLAPI void APIENTRY glDrawBuffersARB (GLsizei n, const GLenum *bufs) {
@@ -640,7 +739,8 @@ GLAPI void APIENTRY glEnableVertexAttribArray (GLuint index) {
 	STATICFN(GLENABLEVERTEXATTRIBARRAY, glEnableVertexAttribArray)
 	if (pglEnableVertexAttribArray == NULL)
 		glEnableVertexAttribArrayARB(index);
-	pglEnableVertexAttribArray(index);
+	else
+		pglEnableVertexAttribArray(index);
 }
 
 GLAPI void APIENTRY glEnableVertexAttribArrayARB (GLuint index) {
@@ -654,7 +754,8 @@ GLAPI void APIENTRY glGetActiveAttrib (GLuint program, GLuint index, GLsizei buf
 	STATICFN(GLGETACTIVEATTRIB, glGetActiveAttrib)
 	if (pglGetActiveAttrib == NULL)
 		glGetActiveAttribARB(program, index, bufSize, length, size, type, name);
-	pglGetActiveAttrib(program, index, bufSize, length, size, type, name);
+	else
+		pglGetActiveAttrib(program, index, bufSize, length, size, type, name);
 }
 
 GLAPI void APIENTRY glGetActiveAttribARB (GLhandleARB program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name) {
@@ -668,7 +769,8 @@ GLAPI void APIENTRY glGetActiveUniform (GLuint program, GLuint index, GLsizei bu
 	STATICFN(GLGETACTIVEUNIFORM, glGetActiveUniform)
 	if (pglGetActiveUniform == NULL)
 		glGetActiveUniformARB(program, index, bufSize, length, size, type, name);
-	pglGetActiveUniform(program, index, bufSize, length, size, type, name);
+	else
+		pglGetActiveUniform(program, index, bufSize, length, size, type, name);
 }
 
 GLAPI void APIENTRY glGetActiveUniformARB (GLhandleARB program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type, GLcharARB *name) {
@@ -682,7 +784,8 @@ GLAPI void APIENTRY glGetAttachedShaders (GLuint program, GLsizei maxCount, GLsi
 	STATICFN(GLGETATTACHEDSHADERS, glGetAttachedShaders)
 	if (pglGetAttachedShaders == NULL)
 		glGetAttachedObjectsARB(program, maxCount, count, obj);
-	pglGetAttachedShaders(program, maxCount, count, obj);
+	else
+		pglGetAttachedShaders(program, maxCount, count, obj);
 }
 
 GLAPI void APIENTRY glGetAttachedObjectsARB (GLhandleARB program, GLsizei maxCount, GLsizei *count, GLuint *obj) {
@@ -710,7 +813,8 @@ GLAPI void APIENTRY glGetProgramiv (GLenum program, GLenum pname, GLint* params)
 	STATICFN(GLGETPROGRAMIV, glGetProgramiv)
 	if (pglGetProgramiv == NULL)
 		glGetProgramivARB(program, pname, params);
-	pglGetProgramiv(program, pname, params);
+	else
+		pglGetProgramiv(program, pname, params);
 }
 
 GLAPI void APIENTRY glGetProgramivARB (GLenum program, GLenum pname, GLint* params) {
@@ -731,7 +835,8 @@ GLAPI void APIENTRY glGetShaderiv (GLenum shader, GLenum pname, GLint* params) {
 	STATICFN(GLGETSHADERIV, glGetShaderiv)
 	if (pglGetShaderiv == NULL)
 		glGetObjectParameterivARB(shader, pname, params);
-	pglGetShaderiv(shader, pname, params);
+	else
+		pglGetShaderiv(shader, pname, params);
 }
 
 GLAPI void APIENTRY glGetObjectParameterivARB (GLenum shader, GLenum pname, GLint* params) {
@@ -752,7 +857,8 @@ GLAPI void APIENTRY glGetShaderSource (GLuint shader, GLsizei bufSize, GLsizei* 
 	STATICFN(GLGETSHADERSOURCE, glGetShaderSource)
 	if (pglGetShaderSource == NULL)
 		glGetShaderSourceARB(shader, bufSize, length, source);
-	pglGetShaderSource(shader, bufSize, length, source);
+	else
+		pglGetShaderSource(shader, bufSize, length, source);
 }
 
 GLAPI void APIENTRY glGetShaderSourceARB (GLhandleARB shader, GLsizei bufSize, GLsizei* length , GLchar* source) {
@@ -766,7 +872,8 @@ GLAPI void APIENTRY glGetUniformfv (GLuint program, GLint location, GLfloat *par
 	STATICFN(GLGETUNIFORMFV, glGetUniformfv)
 	if (pglGetUniformfv == NULL)
 		glGetUniformfvARB(program, location, params);
-	pglGetUniformfv(program, location, params);
+	else
+		pglGetUniformfv(program, location, params);
 }
 
 GLAPI void APIENTRY glGetUniformfvARB (GLhandleARB program, GLint location, GLfloat *params) {
@@ -778,7 +885,8 @@ GLAPI void APIENTRY glGetUniformiv (GLuint program, GLint location, GLint *param
 	STATICFN(GLGETUNIFORMIV, glGetUniformiv)
 	if (pglGetUniformiv == NULL)
 		glGetUniformivARB(program, location, params);
-	pglGetUniformiv(program, location, params);
+	else
+		pglGetUniformiv(program, location, params);
 }
 
 GLAPI void APIENTRY glGetUniformivARB (GLhandleARB program, GLint location, GLint *params) {
@@ -806,7 +914,8 @@ GLAPI void APIENTRY glGetVertexAttribdv (GLuint index, GLenum pname, GLdouble *p
 	STATICFN(GLGETVERTEXATTRIBDV, glGetVertexAttribdv)
 	if (pglGetVertexAttribdv == NULL)
 		glGetVertexAttribdvARB(index, pname, params);
-	pglGetVertexAttribdv(index, pname, params);
+	else
+		pglGetVertexAttribdv(index, pname, params);
 }
 
 GLAPI void APIENTRY glGetVertexAttribdvARB (GLuint index, GLenum pname, GLdouble *params) {
@@ -818,7 +927,8 @@ GLAPI void APIENTRY glGetVertexAttribfv (GLuint index, GLenum pname, GLfloat *pa
 	STATICFN(GLGETVERTEXATTRIBFV, glGetVertexAttribfv)
 	if (pglGetVertexAttribfv == NULL)
 		glGetVertexAttribfvARB(index, pname, params);
-	pglGetVertexAttribfv(index, pname, params);
+	else
+		pglGetVertexAttribfv(index, pname, params);
 }
 
 GLAPI void APIENTRY glGetVertexAttribfvARB (GLuint index, GLenum pname, GLfloat *params) {
@@ -830,7 +940,8 @@ GLAPI void APIENTRY glGetVertexAttribiv (GLuint index, GLenum pname, GLint *para
 	STATICFN(GLGETVERTEXATTRIBIV, glGetVertexAttribiv)
 	if (pglGetVertexAttribiv == NULL)
 		glGetVertexAttribivARB(index, pname, params);
-	pglGetVertexAttribiv(index, pname, params);
+	else
+		pglGetVertexAttribiv(index, pname, params);
 }
 
 GLAPI void APIENTRY glGetVertexAttribivARB (GLuint index, GLenum pname, GLint *params) {
@@ -858,7 +969,8 @@ GLAPI void APIENTRY glLinkProgram (GLuint program) {
 	STATICFN(GLLINKPROGRAM, glLinkProgram)
 	if (pglLinkProgram == NULL)
 		glLinkProgramARB(program);
-	pglLinkProgram(program);
+	else
+		pglLinkProgram(program);
 }
 
 GLAPI void APIENTRY glLinkProgramARB (GLhandleARB program) {
@@ -872,7 +984,8 @@ GLAPI void APIENTRY glShaderSource (GLuint shader, GLsizei count, const GLchar**
 	STATICFN(GLSHADERSOURCE, glShaderSource)
 	if (pglShaderSource == NULL)
 		glShaderSourceARB(shader, count, string, length);
-	pglShaderSource(shader, count, string, length);
+	else
+		pglShaderSource(shader, count, string, length);
 }
 
 GLAPI void APIENTRY glShaderSourceARB (GLhandleARB shader, GLsizei count, const GLcharARB** string, const GLint* length) {
@@ -907,7 +1020,8 @@ GLAPI void APIENTRY glUniform1fv (GLint location, GLsizei count, const GLfloat* 
 	STATICFN(GLUNIFORM1FV, glUniform1fv)
 	if (pglUniform1fv == NULL)
 		glUniform1fvARB(location, count, value);
-	pglUniform1fv(location, count, value);
+	else
+		pglUniform1fv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform1fvARB (GLint location, GLsizei count, const GLfloat* value) {
@@ -919,7 +1033,8 @@ GLAPI void APIENTRY glUniform1iv (GLint location, GLsizei count, const GLint* va
 	STATICFN(GLUNIFORM1IV, glUniform1iv)
 	if (pglUniform1iv == NULL)
 		glUniform1ivARB(location, count, value);
-	pglUniform1iv(location, count, value);
+	else
+		pglUniform1iv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform1ivARB (GLint location, GLsizei count, const GLint* value) {
@@ -931,7 +1046,8 @@ GLAPI void APIENTRY glUniform2fv (GLint location, GLsizei count, const GLfloat* 
 	STATICFN(GLUNIFORM2FV, glUniform2fv)
 	if (pglUniform2fv == NULL)
 		glUniform2fvARB(location, count, value);
-	pglUniform2fv(location, count, value);
+	else
+		pglUniform2fv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform2fvARB (GLint location, GLsizei count, const GLfloat* value) {
@@ -943,7 +1059,8 @@ GLAPI void APIENTRY glUniform2iv (GLint location, GLsizei count, const GLint* va
 	STATICFN(GLUNIFORM2IV, glUniform2iv)
 	if (pglUniform2iv == NULL)
 		glUniform2ivARB(location, count, value);
-	pglUniform2iv(location, count, value);
+	else
+		pglUniform2iv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform2ivARB (GLint location, GLsizei count, const GLint* value) {
@@ -955,7 +1072,8 @@ GLAPI void APIENTRY glUniform3fv (GLint location, GLsizei count, const GLfloat* 
 	STATICFN(GLUNIFORM3FV, glUniform3fv)
 	if (pglUniform3fv == NULL)
 		glUniform3fvARB(location, count, value);
-	pglUniform3fv(location, count, value);
+	else
+		pglUniform3fv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform3fvARB (GLint location, GLsizei count, const GLfloat* value) {
@@ -967,7 +1085,8 @@ GLAPI void APIENTRY glUniform3iv (GLint location, GLsizei count, const GLint* va
 	STATICFN(GLUNIFORM3IV, glUniform3iv)
 	if (pglUniform3iv == NULL)
 		glUniform3ivARB(location, count, value);
-	pglUniform3iv(location, count, value);
+	else
+		pglUniform3iv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform3ivARB (GLint location, GLsizei count, const GLint* value) {
@@ -979,7 +1098,8 @@ GLAPI void APIENTRY glUniform4fv (GLint location, GLsizei count, const GLfloat* 
 	STATICFN(GLUNIFORM4FV, glUniform4fv)
 	if (pglUniform4fv == NULL)
 		glUniform4fvARB(location, count, value);
-	pglUniform4fv(location, count, value);
+	else
+		pglUniform4fv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform4fvARB (GLint location, GLsizei count, const GLfloat* value) {
@@ -991,7 +1111,8 @@ GLAPI void APIENTRY glUniform4iv (GLint location, GLsizei count, const GLint* va
 	STATICFN(GLUNIFORM4IV, glUniform4iv)
 	if (pglUniform4iv == NULL)
 		glUniform4ivARB(location, count, value);
-	pglUniform4iv(location, count, value);
+	else
+		pglUniform4iv(location, count, value);
 }
 
 GLAPI void APIENTRY glUniform4ivARB (GLint location, GLsizei count, const GLint* value) {
@@ -1005,7 +1126,8 @@ GLAPI void APIENTRY glUniformMatrix2fv (GLint location, GLsizei count, GLboolean
 	STATICFN(GLUNIFORMMATRIX2FV, glUniformMatrix2fv)
 	if (pglUniformMatrix2fv == NULL)
 		glUniformMatrix2fvARB(location, count, transpose, value);
-	pglUniformMatrix2fv(location, count, transpose, value);
+	else
+		pglUniformMatrix2fv(location, count, transpose, value);
 }
 
 GLAPI void APIENTRY glUniformMatrix2fvARB (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
@@ -1017,7 +1139,8 @@ GLAPI void APIENTRY glUniformMatrix3fv (GLint location, GLsizei count, GLboolean
 	STATICFN(GLUNIFORMMATRIX3FV, glUniformMatrix3fv)
 	if (pglUniformMatrix3fv == NULL)
 		glUniformMatrix3fvARB(location, count, transpose, value);
-	pglUniformMatrix3fv(location, count, transpose, value);
+	else
+		pglUniformMatrix3fv(location, count, transpose, value);
 }
 
 GLAPI void APIENTRY glUniformMatrix3fvARB (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
@@ -1029,7 +1152,8 @@ GLAPI void APIENTRY glUniformMatrix4fv (GLint location, GLsizei count, GLboolean
 	STATICFN(GLUNIFORMMATRIX4FV, glUniformMatrix4fv)
 	if (pglUniformMatrix4fv == NULL)
 		glUniformMatrix4fvARB(location, count, transpose, value);
-	pglUniformMatrix4fv(location, count, transpose, value);
+	else
+		pglUniformMatrix4fv(location, count, transpose, value);
 }
 
 GLAPI void APIENTRY glUniformMatrix4fvARB (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) {
@@ -1043,7 +1167,8 @@ GLAPI void APIENTRY glUseProgram (GLuint program) {
 	STATICFN(GLUSEPROGRAM, glUseProgram)
 	if (pglUseProgram == NULL)
 		glUseProgramObjectARB(program);
-	pglUseProgram(program);
+	else
+		pglUseProgram(program);
 }
 
 GLAPI void APIENTRY glUseProgramObjectARB (GLhandleARB program) {
@@ -1057,7 +1182,8 @@ GLAPI void APIENTRY glValidateProgram (GLuint program) {
 	STATICFN(GLVALIDATEPROGRAM, glValidateProgram)
 	if (pglValidateProgram == NULL)
 		glValidateProgramARB(program);
-	pglValidateProgram(program);
+	else
+		pglValidateProgram(program);
 }
 
 GLAPI void APIENTRY glValidateProgramARB (GLhandleARB program) {
@@ -1071,7 +1197,8 @@ GLAPI void APIENTRY glVertexAttrib1f (GLuint index, GLfloat v0) {
 	STATICFN(GLVERTEXATTRIB1F, glVertexAttrib1f)
 	if (pglVertexAttrib1f == NULL)
 		glVertexAttrib1fARB(index, v0);
-	pglVertexAttrib1f(index, v0);
+	else
+		pglVertexAttrib1f(index, v0);
 }
 
 GLAPI void APIENTRY glVertexAttrib1fARB (GLuint index, GLfloat v0) {
@@ -1083,7 +1210,8 @@ GLAPI void APIENTRY glVertexAttrib1fv (GLuint index, const GLfloat* v) {
 	STATICFN(GLVERTEXATTRIB1FV, glVertexAttrib1fv)
 	if (pglVertexAttrib1fv == NULL)
 		glVertexAttrib1fvARB(index, v);
-	pglVertexAttrib1fv(index, v);
+	else
+		pglVertexAttrib1fv(index, v);
 }
 
 GLAPI void APIENTRY glVertexAttrib1fvARB (GLuint index, const GLfloat* v) {
@@ -1095,7 +1223,8 @@ GLAPI void APIENTRY glVertexAttrib2f (GLuint index, GLfloat v0, GLfloat v1) {
 	STATICFN(GLVERTEXATTRIB2F, glVertexAttrib2f)
 	if (pglVertexAttrib2f == NULL)
 		glVertexAttrib2fARB(index, v0, v1);
-	pglVertexAttrib2f(index, v0, v1);
+	else
+		pglVertexAttrib2f(index, v0, v1);
 }
 
 GLAPI void APIENTRY glVertexAttrib2fARB (GLuint index, GLfloat v0, GLfloat v1) {
@@ -1107,7 +1236,8 @@ GLAPI void APIENTRY glVertexAttrib2fv (GLuint index, const GLfloat* v) {
 	STATICFN(GLVERTEXATTRIB2FV, glVertexAttrib2fv)
 	if (pglVertexAttrib2fv == NULL)
 		glVertexAttrib2fvARB(index, v);
-	pglVertexAttrib2fv(index, v);
+	else
+		pglVertexAttrib2fv(index, v);
 }
 
 GLAPI void APIENTRY glVertexAttrib2fvARB (GLuint index, const GLfloat* v) {
@@ -1119,7 +1249,8 @@ GLAPI void APIENTRY glVertexAttrib3f (GLuint index, GLfloat v0, GLfloat v1, GLfl
 	STATICFN(GLVERTEXATTRIB3F, glVertexAttrib3f)
 	if (pglVertexAttrib3f == NULL)
 		glVertexAttrib3fARB(index, v0, v1, v2);
-	pglVertexAttrib3f(index, v0, v1, v2);
+	else
+		pglVertexAttrib3f(index, v0, v1, v2);
 }
 
 GLAPI void APIENTRY glVertexAttrib3fARB (GLuint index, GLfloat v0, GLfloat v1, GLfloat v2) {
@@ -1131,7 +1262,8 @@ GLAPI void APIENTRY glVertexAttrib3fv (GLuint index, const GLfloat* v) {
 	STATICFN(GLVERTEXATTRIB3FV, glVertexAttrib3fv)
 	if (pglVertexAttrib3fv == NULL)
 		glVertexAttrib3fvARB(index, v);
-	pglVertexAttrib3fv(index, v);
+	else
+		pglVertexAttrib3fv(index, v);
 }
 
 GLAPI void APIENTRY glVertexAttrib3fvARB (GLuint index, const GLfloat* v) {
@@ -1143,7 +1275,8 @@ GLAPI void APIENTRY glVertexAttrib4f (GLuint index, GLfloat v0, GLfloat v1, GLfl
 	STATICFN(GLVERTEXATTRIB4F, glVertexAttrib4f)
 	if (pglVertexAttrib4f == NULL)
 		glVertexAttrib4fARB(index, v0, v1, v2, v3);
-	pglVertexAttrib4f(index, v0, v1, v2, v3);
+	else
+		pglVertexAttrib4f(index, v0, v1, v2, v3);
 }
 
 GLAPI void APIENTRY glVertexAttrib4fARB (GLuint index, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3) {
@@ -1155,7 +1288,8 @@ GLAPI void APIENTRY glVertexAttrib4fv (GLuint index, const GLfloat* v) {
 	STATICFN(GLVERTEXATTRIB4FV, glVertexAttrib4fv)
 	if (pglVertexAttrib4fv == NULL)
 		glVertexAttrib4fvARB(index, v);
-	pglVertexAttrib4fv(index, v);
+	else
+		pglVertexAttrib4fv(index, v);
 }
 
 GLAPI void APIENTRY glVertexAttrib4fvARB (GLuint index, const GLfloat* v) {
@@ -1169,7 +1303,8 @@ GLAPI void APIENTRY glVertexAttribPointer (GLuint index, GLint size, GLenum type
 	STATICFN(GLVERTEXATTRIBPOINTER, glVertexAttribPointer)
 	if (pglVertexAttribPointer == NULL)
 		glVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
-	pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
+	else
+		pglVertexAttribPointer(index, size, type, normalized, stride, pointer);
 }
 
 GLAPI void APIENTRY glVertexAttribPointerARB (GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer) {

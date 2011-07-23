@@ -25,14 +25,17 @@ int gl_blend_color(lua_State *L)
  */
 int gl_blend_equation(lua_State *L)
 {
-	GLenum a;
+	//GLenum a;
 
-	a = (GLenum)get_gl_enum(L, 1);
+	if (!lua_isnumber(L, 1))
+		luaL_error(L, "incorrect argument to function 'gl.BlendEquation'");
 
-	if (a == ENUM_ERROR)
-		luaL_error(L, "incorrect string argument to function 'gl.BlendEquation'");
+	//a = (GLenum)get_gl_enum(L, 1);
 
-	glBlendEquation(a);
+	//if (a == ENUM_ERROR)
+	//	luaL_error(L, "incorrect string argument to function 'gl.BlendEquation'");
+
+	glBlendEquation((GLenum)lua_tointeger(L, 1));
 
 	return 0;
 }
