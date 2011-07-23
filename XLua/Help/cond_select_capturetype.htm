@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Conditions &#8227;  Selections</div>
+<div class="lv2 active">Capture Selections By Type</div>
+</div>
+
+<p>This is a hybrid condition/action that saves a list of fixed IDs of selected objects in a specified Lua table.  Only objects of the specified type that are selected by other conditions above the "Capture Selection List" condition will be saved.  Therefor the position of this condition is very important and typically should be the last condition in the list.  Selected items will be saved before any actions are executed by the event.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">Object</td><td class="desc">Object or Group to filter by</td>
+<td class="type">String</td><td class="desc">Destination Variable</td>
+</tr></table>

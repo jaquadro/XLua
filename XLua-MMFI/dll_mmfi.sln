@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dll_mmfi", "dll_mmfi.vcproj", "{E6559166-1CD7-45EB-BCC2-3A5595DBEE2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6559166-1CD7-45EB-BCC2-3A5595DBEE2A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E6559166-1CD7-45EB-BCC2-3A5595DBEE2A}.Debug|Win32.Build.0 = Debug|Win32
+		{E6559166-1CD7-45EB-BCC2-3A5595DBEE2A}.Release|Win32.ActiveCfg = Release|Win32
+		{E6559166-1CD7-45EB-BCC2-3A5595DBEE2A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

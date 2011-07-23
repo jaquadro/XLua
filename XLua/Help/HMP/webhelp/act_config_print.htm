@@ -1,0 +1,83 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Print Event Modes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Print Event Modes</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;<A href="act_config.htm">Config</A> »&nbsp;Print Event Mode</LI></UL>
+<P></P>
+<P>XLua supports two modes of triggering print events: Immediate and Queued modes.&nbsp; In Immediate Mode, when <FONT face="Courier New">print()</FONT> is called from&nbsp;a script, any On&nbsp;Print events will be triggerred for immediate execution.&nbsp; In Queued Mode, the On&nbsp;Print events will wait to be executed at the end of the event loop.</P>
+<P>See <A href="act_config_error.htm">Error Event Modes</A> for more discussion on the differences between Immediate and Queued modes, but in general printing is a better controlled behavior and is less likely to inflict problems when used with Immediate Mode.</P>
+<P class=action>Set Immediate</P>
+<P>Sets future&nbsp;print events to immediate mode. Immediate mode causes any <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/cond_onerror.htm"><FONT color=#0066cc>On&nbsp;Print</FONT></A> triggered events to execute immediately when a native print() function is used in Lua.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Set Queued</P>
+<P>Sets future error events to queued mode. Queued mode causes any <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/cond_onerror.htm"><FONT color=#0066cc>On&nbsp;Print</FONT></A> triggered events from when a native print() function is used in Lua to be queued up and executed at the end of MMF's event loop.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_config_print.htm'); 
+HMSelectTopic('act_config_print.htm');</script></body>
+</html>

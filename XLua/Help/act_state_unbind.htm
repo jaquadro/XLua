@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; State</div>
+<div class="lv2 active">Unbind State</div>
+</div>
+
+<p>Unbinds an instance of the XLua object from the global lua state associated with the given ID.</p>
+<p>If this action is called from within an active call stack, the XLua object will be detached from its state at the end of the event where this action was called.  The call stack will safely unwind, leaving the previously bound state in-tact.  Nevertheless, you should exercise caution when unbinding a state from within an active call stack.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">Value</td><td class="desc">State ID</td>
+</tr></table>

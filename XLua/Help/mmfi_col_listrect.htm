@@ -1,0 +1,27 @@
+<h1>MMFI: Get Objects Over Rect</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>table</tt> <b>mmf.Collisions.GetObjectsOverRect</b> ( number <tt>x</tt>, number <tt>y</tt>, number <tt>w</tt>, number <tt>h</tt> [, number <tt>classid</tt> [, number <tt>layer</tt>] ] )
+<p>Returns a table containing the fixed IDs of all objects overlapping a given rectangular region in the frame.  If a class ID is specified, only objects belonging to that class will be returned.  If layer is specified, only that layer will be tested.</p>
+<p>To get an object's class ID, use <a href="mmfi_object_getclass.htm">mmf.Object.GetClass</a>.</p>
+<p>To get an object from a fixed ID, use <a href="mmfi_object_export.htm">mmf.Object.Export</a>.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>x</i>
+<div style="margin-left: 1em;">X (Left) coordinate</div>
+<i>y</i>
+<div style="margin-left: 1em;">Y (Top) coordinate</div>
+<i>w</i>
+<div style="margin-left: 1em;">Rectangle Width</div>
+<i>h</i>
+<div style="margin-left: 1em;">Rectangle Height</div>
+<i>classid</i>
+<div style="margin-left: 1em;">ID of object class to test for</div>
+<i>layer</i>
+<div style="margin-left: 1em;">1-based layer to test on</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>boolean</tt>
+<div style="margin-left: 1em;">table of fixed IDs</div>
+</div>

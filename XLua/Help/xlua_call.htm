@@ -1,0 +1,21 @@
+<h1>XLua: Call</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>...</tt> <b>xlua.Call</b> ( number <tt>stateID</tt>, string <tt>name</tt>, [mixed <tt>arguments</tt> ...] )
+<p>Remotely calls a function in the specified state if it was previously exported with the specified name, and if the calling state was granted access to call the function.</p>
+<p>A function may be called with any number of additional parameters.  Valid parameters include booleans, numbers, strings, and tables.  Tables will be deep-copied, with all internal references preserved (including cyclic references).  Be aware that passing large tables will induce large overhead for copying the data.  A function may return any number of return values, following the same rule as parameters.</p>
+<p>All function calls are executed in the remote state, and affect only the remote state.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>stateID</i>
+<div style="margin-left: 1em;">The remote state in which to call the function</div>
+<i>name</i>
+<div style="margin-left: 1em;">The identifier of the function to call</div>
+<i>arguments</i>
+<div style="margin-left: 1em;">Zero or more arguments to pass by value to the remote function</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<i>...</i>
+<div style="margin-left: 1em;">Zero or more return values returned by value</div>
+</div>

@@ -1,0 +1,80 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Standard I/O</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_cyan">Properties</TD>
+<TD class=titleline2><helpmatic autotopictitle>Standard I/O</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="props.htm">Properties</A> » Standard I/O</LI></UL>
+<P>These properties deal with the implementation of Lua's standard output and error streams.</P>
+<P></P>
+<P class=action>Error Events</P>
+<P>Instructs how the XLua object should handle triggered error events. The <TT>Immediate</TT> option causes events to be executed immediately, and the <TT>Queued</TT> option causes events to be executed at the end of the event loop.</P>
+<P class=action>Print Events</P>
+<P>Instructs how the XLua object should handle triggered print events. The <TT>Immediate</TT> option causes events to be executed immediately, and the <TT>Queued</TT> option causes events to be executed at the end of the event loop.</P>
+<P class=action>Report Backtraces</P>
+<P>Instructs whether the XLua object should include a full backtrace of the call stack when reporting runtime errors.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('props_io.htm'); 
+HMSelectTopic('props_io.htm');</script></body>
+</html>

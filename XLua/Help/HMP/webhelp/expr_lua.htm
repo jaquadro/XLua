@@ -1,0 +1,123 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Lua Functions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Lua Functions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="expr.htm">Expressions</A> » Lua Functions</LI></UL>
+<P class=section_title>Expression&nbsp;Subgroups</P>
+<UL>
+<LI>Call Lua Function</LI></UL>
+<P>This group of expressions is applicable once a Lua function has returned control back to the event, and are used to access values returned by the Lua function.&nbsp; The values will remain valid until either another Lua function is called, or an MMF function is invoked directly.&nbsp; Either action will return a new set of values, overwriting the old set.</P>
+<P>When the call stack contains multiple frames (recusive function calling between Lua and MMF), each MMF frame will have its own set of return values available to it.&nbsp; That means if an event currently has return values available, calls another Lua function, which in turns calls an MMF function, that last MMF function will not be able to see the previous return values.</P>
+<P>There's an additional set of expressions for performing inline function calls: functions that are invoked in the middle of an expression and return a value or string.</P>
+<P class=action>Get Integer Return</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LF_NumericReturn</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns one of lua's return values as an integer value. These values will be available until the next lua function call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based return index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Floating Return</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LF_FloatingReturn</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns one of lua's return values as a floating-point value. These values will be available until the next lua function call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based return index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;String Return</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LF_StringReturn$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns one of lua's return values as&nbsp;a string&nbsp;value. These values will be available until the next lua function call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based return index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Boolean Return</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LF_BooleanReturn</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns one of lua's return values as a boolean value. These values will be available until the next lua function call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based return index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get Return Count</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LF_ReturnCount</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns the number of return values from the last lua function call.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr_lua.htm'); 
+HMSelectTopic('expr_lua.htm');</script></body>
+</html>

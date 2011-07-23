@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Properties &#8227; Script</div>
+</div>
+
+<p>These properties deal with the Lua script</p>
+
+<h3>Embedded Script</h3>
+<p>Can be used to define a single Lua script of arbitrary length that is stored inside the XLua object, rather than in another object or an external file.</p>
+
+<h3>Run Script At Start</h3>
+<p>If checked, the embedded script will be executed at the start of the frame, after other XLua initialization has occured and other properties have taken effect.  If Bind State is uncheked, this option is ignored.</p>
+
+<h3>Load Standard Libs</h3>
+<p>Loads all of Lua's standard libraries, including the bitop library, into the bound state.  If Bind State is uncheked, this option is ignored.</p>
+
+<h3>Auto-Register Functions</h3>
+<p>Automatically registers any function named in an "On Function" condition at the start of the frame, and prior to executing the embedded script if that option is selected.  All functions are registered without a minimum parameter requirement.  If Bind State is unchecked, this option is ignored.</p>

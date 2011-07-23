@@ -1,0 +1,124 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>XLua Actions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>XLua Actions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » Actions</LI></UL>
+<P></P>
+<P class=section_title>Action Subgroups</P>
+<UL>
+<LI><A href="act_state.htm">State</A> 
+<LI><A href="act_config.htm">Config</A> 
+<LI><A href="act_lua.htm">Lua Functions</A> 
+<LI><A href="act_mmf.htm">MMF Functions</A> 
+<LI><A href="act_vars.htm">Variables</A> 
+<LI><A href="act_localstore.htm">Local Store</A> 
+<LI><A href="act_libraries.htm">Libraries</A> 
+<LI><A href="act_mmfi.htm">MMF Interface</A> 
+<LI><A href="act_wini.htm">WIN Interface</A></LI></UL>
+<P>The following group of actions is used to load Lua code into the currently bound state.&nbsp; Source can come from an external file, a string, or a script embedded directly in the XLua object at runtime.</P>
+<P class=action>Run File</P>
+<P>Loads a lua source file into the lua runtime, and executes it.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Filename</TD>
+<TD>Path to Lua source file</TD></TR></TBODY></TABLE></P>
+<P class=action>Run String</P>
+<P>Loads Lua source stored in a string into the Lua runtime, and executes it.&nbsp; There may be a size limit on strings.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>String containing Lua source</TD></TR></TBODY></TABLE></P>
+<P class=action>Run Named String</P>
+<P>Loads Lua source stored in a string into the Lua runtime, and executes it. When reporting errors or information about the source string, it will be identified by the included name.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>String containing Lua source</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Name identifying source string</TD></TR></TBODY></TABLE></P>
+<P class=action>Run Embedded Script</P>
+<P>Each XLua object can hold one or more embedded scripts internally.&nbsp; In fact, the XLua object sports an entire script editor and manager.&nbsp; This action will load one of those scripts.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Name of embedded script</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act.htm'); 
+HMSelectTopic('act.htm');</script></body>
+</html>

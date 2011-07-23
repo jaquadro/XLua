@@ -1,0 +1,899 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+<HTML>
+	<HEAD>
+		<TITLE></TITLE>
+	<LINK REL="stylesheet" TYPE="text/css" HREF="webhelp1.css"></LINK>
+</HEAD>
+	<BODY bgcolor="#FFFFFF">
+		<p><b>Type in the word(s) to search for:</b></p>
+		
+			<table width="100%" ID="Table1">
+				<tr>
+					<td nowrap>
+						<input type="text" id="txtSearchIndex" style="width:60%" onkeydown="javascript:KeyDownHandler(event,'cmdDisplay');">
+						<input type="button" id="cmdDisplay" value="Search" onClick="javascript:SearchForWord();" style="width:55px" >
+					</td>
+				</tr>
+			</table>
+			<select id="lstIndexList" size="700" ondblclick="javascript:ShowIndexItem(); DoWordSearch(txtSearchIndex.value);" style="width:98%; height:80%;">
+			</select>
+	<script language='javascript'>
+var saIndexData = [["A Lua Framework for MMF2","xlua.htm"],["Animation Traits","ext_mmfi_object_anim.htm"],["API","ext_mmfi_api.htm"],
+["Array Object","ext_mmfi_object_array.htm"],["At","ext_array_at.htm"],["Beyond Lua and XLua","ext.htm"],
+["Building 3rd Party C Modules","topics_build.htm"],["Building LuaSocket for XLua","topics_build_socket.htm"],["Button Down","ext_mmfi_mouse_buttondown.htm"],
+["Button Up","ext_mmfi_mouse_buttonup.htm"],["Clear Array","ext_mmfi_object_array_clear.htm"],["Clone","ext_array_clone.htm"],
+["Common Traits","ext_mmfi_object_common.htm"],["Config","expr_config.htm"],["Constants","ext_mmfi_constants.htm"],
+["Counter Object","ext_mmfi_object_counter.htm"],["Destroy","ext_array_destroy.htm"],["Destroy Object","ext_mmfi_object_common_destroy.htm"],
+["Dimension Size","ext_array_dimsize.htm"],["Dimensions","ext_array_dimensions.htm"],["Display Traits","ext_mmfi_object_display.htm"],
+["DoCall","topics_lualib_docall.htm"],["Error Event Modes","act_config_error.htm"],["Extensions to the Lua Library","topics_lualib.htm"],
+["Frame","ext_mmfi_frame.htm"],["Function Calls with Inline Parameters","act_lua_inline.htm"],["Function Groups","act_mmf_group.htm"],
+["Function Groups","topics_funcgroups.htm"],["Function Groups","cond_groups.htm"],["Get Value","ext_mmfi_object_array_get.htm"],
+["Inline Function Call","expr_lua_call.htm"],["Inline Function Call With Numeric Return","expr_lua_call_numeric.htm"],["Inline Function Call With String Return","expr_lua_call_string.htm"],
+["Interfaces","props_interface.htm"],["Key Down","ext_mmfi_keyboard_keydown.htm"],["Key Up","ext_mmfi_keyboard_keyup.htm"],
+["Keyboard","ext_mmfi_keyboard.htm"],["Libraries","act_libraries.htm"],["License","xlua_lic.htm"],
+["Local Store","expr_localstore.htm"],["Local Store","act_localstore.htm"],["Lua Functions","expr_lua.htm"],
+["Lua Functions","act_lua.htm"],["Lua State","props_state.htm"],["Microclock","topics_lualib_osmicroclock.htm"],
+["MMF Functions","act_mmf.htm"],["MMF Functions","expr_mmf.htm"],["MMF Interface","act_mmfi.htm"],
+["MMF Interface","ext_mmfi.htm"],["Mouse","ext_mmfi_mouse.htm"],["Move Object Above","ext_mmfi_object_display_moveabove.htm"],
+["Move Object Below","ext_mmfi_object_display_movebelow.htm"],["Move Object To Back","ext_mmfi_object_display_movetoback.htm"],["Move Object To Front","ext_mmfi_object_display_movetofront.htm"],
+["Movement Traits","ext_mmfi_object_movement.htm"],["New","ext_array_new.htm"],["New Object","ext_mmfi_newobject.htm"],
+["New Object Class","ext_mmfi_newobjectclass.htm"],["Object API","ext_mmfi_object.htm"],["Object Classes","ext_mmfi_class.htm"],
+["Object Is Above","ext_mmfi_object_display_isabove.htm"],["Object Is Below","ext_mmfi_object_display_isbelow.htm"],["Object Overlaps Background","ext_mmfi_object_ao_overlapsbg.htm"],
+["Object Overlaps Object","ext_mmfi_object_ao_overlapsobject.htm"],["Other Topics","topics.htm"],["Player Lives","ext_mmfi_runtime_playerlives.htm"],
+["Player Score","ext_mmfi_runtime_playerscore.htm"],["Print Event Modes","act_config_print.htm"],["Random Object","ext_mmfi_class_randomobject.htm"],
+["Report Backtraces","act_config_backtraces.htm"],["Reset","ext_array_reset.htm"],["Resize","ext_array_resize.htm"],
+["Run File","act_runfile.htm"],["Run Named String","act_runnamedstring.htm"],["Run String","act_runstring.htm"],
+["Runtime","ext_mmfi_runtime.htm"],["Runtime Configuration","act_config.htm"],["Script","props_script.htm"],
+["Selections","cond_selections.htm"],["Set","ext_array_set.htm"],["Set Player Lives","ext_mmfi_runtime_setplayerlives.htm"],
+["Set Player Score","ext_mmfi_runtime_setplayerscore.htm"],["Set Value","ext_mmfi_object_array_set.htm"],["Size","ext_array_size.htm"],
+["Standard I/O","props_io.htm"],["State Actions","act_state.htm"],["Static Array","ext_array.htm"],
+["String Object","ext_mmfi_object_string.htm"],["Swap Object Order","ext_mmfi_object_display_swaporder.htm"],["Table Parameters","act_lua_table.htm"],
+["Table Return Values","act_mmf_table.htm"],["Test Backdrop","ext_mmfi_object_display_testbackdrop.htm"],["Test Backdrop","ext_mmfi_class_testbackdrop.htm"],
+["Test Backdrop Get","ext_mmfi_class_testbackdropget.htm"],["Test Class","ext_mmfi_object_display_testclass.htm"],["Test Class","ext_mmfi_class_testclass.htm"],
+["Test Class Get","ext_mmfi_class_testclassget.htm"],["Test Class Get Extended","ext_mmfi_class_testclassgetex.htm"],["Test Object","ext_mmfi_class_testobject.htm"],
+["Test Object","ext_mmfi_object_display_testobject.htm"],["Test Object Get","ext_mmfi_class_testobjectget.htm"],["Test Point","ext_mmfi_frame_testpoint.htm"],
+["Test Point","ext_mmfi_object_display_testpoint.htm"],["Test Point","ext_mmfi_class_testpoint.htm"],["Test Point Get","ext_mmfi_class_testpointget.htm"],
+["Test Rectangle","ext_mmfi_frame_testrect.htm"],["Test Rectangle","ext_mmfi_object_display_testrect.htm"],["Test Rectangle","ext_mmfi_class_testrect.htm"],
+["Test Rectangle Get","ext_mmfi_class_testrectget.htm"],["The 'require' Function","topics_require.htm"],["Value Traits","ext_mmfi_object_values.htm"],
+["Variables","act_vars.htm"],["Variables","expr_vars.htm"],["WIN Interface","act_wini.htm"],
+["Window","ext_mmfi_window.htm"],["XLua Actions","act.htm"],["XLua Conditions","cond.htm"],
+["XLua Expressions","expr.htm"],["XLua Properties","props.htm"]];
+
+var saWordData = [["xlua",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118]],["lua",[0,5,6,7,12,21,23,25,26,27,28,30,31,32,37,41,42,43,44,45,46,47,64,72,73,74,77,78,84,85,86,89,111,112,113,115,116,117,118]],["framework",[0]],["for",[0,3,4,5,6,7,20,21,24,33,36,37,38,41,48,49,54,56,57,58,59,62,63,70,75,79,82,86,92,93,94,96,97,99,100,111]],
+["mmf2",[0]],["the",[0,2,3,4,5,6,7,8,9,10,11,12,17,18,20,21,23,24,25,26,27,28,29,31,32,33,34,35,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,53,54,55,56,57,58,59,60,61,62,63,64,66,68,70,71,73,75,77,78,79,82,83,84,85,86,88,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,111,112,113,114,115,116,117,118]],["object",[0,1,2,5,7,10,11,12,15,17,20,25,29,34,35,39,40,43,47,48,50,51,52,53,56,57,58,59,60,61,62,63,68,78,82,84,85,88,91,92,93,94,95,96,97,98,99,100,102,103,104,106,107,108,109,110,112,116,117]],["is",[0,2,5,6,7,8,9,11,17,20,27,33,37,38,39,40,43,44,45,47,53,54,56,57,58,59,60,61,62,63,77,78,85,88,91,92,93,94,95,98,99,102,103,106,107,109,111,112,113,116,117,118]],
+["an",[0,7,11,12,16,17,20,21,27,28,34,35,37,38,39,40,41,42,45,46,47,53,54,55,56,57,59,62,63,70,71,77,78,85,86,91,92,94,95,96,97,98,99,100,101,103,105,107,112,116]],["embedding",[0]],["code",[0,6,7,28,37,73,74,113,116]],["in",[0,4,5,6,7,12,20,21,25,26,27,37,38,41,44,45,46,47,48,49,53,54,55,56,57,59,71,73,77,78,79,86,88,93,94,96,97,99,100,102,103,104,109,111,112,113,115,116,117]],
+["your",[0,7,37,45]],["applications",[0]],["mmf",[0,2,3,5,8,9,12,14,17,21,26,27,28,33,34,35,42,45,46,47,48,50,51,52,53,54,56,57,58,59,60,61,62,63,64,65,66,80,81,88,90,101,105,110,115,116,117]],["events",[0,22,67,84,116]],
+["can",[0,1,3,5,6,7,12,15,20,24,35,37,47,49,54,58,59,62,75,86,87,110,114]],["call",[0,21,25,26,27,30,31,32,41,42,45,46,71,84,85,88]],["functions",[0,2,21,23,25,26,30,31,32,37,41,42,45,46,47,77,86,89,90,113,115,117]],["pass",[0,5,42]],
+["parameters",[0,4,8,9,10,11,13,16,17,18,19,21,22,25,26,28,29,31,32,34,35,37,39,40,41,42,44,45,46,47,50,51,52,53,55,56,57,60,61,62,63,65,66,67,68,69,70,71,72,73,74,78,79,80,81,82,83,85,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,111,112,113,115,116,117]],["and",[0,2,4,5,6,7,12,21,25,31,32,33,37,38,40,41,42,44,45,46,47,48,54,55,57,58,62,63,64,71,73,77,78,79,84,85,86,94,95,96,97,99,100,110,111,112,114,115,118]],["receive",[0]],["return",[0,4,8,9,10,11,16,17,18,19,21,29,30,31,32,34,35,41,44,45,50,51,52,53,55,56,57,60,61,62,63,65,66,68,70,71,79,80,81,82,83,86,88,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,112]],
+["values",[0,4,8,9,10,11,16,17,18,19,21,29,34,35,40,41,42,44,45,48,50,51,52,53,55,56,57,58,60,61,62,63,65,66,68,70,71,75,78,79,80,81,82,83,86,88,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,110,111]],["scripts",[0,109]],["have",[0,6,7,16,17,34,35,46,59,63,68,70,86,91,92,93,94,95,96,97,99,100,102,106,110]],["same",[0,4,6,29,37,44,47,53,59,62,79,112]],
+["capability",[0]],["with",[0,2,4,5,6,12,20,25,28,31,32,33,35,37,38,42,43,44,47,54,63,77,78,79,84,85,86,88,94,96,97,99,100,111,117]],["calling",[0,21,25,45,46]],["also",[0,12,37,86,110]],
+["has",[0,44,47,116,117]],["substantial",[0,38]],["interface",[0,5,33,47,48,113,115,116]],["directly",[0,1,3,12,15,20,45,47,54,109,110,111]],
+["querying",[0]],["modifying",[0]],["game",[0,65,92,95]],["objects",[0,1,2,3,5,10,12,15,17,20,29,47,48,50,51,52,53,54,56,58,59,60,61,62,63,68,78,82,85,87,88,91,92,93,94,95,96,97,99,100,102,104,106,108,110]],
+["state",[0,33,43,47,77,85,111,115,116,118]],["without",[0,5,38,71,77]],["overhead",[0,27]],["of",[0,1,2,3,4,5,6,7,8,9,11,12,17,18,19,21,24,25,27,28,29,37,38,41,45,46,47,49,50,51,53,54,55,56,57,58,59,60,61,62,63,64,65,66,68,70,71,75,77,78,79,80,83,84,85,86,88,91,92,93,94,95,96,100,102,104,105,106,107,108,110,111,112,114,115,116]],
+["using",[0,5,7,12,29]],["stack",[0,46,84,85]],["event",[0,5,13,22,25,28,38,42,45,47,67,76,78,85,116]],["execution",[0]],
+["inspired",[0]],["by",[0,5,12,17,21,37,47,48,59,73,78,86,109,112,115,116]],["lua+",[0]],["jamie",[0]],
+["mclaughlin",[0]],["extensions",[1,2,3,4,5,8,9,10,11,12,14,15,16,17,18,19,20,23,24,29,34,35,36,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,68,70,71,75,79,80,81,82,83,86,87,88,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,110,114]],["mmfi",[1,2,3,8,9,10,12,14,15,20,24,29,34,35,36,47,48,49,50,51,52,53,54,56,57,58,59,60,61,65,66,68,75,80,81,82,87,88,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,110,114]],["animation",[1]],
+["these",[1,3,7,12,15,20,24,33,41,43,47,49,54,58,59,75,77,84,86,87,110,114]],["fields",[1,3,12,15,17,20,24,49,54,59,75,87,110,114]],["be",[1,2,3,4,5,6,7,12,15,20,24,25,29,37,38,41,42,43,44,45,47,48,49,54,59,62,73,75,78,79,85,86,87,110,111,112,114,115,118]],["read",[1,3,12,15,20,54,87,110]],
+["from",[1,3,7,12,15,20,27,38,39,41,46,47,48,54,59,63,78,85,86,87,110,112]],["or",[1,2,3,5,6,7,12,15,20,21,27,29,31,32,37,38,41,44,46,48,53,54,63,64,73,78,86,110,111,115,116]],["written",[1,3,12,15,20,54,87,110]],["to",[1,2,3,5,6,7,10,12,15,20,21,22,23,25,26,27,33,34,37,38,39,42,43,44,45,46,47,48,49,50,51,52,53,54,59,60,61,62,63,64,67,70,71,72,77,78,79,80,81,85,86,87,88,91,102,106,107,108,109,110,111,113,115,116]],
+["number",[1,3,4,12,14,15,18,19,20,21,24,29,31,41,44,46,49,54,57,59,65,66,75,80,83,86,101,102,103,104,105,106,107,108,110,112,114]],["animframe",[1]],["current",[1,3,15,20,25,42,45,62,63,75]],["frame",[1,2,7,12,20,24,46,48,56,57,59,68,77,92,93,94,95,96,97,99,100,101,102,103,104,105,106,114]],
+["animset",[1]],["set",[1,3,10,21,22,28,40,41,46,47,67,75,79,80,81,82,86,111]],["related",[1,8,9,12,20,34,35,54,56,57,58,59,64,65,66,80,81,92,93,95,96,97,98,100,103,104,107,108,110,113]],["topics",[1,6,7,8,9,12,20,21,23,27,34,35,44,48,54,56,57,58,59,64,65,66,80,81,92,93,95,96,97,98,100,103,104,107,108,109,110]],
+["api",[2,7,17,48,56,58,62,63]],["following",[2,4,6,7,26,28,38,79,86]],["list",[2,47,64,78,93,96,100,104,108,109]],["not",[2,3,7,9,12,20,24,27,37,38,43,49,58,59,62,63,75,85,86,87,112,114]],
+["confused",[2]],["instances",[2,12,57,59,63,68,94]],["classes",[2,48,59,68,92,93,95,96,97,98,100,103,104,107,108]],["at",[2,4,6,7,29,62,68,77,79,82,85,86,101,118]],
+["root",[2]],["table",[2,17,21,33,37,42,50,51,57,59,60,61,63,68,78,86,88,89,90,94,95,96,97,98,99,100,112]],["default",[2,27,28,37,63,116]],["keyboard",[2,34,35,36,48]],
+["mouse",[2,8,9,14,48,49]],["runtime",[2,20,48,65,66,73,75,76,80,81,84,115]],["window",[2,48,114]],["newobject",[2,56,58]],
+["newobjectclass",[2,57,59]],["array",[3,4,5,10,11,16,18,19,29,55,58,70,71,75,79,82,83,86,110]],["support",[3,37,48,54,58]],["0-",[3]],
+["ir",[3]],["indexing",[3,71,86]],["but",[3,5,12,20,24,37,38,44,49,59,71,75,87,111,114]],["will",[3,7,12,17,25,26,37,41,42,43,45,46,63,73,78,85,86,112,115]],
+["always",[3,85]],["treat",[3]],["them",[3,5]],["as",[3,6,12,21,25,31,32,37,38,41,42,44,46,47,56,59,62,79,86,111,112]],
+["curx",[3,29]],["dimension",[3,18]],["index",[3,4,20,39,40,41,47,65,66,79,80,81,112]],["cury",[3,29]],
+["curz",[3,29]],["modified",[3,7]],["dimx",[3]],["size",[3,4,18,79,83,86]],
+["dimy",[3]],["dimz",[3]],["click",[3,24,36,49,75]],["on",[3,7,20,22,24,26,27,28,35,36,37,44,45,49,53,56,59,60,61,62,63,68,69,75,77,78,86,92,93,94,95,96,97,99,100,101,105,116,117]],
+["each",[3,12,24,36,46,49,59,75]],["function",[3,7,12,21,24,25,26,27,28,30,31,32,36,41,42,44,45,46,47,49,57,59,63,64,75,77,78,83,86,109,112,116]],["more",[3,24,36,49,56,75]],["information",[3,24,36,49,56,73,75,115]],
+["void",[3,12,20,75,86]],["clear",[3,10,47]],["mixed",[3,29]],["get",[3,10,13,29,39,41,46,59,82,93,96,97,100,104,108,112,117]],
+["static",[4,5,11,16,18,19,54,55,59,70,71,79,83,86]],[":at",[4]],["given",[4,62,79,85,101]],["dimensions",[4,18,19,79,86]],
+["indexes",[4,29,79,86]],["idx",[4,79]],["n-1",[4,79]],["then",[4,6,7,8,9,17,21,58,60,61,62,63,65,66,68,79,80,81,85,86,88,92,94,95,97,99,100,101,102,105,106]],
+["calculated",[4,79]],["would",[4,78,79]],["be:",[4,79]],["example",[4,5,7,8,9,10,11,12,16,17,18,19,29,34,35,50,51,52,53,55,56,57,58,59,60,61,62,63,65,66,68,70,71,79,80,81,82,83,86,88,91,92,93,94,95,96,97,99,100,101,102,105,106,110]],
+["local",[4,7,8,9,11,12,16,18,19,29,39,40,55,56,57,68,71,79,80,81,83,92,93,94,95,96,97,99,100,105,106,110,111,115,117]],["--",[4,7,10,11,12,16,17,18,19,29,34,35,50,51,52,53,55,56,57,58,59,62,63,68,70,71,79,82,83,86,88,91,92,93,94,95,96,97,99,100,101,102,105,106,110]],["if",[4,6,7,8,9,17,33,37,42,43,46,47,58,60,61,62,63,65,66,68,77,79,80,81,85,86,88,91,92,93,94,95,96,97,98,99,100,101,102,103,105,106,107,111,112,116,117]],["was",[4,79,85,88]],
+["created",[4,43,79,85]],["value",[4,12,14,15,17,26,29,31,32,39,40,41,42,44,45,46,47,62,63,75,79,80,81,82,85,110,111,112]],["should",[4,29,37,47,48,50,51,52,53,78,79,84,85]],["assert",[4,8,9,10,11,12,16,18,19,29,50,51,52,53,57,70,79,82,83,88]],
+["val",[4,16,79,110]],["==",[4,7,8,9,10,11,12,16,18,19,29,57,70,79,82,83]],["val2",[4]],["beyond",[5]],
+["interact",[5]],["certain",[5]],["party",[5,6,23,58,64]],["through",[5,7,27]],
+["modules",[5,6,7,37,58,64]],["proivded",[5]],["extension",[5,7,12,48,59]],["author",[5]],
+["are",[5,6,12,18,20,26,28,31,32,37,41,45,47,63,68,77,78,86,94,96,97,99,100,111,112,113,116]],["powerful",[5]],["tool",[5]],["adding",[5,48,78]],
+["functionality",[5,37]],["particular",[5,38]],["authors",[5,38]],["write",[5]],
+["module",[5,6,37,47,111]],["that",[5,11,18,27,37,41,44,45,46,47,53,58,59,60,62,63,77,78,88,92,94,96,111,112,116]],["exposes",[5,47]],["some",[5,6,20,37,59,110,111]],
+["all",[5,12,17,21,28,37,38,40,42,47,53,59,70,77,86,111,113]],["their",[5,47,88]],["capabilities",[5]],["needing",[5]],
+["loop",[5,44]],["exposed",[5]],["generic",[5]],["export",[5,47]],
+["action",[5,25,37,38,42,45,76,78,85,115]],["included",[5,25,37,38,73,115]],["variety",[5]],["ways",[5]],
+["one",[5,8,9,18,27,41,45,46,60,62,63,66,68,86]],["use",[5,6,33,34,38,45,86]],["open",[5,7,37]],["external",[5,33,37]],
+["where",[5,85]],["you",[5,6,7,37,45,78,85,86,111]],["browse",[5,37]],["dll",[5,6,7,37]],
+["specify",[5]],["package",[5,7,37]],["name",[5,12,21,25,26,28,31,32,37,42,45,56,57,59,73,109,111,112,115,116,117]],["ext",[5,7]],
+["opengl",[5]],["other",[5,38,43,44,48,53,58,64,78,88,112]],["way",[5,44,48]],["require",[5,7,23,37,42,48,64,86,109]],
+["although",[5,78]],["extension-specific",[5]],["maintained",[5]],["supported",[5,12,42,58]],
+["respective",[5]],["documented",[5]],["here",[5,7,8,9,34,35]],["convenience",[5,42]],
+["modules:",[5]],["building",[6,7,64]],["plethora",[6]],["packages",[6]],
+["available",[6,7,41,46,47]],["most",[6,49,112]],["which",[6,25,26,42,45,47,88,113]],["found",[6,7]],
+["luaforge",[6]],["already",[6]],["prior",[6,62,63,77]],["experience",[6]],
+["c++",[6,7]],["projects",[6]],["basic",[6]],["requirements",[6]],
+["follows",[6,37]],["copy",[6,11,38,59]],["microsoft",[6]],["visual",[6,7]],
+["express",[6,38]],["download",[6,7]],["source",[6,7,72,73,78,115]],["org",[6,7]],
+["want",[6]],["build",[6]],["change",[6,49,58]],["includes",[6]],
+["directory",[6,7,37]],["point",[6,101,102,103,104]],["src",[6]],["contains",[6,46]],
+["headers",[6,7]],["any",[6,22,31,32,38,47,63,67,77,78,85,92,94,95,109,111,116]],["reference",[6,7,12]],["lua51",[6]],
+["lib",[6,7]],["instead",[6]],["zip",[6]],["dev",[6]],
+["project",[6]],["uses",[6,42]],["header",[6]],["files",[6,37,38]],
+["official",[6]],["distribution",[6]],["so",[6,38,53,62,109]],["ve",[6]],
+["downloaded",[6]],["re",[6,7,86,92]],["its",[6,17,21,46,58,59,85]],["own",[6,12,46]],
+["instructions",[6,7,37]],["only",[6,43,45,59,63,78]],["need",[6,27,85]],["make",[6]],
+["file",[6,12,37,72,115]],["luasocket",[6,7]],["clickteam",[6]],["scripting",[6]],
+["note:",[7,42]],["copyright",[7,38]],["diego",[7]],["nehab",[7]],
+["under",[7]],["terms",[7,57]],["mit",[7]],["liscence",[7]],
+["walk",[7,59,102,106]],["process",[7]],["testing",[7]],["before",[7,25,78,88]],
+["begin",[7,89,90]],["don",[7,12,85]],["up",[7,9,21,35,58]],["date",[7,118]],
+["windows",[7,113]],["binary",[7,109]],["getting",[7]],["started",[7]],
+["create",[7,11,18,19,55,58,71,83,85,86]],["new",[7,11,23,47,55,56,57,80,81,82,85,86]],["mfa",[7]],["test",[7,50,51,60,61,62,63,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108]],
+["drop",[7]],["script",[7,27,77,109,115,117,118]],["editor",[7,12,56,59,118]],["add",[7,37,58]],
+["code:",[7,86]],["this",[7,12,25,27,33,37,38,39,40,43,44,45,47,57,59,63,64,71,77,78,85,111,112,113,117,118]],["cddb",[7]],["part",[7,62,63,86,94,111]],
+["path",[7,37,72,115]],["cpath",[7]],["socket",[7]],["http",[7]],
+["arg",[7]],["end",[7,8,9,12,17,34,35,58,59,60,61,62,63,65,66,68,70,80,81,85,86,88,89,90,91,92,93,94,95,96,97,99,100,101,102,105,106]],["server",[7]],["http:",[7]],
+["freedb",[7]],["~cddb",[7]],["cgi",[7]],["parse",[7]],
+["body",[7]],["host",[7]],["dns",[7]],["gethostname",[7]],
+["query",[7]],["%s",[7]],["cmd=cddb+read+%s+%s&amp",[7]],["hello=luasocket+%s+luasocket+2",[7]],
+["0&amp",[7]],["proto=6",[7]],["url",[7]],["string",[7,12,13,21,25,26,28,29,30,31,32,37,39,40,41,42,45,46,58,59,73,74,75,78,87,110,111,112,115,116,117]],
+["format",[7,86]],["request",[7]],["else",[7,60,61,88]],["print",[7,17,23,37,56,57,58,60,61,65,66,67,76,84,86,92,95,116,117]],
+["error",[7,11,12,13,22,55,67,71,76,84,116,117]],["interested",[7]],["full",[7,84]],["additional",[7,37,41]],
+["examples",[7,111]],["page",[7]],["button",[8,9]],["down",[8,9,34,62]],
+["boolean",[8,9,20,21,24,34,35,36,41,42,45,46,49,59,60,61,62,63,91,92,94,95,97,98,99,100,101,102,103,105,106,107,110,112]],["buttondown",[8,9,49]],["constants",[8,9,14,48,63]],["true",[8,9,12,37,42,45,60,62,63,91,92,94,95,98,99,101,102,103,105,106,107,110,111,116]],
+["held",[8,9]],["false",[8,9,42,45,60,62,63,91,92,94,95,98,99,101,102,103,105,106,107,111]],["otherwise",[8,9,38,60,91,92,94,95,98,99,101,102,103,105,106,107]],["buttonup",[8,9,49]],
+["mouse_left",[8,9,14]],["none",[10,11,13,16,17,19,22,37,40,41,42,44,45,46,47,50,51,52,53,67,69,70,71,79,80,81,82,83,88,89,90,113,116,117]],["x=3",[10,29,82]],["y=2",[10,29,82]],
+["z=1",[10,29,82]],["arr",[10,11,16,18,29,70,82,83,86]],["now",[10,47,59]],["clone",[11,86]],
+[":clone",[11]],["returns",[11,13,18,21,31,32,39,41,44,46,57,66,68,112,116,117]],["independent",[11]],["deep",[11]],
+["itself",[11,48,109]],["copied",[11]],["conditions",[11,27,28,55,71,78,116]],["arr2",[11,83]],
+["~=",[11,57]],["common",[12,17,48,58,59,112]],["traits",[12,17,20,50,51,52,53,58,60,61,75,88,91,94,99,102,106,110]],["coordinate",[12,24,49,62,63,101,102,103,104,105]],
+["pixels",[12,58]],["layer",[12,14,53,62,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108]],["read-only",[12,59]],["accessed",[12,20,24,49,59,75,114]],
+["updated",[12,20,24,49,59,75,114]],["class",[12,14,57,59,63,68,92,93,94,95,96,97,98,100,103,104,107,108]],["associated",[12,38,43,47,85]],["classid",[12,59]],
+["instance",[12,47,56,68,85,94,95,98,99,100]],["identifier",[12,37]],["shared",[12,59]],["creation",[12]],
+["classname",[12,56,57,59]],["defined",[12,40,56,59,112,117]],["fixed",[12,47,56,58,78]],["unqiue",[12]],
+["unique",[12,59]],["every",[12]],["height",[12,24,105,106,107,108,114]],["hotx",[12]],
+["hotspot",[12]],["relative",[12,37,49]],["origin",[12]],["hoty",[12]],
+["type",[12,55,63,78,86,112]],["id",[12,17,47,56,59,85]],["mfx",[12]],["width",[12,24,105,106,107,108,114]],
+["xleft",[12,24]],["left",[12,17,24,59]],["edge",[12,17,24,102,106]],["xright",[12,24]],
+["ybottom",[12,24]],["ytop",[12,24]],["methods",[12,75]],["destroy",[12,16,17,63,68,86]],
+["verify",[12]],["distance",[12]],["between",[12,46,63,111]],["edges",[12,20]],
+["matches",[12,93,96,97,100]],["swap",[12,88]],["coordinates",[12]],["neat",[12]],
+["trick",[12]],["we",[12,16,17,34,35,59,62,68,70,79,86,88,91,92,93,94,95,96,97,99,100,102,106]],["assign",[12,79]],["our",[12,18,35,50,51,52,53,59,91,110]],
+["long",[12,55,86]],["they",[12,37,47,94,96,97,99,100,111]],["conflict",[12]],["predefined",[12]],
+["color",[12]],["green",[12]],["bogey",[12]],["object:setcolor",[12]],
+["throw",[12]],["trying",[12]],["mutate",[12]],["field",[12,59]],
+["overwrite",[12]],["method",[12,25]],["expressions",[13,30,31,32,39,41,46,112,117]],["config",[13,22,67,69,115,117]],
+["mode",[13,22,67,76]],["function:",[13,31,32,39,41,46,112,117]],["erreventmode$",[13]],["returns:",[13,31,32,39,41,46,112,117]],
+["immediate",[13,22,67,84]],["queued",[13,22,67,84]],["printeventmode$",[13]],["quick",[14]],
+["jump",[14]],["direction",[14,54]],["ink",[14,20]],["virtual",[14,24,34,35]],
+["key",[14,34,35]],["any_class",[14]],["-1",[14]],["same_class",[14]],
+["-2",[14]],["diff_class",[14]],["-3",[14]],["dir_all",[14]],
+["dir_e",[14]],["dir_nee",[14]],["dir_ne",[14]],["dir_nne",[14]],
+["dir_n",[14]],["dir_nnw",[14]],["dir_nw",[14]],["dir_nww",[14]],
+["dir_w",[14]],["dir_sww",[14]],["dir_sw",[14]],["dir_ssw",[14]],
+["dir_s",[14]],["dir_sse",[14]],["dir_se",[14]],["dir_see",[14]],
+["ink_none",[14]],["ink_semi",[14]],["ink_inverted",[14]],["ink_xor",[14]],
+["ink_and",[14]],["ink_or",[14]],["ink_add",[14]],["ink_monochrome",[14]],
+["ink_subtract",[14]],["any_layer",[14,63,101,105]],["same_layer",[14,63]],["diff_layer",[14]],
+["mouse_middle",[14]],["mouse_right",[14]],["mouse_x1",[14]],["mouse_x2",[14]],
+["alt_a",[14]],["alt_b",[14]],["alt_c",[14]],["alt_d",[14]],
+["alt_e",[14]],["alt_f",[14]],["alt_g",[14]],["alt_h",[14]],
+["alt_i",[14]],["alt_j",[14]],["alt_k",[14]],["alt_l",[14]],
+["alt_m",[14]],["alt_n",[14]],["alt_o",[14]],["alt_p",[14]],
+["alt_q",[14]],["alt_r",[14]],["alt_s",[14]],["alt_t",[14]],
+["alt_u",[14]],["alt_v",[14]],["alt_w",[14]],["alt_x",[14]],
+["alt_y",[14]],["alt_z",[14]],["vk_back",[14]],["0x08",[14]],
+["vk_tab",[14]],["0x09",[14]],["vk_return",[14]],["0x0d",[14]],
+["vk_shift",[14]],["0x10",[14]],["vk_control",[14]],["0x11",[14]],
+["vk_alt",[14]],["0x12",[14]],["vk_menu",[14]],["vk_pause",[14]],
+["0x13",[14]],["vk_capital",[14]],["0x14",[14]],["vk_escape",[14]],
+["0x1b",[14]],["vk_space",[14]],["0x20",[14]],["vk_pageup",[14]],
+["0x21",[14]],["vk_prior",[14]],["vk_next",[14]],["0x22",[14]],
+["vk_pagedown",[14]],["vk_end",[14]],["0x23",[14]],["vk_home",[14]],
+["0x24",[14]],["vk_left",[14]],["0x25",[14]],["vk_up",[14]],
+["0x26",[14]],["vk_right",[14]],["0x27",[14]],["vk_down",[14]],
+["0x28",[14]],["vk_snapshot",[14]],["0x2c",[14]],["vk_printscreen",[14]],
+["vk_insert",[14]],["0x2d",[14]],["vk_delete",[14]],["0x2e",[14]],
+["vk_0",[14]],["0x30",[14]],["vk_1",[14]],["0x31",[14]],
+["vk_2",[14]],["0x32",[14]],["vk_3",[14]],["0x33",[14]],
+["vk_4",[14]],["0x34",[14]],["vk_5",[14]],["0x35",[14]],
+["vk_6",[14]],["0x36",[14]],["vk_7",[14]],["0x37",[14]],
+["vk_8",[14]],["0x38",[14]],["vk_9",[14]],["0x39",[14]],
+["vk_a",[14]],["0x41",[14]],["vk_b",[14]],["0x42",[14]],
+["vk_c",[14]],["0x43",[14]],["vk_d",[14]],["0x44",[14]],
+["vk_e",[14]],["0x45",[14]],["vk_f",[14]],["0x46",[14]],
+["vk_g",[14]],["0x47",[14]],["vk_h",[14]],["0x48",[14]],
+["vk_i",[14]],["0x49",[14]],["vk_j",[14]],["0x4a",[14]],
+["vk_k",[14]],["0x4b",[14]],["vk_l",[14]],["0x4c",[14]],
+["vk_m",[14]],["0x4d",[14]],["vk_n",[14]],["0x4e",[14]],
+["vk_o",[14]],["0x4f",[14]],["vk_p",[14]],["0x50",[14]],
+["vk_q",[14]],["0x51",[14]],["vk_r",[14]],["0x52",[14]],
+["vk_s",[14]],["0x53",[14]],["vk_t",[14]],["0x54",[14]],
+["vk_u",[14]],["0x55",[14]],["vk_v",[14]],["0x56",[14]],
+["vk_w",[14]],["0x57",[14]],["vk_x",[14]],["0x58",[14]],
+["vk_y",[14]],["0x59",[14]],["vk_z",[14]],["0x5a",[14]],
+["vk_lwin",[14]],["0x5b",[14]],["vk_rwin",[14]],["0x5c",[14]],
+["vk_numpad0",[14]],["0x60",[14]],["vk_numpad1",[14]],["0x61",[14]],
+["vk_numpad2",[14]],["0x62",[14]],["vk_numpad3",[14]],["0x63",[14]],
+["vk_numpad4",[14]],["0x64",[14]],["vk_numpad5",[14]],["0x65",[14]],
+["vk_numpad6",[14]],["0x66",[14]],["vk_numpad7",[14]],["0x67",[14]],
+["vk_numpad8",[14]],["0x68",[14]],["vk_numpad9",[14]],["0x69",[14]],
+["vk_multiply",[14]],["0x6a",[14]],["vk_add",[14]],["0x6b",[14]],
+["vk_subtract",[14]],["0x6d",[14]],["vk_decimal",[14]],["0x6e",[14]],
+["vk_divide",[14]],["0x6f",[14]],["vk_f1",[14]],["0x70",[14]],
+["vk_f2",[14]],["0x71",[14]],["vk_f3",[14]],["0x72",[14]],
+["vk_f4",[14]],["0x73",[14]],["vk_f5",[14]],["0x74",[14]],
+["vk_f6",[14]],["0x75",[14]],["vk_f7",[14]],["0x76",[14]],
+["vk_f8",[14]],["0x77",[14]],["vk_f9",[14]],["0x78",[14]],
+["vk_f10",[14]],["0x79",[14]],["vk_f11",[14]],["0x7a",[14]],
+["vk_f12",[14]],["0x7b",[14]],["vk_numlock",[14]],["0x90",[14]],
+["vk_scroll",[14]],["0x91",[14]],["vk_lshift",[14]],["0xa0",[14]],
+["vk_rshift",[14]],["0xa1",[14]],["vk_lcontrol",[14]],["0xa2",[14]],
+["vk_rcontrol",[14]],["0xa3",[14]],["vk_lmenu",[14]],["0xa4",[14]],
+["vk_lalt",[14]],["vk_rmenu",[14]],["0xa5",[14]],["vk_ralt",[14]],
+["counter",[15,58]],["maxvalue",[15]],["minvalue",[15]],["minimum",[15,26,45,77]],
+["allowed",[15]],[":destroy",[16]],["assume",[16,17,34,35,56,57,68,70,91,92,93,94,95,96,97,99,100,102,106]],["arr:destroy",[16,86]],
+["further",[16,70,78,86]],["actions",[16,22,25,26,37,40,42,45,47,67,69,70,72,73,74,76,78,85,89,90,111,113,115]],["no",[16,38,48,68,70,86,88]],["effect",[16,20,43,70,86]],
+["nil",[16,17,21,42,45,57,111,112]],["indexed",[17,39,40]],["touches",[17,92,93]],["screen",[17,49]],
+["it",[17,21,42,43,46,53,63,73,78,85,109,111,115,117]],["destroyed",[17,47,85,93,94,96,97,99,100]],[":dimsize",[18]],["dindex",[18]],
+["doubles",[18,19,55,71,83]],["right",[18,24,101,105]],["arr:dimsize",[18]],["dimsize",[18,86]],
+[":dimensions",[19,83]],["dimensionality",[19]],["arr:dimensions",[19]],["ints",[19,55,83]],
+["int",[19,55,83,86]],["arr2:dimensions",[19]],["resize",[19,71,86]],["arr2:resize",[19]],
+["display",[20,48,50,51,52,53,58,60,61,88,91,94,99,102,106]],["correspond",[20]],["order",[20,88]],["visibility",[20]],
+["collisions",[20]],["scale",[20]],["angle",[20]],["rotational",[20]],
+["may",[20,37,42,45,78,86,112,118]],["integer",[20,31,32,39,41,42,45,46,85,86,111,112]],["float",[20,55,86]],["depending",[20]],
+["edgeaa",[20]],["whether",[20,38,84]],["antialiased",[20]],["inkcoef",[20]],
+["coeficient",[20]],["used",[20,25,37,44,47,54,116,117]],["effects",[20]],["semitransparency",[20]],
+["inkeffect",[20]],["rotationaa",[20]],["antialiasing",[20]],["enabled",[20,33,37,116]],
+["rotation",[20]],["scaleaa",[20]],["scaling",[20]],["scalex",[20]],
+["factor",[20]],["axis",[20]],["scaley",[20]],["transparent",[20]],
+["background",[20,62,91]],["visible",[20]],["zorder",[20]],["ordering",[20,53,58]],
+["isabove",[20,50,53,60,88]],["isbelow",[20,51,52,61,88]],["moveabove",[20,50]],["movebelow",[20,51]],
+["movetoback",[20,52]],["movetofront",[20,53]],["swaporder",[20,88]],["testbackdrop",[20,59,91,92]],
+["testclass",[20,59,94,95,96]],["testobject",[20,59,98,99,100]],["testpoint",[20,24,59,101,102,103]],["testrect",[20,24,59,105,106,107]],
+["docall",[21,23,27,45]],["library",[21,23,37,44,64,77]],["takes",[21,25,57,63]],["first",[21,31,32,59,63]],
+["parameter",[21,25,26,31,32,42,45,46,62,77,86]],["intended",[21]],["target",[21,63]],["returned",[21,45,112]],
+["groups",[21,26,27,28,45,64,116]],["docalla",[21]],["docallb",[21]],["docallc",[21]],
+["docalld",[21]],["docalle",[21]],["docallf",[21]],["docallg",[21]],
+["modes",[22,67]],["sets",[22,40,67,70,78,111]],["future",[22,48,67,118]],["causes",[22,67]],
+["changes",[23,53,80,81]],["existing",[23,31,32,71]],["os",[23,37,44]],["microclock",[23,44]],
+["libraries",[23,37,77,115]],["bitop",[23,37,77]],["jit",[23,37]],["virtualheight",[24]],
+["virtualwidth",[24]],["bottom",[24,61]],["top",[24,60]],["calls",[25,28,31,32,45,46,116]],
+["inline",[25,30,31,32,41,42]],["suspends",[25,42]],["executes",[25,42,45,73,115]],["passing",[25]],
+["delimited",[25]],["parsed",[25]],["into",[25,42,45,62,73,77,115]],["multiple",[25,46]],
+["form",[25]],["var",[25]],["|var",[25]],["pipe",[25]],
+["character",[25]],["delimiter",[25]],["split",[25]],["apart",[25]],
+["paramters",[25]],["being",[25,116]],["passed",[25,42,46,47]],["provides",[25]],
+["direct",[25]],["compatibility",[25]],["original",[25]],["addition",[26,27]],
+["main",[26,48,116]],["functionally",[26,28]],["identical",[26]],["register",[26,45]],
+["registers",[26,45,77]],["global",[26,45,47,75,85,111,112,113]],["namespace",[26,45,111,112]],["corresponding",[26,45]],
+["count",[26,41,45,46]],["whenever",[27]],["called",[27,59,85]],["either",[27,86,116]],
+["via",[27]],["registered",[27,28,77]],["help",[27]],["mitigate",[27]],
+["bottleneck",[27]],["because",[27,47]],["group",[27,28,78,111,116]],["does",[27,37,43,63,85,112]],
+["inspect",[27]],["another",[27,45,46,50,51,60,61,63,86,88,99]],["therefor",[27,78,86]],["registering",[27]],
+["often",[27]],["sparsely",[27]],["populated",[27]],["mitigates",[27]],
+["large",[27]],["accrual",[27]],["equivilent",[28,45]],["variations",[28]],
+["triggered",[28,84,116]],["runs",[28,116]],["when",[28,33,43,46,73,84,85,86,115,116]],["optional",[29,33,55,62,63,82,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108]],
+["requested",[29,112]],["slot",[29,82]],["internal",[29,47,78,110]],["v1",[29]],
+["v2",[29]],["numeric",[30,31,32,47,59,111,112]],["luafunction",[31]],["mid-expression",[31,32]],
+["previously",[31,32,47,85]],["pushed",[31,32,42]],["result",[31,32]],["previous",[31,32]],
+["results",[31,32]],["discarded",[31,32]],["luafunctionnp",[31]],["single",[31,32,47]],
+["luafunctionsp",[31]],["luafunction$",[32]],["luafunctionnp$",[32]],["luafunctionsp$",[32]],
+["properties",[33,37,43,77,84,118]],["interfaces",[33,118]],["feature",[33,39,40,47,113]],["deprecated",[33,39,40,47,113,116]],
+["deal",[33,38,43,77,84]],["built-in",[33]],["components",[33]],["checked",[33,43,86]],
+["bound",[33,43,77,85,116]],["loaded",[33]],["option",[33,43,77]],["ignored",[33,77]],
+["bind",[33,43,77,85]],["property",[33,97,99,100]],["unchecked",[33,77]],["win",[33,113,115]],
+["keydown",[34,36]],["constant",[34,35]],["hero",[34,35]],["arrow",[34]],
+["keys",[34]],["move",[34,50,51,52,53,58,62]],["around",[34,101,102,105,106]],["while",[34,35,91,101,105]],
+["do",[34,35,38,59,62,70,86,91,93,94,96,97,99,100]],["keyup",[35,36]],["hover",[35]],["his",[35]],
+["jetpack",[35]],["space",[35]],["opens",[37]],["system",[37]],
+["special",[37,42,59]],["statement",[37]],["allows",[37,113]],["asks",[37]],
+["located",[37]],["application",[37,47,49,75,114]],["subdirectory",[37]],["include",[37,84]],
+["embedded",[37,47,77,109,115,117]],["compiled",[37]],["exe",[37]],["define",[37,59]],
+["expression",[37,41]],["provided",[37,38]],["statements",[37]],["typically",[37,78]],
+["conventions",[37]],["filename",[37,72,115]],["base",[37]],["opened",[37]],
+["standard",[37,77,84,118]],["such",[37,47,111]],["pairs",[37,59,93,94,96,97,99,100]],["required",[37]],
+["automatically",[37,43,47,77]],["io",[37]],["math",[37]],["debug",[37]],
+["bit",[37]],["adds",[37,71]],["bitwise",[37]],["operations",[37]],
+["luajit",[37]],["interacting",[37,54]],["engine",[37]],["enable",[37,47,69,113]],
+["turns",[37,69]],["built",[37]],["sources",[37]],["operates",[37,44]],
+["disabled",[37]],["license",[38]],["justin",[38]],["aquadro",[38]],
+["permission",[38]],["hereby",[38]],["granted",[38]],["free",[38,86]],
+["charge",[38]],["person",[38]],["obtaining",[38]],["software",[38]],
+["documentation",[38]],["restriction",[38]],["including",[38,77,111,114]],["limitation",[38,111]],
+["rights",[38]],["modify",[38]],["merge",[38]],["publish",[38]],
+["distribute",[38]],["sublicense",[38]],["sell",[38]],["copies",[38]],
+["permit",[38]],["persons",[38]],["whom",[38]],["furnished",[38]],
+["subject",[38]],["conditions:",[38]],["above",[38,50,53,58,60,78]],["notice",[38]],
+["shall",[38]],["portions",[38]],["warranty",[38]],["kind",[38]],
+["implied",[38]],["limited",[38]],["warranties",[38]],["merchantability",[38]],
+["fitness",[38]],["purpose",[38]],["noninfringement",[38]],["holders",[38]],
+["liable",[38]],["claim",[38]],["damages",[38]],["liability",[38]],
+["contract",[38]],["tort",[38]],["arising",[38]],["out",[38,48,86,91]],
+["connection",[38]],["dealings",[38]],["store",[39,40,115]],["variable",[39,78,111,112]],
+["localval",[39]],["storage",[39,40,55,86,117]],["similar",[39]],["alterable",[39,110]],
+["localstr$",[39]],["inside",[40]],["reset",[40,47,70,86,113]],["clears",[40,47]],
+["currently",[40,59,91,92,94,99,102,111,112,116,118]],["strings",[40,42,75,110]],["there",[41,54,57,68,101,105,111]],["performing",[41]],
+["calls:",[41]],["invoked",[41]],["middle",[41]],["lf_numericreturn",[41]],
+["until",[41,62]],["next",[41,42]],["lf_floatingreturn",[41]],["floating-point",[41,42,46,111,112]],
+["lf_stringreturn$",[41]],["lf_booleanreturn",[41]],["lf_returncount",[41]],["last",[41,42,78,117]],
+["subgroups",[42,45,76,115]],["push",[42,45]],["types",[42,55,86,112]],["include:",[42]],
+["integers",[42,86]],["tables",[42,111]],["several",[42,43]],["inline-parameter",[42]],
+["pushes",[42,45]],["queue",[42,45]],["receiving",[42]],["handling",[42]],
+["varargs",[42]],["since",[42,54]],["specified",[43,63,78,94,95,98,99,102,103,106,107,111]],["exist",[43,85,112]],
+["take",[43]],["clock",[44]],["high-resolution",[44]],["time",[44,62]],
+["practical",[44]],["accuracy",[44]],["~0",[44]],["microseconds",[44]],
+["hand",[44]],["milliseconds",[44]],["aware",[44,111]],["slower",[44]],
+["than",[44]],["shouldn",[44]],["tight",[44]],["floating",[44]],
+["analogous",[45]],["once",[45]],["completes",[45]],["transparently",[45]],
+["passes",[45]],["frames",[46]],["recusive",[46]],["even",[46,47]],
+["invokes",[46]],["f_numericparam",[46]],["f_floatingparam",[46]],["f_stringparam$",[46]],
+["f_booleanparam",[46]],["f_paramcount",[46]],["been",[47,116,117]],["superceded",[47]],
+["richer",[47]],["creates",[47]],["fully",[47]],["object-oriented",[47]],
+["environment",[47,54]],["enables",[47,113]],["collection",[47]],["access",[47]],
+["manipulate",[47]],["stored",[47,73,79,113,115]],["exports",[47,113]],["requires",[47]],
+["changing",[47]],["position",[47,49,78,111]],["removes",[47,113]],["exported",[47]],
+["removed",[47,118]],["references",[47]],["still",[47]],["remain",[47]],
+["exporting",[47]],["old",[47]],["package:",[48,86]],["separating",[48]],
+["fixes",[48]],["improvements",[48]],["longer",[48]],["updating",[48]],
+["specialized",[48,57]],["easier",[48]],["accomplish",[48]],["clean",[48]],
+["integrated",[48]],["animations",[48,58]],["movement",[48,54,58]],["clientx",[49]],
+["client",[49,114]],["area",[49,109,114]],["clienty",[49]],["wheeldelta",[49]],
+["recent",[49]],["scrollwheel",[49]],["object2",[50,51,52,53,58,60,61,63,88]],["against",[50,51,60,61]],
+["object1",[50,51,52,53,58,60,61,63,88]],["assertion",[50,51,52,53]],["never",[50,51,52,53]],["fail",[50,51,52,53,63,86]],
+["below",[51,59,61,78,88]],["back",[52]],["front",[53]],["usually",[54]],
+["little",[54]],["movements",[54]],["i1",[55]],["i2",[55]],
+["acceptable",[55]],["are:",[55,111]],["char",[55,86]],["byte",[55,86]],
+["short",[55,86]],["double",[55,86]],["bytes",[55,86]],["see",[56,57,59,67]],
+["about",[56,73,115]],["representing",[56,57,94,95,96,97,98,99,100]],["valid",[56,111,112,116]],["obj",[56]],
+["listed",[57]],["workspace",[57]],["toolbar",[57]],["programming",[57]],
+["named",[57,73,77,115]],["goomba",[57,59,68,91,94,96,97,99,100,102,106]],["goombaclass",[57,59,94,96,99,100]],["objectcount",[57,59]],
+["third",[58]],["specific",[58,63,102]],["ids",[58,78]],["represent",[58]],
+["two",[58,63,88]],["obj1",[58]],["obj2",[58]],["over",[58,65,92,95]],
+["check",[58]],["needed",[58]],["flag",[58]],["flags",[58,110]],
+["inheritance",[59]],["section",[59,64,118]],["objectlist",[59,94,99,100]],["containing",[59,73,74,115]],
+["typeid",[59]],["active",[59,62,63,85]],["randomobject",[59,68]],["testbackdropget",[59,93]],
+["testclassget",[59,96]],["testclassgetex",[59,97]],["testobjectget",[59,100]],["testpointget",[59,104]],
+["testrectget",[59,108]],["creating",[59,86]],["behavior",[59]],["goombas",[59,94,96,97,99,100]],
+["know",[59]],["how",[59,84]],["apply",[59]],["z-position",[60]],
+["overlaps",[62,63]],["overlapsbg",[62]],["xoffset",[62,63]],["yoffset",[62,63]],
+["tests",[62,63,91,92,94,99,102]],["sprite",[62]],["collision",[62]],["mask",[62]],
+["must",[62]],["positive",[62]],["added",[62,63]],["overlap",[62,63]],
+["actually",[62,63]],["changed",[62,63]],["pixel",[62]],["step",[62]],
+["ahead",[62]],["embed",[62]],["obsticle",[62]],["break",[62,97]],
+["overlapsobject",[63]],["overlapping",[63,91,92,94,95,98,99,102,103,106,107]],["second",[63,109]],["description",[63,110]],
+["layermode",[63]],["namespace:",[63]],["ignore",[63]],["layers",[63]],
+["separate",[63]],["collided",[63]],["covers",[64]],["miscellanious",[64]],
+["advice",[64]],["player",[65,66,80,81]],["lives",[65,80]],["playerlives",[65,75,80]],
+["score",[66,81]],["playerscore",[66,75,81]],["players",[66]],["wins",[66]],
+["random",[68]],["selected",[68,77,78]],["report",[69,76,84]],["backtraces",[69,76,84]],
+["backtrace",[69,84]],["reporting",[69,73,84,115]],["disable",[69]],["off",[69,102,106]],
+[":reset",[70]],["efficiently",[70]],["elements",[70,86,109]],["arr:reset",[70,86]],
+[":resize",[71]],["effectively",[71,111]],["leaves",[71]],["unchanged",[71]],
+["linear",[71]],["arr:resize",[71,86]],["physically",[71]],["extends",[71]],
+["destroying",[71,85,86]],["destroys",[71]],["run",[72,73,74,115,116]],["loads",[73,77,115]],
+["errors",[73,84,115,116]],["identified",[73,115]],["identifying",[73,115]],["framerate",[75]],
+["setplayerlives",[75,80]],["setplayerscore",[75,81]],["configuration",[76]],["load",[77]],
+["libs",[77]],["uncheked",[77]],["auto-register",[77]],["condition",[77,78]],
+["start",[77]],["executing",[77]],["requirement",[77]],["selections",[78,116]],
+["capture",[78]],["selection",[78]],["hybrid",[78]],["saves",[78]],
+["saved",[78]],["very",[78]],["important",[78]],["items",[78]],
+["executed",[78]],["destination",[78]],["filter",[78]],["destintion",[78]],
+["restore",[78]],["selecting",[78]],["refine",[78]],["paired",[78]],
+[":set",[79]],["arr:set",[79]],["just",[79]],["arr:size",[83]],
+["arr2:size",[83]],["operator",[83,86]],["aliases",[83]],["implementation",[84]],
+["output",[84]],["streams",[84]],["instructs",[84]],["handle",[84]],
+["binds",[85]],["associate",[85]],["within",[85,105]],["detached",[85]],
+["safely",[85]],["unwind",[85]],["neveretheless",[85]],["exercise",[85]],
+["caution",[85]],["unbinds",[85]],["leaving",[85]],["in-tact",[85]],
+["nevertheless",[85]],["unbinding",[85]],["member",[86,92]],["shows",[86]],
+["accepted",[86]],["signed",[86]],["ieee",[86]],["arrays",[86,111]],
+["n-dimensional",[86]],["execute",[86]],["fill",[86]],["products",[86]],
+["linearly",[86]],["data",[86,109]],["printed",[86]],["order:",[86]],
+["grouping",[86]],["visualized",[86]],["below:",[86]],["unlike",[86]],
+["square",[86]],["brackets",[86]],["multi-dimensional",[86]],["bounds",[86]],
+["overruning",[86]],["shorts",[86]],["sequential",[86]],["squares",[86]],
+["note",[86]],["length",[86,112]],["too",[86]],["half",[86]],
+["capacity",[86]],["done",[86,92]],["memeory",[86]],["attempts",[86]],
+["text",[87]],["blocks",[88]],["matter",[88,95]],["reversed",[88]],
+["after",[88]],["backdrop",[91,92,93,101,105]],["xoff",[91,94,99,102,106]],["yoff",[91,94,99,102,106]],
+["obstacle",[91,92,101,105]],["attempt",[91]],["dig",[91]],["laser",[92,93]],
+["matching",[93,100,104,108]],["spike",[94,96]],["collide",[94,96,97,99,100]],["spikes",[94,96]],
+["antimatter",[95]],["opposite",[95]],["touch",[95]],["ends",[95]],
+["match",[96]],["spikeclass",[96]],["extended",[97]],["koopa",[97,99,100]],
+["shell",[97,99,100]],["sliding",[97,99,100]],["shells",[97,99,100]],["shellset",[97]],
+["shellclass",[99,100]],["turn",[101,102,105,106]],["he",[101,105]],["hit",[101,105]],
+["moving",[101,105]],["tries",[102,106]],["rectangle",[105,106,107,108]],["rectangular",[105,106,107,108]],
+["region",[105,106,107,108]],["looks",[109]],["possible",[109]],["names",[110,111]],
+["str",[110]],["health",[110]],["update",[110]],["variables",[111,112,115,117]],
+["lets",[111]],["globally-defined",[111]],["unless",[111]],["prefixed",[111]],
+["keyword",[111]],["supports",[111]],["complete",[111]],["syntax",[111]],
+["accessing",[111]],["apple",[111]],["fruit",[111]],["grapes",[111]],
+["mylist",[111]],["colors",[111]],["blue",[111]],["complex",[111]],
+["rock",[111]],["my",[111]],["socks",[111]],["difference",[111]],
+["indices",[111]],["both",[111]],["different",[111]],["deleting",[111]],
+["numericvar",[112]],["floatingvar",[112]],["stringvar$",[112]],["booleanvar",[112]],
+["vartype$",[112]],["userdata",[112]],["thread",[112]],["proto",[112]],
+["upval",[112]],["unbound",[112]],["empty",[112]],["tablelength",[112]],
+["tablemaxn",[112]],["maximum",[112]],["maxn",[112]],["intercept",[113]],
+["messages",[113]],["previously-defined",[113]],["message",[113]],["bindings",[113]],
+["clientheight",[114]],["clientwidth",[114]],["frameheight",[114]],["framewidth",[114]],
+["border",[114]],["title",[114]],["menu",[114]],["interest",[116]],
+["signal",[116]],["requests",[116]],["invocations",[116]],["reported",[116,117]],
+["errorstring$",[117]],["best",[117]],["printstring$",[117]],["embeddedscript$",[117]],
+["unused",[118]]];
+
+	var g_sSearchFor="";	
+	var g_iCurrentNode=0;
+	
+	function PopulateIndex()
+	{
+		var iCount=0;
+		var objOption;
+		
+		if (saIndexData.length==0)
+		{
+			lstIndexList.disabled=true;
+			return;
+		}
+		
+		
+		for(iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			objOption=document.createElement("OPTION");
+			objOption.text=saIndexData[iCount][0];
+			objOption.value=iCount;
+			lstIndexList[lstIndexList.length]=objOption;
+		}
+	}
+	
+	
+	function BrowseToURL(sURL)
+	{ 
+        GetBaseFrameDocument().location.href=sURL;
+	} 
+	
+	function GetBaseFrameDocument()
+	{ 
+        var frames = parent.frames;
+        var iframecount = frames.length;
+        for(var i=0; i < iframecount; i++) 
+                if(frames[i].name == "frmText") 
+                        return frames[i].document;
+	} 
+	
+	
+	function ShowIndexItem()
+	{	
+		if (lstIndexList.selectedIndex==-1)
+		{
+			return;
+		}
+		
+		
+		var iCount=0;
+		for(var iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			if (saIndexData[iCount][0] == lstIndexList.options[lstIndexList.selectedIndex].text)
+			{
+				BrowseToURL(saIndexData[iCount][1]);	
+			}
+		}				
+	}
+	
+	function SearchForIndex()
+	{
+		var iCount=0;
+		for(var iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			if (saIndexData[iCount][0].toLowerCase().indexOf(txtSearchIndex.value.toLowerCase())==0)
+			{
+				lstIndexList.selectedIndex=iCount;
+				return;
+			}
+		}		
+	}
+	
+	
+	function KeyDownHandler(event,btn) 
+	{
+		if (event.keyCode == 13) 
+		{ 
+			event.returnValue=false; 
+			event.cancel = true; 
+			document.getElementById(btn).click(); 
+		} 
+	} 
+	
+	
+	function SearchForWord()
+	{
+		var iCount=0;
+		var iWordCount=0;
+		var iTopicsSearch=0;
+		var objOption;
+		var asWords;
+		var sWord;
+		var bMulti;
+		var sWordsToAdd="*";
+		var sNewWordsToAdd="*";
+		
+		// clear list
+		removeOptions(lstIndexList);
+		
+		// get words
+		if (txtSearchIndex.value.toLowerCase().indexOf(' ') > 1)
+		{
+			asWords = txtSearchIndex.value.toLowerCase().split(' ');
+		}
+		else
+		{
+			asWords=[txtSearchIndex.value.toLowerCase()];
+		}
+		
+		for(var iWordCount=0; iWordCount < asWords.length; iWordCount++)
+		{
+			sWord = asWords[iWordCount];
+				
+			for(var iCount=0; iCount < saWordData.length; iCount++)
+			{
+				if (saWordData[iCount][0] == sWord)
+				{
+					// add topics for this word
+					for(var iTopicsSearch=0; iTopicsSearch < saWordData[iCount][1].length; iTopicsSearch++)
+					{
+						if(iWordCount>0)
+						{	// this is the second or more word
+							if (sWordsToAdd.indexOf("*" + saWordData[iCount][1][iTopicsSearch] + "*") != -1)
+							{
+								sNewWordsToAdd = sNewWordsToAdd + saWordData[iCount][1][iTopicsSearch] + "*";							
+							}
+						}
+						else
+						{
+							// add this topic filename
+							sNewWordsToAdd = sNewWordsToAdd + saWordData[iCount][1][iTopicsSearch] + "*";
+						}
+						
+					}
+				}
+			}
+			
+			sWordsToAdd = sNewWordsToAdd;
+			sNewWordsToAdd = "*";
+		}
+		
+		if(sWordsToAdd=="*")
+		{
+			alert("No matching words found");
+			lstIndexList.disabled=true;
+		}
+		else
+		{				
+			lstIndexList.disabled=false;
+			asWords = sWordsToAdd.split("*");
+			for(var iCount=0; iCount < asWords.length; iCount++)
+			{
+				if (asWords[iCount] !="")
+				{
+					// add this topic
+					objOption=document.createElement("OPTION");
+					objOption.text=saIndexData[asWords[iCount]][0];
+					objOption.value=saIndexData[asWords[iCount]][1];
+					lstIndexList[lstIndexList.length]=objOption;	
+				}
+			}
+		}
+	}
+	
+	
+	function DoWordSearch(sSearchFor)
+	{
+		
+		var sPageState=GetBaseFrameDocument().readyState;
+
+		g_sSearchFor = sSearchFor;
+		
+		if (sPageState != "undefined" && sPageState != null)
+		{
+			if (sPageState == 'complete')
+			{
+				// page loaded, do search
+				findInPage();
+			}
+			else
+			{
+				// not loaded page yet, so wait
+				var t=setTimeout('DoWordSearch(g_sSearchFor)',100);
+			}
+		}
+	
+	}
+              
+    function findInPage() 
+    { 
+		var bFound=false;
+		var objDOMRange
+		var iCount;
+		var asWords;
+		var iWords;
+		
+		// get words
+		if (g_sSearchFor.indexOf(' ') > 1)
+		{
+			asWords = g_sSearchFor.split(' ');
+		}
+		else
+		{
+			asWords=[g_sSearchFor];
+		}
+		
+		for(var iWords=0; iWords < asWords.length; iWords++)
+		{	
+			objDOMRange = GetBaseFrameDocument().body.createTextRange(); 	
+			bFound=false;
+			
+			for (iCount = 0; iCount <= 125; iCount++)			// max of 125 occurances
+			{ 
+				objDOMRange.moveStart("word",1);				// move to start of next word
+				bFound = objDOMRange.findText(asWords[iWords]);	// search for our text
+				if (bFound == true)
+				{
+					objDOMRange.pasteHTML( "<font style='background:#eeccaa'>" + objDOMRange.text + "</font>"); 
+				}
+				else
+				{
+					// no more occurances
+					break;
+				}
+			} 		
+		}
+	}
+	
+	function removeOptions(oSelect) 
+	{ 
+		var o = oSelect.options; 
+		if (o && o.length) 
+		{ 
+			// shortcut if "length" property is not read-only 
+			o.length = 0; 
+		
+			while (o.length > 0) 
+			{ 
+				if (o.remove) 
+				{ 
+					o.remove(o.length - 1); 
+				} 
+				else 
+				{ 
+					o[o.length - 1] = null; 
+				} 
+			} 
+			
+			return true; 
+		} 
+	} 
+
+    function ClickedTopic(v_sFilename, v_iNodeNumber)
+    {
+        BrowseToURL(v_sFilename);
+		//SelectNode(v_iNodeNumber);
+    }
+	
+	    
+    function ClickedHeading(v_iHeadingNumber)
+    {
+		var objItem = document.getElementById("imgh" + v_iHeadingNumber);
+    
+        //if(objItem.tagName.toLowerCase()=="img")
+      //  {
+            if(objItem.src.toLowerCase().indexOf("open")>0)
+            {
+                objItem.src = "whsupport/closedfolder.gif";
+				if (document.getElementById(objItem.getAttribute('divid')) !=null)
+					document.getElementById(objItem.getAttribute('divid')).style.display="none";
+				
+				if (document.getElementById("imghtl" + v_iHeadingNumber).getAttribute('lilev')=="e")
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/etlhclosedm.gif";
+				}
+				else
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/tlhclosedm.gif";
+				}
+            }
+            else
+            {
+                objItem.src = "whsupport/openfolder.gif";
+				if (document.getElementById(objItem.getAttribute('divid')) != null)
+					document.getElementById(objItem.getAttribute('divid')).style.display="block";
+				
+				if (document.getElementById("imghtl" + v_iHeadingNumber).getAttribute('lilev')=="e")
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/etlhopenm.gif";
+				}
+				else
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/tlhopenm.gif";
+				}
+            }
+        //}
+    }
+	
+	function SelectNode(v_iNodeNumber)
+    {
+		var iCount=0;
+		var iMax=10000;
+		
+		for(iCount=1; iCount < iMax; iCount++)
+		{
+			try
+			{
+				var objItem = document.getElementById("topicnode" + iCount);
+			}
+			catch (ex)
+			{
+				objItem=null;
+				
+			}
+			
+			if (objItem==null)
+			{
+				return;
+			}
+			
+            if(iCount==v_iNodeNumber)
+            {
+                objItem.style.fontWeight="bold";
+				g_iCurrentNode=iCount;
+				OpenParent(objItem.getAttribute('pf'));
+            }
+            else
+            {
+                objItem.style.fontWeight="normal";
+            }
+        }
+    }
+	
+	function SelectNodeByFilename(v_sFileName)
+    {
+		var iCount=0;
+		var iMax=10000;
+		
+		v_sFileName=decodeURI(v_sFileName);
+		
+		for(iCount=1; iCount < iMax; iCount++)
+		{
+			try
+			{
+				var objItem = document.getElementById("topicnode" + iCount);
+			}
+			catch (ex)
+			{
+				objItem=null;
+				
+			}
+			
+			if (objItem==null)
+			{
+				return;
+			}
+			
+            if(objItem.getAttribute('sfilename')==v_sFileName)
+            {
+                objItem.style.fontWeight="bold";
+				g_iCurrentNode=iCount;
+				if (objItem.getAttribute('rootlevel') !='yes')
+				{
+					OpenParent(objItem.getAttribute('pf'));
+				}
+            }
+            else
+            {
+                objItem.style.fontWeight="normal";
+            }
+        }
+    }
+	
+	function MoveNextTopic()
+	{
+		var iNewNode = g_iCurrentNode+1;
+		
+		try
+		{
+			var objItem = document.getElementById("topicnode" + iNewNode);
+		}
+		catch (ex)
+		{
+			objItem=null;
+			
+		}
+			
+		if (objItem==null)
+		{
+			return;
+		}
+		
+		if(objItem.getAttribute('sfilename')=="")
+		{
+			g_iCurrentNode=g_iCurrentNode+1;
+			MoveNextTopic();
+		}
+		else
+		{
+			ClickedTopic(objItem.getAttribute('sfilename'),iNewNode);
+		}
+	}
+	
+	function MovePrevTopic()
+	{
+		var iNewNode = g_iCurrentNode-1;
+		
+		try
+		{
+			var objItem = document.getElementById("topicnode" + iNewNode);
+		}
+		catch (ex)
+		{
+			objItem=null;
+			
+		}
+			
+		if (objItem==null)
+		{
+			return;
+		}
+		
+		if(objItem.getAttribute('sfilename')=="")
+		{
+			g_iCurrentNode=g_iCurrentNode-1;
+			MovePrevTopic();
+		}
+		else
+		{
+			ClickedTopic(objItem.getAttribute('sfilename'),iNewNode);
+		}
+	}
+	
+	function OpenParent(v_iParentHeadingNumber)
+	{
+		
+		var objItem = document.getElementById("imgh" + v_iParentHeadingNumber);
+		
+		if(objItem==null)
+			return;
+				
+		if(objItem.src.toLowerCase().indexOf("open")==-1)
+		{
+			objItem.src = "whsupport/openfolder.gif";
+			if (document.getElementById(objItem.getAttribute('divid')) != null)
+				document.getElementById(objItem.getAttribute('divid')).style.display="block";
+			
+			if (document.getElementById("imghtl" + v_iParentHeadingNumber).getAttribute('lilev')=="e")
+			{
+				document.getElementById("imghtl" + v_iParentHeadingNumber).src="whsupport/etlhopenm.gif";
+			}
+			else
+			{
+				document.getElementById("imghtl" + v_iParentHeadingNumber).src="whsupport/tlhopenm.gif";
+			}
+		}
+		
+		if (objItem.getAttribute('rootlevel') =='yes')
+		{
+			return;
+		}
+		
+		if (objItem.getAttribute('pf') !=null)
+		{
+			OpenParent(objItem.getAttribute('pf'));
+		}
+	
+	}
+</script>
+
+</body>
+</HTML>
+
+

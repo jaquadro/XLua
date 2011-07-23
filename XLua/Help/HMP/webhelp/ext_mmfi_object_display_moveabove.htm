@@ -1,0 +1,91 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Move Object Above</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Move Object Above</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A>&nbsp;»&nbsp;<A href="ext_mmfi_object.htm">Objects</A>&nbsp;» <A href="ext_mmfi_object_display.htm">Display Traits</A></LI></UL>
+<P class=prototype>void&nbsp;<STRONG><EM>object</EM>.moveAbove</STRONG> (&nbsp;table <EM>object2</EM>&nbsp;) </P>
+<P>Changes an object's Z ordering so that it is above another object.&nbsp; If it is already above that object, its Z ordering will not change.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id><EM>object2</EM></TD>
+<TD>The object table of another object to test against</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>None.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we&nbsp;have a table of objects indexed by ID</FONT></DIV>
+<DIV class=luatable>object1 = mmf.objects[1]</DIV>
+<DIV class=luatable>object2 = mmf.objects[2]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Our assertion should never fail</FONT></DIV>
+<DIV class=luatable>object1.moveAbove(object2)</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(object1.isAbove(object2))</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_display_moveabove.htm'); 
+HMSelectTopic('ext_mmfi_object_display_moveabove.htm');</script></body>
+</html>

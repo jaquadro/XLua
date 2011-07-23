@@ -1,0 +1,165 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Object Classes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Object Classes</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A></LI></UL>
+<P>Object classes, much like object instances, are special object-oriented Lua tables that track their own information and allow you to operate directly on them.&nbsp; Object classes allow you to perform some operations that don't make sense on the instance level, such as counting all the instances in the frame, or selecting a random instance.&nbsp; Object classes also give you direct access to objects without the inconvenience of having to export IDs or fixed values.&nbsp; For example, object classes can be created by name, and then be used to fetch a list of all the corresponding instances currently on the frame.</P>
+<P class=section_title>Object Class Fields (Read-Only)</P>
+<P>These fields can be accessed, but not updated.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>classID</TD>
+<TD>Numeric ID that is unique to each class</TD></TR>
+<TR></TR>
+<TR>
+<TD class=parameter_type>string</TD>
+<TD class=parameter_name>className</TD>
+<TD>Name of the object class, as defined in the frame editor</TD></TR>
+<TR>
+<TD class=parameter_type>table</TD>
+<TD class=parameter_name>common</TD>
+<TD>See Inheritance section below</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>objectCount</TD>
+<TD>The number of instances of this class currently on the frame</TD></TR>
+<TR>
+<TD class=parameter_type><A href="ext_mmfi_object.htm">object</A>[]</TD>
+<TD class=parameter_name>objectList</TD>
+<TD>A table containing all the instances of this class currently on the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>typeID</TD>
+<TD>Numeric ID shared by all classes from the same extension (e.g. Active Object)</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Object Class&nbsp;Methods</P>
+<P>These methods may be called by any object class.&nbsp; They are protected, so they cannot be overwritten.&nbsp; The colon operator, which is used by most Lua object tables, is optional here.&nbsp; Click on each function for more information.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type><A href="ext_mmfi_object.htm">object</A></TD>
+<TD style="WIDTH: 14em" class=parameter_name><A href="ext_mmfi_class_randomobject.htm">randomObject()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>boolean<A href="ext_mmfi_object.htm"></A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testbackdrop.htm">testBackdrop()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U><A href="ext_mmfi_object.htm">object[]</A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testbackdropget.htm">testBackdropGet()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>boolean<A href="ext_mmfi_object.htm"></A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testclass.htm">testClass()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U><A href="ext_mmfi_object.htm">object[]</A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testclassget.htm">testClassGet()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>table</TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testclassgetex.htm">testClassGetEx()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>boolean<A href="ext_mmfi_object.htm"></A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testobject.htm">testObject()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U><A href="ext_mmfi_object.htm">object[]</A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testobjectget.htm">testObjectGet()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>boolean<A href="ext_mmfi_object.htm"></A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testpoint.htm">testPoint()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U><A href="ext_mmfi_object.htm">object[]</A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testpointget.htm">testPointGet()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>boolean<A href="ext_mmfi_object.htm"></A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testrect.htm">testRect()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U><A href="ext_mmfi_object.htm">object[]</A></TD>
+<TD class=parameter_name><A href="ext_mmfi_class_testrectget.htm">testRectGet()</A></TD></TR></TBODY></TABLE></P>
+<P class=section_title>Creating an Object Class</P>
+<P>The static MMFI function <FONT face="Courier New"><STRONG><A href="ext_mmfi_newobjectclass.htm">mmf.newObjectClass()</A></STRONG></FONT> will return an object class as a table, given its name.&nbsp; If you call this function multiple times on the same name, it will return references to the same table.&nbsp; That means there can only ever be one unique copy of the object class table for a given object class.&nbsp; If you add your own methods or data to the object class table, they will still be there if you request the table again.&nbsp;</P>
+<P class=section_title>Inheritance</P>
+<P>There is not a direct inheritance relationship between object instances and the object class that they share.&nbsp; They are separate entities that fill separate roles.&nbsp; However there's an intuitive notion that if a group of object instances all share the same class, then they should be derived from some common entity that allows them to share data and methods.&nbsp; For example you may have 20 instances of a&nbsp;chest&nbsp;object on your frame, and all instances should support the method "open", but you don't want to define it separately for each instance.&nbsp; Instead you want to define it once, at the class level, and then it should be available to every instance, even ones that might be created at a later time.</P>
+<P>Object classes have a special table field called "<FONT face="Courier New">common</FONT>", which is the parent table for each object instance of the class.&nbsp; If an instance requests a field or table that doesn't exist, it will look to see if it exists in this table.&nbsp; You can add any number of fields or methods to this table.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- We have some "Goomba" objects defined in our frame</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- First we get a copy of its object class</FONT></DIV>
+<DIV class=luatable>GoombaClass = mmf.newObjectClass(<FONT color=#008080>"Goomba"</FONT>)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- We define some common behavior for our Goomba objects</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- Goombas only know how to walk left</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>function</STRONG></FONT> GoombaClass.common:step ()</DIV>
+<DIV class=luatable>&nbsp; self.x = self.x - 1</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Now we apply the common behavior to all the instances</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>for</STRONG></FONT> k, g <FONT color=#000080><STRONG>in</STRONG></FONT> <FONT color=#800080>pairs</FONT>(GoombaClass.objectList) <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; g:step()</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<P> </P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_object.htm">Object API</a>, <a href="ext_mmfi_newobjectclass.htm">New Object Class</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_class.htm'); 
+HMSelectTopic('ext_mmfi_class.htm');</script></body>
+</html>

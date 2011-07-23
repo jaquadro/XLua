@@ -1,0 +1,142 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>MMF Functions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>MMF Functions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;MMF Functions</LI></UL>
+<P></P>
+<P class=section_title>Action Subgroups</P>
+<UL>
+<LI><A href="act_mmf_table.htm">Push Table&nbsp;Return Value</A>&nbsp; 
+<LI><A href="act_mmf_group.htm">Function Groups</A></LI></UL>
+<P>MMF Functions are analogous to <A href="act_lua.htm">Lua Functions</A>, but are called from a Lua function.&nbsp; An MMF function is defined when an event is created with XLua's <A href="cond.htm#on_function">On Function</A> condition.&nbsp; MMF functions can be invoked with the DoCall function in Lua, or invoked directly if the function was explictly registered or auto-registered.&nbsp; An MMF function can return values back to the calling Lua function in the same manner that parameters can be passed for a Call Lua Function action.&nbsp; See the section on <A href="act_lua.htm">Lua Functions</A> for more information on parameter types.</P>
+<P>An MMF function can be registered under an alternate function group which may have important performance implications in some circumstances.&nbsp; More information on function groups and when to use them can be found here.</P>
+<P class=action>Push Integer Return Value</P>
+<P>Pushes an integer return value into a queue, which will be returned to the calling lua function once the current event completes.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Integer return&nbsp;value</TD></TR></TBODY></TABLE></P>
+<P class=action>Push&nbsp;Floating Return Value</P>
+<P>Pushes&nbsp;a floating-point&nbsp;return value into a queue, which will be returned to the calling lua function once the current event completes.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Floating-point return&nbsp;value</TD></TR></TBODY></TABLE></P>
+<P class=action>Push&nbsp;String Return Value</P>
+<P>Pushes a string return value into a queue, which will be returned to the calling lua function once the current event completes.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>String return value</TD></TR></TBODY></TABLE></P>
+<P class=action>Push&nbsp;Boolean Return Value</P>
+<P>Pushes a boolean return value into a queue, which will be returned to the calling lua function once the current event completes.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>1 = <FONT face="Courier New">true</FONT>, 0 = <FONT face="Courier New">false</FONT></TD></TR></TBODY></TABLE></P>
+<P class=action>Push NIL</P>
+<P>Pushes a nil return value into a queue, which will be returned to the calling lua function once the current event completes.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Register MMF Function</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT><A href="cond.htm#on_function"><FONT face=Tahoma>On Function</FONT></A></TT> triggered event. The function will check that it passes at least as many parameters as you specify.</P>
+<P>You may use the global <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/other_docall.htm"><FONT color=#0066cc>DoCall</FONT></A> function in your Lua code as an alternative to registering functions, by passing the function name as the first argument, and the parameters as subsequent arguments.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Call Lua Function</P>
+<P>Directly executes one of your MMF Functions (<A href="cond.htm#on_function">On Function</A> events). The function does not need to be explicitly registered. Any currently pushed Lua parameters will be passed as MMF parameters, and any returns will be returned as Lua return values.</P>
+<P>This action is equivilent to calling a Lua function that only calls another MMF function, and transparently passes the parameters and return values.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_mmf.htm'); 
+HMSelectTopic('act_mmf.htm');</script></body>
+</html>

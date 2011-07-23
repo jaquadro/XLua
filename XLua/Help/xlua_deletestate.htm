@@ -1,0 +1,14 @@
+<h1>XLua: Delete State</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>xlua.DeleteState</b> ( number <tt>stateID</tt> )
+<p>Attempts to delete an existing state, if the calling state has been granted the REMOTE_DESTROY permission in the target state.</p>
+<p>Even if a state has the correct permissions, the target state cannot be deleted if it is currently bound to an XLua object in any frame.</p>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>stateID</i>
+<div style="margin-left: 1em;">ID of the state to delete</div>
+</div>
+<p><b>Return Values:</b></p>
+<i>boolean</i>
+<div style="margin-left: 1em;">true on Success, false otherwise</div>
+</div>

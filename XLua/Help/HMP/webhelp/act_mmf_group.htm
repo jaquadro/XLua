@@ -1,0 +1,159 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Function Groups</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Function Groups</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;<A href="act_mmf.htm">MMF Functions</A>&nbsp;» Function Groups</LI></UL>
+<P></P>
+<P>In addition to the main <A href="cond.htm#on_function">On Function</A> condition, XLua offers 7 other copies of the condition labeled A - G.&nbsp; Functionally they are identical, but only respond to functions that were registered as part of a corresponding group.&nbsp; More information on function groups and when they should be used can be found here.</P>
+<P>The following actions are functionally identical to the <A href="act_mmf.htm">Register MMF Function</A> action, but register the function as part of the corresponding group.</P>
+<P class=action>Register MMF Function.A</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.A</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Register MMF Function.B</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.B</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Register MMF Function.C</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.C</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Register MMF Function.D</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.D</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Register MMF Function.E</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.E</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Register MMF Function.F</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.F</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P>
+<P class=action>Register MMF Function.G</P>
+<P>Registers a function in lua's global namespace which will call the corresponding <TT>On Function.G</TT> triggered event. </P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Minimum parameter count</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_mmf_group.htm'); 
+HMSelectTopic('act_mmf_group.htm');</script></body>
+</html>

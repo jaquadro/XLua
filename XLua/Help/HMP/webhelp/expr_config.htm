@@ -1,0 +1,82 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Config</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Config</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="expr.htm">Expressions</A> » Config</LI></UL>
+<P class=action>Get Error Event Mode</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">ErrEventMode$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns <TT>Immediate</TT> if the error event mode is immediate, or <TT>Queued</TT> if the error event mode is queued.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Get&nbsp;Print Event Mode</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">PrintEventMode$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns <TT>Immediate</TT> if the&nbsp;print mode is immediate, or <TT>Queued</TT> if the&nbsp;print mode is queued.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr_config.htm'); 
+HMSelectTopic('expr_config.htm');</script></body>
+</html>

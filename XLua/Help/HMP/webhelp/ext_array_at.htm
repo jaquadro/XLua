@@ -1,0 +1,100 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>At</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>At</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_array.htm">Static Array</A></LI></UL>
+<P class=prototype>number&nbsp;<STRONG><EM>array</EM>:at</STRONG> (&nbsp;number i1,&nbsp;i2, ... in&nbsp;) </P>
+<P>Returns the value at the calculated n-dimensional index given by i1, i2, ... in.&nbsp; The number of indexes must match the dimensionality originally specified in array.new() or the last call to resize().&nbsp; There is no bounds checking provided on the individual indexes.&nbsp; The value parameter must be the last parameter, after the variable number of index parameters.</P>
+<P>Given dimensions of size d<SUB>1</SUB>, d<SUB>2</SUB>, ... d<SUB>n</SUB>, and indexes i<SUB>1</SUB>, i<SUB>2</SUB>, ... i<SUB>n</SUB>,&nbsp;then the index&nbsp;is calculated as:<BR><FONT face="Courier New">idx = [(d<SUB>2</SUB> * d<SUB>3</SUB> * ... * d<SUB>n</SUB>) * i<SUB>1</SUB>] + [(d<SUB>3</SUB> * d<SUB>4</SUB> * ... * d<SUB>n</SUB>) * i<SUB>2</SUB>] + ... + (d<SUB>n</SUB> * i<SUB>n-1</SUB>) + i<SUB>n</SUB></FONT></P>
+<P>For a 3-dimensional array then, the calculated index would be:<BR><FONT face="Courier New">idx = [(d<SUB>2</SUB> * d<SUB>3</SUB>) * i<SUB>1</SUB>] + (d<SUB>3</SUB> * i<SUB>2</SUB>) + i<SUB>3</SUB></FONT></P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>in</TD>
+<TD>One or more&nbsp;array indexes&nbsp;matching the dimensionality of the array&nbsp;</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>number</TD>
+<TD>Value at the calculated index&nbsp;</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have a 3-dimensional&nbsp;array "arr"</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> val = arr:at(1, 2, 3)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- If the array was created with dimensions 4, 5, 6</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- then the following value should be the same.</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> idx = (5 * 6 * 1) + (6 * 2) + 3</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> val2 = arr[idx]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(val == val2)</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_array_at.htm'); 
+HMSelectTopic('ext_array_at.htm');</script></body>
+</html>

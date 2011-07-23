@@ -1,0 +1,96 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Test Point</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Test Point</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A>&nbsp;»&nbsp;<U><FONT color=#5566aa><A href="ext_mmfi_class.htm">Object Classes</A></FONT></U></LI></UL>
+<P class=prototype>boolean <STRONG><EM>class</EM>.testPoint</STRONG> ( number&nbsp;<EM>x</EM>, number <EM>y</EM>,&nbsp;[number&nbsp;<EM>layer</EM>]&nbsp;) </P>
+<P>Tests if&nbsp;any object that is a member of the obejct&nbsp;class&nbsp;is currently overlapping a specific point in the frame.</P>
+<P>If&nbsp;a layer is specified, the test is limited to&nbsp;instances on that&nbsp;layer.&nbsp; By default, layer is equal to mmf.ANY_LAYER.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>x</TD>
+<TD>X coordinate in the frame</TD></TR>
+<TR>
+<TD class=parameter_id>y</TD>
+<TD>Y coordinate in the frame</TD></TR>
+<TR>
+<TD class=parameter_id>layer</TD>
+<TD><EM>Optional.</EM>&nbsp; 1-based layer index, or constants mmf.ANY_LAYER&nbsp;</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>boolean</TD>
+<TD>true if an object is overlapping the specified point, false otherwise</TD></TR></TBODY></TABLE></P>
+<P> </P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_class_testpointget.htm">Test Point Get</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_class_testpoint.htm'); 
+HMSelectTopic('ext_mmfi_class_testpoint.htm');</script></body>
+</html>

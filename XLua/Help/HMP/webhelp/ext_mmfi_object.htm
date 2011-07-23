@@ -1,0 +1,112 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Object API</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Object API</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A></LI></UL>
+<P>The MMFI Object&nbsp;API is a an alternative to the established MMF Interface&nbsp;API built into XLua.&nbsp;&nbsp;Instead of a set of static&nbsp;functions that operate on object IDs,&nbsp;objects exist as&nbsp;their own object table, with&nbsp;their own functions and values.&nbsp; This design is currently experimental and feedback to the developer is welcome.</P>
+<P>Each object exists as a special Lua table with fields and functions.&nbsp; These tables are special because they appear empty and functions like pairs and ipairs will return nothing.&nbsp; However these tables track their own fixed IDs and object pointers, and accessing their values allow you to read and change an object's state in MMF directly.&nbsp; Another benefit to these tables is that you can add your own fields and methods like with any other Lua table, and thus keep state and behavior with the object itself.</P>
+<P>Object tables are also unique.&nbsp; If you try to get or create a new table for the same object, a reference to the same table will be returned.</P>
+<P class=section_title>Traits</P>
+<P>There are several groups of actions/conditions/expressions in MMF that are shared by many different objects in MMF.&nbsp; Examples are movement, visibility, and alterable values.&nbsp; The MMFI can determine at runtime which of these groups, if any, are supported by a particular object, and then expose fields and methods relating to them.&nbsp; You can count on every object at least supporting the common traits, although they may support others.&nbsp; The traits are:</P>
+<UL>
+<LI><A href="ext_mmfi_object_anim.htm">Animations</A> 
+<LI><A href="ext_mmfi_object_common.htm">Common</A> 
+<LI><A href="ext_mmfi_object_display.htm">Display</A> 
+<LI><A href="ext_mmfi_object_movement.htm">Movement</A> 
+<LI><A href="ext_mmfi_object_values.htm">Values</A></LI></UL>
+<P class=section_title>Supported Objects</P>
+<P>All objects are supported by the MMFI, by exposing a combination of the traits listed above.&nbsp; There is also additional support for some objects, exposing fields or methods that are specific to a particular type of object.&nbsp; Currently these are:</P>
+<UL>
+<LI><A href="ext_mmfi_object_array.htm">Array</A> 
+<LI><A href="ext_mmfi_object_counter.htm">Counter</A> 
+<LI><A href="ext_mmfi_object_string.htm">String</A></LI></UL>
+<P>Third party modules can add specific support for other objects.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- These IDs represent fixed IDs of two objects</FONT></DIV>
+<DIV class=luatable>OBJ1 = 1234</DIV>
+<DIV class=luatable>OBJ2 = 5678</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Create the two objects</FONT></DIV>
+<DIV class=luatable>object1 = mmf.newObject(OBJ1)</DIV>
+<DIV class=luatable>object2 = mmf.newObject(OBJ2)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Move object1 up and over 50 pixels</FONT></DIV>
+<DIV class=luatable>object1.x = object1.x + 50</DIV>
+<DIV class=luatable>object1.y = object1.y + 50</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Check that object1 is above object2, and change its</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- ordering if needed</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>if</STRONG></FONT>&nbsp;<STRONG><FONT color=#000080>not</FONT></STRONG> object1.isAbove(object2) <FONT color=#000080><STRONG>then</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; object1.moveAbove(object2)</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Print object2's third flag</FONT></DIV>
+<DIV class=luatable><FONT color=#800080>print</FONT>(object2.flags[2])</DIV>
+<P> </P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_object_display.htm">Display Traits</a>, <a href="ext_mmfi_object_common.htm">Common Traits</a>, <a href="ext_mmfi_object_movement.htm">Movement Traits</a>, <a href="ext_mmfi_object_anim.htm">Animation Traits</a>, <a href="ext_mmfi_object_values.htm">Value Traits</a>, <a href="ext_mmfi_class.htm">Object Classes</a>, <a href="ext_mmfi_newobject.htm">New Object</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object.htm'); 
+HMSelectTopic('ext_mmfi_object.htm');</script></body>
+</html>

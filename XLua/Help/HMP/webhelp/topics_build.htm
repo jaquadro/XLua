@@ -1,0 +1,86 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Building 3rd Party C Modules</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_violet">Topics</TD>
+<TD class=titleline2><helpmatic autotopictitle>Building 3rd Party C Modules</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="topics.htm">Topics</A></LI></UL>
+<P>A plethora of 3rd party packages are available for use in Lua, most of which can be found at <A href="http://luaforge.net" target=_blank>LuaForge</A>.&nbsp; These can either be made up of pure Lua code, compiled as a DLL (C Module), or a mixture of both.&nbsp; The Lua code can be used out of the box with XLua, but C Modules that have been precompiled into a DLL are not directly compatible.&nbsp; Instead, they must be recompiled to use the XLua extension (xlua.mfx) in place of lua51.dll.</P>
+<P>If you already have some prior experience with building C or C++ projects, then the basic requirements are as follows.</P>
+<UL>
+<LI>Have a copy of Microsoft Visual C++ (<A href="http://www.microsoft.com/express/windows/" target=_blank>Express</A> versions are free) 
+<LI>Download the Lua source code (available at <A href="http://www.lua.org">lua.org</A>) 
+<LI>Download the source code of the C Module you want to build 
+<LI>Change the C++ includes directory to point to the Lua /src directory (which contains the headers) 
+<LI>Change any reference to lua51.dll.lib or lua51.lib to instead reference xlua.lib (which can be found in the XLua zip in /dev) 
+<LI>Build the project</LI></UL>
+<P>XLua uses the same Lua header files as the official Lua distribution, so if you've downloaded the source code for a C Module, and you're following its own build instructions, then the only change you need to make is to reference XLua's .lib file instead of Lua's .lib file.</P>
+<P>Each project is different, so it would be impossible to cover all the possible changes you would need to make to the build process to produce an XLua-compatible DLL.&nbsp; A couple of examples using real projects are provided to make things clearer.</P>
+<UL>
+<LI><A href="topics_build_socket.htm">LuaSocket</A></LI></UL>
+<P>Once you've built and tested a C Module with XLua and everything works, remember to share!&nbsp; Visit the <A href="http://www.clickteam.com/epicenter/ubbthreads.php?ubb=postlist&board=89&page=1" target=_blank>Clickteam Lua Scripting</A> forum and share your compiled DLL so everyone else can benefit.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('topics_build.htm'); 
+HMSelectTopic('topics_build.htm');</script></body>
+</html>

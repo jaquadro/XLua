@@ -1,0 +1,200 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Static Array</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Static Array</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A></LI></UL>
+<P><STRONG>Package: <FONT color=#ff0000>array</FONT></STRONG></P>
+<P>The Static Array extension is a C Module that provides a lower-level container for data similar to a C array, but still largely maintains the interface of standard Lua tables.&nbsp; Static Arrays can be specified to contain different types of primitive data, such as bytes, shorts, integers, floats, or doubles.&nbsp; Static Arrays pre-allocate space for a specific number of elements when they are created, and hold onto the same chunk of memory until they are either explicitly resized, or deleted.&nbsp; Thus, data stored in a Static Array is not subject to the garbage collector, which is a major strength of Static Arrays in certain scenarios where large amounts of data in a fixed footprint are created and destroyed in a short time period.&nbsp; Furthermore, because data types smaller than a double can be specified, and Static Arrays have no table entry overhead, Static Arrays can be much smaller than equivilent storage with tables for large data sets.</P>
+<P>Static Arrays use 1-based indexes like Lua tables.&nbsp; Indexes are bounds-checked.&nbsp; All&nbsp;array elements&nbsp;are initialized to 0.</P>
+<P class=section_title>Member Functions</P>
+<P>Any array objects created will contain the following member functions, which must be&nbsp;used with&nbsp;Lua's colon operator (:).</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number<A href="ext_mmfi_object.htm"></A></TD>
+<TD style="WIDTH: 14em" class=parameter_name><A href="ext_array_at.htm">at()</A></TD></TR>
+<TR>
+<TD class=parameter_id><A href="ext_array.htm">array</A></TD>
+<TD><A class=parameter_name href="ext_array_clone.htm">clone()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>void</TD>
+<TD class=parameter_name><A href="ext_array_destroy.htm">destroy()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>number</TD>
+<TD class=parameter_name><A href="ext_array_dimensions.htm">dimensions()</A></TD></TR>
+<TR>
+<TD class=parameter_type><U><FONT color=#5566aa></FONT></U>number</TD>
+<TD class=parameter_name><A href="ext_array_dimsize.htm">dimSize()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_array_reset.htm">reset()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_array_resize.htm">resize()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_array_set.htm">set()</A></TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_funcname><A href="ext_array_size.htm">size()</A></TD></TR></TBODY></TABLE></P>
+<P class=section_title>Creating a Static Array</P>
+<P>The static function <FONT face="Courier New"><A href="ext_array_new.htm">array.new()</A></FONT> will create a new static array object, given one or more dimension sizes, and optionally a type parameter.&nbsp; Static Arrays created without a type parameter are automatically assigned the default Lua number type, <FONT face="Courier New">"double"</FONT>.</P>
+<P class=section_title>Storage Types</P>
+<P>The following table shows the storage types accepted as the type parameter in <FONT face="Courier New"><A href="ext_array_new.htm">array.new()</A></FONT>.&nbsp; Some of the names such as <FONT face="Courier New">"long"</FONT> and <FONT face="Courier New">"int"</FONT> are synonyms.</P>
+<P>
+<TABLE class=gen_table border=0 cellSpacing=0 cellPadding=3 cols=3>
+<TBODY>
+<TR>
+<TD>
+<P align=center><STRONG>Type</STRONG></P></TD>
+<TD>
+<P align=center><STRONG>Format</STRONG></P></TD>
+<TD>
+<P align=center><STRONG>Size (bytes)</STRONG></P></TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>char</STRONG></FONT></TD>
+<TD>signed integer</TD>
+<TD>1</TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>byte</STRONG></FONT></TD>
+<TD>signed integer</TD>
+<TD>1</TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>short</STRONG></FONT></TD>
+<TD>signed integer</TD>
+<TD>2</TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>int</STRONG></FONT></TD>
+<TD>signed integer</TD>
+<TD>4</TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>long</STRONG></FONT></TD>
+<TD>signed integer</TD>
+<TD>4</TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>float</STRONG></FONT></TD>
+<TD>ieee single&nbsp;float</TD>
+<TD>4</TD></TR>
+<TR>
+<TD><FONT face="Courier New"><STRONG>double</STRONG></FONT></TD>
+<TD>ieee double float</TD>
+<TD>8</TD></TR></TBODY></TABLE></P>
+<P><STRONG class=section_title>Static Arrays as n-dimensional arrays</STRONG></P>
+<P>All Static Arrays can be manipulated as 1D arrays, but they do provide shortcuts to make manipulating multi-dimensional data easier.&nbsp; The new and resize functions can take any number of size arguments, where each argument is the size of one of the dimensions.&nbsp; The functions at and set are provided to access data using multi-dimensional indexes, whereas the square bracket array syntax still accesses the array as a single-dimensional structure, where the total size of the array is the size of all the dimension arguments multiplied together.&nbsp; Data is stored in row-major order (that is, data elements are packed together starting with the right-most [or inner] dimension).</P>
+<P>For example, if you execute the following code:</P>
+<DIV class=luatable><FONT color=#008000>-- Create a 2x2x3 array (12 elements)</FONT></DIV>
+<DIV class=luatable>arr = array.new(2, 2, 3, <FONT color=#008080>"short"</FONT>)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Fill array with products of indexes</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>for</STRONG></FONT> i = 1, arr:dimSize(1) <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; <FONT color=#000080><STRONG>for</STRONG></FONT> j = 1, arr:dimSize(2) <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;&nbsp;&nbsp; <FONT color=#000080><STRONG>for</STRONG></FONT> k = 1, arr:dimSize(3) <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; arr:set(i, j, k, i * j * k)</DIV>
+<DIV class=luatable>&nbsp;&nbsp;&nbsp; <FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; <FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Print out array linearly</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>for</STRONG></FONT> i = 1, <FONT color=#000080><STRONG>#</STRONG></FONT>arr <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; <FONT color=#800080>print</FONT>(arr[i])</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<P>Then the data will be printed in the following order:<BR><FONT face="Courier New">1, 2, 3, 2, 4, 6, 2, 4, 6, 4, 8, 12</FONT></P>
+<P>The grouping can be visualized below:<BR><FONT face="Courier New"><FONT color=#ff0000><STRONG>[</STRONG></FONT> <FONT color=#0000ff>[</FONT> <FONT color=#008000><STRONG>[</STRONG></FONT>1, 2, 3<FONT color=#008000><STRONG>]</STRONG></FONT>, <FONT color=#008000><STRONG>[</STRONG></FONT>2, 4, 6<FONT color=#008000><STRONG>]</STRONG></FONT> <FONT color=#0000ff><STRONG>]</STRONG></FONT>, &nbsp;<FONT color=#0000ff><STRONG>[</STRONG></FONT> <FONT color=#008000><STRONG>[</STRONG></FONT>2, 4, 6<FONT color=#008000><STRONG>]</STRONG></FONT>, <FONT color=#008000><STRONG>[</STRONG></FONT>4, 8, 12<FONT color=#008000><STRONG>]</STRONG></FONT> <FONT color=#0000ff><STRONG>]</STRONG></FONT> <FONT color=#ff0000><STRONG>]</STRONG></FONT></FONT></P>
+<P><FONT color=#000000>Unlike indexing with square brackets, multi-dimensional indexes are NOT bounds checked, and therefor overruning the bounds of one of the indexes may either fail, or return data from another part of the array.</FONT></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#000000><FONT color=#000080><STRONG>require</STRONG></FONT> </FONT><FONT color=#008080>"array"</FONT></DIV>
+<DIV class=luatable><FONT color=#000000></FONT>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Create an array of 1000 shorts (16-bit integers)</FONT></DIV>
+<DIV class=luatable>arr = array.new(1000, <FONT color=#008080>"short"</FONT>)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Fill array with sequential squares</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>for</STRONG></FONT> i = 1,&nbsp;arr:size() <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; arr[i] = i * i</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Print values (note, we can also use Lua's # length</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- operator on these arrays too)</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>for</STRONG></FONT> i = 1, <FONT color=#000080><STRONG>#</STRONG></FONT>arr <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; <FONT color=#800080>print</FONT>(arr[i])</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Reset array (reset all elements to 0)</FONT></DIV>
+<DIV class=luatable>arr:reset()</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Resize array to half capacity</FONT></DIV>
+<DIV class=luatable>arr:resize(500)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- When we're done, we can free memeory by destroying</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- the table.</FONT></DIV>
+<DIV class=luatable>arr:destroy()</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Further attempts to use arr will have no effect</FONT></DIV>
+<P class=section_title><A href="ext_mmfi_window.htm"></A>&nbsp;</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_array.htm'); 
+HMSelectTopic('ext_array.htm');</script></body>
+</html>

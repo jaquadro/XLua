@@ -1,0 +1,17 @@
+<center><h1>XLua Interface</h1></center>
+
+<p>The XLua Interface is a library for directly manipulating XLua states.  This library allows such tasks as creating and deleting states, executing code across states, or calling functions across states.  Build in access control prevents states from manipulating each other without permission first being granted.  These facilities would make it possible to, for example, create a separate state that acts as a sandbox for untrusted code.</p>
+
+<p>The XLua interface is available in the global table <tt>xlua</tt>.</p>
+
+<h2>Quick Reference</h2>
+
+<a href="xlua_export.htm">xlua.Export</a>(<tt>function</tt>, <tt>func_name</tt>, [<tt>allowed_states...</tt>])<br />
+<a href="xlua_clearexport.htm">xlua.ClearExport</a>(<tt>func_name</tt>)<br />
+<a href="xlua_call.htm">xlua.Call</a>(<tt>state_id</tt>, <tt>func_name</tt>, [<tt>args...</tt>])<br />
+<a href="xlua_load.htm">xlua.Load</a>(<tt>state_id</tt>, <tt>source</tt>, [<tt>name</tt>])<br />
+<a href="xlua_loadfile.htm">xlua.LoadFile</a>(<tt>state_id</tt>, <tt>file</tt>)<br />
+<a href="xlua_grant.htm">xlua.Grant</a>(<tt>feature</tt>, <tt>to_states...</tt>)<br />
+<a href="xlua_revoke.htm">xlua.Revoke</a>(<tt>feature</tt>, <tt>from_states...</tt>)<br />
+<a href="xlua_newstate.htm">xlua.NewState</a>(<tt>state_id</tt>)<br />
+<a href="xlua_deletestate.htm">xlua.DeleteState</a>(<tt>state_id</tt>)<br />

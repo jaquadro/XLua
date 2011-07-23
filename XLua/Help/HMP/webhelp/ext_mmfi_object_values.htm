@@ -1,0 +1,110 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Value Traits</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><HELPMATIC autotopictitle>Value Traits</TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A> » <A href="ext_mmfi_object.htm">Objects</A></LI></UL>
+<P>Value&nbsp;Traits correspond to the&nbsp;<EM>Alterable Values</EM>,&nbsp;<EM>Alterable Strings</EM>, and <EM>Flags</EM> action and expression&nbsp;menus.&nbsp; The MMFI is able to determine at runtime without additional help&nbsp;whether an object supports these traits, and will expose the corresponding fields and methods if it does.</P>
+<P>Flags, strings, and values are all tables that can be directly indexed to get or set a value.&nbsp; Strings and values can also be indexed by their names, if you have defined names for them in the object's properties panel.</P>
+<P class=section_title>Value&nbsp;Fields</P>
+<P>These fields can be read from or written to directly</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>boolean[]</TD>
+<TD class=parameter_name>flags</TD>
+<TD>Array of object's internal flags (1 - 32)</TD></TR>
+<TR>
+<TD class=parameter_type>string[]</TD>
+<TD class=parameter_name>strings</TD>
+<TD>
+<P>Array of object's alterable strings (1 - 10)</P></TD></TR>
+<TR>
+<TD class=parameter_type>number[]</TD>
+<TD class=parameter_name>values</TD>
+<TD>Array of object's alterable values (1 - 26)</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have a table&nbsp;of objects indexed by ID</FONT></DIV>
+<DIV class=luatable>object = mmf.objects[1]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Read some values</FONT></DIV>
+<DIV class=luatable><FONT color=#000000><FONT color=#000080><STRONG>local</STRONG></FONT> flag = object.flags[1]</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> str = object.strings[2]</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> val = object.values[mmf.ALT_C]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Some of our values also have names</FONT></DIV>
+<DIV class=luatable>str = object.strings[<FONT color=#008080>'description'</FONT>]</DIV>
+<DIV class=luatable>val = object.values[<FONT color=#008080>'health'</FONT>]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Update some values</FONT></DIV>
+<DIV class=luatable>object.flags[2] = true</DIV>
+<DIV class=luatable>object.strings[2] = <FONT color=#008080>"Some string"</FONT></DIV>
+<DIV class=luatable>object.values[<FONT color=#008080>'health'</FONT>] = 100</DIV>
+<P> </P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_object.htm">Object API</a>, <a href="ext_mmfi_object_display.htm">Display Traits</a>, <a href="ext_mmfi_object_common.htm">Common Traits</a>, <a href="ext_mmfi_object_movement.htm">Movement Traits</a>, <a href="ext_mmfi_object_anim.htm">Animation Traits</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_values.htm'); 
+HMSelectTopic('ext_mmfi_object_values.htm');</script></body>
+</html>

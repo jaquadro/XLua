@@ -1,0 +1,39 @@
+BODY {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+}
+TD {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+	white-space: nowrap;
+}
+
+select {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+}
+
+input {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+}
+
+a:hover {
+	color: blue;
+	font-weight: bold;
+	text-decoration: none;
+}
+A {
+	color: #5566AA;
+	text-decoration: none;
+}
+
+
+
+
+
+

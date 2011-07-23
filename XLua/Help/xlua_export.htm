@@ -1,0 +1,19 @@
+<h1>XLua: Export</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>void</tt> <b>xlua.Export</b> ( function <tt>func</tt>, string <tt>name</tt>, [number <tt>allowedStates</tt> ...] )
+<p>Makes a function in the current state available to other states.  Once a function is exported, other states will be able to remotely call the function.</p>
+<p>The function parameter is the actual Lua function, whereas the name is the identifier that will be used by other states to call the function.</p>
+<p>Any number of state IDs may be listed as optional parameters, in which case, only the listed states will be allowed to call this function.  If no states are listed, then ANY state is allowed to call this function.</p>
+<p>Once a function is exported, it will continue to persist even if all references to it become lost.  If the function is unexported, it will then be allowed to die.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>func</i>
+<div style="margin-left: 1em;">Lua function to export</div>
+<i>name</i>
+<div style="margin-left: 1em;">The identifier of the function used by other states</div>
+<i>allowedStates</i>
+<div style="margin-left: 1em;">Zero or more states allowed to call this function</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">None</div>

@@ -1,0 +1,103 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Building LuaSocket for XLua</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_violet">Topics</TD>
+<TD class=titleline2><helpmatic autotopictitle>Building LuaSocket for XLua</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="topics.htm">Topics</A>&nbsp;» <A href="topics_build.htm">Building C Modules</A></LI></UL>
+<P>Note: LuaSocket is copyright © 2004-2007 Diego Nehab, and available under the terms of the MIT liscence.</P>
+<P>LuaSocket adds socket programming functionality to Lua, including TCP, UDP, and higher-level protocols including HTTP, FTP, and SMTP.&nbsp; The higher-level protocols are implemented in pure Lua code, but the raw socket functionality is built into a C Module, which must be compiled for XLua.</P>
+<P>These instructions will walk you through the process of building and testing the LuaSocket package.</P>
+<P class=section_title>Before you begin</P>
+<UL>
+<LI>Have an installed&nbsp;copy of Microsoft Visual C++ (Express) 6 or later 
+<LI>Download the XLua extension if you don't have an up to date xlua.lib (<A href="http://hocuspocus.taloncrossing.com/rii/xlua-dist.zip" target=_blank>here</A>) 
+<LI>Download the Lua 5.1 source code (<A href="http://www.lua.org/ftp/lua-5.1.4.tar.gz" target=_blank>here</A> or <A href="http://taloncrossing.com/lua/lua-5.1.4.tar.gz">here</A>) 
+<LI>Download the LuaSocket Windows Binary (<A href="http://luaforge.net/frs/download.php/2666/luasocket-2.0.2-lua-5.1.2-win32-vc8.zip" target=_blank>here</A> or <A href="http://taloncrossing.com/lua/luasocket-2.0.2-lua-5.1.2-win32-vc8.zip" target=_blank>here</A>) 
+<LI>Download the LuaSocket source code (<A href="http://luaforge.net/frs/download.php/2664/luasocket-2.0.2.tar.gz" target=_blank>here</A> or <A href="http://taloncrossing.com/lua/luasocket-2.0.2.tar.gz" target=_blank>here</A>)</LI></UL>
+<P>All links are active as of first publication of this guide, but may change in the future.&nbsp; Likewise, future changes to Lua, XLua, or LuaSocket may&nbsp;render some or all of this guide invalid.</P>
+<P class=section_title>Getting started</P>
+<P>If the goal is to build LuaSocket from source, then why did I ask you to download the Windows binary as well?&nbsp; The binary form of a Lua package may organize files in a specific hierarchy that is not obvious in the source code, or may provide files (such as Lua files) that aren't present in the source code at all.&nbsp; At least the former is true in this case.&nbsp; It's easier to use a package if you follow its prescribed organization.</P>
+<P>Create a new empty folder somewhere on your disk.&nbsp; This is where we'll create our test MMF application.&nbsp; You can also re-use another folder if that suits you.&nbsp; Inside this folder, create a new "ext" folder if it doesn't exist.&nbsp; Now unzip the LuaSocket Windows binary package, and copy the contents into the ext folder.&nbsp; You can delete lua51.exe and lua51.dll, as they won't be used.</P>
+<P>Notice how LuaSocket organizes its files.&nbsp; The lua directory contains all the Lua scripts that make up part of the package, while the other two directories each contain a different copy of core.dll.&nbsp; It's those two copies of core.dll we must now replace before building our XLua application.</P>
+<P>Before moving on, make sure you've unzipped the Lua source code and LuaSocket&nbsp;source code&nbsp;to your hard drive somewhere.</P>
+<P class=section_title>Visual C++</P>
+<P>LuaSocket already comes with Visual C++ project files, but chances are you will be required to run a conversion wizard when you open them.&nbsp; Some warnings or errors may be reported during this process, but can probably be ignored.&nbsp; Specifically, expect an error related to "libluasocket.vcproj", but it doesn't actually exist and thus does not concern us.</P>
+<P><IMG align=bottom src="images/luasock_pe.png"></P>
+<P>Your solution explorer should look something like this.&nbsp; Note that there are two projects listed: one for each of the two core.dll files we need to replace.&nbsp; Also notice that listed with each project is&nbsp;a reference to lua5.1.dll.lib.&nbsp; These "files" are really a reference to the relative path&nbsp;"..\..\lib\lua5.1.dll.lib", which would have been provided by the official Lua binary distribution, which we don't have.&nbsp; But we need to replace these references with xlua.lib instead.&nbsp; Select each lua5.1.dll.lib and delete it from the solution explorer.&nbsp; Now locate your copy of xlua.lib, and drag it onto the "mime" and "socket" project icons to add it to the projects.&nbsp; Alternatively, you can right click, select "Add -&gt; Existing Item", and insert xlua.lib that way.</P>
+<P>As an aside, other projects may list lib files in the project's properties window, under "Linker -&gt; Input", with path(s) to the lib files under "Linker -&gt; General".&nbsp; Select "C\C++", and the first property listed on the right pane will be "Additional Include Directories".&nbsp; Change the value to point to the /src directory of the Lua source code.</P>
+<P>Once you've updated both projects, you can go ahead and build them (build solution).&nbsp; Check the output log on the bottom to make sure there are no errors (warnings are okay).</P>
+<P>In the LuaSocket /src directory, you should now be able to find a copy of socket.dll and mime.dll.&nbsp; Use these to replace the two copies of core.dll (rename the files to core.dll after deleting the old ones).</P>
+<P class=section_title>Testing</P>
+<P>Create a new MFA in your test directory, drop an XLua object on the frame, open the script editor, and add the following code:</P>
+<DIV class=luatable>-- This example is modified from cddb.lua, part of the LuaSocket source package</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable>package.path = "./?.lua;./ext/?.lua;./ext/lua/?.lua"<BR>package.cpath = "./?.dll;./ext/?.dll"<BR><BR>local socket = require("socket")<BR>local http = require("socket.http")<BR><BR>arg = { "soundtrack", "ef11bd12"&nbsp;}<BR><BR>if not arg or not arg[1] or not arg[2] then<BR>&nbsp; print("luasocket cddb.lua <CATEGORY><DISC-ID>[<SERVER>]")<BR>end<BR><BR>local server = arg[3] or "http://freedb.freedb.org/~cddb/cddb.cgi"<BR><BR>function parse(body)<BR>&nbsp; local lines = string.gfind(body, "(.-)\r\n")<BR>&nbsp; local status = lines()<BR>&nbsp; local code, message = socket.skip(2, string.find(status, "(%d%d%d) (.*)"))<BR>&nbsp; if tonumber(code) ~= 210 then<BR>&nbsp; &nbsp; return nil, code, message<BR>&nbsp; end<BR>&nbsp; local data = {}<BR>&nbsp; for l in lines do<BR>&nbsp; &nbsp; local c = string.sub(l, 1, 1)<BR>&nbsp; &nbsp; if c ~= '#' and c ~= '.' then<BR>&nbsp; &nbsp; &nbsp; local key, value = socket.skip(2, string.find(l, "(.-)=(.*)"))<BR>&nbsp; &nbsp; &nbsp; value = string.gsub(value, "\\n", "\n")<BR>&nbsp; &nbsp; &nbsp; value = string.gsub(value, "\\\\", "\\")<BR>&nbsp; &nbsp; &nbsp; value = string.gsub(value, "\\t", "\t")<BR>&nbsp; &nbsp; &nbsp; table.insert(data, {key, value})<BR>&nbsp; &nbsp; end<BR>&nbsp; end<BR>&nbsp; return data, code, message <BR>end<BR><BR>local host = socket.dns.gethostname()<BR>local query = "%s?cmd=cddb+read+%s+%s&hello=LuaSocket+%s+LuaSocket+2.0&proto=6"<BR>local url = string.format(query, server, arg[1], arg[2], host)<BR>local body, code, headers = http.request(url)<BR><BR>if code == 200 then<BR>&nbsp; local data, code, error = parse(body)<BR>&nbsp; if not data then<BR>&nbsp; &nbsp; print(error or code)<BR>&nbsp; else<BR>&nbsp; &nbsp; for i,v in pairs(data) do<BR>&nbsp; &nbsp; &nbsp; print(v[1], ': ', v[2], '\n')<BR>&nbsp; &nbsp; end<BR>&nbsp; end<BR>else print(error) end</DIV>
+<P>Also check the "run script at start of frame" box.&nbsp; The rest of your application only needs events to intercept XLua print and error events, and write them to an edit box.&nbsp; If everything is working, you should see a list of track titles printed out, fetched from freedb.</P>
+<P>If you have trouble, a slightly modified version of this example is provided with the XLua distribution as socket.mfa, along with a compatible copy of LuaSocket.&nbsp; No, your efforts wern't wasted, this is valuable practice for compiling other Lua packages that haven't already been done for you!</P>
+<P>If you're interested in using LuaSocket, full API reference and additional examples can be found at the <A href="http://w3.impa.br/~diego/software/luasocket/home.html" target=_blank>LuaSocket page</A>.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('topics_build_socket.htm'); 
+HMSelectTopic('topics_build_socket.htm');</script></body>
+</html>

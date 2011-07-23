@@ -1,0 +1,144 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Variables</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Variables</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="expr.htm">Expressions</A> »&nbsp;Variables</LI></UL>
+<P>This group of expressions allows direct&nbsp;access to global Lua variables.&nbsp; See <A href="act_vars.htm">Variables</A> in Actions for more information on valid variable names.</P>
+<P class=action>Get Integer Variable</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">NumericVar</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns a variable from Lua's global namespace as an integer value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Floating Variable</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">FloatingVar</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns a variable from Lua's global namespace as a floating-point value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;String Variable</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">StringVar$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns a variable from Lua's global namespace as a string value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Boolean Variable</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">BooleanVar</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns a variable from Lua's global namespace as&nbsp;a boolean&nbsp;value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR></TBODY></TABLE></P>
+<P class=action>Get Variable Type</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">VarType$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns the type of a variable in Lua. The most common types that will be returned are <TT>nil</TT>, <TT>boolean</TT>, <TT>number</TT>, <TT>string</TT>, <TT>table</TT>, and <TT>function</TT>. Other valid types that may be returned are <TT>userdata</TT>, <TT>thread</TT>, <TT>proto</TT>, and <TT>upval</TT>.</P>
+<P>If the requested variable does not exist, the return type is <TT>nil</TT>. If the XLua object is currently unbound, the return type is the empty string.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Table Length</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">TableLength</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns the length of a table as defined by Lua's <TT>#</TT> length operator. This is intended for tables with contiguous numeric indices, its behavior is unpredictable otherwise.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Table&nbsp;name</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Table Max Index</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">TableMaxN</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns the maximum numeric index of a table. This is the same as Lua's table.maxn function.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Table&nbsp;name</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr_vars.htm'); 
+HMSelectTopic('expr_vars.htm');</script></body>
+</html>

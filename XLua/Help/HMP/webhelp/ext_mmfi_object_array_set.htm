@@ -1,0 +1,99 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Set Value</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Set Value</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A>&nbsp;»&nbsp;<A href="ext_mmfi_object.htm">Objects</A>&nbsp;» <A href="ext_mmfi_object_array.htm">Array</A></LI></UL>
+<P class=prototype>void&nbsp;<STRONG><EM>object</EM>.set</STRONG> (&nbsp;number <EM>value</EM>, [number&nbsp;<EM>x</EM> [, number <EM>y</EM> [, number <EM>z</EM>] ] ]&nbsp;) </P>
+<P>Updates the value of an array slot.&nbsp; If x, y, or z indecies are not specified, then the current index values (curX, curY, and curZ) will be used.&nbsp; Requests for values outside of valid index ranges will fail.</P>
+<P>Only numeric arrays can be updated.&nbsp; Calling set on string arrays will be ignored.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>value</TD>
+<TD>New value for the array slot</TD></TR>
+<TR>
+<TD class=parameter_id>x</TD>
+<TD><EM>Optional.</EM>&nbsp; Index in X dimension</TD></TR>
+<TR>
+<TD class=parameter_id>y</TD>
+<TD><EM>Optional.</EM>&nbsp; Index in&nbsp;Y dimension</TD></TR>
+<TR>
+<TD class=parameter_id>z</TD>
+<TD><EM>Optional.</EM>&nbsp; Index in&nbsp;Z dimension</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>None.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we&nbsp;have an array object "arr"</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- Set value at (X=3,Y=2,Z=1)</FONT></DIV>
+<DIV class=luatable><FONT color=#000000>arr.set(50, 3, 2, 1)</FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(arr.get(3, 2, 1) == 50)</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_array_set.htm'); 
+HMSelectTopic('ext_mmfi_object_array_set.htm');</script></body>
+</html>

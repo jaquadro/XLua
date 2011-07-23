@@ -1,0 +1,75 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>The 'require' Function</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_violet">Topics</TD>
+<TD class=titleline2><helpmatic autotopictitle>The 'require' Function</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="topics.htm">Topics</A></LI></UL>
+<P>The <FONT face="Courier New">require</FONT> function is the main mechanism for Lua to include new packages into source code.&nbsp; Invoking require will cause Lua to search a number of predesignated paths on the filesystem for the package.&nbsp; These paths can also be modified at runtime.</P>
+<P>XLua extends require by also searching special areas in MMF.&nbsp; The first of these areas is the <EM>Binary Data</EM> section of the <EM>Data Elements</EM> editor.&nbsp; This is a place that a script file or C module could be stored, and when the application is built, those files would be embedded in the EXE, hidden away.</P>
+<P>The second area XLua looks is in the embedded scripts list in the XLua object itself, so it is possible to 'require' any embedded script directly by name.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('topics_require.htm'); 
+HMSelectTopic('topics_require.htm');</script></body>
+</html>

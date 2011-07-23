@@ -1,0 +1,85 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Destroy</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Destroy</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_array.htm">Static Array</A></LI></UL>
+<P class=prototype>void&nbsp;<STRONG><EM>array</EM>:destroy</STRONG> (&nbsp;) </P>
+<P>Cleans up the array object and releases its allocated memory.&nbsp; Any further operations on the object after calling destroy will have no effect.&nbsp; If the object itself is naturally collected by the garbage collector, then the internal allocated memory will also be released at that time.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>None.</P>
+<P class=section_title>Return Values</P>
+<P>None.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have an array "arr"</FONT></DIV>
+<DIV class=luatable>arr:destroy()</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Further actions have no effect</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT>&nbsp;val = arr[0]</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(val == <FONT color=#000080><STRONG>nil</STRONG></FONT>)</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_array_destroy.htm'); 
+HMSelectTopic('ext_array_destroy.htm');</script></body>
+</html>

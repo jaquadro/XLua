@@ -1,0 +1,93 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Destroy Object</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Destroy Object</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi_object.htm">Object API</A>&nbsp;» <A href="ext_mmfi_object_common.htm">Common Traits</A></LI></UL>
+<P class=prototype>void&nbsp;<STRONG><EM>object</EM>.destroy</STRONG> (&nbsp;) </P>
+<P>This method destroys the corresponding object in the MMF frame, as if a native "Destroy" action had been used.&nbsp; Additionally, the Lua object on which destroy was called is also disabled, so that trying to further access or update the destroyed object results in an error.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>None.</P>
+<P class=section_title>Return Values</P>
+<P>None.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have a table of objects indexed by ID</FONT></DIV>
+<DIV class=luatable>object = mmf.objects[1]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- If object touches the left screen edge, then</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- we will destroy it</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>if</STRONG></FONT> (object.xRight &lt; 0) <FONT color=#000080><STRONG>then</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; object.destroy()</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- If an object is destroyed, all its fields will</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- return the nil value</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>if</STRONG></FONT> (object.fixed == <FONT color=#000080><STRONG>nil</STRONG></FONT>) <FONT color=#000080><STRONG>then</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; <FONT color=#800080>print</FONT>(<FONT color=#008080>"Object destroyed!"</FONT>)</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_common_destroy.htm'); 
+HMSelectTopic('ext_mmfi_object_common_destroy.htm');</script></body>
+</html>

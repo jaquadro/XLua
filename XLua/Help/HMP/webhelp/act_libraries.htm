@@ -1,0 +1,135 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Libraries</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Libraries</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;Libraries</LI></UL>
+<P>This group of actions is used to enable parts of Lua's standard library.&nbsp; XLua adds two more packages to the standard set: bitop and jit.&nbsp; Additionally 3rd-party libraries can be loaded as external C modules.</P>
+<P class=action>Open All Libraries</P>
+<P>Opens all lua's system libraries, and the bitop library. This does not open the included JIT library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open External C Module</P>
+<P>C Modules are special DLL files that can add functionality to Lua. They can be included in Lua code with the "require" statement, or they can be included with this action.</P>
+<P>This action allows you to browse for a DLL to open, and asks for the package name of the C Module. The DLL should be located in the same directory of your application file, or in a relative subdirectory. If "Include External Files" is enabled in your application properties, the DLL file will be embedded in your compiled EXE (but this is not true if you define the path with an expression).</P>
+<P>The package name should be provided to you with the module's instructions. The package name is the same identifier used in "require" statements, and typically follows the same conventions.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Filename</TD>
+<TD>Path to DLL file</TD></TR>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Package name</TD></TR></TBODY></TABLE></P>
+<P class=action>Open base</P>
+<P>Opens the Base library. The Base library will be opened by default. The base library include standard functions such as <TT>print</TT> and <TT>pairs</TT>.&nbsp; It also contains the coroutines.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'package'</P>
+<P>Opens the package library. This is required for "require" functionality. Some actions may automatically open this library for you.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'table'</P>
+<P>Opens the table library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'io'</P>
+<P>Opens the I/O library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'os'</P>
+<P>Opens the OS library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'string'</P>
+<P>Opens the String library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'math'</P>
+<P>Opens the math library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'debug'</P>
+<P>Opens the debug library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'bit'</P>
+<P>Opens the bitop library. This is an additional library included with XLua that adds support for bitwise operations.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Open 'jit'</P>
+<P>Opens the LuaJIT library. This is an additional library included with XLua that adds support for interacting with the embedded LuaJIT engine.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Enable LuaJIT</P>
+<P>Turns on the LuaJIT engine. XLua is built with LuaJIT sources, but by default operates with the JIT engine disabled. This will also include the LuaJIT library.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_libraries.htm'); 
+HMSelectTopic('act_libraries.htm');</script></body>
+</html>

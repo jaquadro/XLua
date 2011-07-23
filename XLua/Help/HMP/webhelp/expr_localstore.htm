@@ -1,0 +1,94 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Local Store</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Local Store</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="expr.htm">Expressions</A> »&nbsp;Local Storage</LI></UL>
+<P>This feature is <STRONG>deprecated</STRONG>.&nbsp; Use of this feature in new projects is discouraged.</P>
+<P>The Local Store is a feature that predates XLua's advanced variable handling, and was used as an alternate method for making data available to a Lua state, without incurring the overhead of function calls.&nbsp; Stored data could be accessed using functions exposed by the MMF Interface.</P>
+<P class=action>Get Integer Variable</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LocalVal</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns an indexed value from the object's local storage. This is similar to an alterable value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get Integer Variable</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LocalStr$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns an indexed&nbsp;string from the object's local storage. This is similar to an alterable string.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Index</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr_localstore.htm'); 
+HMSelectTopic('expr_localstore.htm');</script></body>
+</html>

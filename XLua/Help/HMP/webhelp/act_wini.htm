@@ -1,0 +1,82 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>WIN Interface</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>WIN Interface</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;WIN Interface</LI></UL>
+<P>This feature is <STRONG>deprecated</STRONG>.&nbsp; Use of this feature in new projects is discouraged.</P>
+<P>The WIN interface exposes limited ability to recieve Windows messages.&nbsp; Future interaction with the Windows API should be done with an external C Module, but as of yet no module is included with XLua.</P>
+<P class=action>Enable</P>
+<P>Enables the <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/win.htm"><FONT color=#0066cc>WIN Interface</FONT></A>, which allows lua code to intercept Windows messages. Related functions are stored in the global <TT>win</TT> table.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Reset Exports</P>
+<P>Removes all previously-defined message bindings.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_wini.htm'); 
+HMSelectTopic('act_wini.htm');</script></body>
+</html>

@@ -1,0 +1,108 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Inline Function Call With Numeric Return</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Inline Function Call With Numeric Return</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="expr.htm">Expressions</A> » <A href="expr_lua.htm">Lua Functions</A> » <A href="expr_lua_call.htm">Call Lua Function</A> » Numeric Return</LI></UL>
+<P class=action>Call With Existing Parameters</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LuaFunction</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Calls a lua function mid-expression with any previously pushed parameters, and returns the first result as a number. Any previous return results are discarded.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Function name</TD></TR></TBODY></TABLE></P>
+<P class=action>Call With Numeric Parameter</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LuaFunctionNP</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Calls a lua function mid-expression with a single integer parameter, and returns the first result as a number. Any previous return results or pushed parameters are discarded.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Function name</TD></TR>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Integer parameter</TD></TR></TBODY></TABLE></P>
+<P class=action>Call With&nbsp;String Parameter</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">LuaFunctionSP</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Calls a lua function mid-expression with a single&nbsp;string parameter, and returns the first result as a number. Any previous return results or pushed parameters are discarded.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Function name</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>String&nbsp;parameter</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr_lua_call_numeric.htm'); 
+HMSelectTopic('expr_lua_call_numeric.htm');</script></body>
+</html>

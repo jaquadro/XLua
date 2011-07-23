@@ -1,0 +1,15 @@
+<center><h1>Extensions</h1></center>
+
+<p>The XLua object can interact with certain 3rd party extensions through C Modules proivded by the extension author.  C Modules are a powerful tool for adding functionality to Lua, but in particular extension authors can write a C Module that exposes some or all of their extension's capabilities to XLua without needing to pass through MMF's event loop.  Objects can be exposed to the C Modules using the generic <tt>Export Object</tt> action in the MMF Interface.</p>
+<!--<p>The XLua object can be directly interfaced with some 3rd party objects.  Right now only the OpenGL object is supported, but more objects may be supported in the future depending on author requests and the usefulness of the proposed combination.  Generic object interfacing is provided through the <a href="mmfi.htm">MMF Interface</a>.-->
+
+<p>C Modules can be included in a variety of ways.  One is to use the <tt>Open External C Module</tt> action, where you browse for the module's DLL and specify the package name (e.g., ext.opengl).  The other way is to use lua's "require" function in your lua code, which can import C Modules from a relative directory, or from MMF's binary data list.</p>
+
+<p>Although extension-specific C Modules are maintained and supported by their respective authors, some of them are documented here for example and convenience.</p>
+
+<h2>Current Extensions</h2>
+
+<ul>
+<li><a href="lua_ext.html">Lua Extensions</a> [embedded]</li>
+<li><a href="opengl.htm">OpenGL Object Support</a></li>
+</ul>

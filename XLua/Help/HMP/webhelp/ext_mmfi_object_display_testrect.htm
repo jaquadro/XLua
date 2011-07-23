@@ -1,0 +1,119 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Test Rectangle</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Test Rectangle</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A>&nbsp;»&nbsp;<A href="ext_mmfi_object.htm">Objects</A>&nbsp;» <A href="ext_mmfi_object_display.htm">Display Traits</A></LI></UL>
+<P class=prototype>boolean <STRONG><EM>object</EM>.testRect</STRONG> ( number&nbsp;<EM>x</EM>, number <EM>y</EM>, number <EM>w</EM>, number <EM>h</EM>,&nbsp;[number&nbsp;<EM>layer</EM> [, number <EM>xoff</EM> [, number <EM>yoff</EM>] ] ]&nbsp;) </P>
+<P>Tests if the object is currently overlapping a specific&nbsp;rectangular region&nbsp;in the frame.</P>
+<P>If&nbsp;a layer is specified, the test is limited to&nbsp;instances on that&nbsp;layer.&nbsp; By default, layer is equal to mmf.ANY_LAYER.&nbsp; If the xoff or yoff parameters are specified, the test is made as if the object had first been moved by those amounts (but without actually moving the object).</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>x</TD>
+<TD>X coordinate of&nbsp;left edge of&nbsp;rectangle&nbsp;in the frame</TD></TR>
+<TR>
+<TD class=parameter_id>y</TD>
+<TD>Y coordinate of top edge of rectangle&nbsp;in the frame</TD></TR>
+<TR>
+<TD class=parameter_id>w</TD>
+<TD>Width of rectangular region to test</TD></TR>
+<TR>
+<TD class=parameter_id>h</TD>
+<TD>Height of rectangular region to test</TD></TR>
+<TR>
+<TD class=parameter_id>layer</TD>
+<TD><EM>Optional.</EM>&nbsp; 1-based layer index, or constants mmf.ANY_LAYER, mmf.SAME_LAYER, or mmf.DIFF_LAYER&nbsp;</TD></TR>
+<TR>
+<TD class=parameter_id>xoff</TD>
+<TD><EM>Optional.</EM>&nbsp; X coordinate offset to shift object before making the test</TD></TR>
+<TR>
+<TD class=parameter_id>yoff</TD>
+<TD><EM>Optional.</EM>&nbsp; Y coordinate offset to shift object before making the test</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>boolean</TD>
+<TD>true if object is overlapping the specified rectangular region, false otherwise</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have a goomba object</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- If goomba tries to walk off the edge of the frame, turn around</FONT></DIV>
+<DIV class=luatable><FONT color=#000000><FONT color=#000080><STRONG>local</STRONG></FONT> x = mmf.frame.xRight</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> y = mmf.frame.yTop</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> w = 2</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> h = mmf.frame.yBottom</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#000000><FONT color=#000080><STRONG>if</STRONG></FONT> (goomba.testRect(x, y, w, h) </FONT><FONT color=#000080><STRONG>then</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; goomba.x = goomba.x - 1</DIV>
+<DIV class=luatable>&nbsp; goomba.direction = mmf.DIR_W</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_display_testrect.htm'); 
+HMSelectTopic('ext_mmfi_object_display_testrect.htm');</script></body>
+</html>

@@ -1,0 +1,95 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Clone</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Clone</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_array.htm">Static Array</A></LI></UL>
+<P class=prototype><A href="ext_array.htm">array</A>&nbsp;<STRONG><EM>array</EM>:clone</STRONG> (&nbsp;) </P>
+<P>Returns a new independent static array object that is a deep copy of itself.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>None.</P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id><A href="ext_array.htm">array</A></TD>
+<TD>Copied array object</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Error Conditions</P>
+<P>If there is not enough available&nbsp;memory in the system to create a copy of the array, this function will&nbsp;signal an error.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Create an array</FONT></DIV>
+<DIV class=luatable><STRONG><FONT color=#000080>local</FONT></STRONG> arr = array.new(10)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Clone the array</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> arr2 = arr:clone()</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(arr[0] == arr2[0])</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable>arr[0] = 5</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(arr[0] ~= arr2[0])</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_array_clone.htm'); 
+HMSelectTopic('ext_array_clone.htm');</script></body>
+</html>

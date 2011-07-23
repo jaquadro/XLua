@@ -1,0 +1,85 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Extensions to the Lua Library</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_violet">Topics</TD>
+<TD class=titleline2><helpmatic autotopictitle>Extensions to the Lua Library</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="topics.htm">Topics</A></LI></UL>
+<P>Several changes and additions have been made to the default Lua library for XLua.&nbsp; This includes the modification of functions to integrate better into XLua/MMF, the addition of new functions, and the&nbsp;inclusion of 3rd party&nbsp;libraries.</P>
+<P class=section_title>Changes to Existing Functions</P>
+<UL>
+<LI class=parameter_funcname>print 
+<LI><A class=parameter_funcname href="topics_require.htm">require</A></LI></UL>
+<P class=section_title>New Functions</P>
+<UL>
+<LI class=parameter_funcname><A href="topics_lualib_docall.htm">DoCall()</A> 
+<LI><A class=parameter_funcname href="topics_lualib_osmicroclock.htm">os.microclock()</A></LI></UL>
+<P class=section_title>3rd Party Libraries</P>
+<UL>
+<LI class=parameter_funcname>bitop 
+<LI class=parameter_funcname>jit</LI></UL><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('topics_lualib.htm'); 
+HMSelectTopic('topics_lualib.htm');</script></body>
+</html>

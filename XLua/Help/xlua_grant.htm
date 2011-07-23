@@ -1,0 +1,18 @@
+<h1>XLua: Grant</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>void</tt> <b>xlua.Grant</b> ( number <tt>feature</tt>, number <tt>to_states</tt>... )
+<p>Grants permission to a remote state to exercise the specified "feature" in the current state.  Currently, the available features are the following enumerations:</p>
+<ul><li>xlua.REMOTE_LOAD: Allows a remote state to load and execute Lua code in this state.</li>
+<li>xlua.REMOTE_DESTROY: Allows a remote state to destroy this state.</li></ul>
+<p>The REMOTE_LOAD permission gives remote states virtually free reign over the current state and should be used with care.  Even if the REMOTE_DESTROY permission is granted, no state can be destroyed while it is still bound to an XLua object.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>feature</i>
+<div style="margin-left: 1em;">A valid permission enumeration</div>
+<i>to_states</i>
+<div style="margin-left: 1em;">One or more states to grant this permission to</div>
+</div>
+<p><b>Return Values:</b></p>
+None.
+</div>

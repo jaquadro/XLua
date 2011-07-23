@@ -1,0 +1,93 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Player Lives</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Player Lives</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A>&nbsp;»&nbsp;<A href="ext_mmfi_runtime.htm">Runtime</A></LI></UL>
+<P class=prototype>number&nbsp;<STRONG>mmf.runtime.playerLives</STRONG> (&nbsp;number&nbsp;<EM>player</EM>&nbsp;) </P>
+<P>Returns the&nbsp;number of lives&nbsp;of one of the players.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>player</TD>
+<TD>Player index (1 - 4)</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>number</TD>
+<TD>Number of lives</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#000080><STRONG>if</STRONG></FONT> (mmf.runtime.playerLives(1) == 0) <FONT color=#000080><STRONG>then</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; <FONT color=#800080>print</FONT>(<FONT color=#008080>"Game Over"</FONT>)</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<P></P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_runtime_setplayerlives.htm">Set Player Lives</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_runtime_playerlives.htm'); 
+HMSelectTopic('ext_mmfi_runtime_playerlives.htm');</script></body>
+</html>

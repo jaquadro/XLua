@@ -1,0 +1,22 @@
+<h1>MMFI: Backdrop Test Object</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>mmf.Collisions.BackdropTestObject</b> ( number <tt>objid</tt> [, number <tt>layer</tt> [, number <tt>xoff</tt> [, number <tt>yoff</tt>] ] ] )
+<p>Tests the intersection of the background collision mask against the collision mask of another object for an obstacle.  If layer is specified, only that layer will be tested.  If an X-offset or Y-offset are specified, they will be added to the object's coordinates before testing.</p>
+<p>The layer parameter may additionally be either of the special constants mmf.SAME_LAYER or mmf.DIFF_LAYER.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>objid</i>
+<div style="margin-left: 1em;">ID of object to use as a collision mask</div>
+<i>layer</i>
+<div style="margin-left: 1em;">1-based layer to test on</div>
+<i>xoff</i>
+<div style="margin-left: 1em;">Distance in pixels to offset object's mask on the X axis</div>
+<i>yoff</i>
+<div style="margin-left: 1em;">Distance in pixels to offset object's mask on the Y axis</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>boolean</tt>
+<div style="margin-left: 1em;"><tt>true</tt> if there is an obsticle, <tt>false</tt> otherwise</div>
+</div>

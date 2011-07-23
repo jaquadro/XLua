@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Other Topics</div>
+<div class="lv2 active">DoCall</div>
+</div>
+
+&nbsp;
+<div style="margin-left: 1em;"><tt>...</tt> <b>DoCall</b> (string <tt>function</tt>, <tt>...</tt>)
+
+<p><tt>DoCall</tt> is a top-levle Lua function that can be used to call an MMF function.  It is an alternative to using function registration.  All registered functions, in fact, are simple wrappers around a DoCall function.</p>
+
+<p>DoCall takes the function name to call as its first parameter, then all parameters intended for the target function.  It returns all values returned by the target function.</p>
+
+<p>For calling MMF functions set up in <a href="other_func_groups.htm">function groups</a>, the functions <tt>DoCallA</tt>, <tt>DoCallB</tt>, <tt>DoCallC</tt>, <tt>DoCallD</tt>, <tt>DoCallE</tt>, <tt>DoCallF</tt>, and <tt>DoCallG</tt> are defined in the global table and follow the same semantics.</p>
+

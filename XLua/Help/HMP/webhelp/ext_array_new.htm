@@ -1,0 +1,104 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>New</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>New</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_array.htm">Static Array</A></LI></UL>
+<P class=prototype><A href="ext_array.htm">array</A>&nbsp;<STRONG>array.new</STRONG> (&nbsp;number <EM>i1</EM>,&nbsp;<EM>i2</EM>, ... <EM>in</EM> [, string <EM>type</EM>]&nbsp;) </P>
+<P>Creates and returns a new static array object of one or more dimensions.&nbsp; If no type is specified, then the element type of the array will be a double.</P>
+<P>Memory for the array is pre-allocated immediately, and is equal to the product of all the dimension sizes and the size of the storage type.&nbsp; Elements stored in the static array will never be collected by the garbage collector, until the entire object is collected.</P>
+<P>The acceptable storage types are: <FONT face="Courier New">char</FONT>, <FONT face="Courier New">byte</FONT>, <FONT face="Courier New">short</FONT>, <FONT face="Courier New">int</FONT>, <FONT face="Courier New">long</FONT>, <FONT face="Courier New">float</FONT>, and <FONT face="Courier New">double</FONT>.&nbsp; Storage types cannot be changed after the array is created.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>in</TD>
+<TD>One or more dimension sizes&nbsp;</TD></TR>
+<TR>
+<TD class=parameter_id>type</TD>
+<TD><EM>Optional.</EM>&nbsp; The storage type of the elements</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id><A href="ext_array.htm">array</A></TD>
+<TD>A new static&nbsp;array object</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Error Conditions</P>
+<P>If there is not enough available&nbsp;memory in the system to satisfy the reqested size, this function will&nbsp;signal an error.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Create an array of doubles</FONT></DIV>
+<DIV class=luatable><STRONG><FONT color=#000080>local</FONT></STRONG>&nbsp;arr = array.new(1000)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Create an array of ints</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> arr2 = array.new(500, <FONT color=#008080>"int"</FONT>)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Create a 3D array of bytes</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> arr3 = array.new(10, 20, 5, <FONT color=#008080>"byte"</FONT>)</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_array_new.htm'); 
+HMSelectTopic('ext_array_new.htm');</script></body>
+</html>

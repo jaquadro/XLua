@@ -1,0 +1,112 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Object Overlaps Object</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Object Overlaps Object</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<DIV class=subheader>&nbsp;</DIV>
+<DIV class=subheader><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi_object.htm">Object API</A>&nbsp;» <A href="ext_mmfi_object_display.htm">Active Objects</A></DIV>
+<P class=prototype>boolean <STRONG><EM>object</EM>.overlapsObject</STRONG> ( table object2&nbsp;[, number layerMode&nbsp;[, number <EM>xOffset</EM> [, number <EM>yOffset</EM>] ]&nbsp;] ) </P>
+<P>Tests if the current object is overlapping any part of a second target object. This function only tests overlap between two specific object instances; it does not test for overlap between an object and an object class.</P>
+<P>An optional&nbsp;second parameter controls whether the overlapping objects can be on different layers.</P>
+<P>An optional&nbsp;third and fourth&nbsp;parameter can perform the overlap test as if the first object had been offset in the X and Y directions.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=0 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TH>Type</TH>
+<TH>Description</TH></TR>
+<TR>
+<TD class=parameter_id><EM>object2</EM></TD>
+<TD>The object table of another object to test overlap with</TD></TR>
+<TR>
+<TD class=parameter_id><EM>layerMode</EM></TD>
+<TD>An optional value that takes one of two constants from the mmf namespace: mmf.SAME_LAYER or mmf.ANY_LAYER. If mmf.ANY_LAYER is specified, the overlap test will ignore layers. If mmf.SAME_LAYER is specified, the test will fail if the two objects are on separate layers. mmf.SAME_LAYER is the default value.</TD></TR>
+<TR>
+<TD class=parameter_id><EM>xOffset</EM></TD>
+<TD>An optional value that is added to the first object's X coordinate prior to the overlap test. The object's coordinate is not actually changed.</TD></TR>
+<TR>
+<TD class=parameter_id><EM>yOffset</EM></TD>
+<TD>An optional value that is added to the first object's&nbsp;Y coordinate prior to the overlap test. The object's coordinate is not actually changed.</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>boolean</TD>
+<TD><FONT face="Courier New">true</FONT> if the two objects overlap, <FONT face="Courier New">false</FONT> otherwise&nbsp;</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we&nbsp;have a table of objects indexed by ID</FONT></DIV>
+<DIV class=luatable>object1 = mmf.objects[1]</DIV>
+<DIV class=luatable>object2 = mmf.objects[2]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Destroy two specific objects that have collided</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>if</STRONG></FONT> (object1.overlapsObject(object2)) <STRONG><FONT color=#000080>then</FONT></STRONG></DIV>
+<DIV class=luatable>&nbsp; object1.destroy()</DIV>
+<DIV class=luatable>&nbsp; object2.destroy()</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_ao_overlapsobject.htm'); 
+HMSelectTopic('ext_mmfi_object_ao_overlapsobject.htm');</script></body>
+</html>

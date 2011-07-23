@@ -1,0 +1,11 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; Config &#8227; Print Event Mode</div>
+<div class="lv2 active">Set Queued</div>
+</div>
+
+<p>Sets future print events to queued mode.  Queued mode causes any <a href="cond_onprint.htm">On Print</a> triggered events from when a native print() function is used in Lua to be queued up and executed at the end of MMF's event loop.</p>
+<p>Queued mode execution is safe, but limits in the size of MMF's event queue may cause other queued events from XLua or other objects to get dropped if too many events are triggered in the same event loop.  <a href="act_config_print_immediate.htm">Immediate mode</a> can get around this problem.</p>
+
+<div class="sec">Parameters</div>
+<p>None.</p>

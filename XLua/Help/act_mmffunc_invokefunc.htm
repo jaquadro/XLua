@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; MMF Functions</div>
+<div class="lv2 active">Invoke MMF Function</div>
+</div>
+
+<p>Directly executes one of your MMF Functions (On Function events).  The function does not need to be explicitly registered.  Any currently pushed Lua parameters will be passed as MMF parameters, and any returns will be returned as Lua return values.</p>
+<p>This action is equivilent to calling a Lua function that only calls another MMF function, and transparently passes the parameters and return values.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">String</td><td class="desc">Function name</td>
+</tr></table>

@@ -1,0 +1,517 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="The xLua Object">
+		<param name="Local" value="overview.htm">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="MMF Interface">
+			<param name="Local" value="mmfi.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Collisions">
+				<param name="Local" value="mmfi_col.htm">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="BackdropTestObject">
+					<param name="Local" value="mmfi_col_backobj.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="BackdropTestPoint">
+					<param name="Local" value="mmfi_col_backpoint.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="BackdropTestRect">
+					<param name="Local" value="mmfi_col_backrect.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetObjectsOverObject">
+					<param name="Local" value="mmfi_col_listobj.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetObjectsOverPoint">
+					<param name="Local" value="mmfi_col_listpoint.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetObjectsOverRect">
+					<param name="Local" value="mmfi_col_listrect.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ObjectClassTestObject">
+					<param name="Local" value="mmfi_col_classobj.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ObjectClassTestPoint">
+					<param name="Local" value="mmfi_col_classpoint.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ObjectClassTestRect">
+					<param name="Local" value="mmfi_col_classrect.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ObjectTestObject">
+					<param name="Local" value="mmfi_col_objobj.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ObjectTestPoint">
+					<param name="Local" value="mmfi_col_objpoint.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ObjectTestRect">
+					<param name="Local" value="mmfi_col_objrect.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Constants">
+				<param name="Local" value="mmfi_constants.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="DestroyCallback">
+				<param name="Local" value="mmfi_destroycallback.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ExportCallback">
+				<param name="Local" value="mmfi_exportcallback.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Frame">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetHeight">
+					<param name="Local" value="mmfi_frame_getheight.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetVHeight">
+					<param name="Local" value="mmfi_frame_getvheight.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetVWidth">
+					<param name="Local" value="mmfi_frame_getvwidth.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetWidth">
+					<param name="Local" value="mmfi_frame_getwidth.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetXLeft">
+					<param name="Local" value="mmfi_frame_getxleft.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetXRight">
+					<param name="Local" value="mmfi_frame_getxright.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetYBottom">
+					<param name="Local" value="mmfi_frame_getybottom.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetYTop">
+					<param name="Local" value="mmfi_frame_getytop.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Global">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetString">
+					<param name="Local" value="mmfi_global_getstring.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetValue">
+					<param name="Local" value="mmfi_global_getvalue.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetString">
+					<param name="Local" value="mmfi_global_setstring.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetValue">
+					<param name="Local" value="mmfi_global_setvalue.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Keyboard">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="KeyDown">
+					<param name="Local" value="mmfi_keyboard_iskeydown.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="KeyUp">
+					<param name="Local" value="mmfi_keyboard_iskeyup.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="LocalStore">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetString">
+					<param name="Local" value="mmfi_local_getstring.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetValue">
+					<param name="Local" value="mmfi_local_getvalue.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetString">
+					<param name="Local" value="mmfi_local_setstring.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetValue">
+					<param name="Local" value="mmfi_local_setvalue.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Mouse">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ButtonDown">
+					<param name="Local" value="mmfi_mouse_isbuttondown.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="ButtonUp">
+					<param name="Local" value="mmfi_mouse_isbuttonup.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetClientX">
+					<param name="Local" value="mmfi_mouse_getclientx.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetClientY">
+					<param name="Local" value="mmfi_mouse_getclienty.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetX">
+					<param name="Local" value="mmfi_mouse_getx.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetY">
+					<param name="Local" value="mmfi_mouse_gety.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Object">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Destroy">
+					<param name="Local" value="mmfi_object_destroy.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Export">
+					<param name="Local" value="mmfi_object_export.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetAngle">
+					<param name="Local" value="mmfi_object_getangle.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetAnimation">
+					<param name="Local" value="mmfi_object_getanimation.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetAnimationFrame">
+					<param name="Local" value="mmfi_object_getanimationframe.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetClass">
+					<param name="Local" value="mmfi_object_getclass.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetDirection">
+					<param name="Local" value="mmfi_object_getdirection.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetFixed">
+					<param name="Local" value="mmfi_object_getfixed.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetFlag">
+					<param name="Local" value="mmfi_object_getflag.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetHeight">
+					<param name="Local" value="mmfi_object_getheight.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetHotspot">
+					<param name="Local" value="mmfi_object_gethotspot.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetHotspotX">
+					<param name="Local" value="mmfi_object_gethotspotx.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetHotspotY">
+					<param name="Local" value="mmfi_object_gethotspoty.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetIdentifier">
+					<param name="Local" value="mmfi_object_getident.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetLayer">
+					<param name="Local" value="mmfi_object_getlayer.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetName">
+					<param name="Local" value="mmfi_object_getname.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetPosition">
+					<param name="Local" value="mmfi_object_getposition.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetScale">
+					<param name="Local" value="mmfi_object_getscale.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetScaleX">
+					<param name="Local" value="mmfi_object_getscalex.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetScaleY">
+					<param name="Local" value="mmfi_object_getscaley.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetString">
+					<param name="Local" value="mmfi_object_getstring.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetValue">
+					<param name="Local" value="mmfi_object_getvalue.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetVisibility">
+					<param name="Local" value="mmfi_object_getvisibility.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetWidth">
+					<param name="Local" value="mmfi_object_getwidth.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetX">
+					<param name="Local" value="mmfi_object_getx.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetXLeft">
+					<param name="Local" value="mmfi_object_getxleft.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetXRight">
+					<param name="Local" value="mmfi_object_getxright.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetY">
+					<param name="Local" value="mmfi_object_gety.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetYBottom">
+					<param name="Local" value="mmfi_object_getybottom.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetYTop">
+					<param name="Local" value="mmfi_object_getytop.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetZOrder">
+					<param name="Local" value="mmfi_object_getzorder.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="IsAbove">
+					<param name="Local" value="mmfi_object_isabove.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="IsBelow">
+					<param name="Local" value="mmfi_object_isbelow.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="MoveAbove">
+					<param name="Local" value="mmfi_object_moveabove.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="MoveBelow">
+					<param name="Local" value="mmfi_object_movebelow.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="MoveToBack">
+					<param name="Local" value="mmfi_object_movetoback.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="MoveToFront">
+					<param name="Local" value="mmfi_object_movetofront.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetAngle">
+					<param name="Local" value="mmfi_object_setangle.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetAnimation">
+					<param name="Local" value="mmfi_object_setanimation.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetAnimationFrame">
+					<param name="Local" value="mmfi_object_setanimationframe.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetDirection">
+					<param name="Local" value="mmfi_object_setdirection.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetFlag">
+					<param name="Local" value="mmfi_object_setflag.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetLayer">
+					<param name="Local" value="mmfi_object_setlayer.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetPosition">
+					<param name="Local" value="mmfi_object_setposition.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetScale">
+					<param name="Local" value="mmfi_object_setscale.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetScaleX">
+					<param name="Local" value="mmfi_object_setscalex.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetScaleY">
+					<param name="Local" value="mmfi_object_setscaley.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetString">
+					<param name="Local" value="mmfi_object_setstring.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetValue">
+					<param name="Local" value="mmfi_object_setvalue.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetVisibility">
+					<param name="Local" value="mmfi_object_setvisibility.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetX">
+					<param name="Local" value="mmfi_object_setx.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SetY">
+					<param name="Local" value="mmfi_object_sety.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="SwapOrder">
+					<param name="Local" value="mmfi_object_swaporder.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Update">
+					<param name="Local" value="mmfi_object_update.htm">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Window">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetCHeight">
+					<param name="Local" value="mmfi_window_getcheight.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetCWidth">
+					<param name="Local" value="mmfi_window_getcwidth.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetEditHandle">
+					<param name="Local" value="mmfi_window_gethedit.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetFrameHeight">
+					<param name="Local" value="mmfi_window_getheight.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetFrameWidth">
+					<param name="Local" value="mmfi_window_getframewidth.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetHeight">
+					<param name="Local" value="mmfi_window_getheight.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetMainHandle">
+					<param name="Local" value="mmfi_window_gethmain.htm">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="GetWidth">
+					<param name="Local" value="mmfi_window_getwidth.htm">
+					</OBJECT>
+			</UL>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="WIN Interface">
+			<param name="Local" value="win.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ExportMessage">
+				<param name="Local" value="win_exportmessage.htm">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="XLua Interface">
+			<param name="Local" value="xlua.htm">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Call">
+				<param name="Local" value="xlua_call.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="ClearExport">
+				<param name="Local" value="xlua_clearexport.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="DeleteState">
+				<param name="Local" value="xlua_deletestate.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Export">
+				<param name="Local" value="xlua_export.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Load">
+				<param name="Local" value="xlua_load.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="LoadFile">
+				<param name="Local" value="xlua_loadfile.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="NewState">
+				<param name="Local" value="xlua_newstate.htm">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Revoke">
+				<param name="Local" value="xlua_revoke.htm">
+				</OBJECT>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>

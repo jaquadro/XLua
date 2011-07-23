@@ -1,0 +1,118 @@
+<center><h1>MMF Interface</h1></center>
+
+<p>The MMF Interface is a collection of functions used inside your lua code to directly access or set internal state in your objects or application.  The interface must be explicitly enabled by the appropriate action, otherwise these functions will be unavailable.</p>
+
+<p><b>Note:</b> By using this interface, you may break your application's compatibility with future versions of Multimedia Fusion!  Setting values also caries some degree of risk.  Use with care.</p>
+
+<p>The entire MMF Interface is layed out in the global table <tt>mmf</tt>.  Sets of functions may be grouped in subtables, such as <tt>Object</tt>.</p>
+
+<h2>Quick Reference</h2>
+
+<a href="mmfi_col_backobj.htm">mmf.Collisions.BackdropTestObject</a>(<tt>objid</tt>, [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br />
+<a href="mmfi_col_backpoint.htm">mmf.Collisions.BackdropTestPoint</a>(<tt>x</tt>, <tt>y</tt>, [<tt>layer</tt>])<br />
+<a href="mmfi_col_backrect.htm">mmf.Collisions.BackdropTestRect</a>(<tt>x</tt>, <tt>y</tt>, w, h, [<tt>layer</tt>])<br />
+<a href="mmfi_col_listobj.htm">mmf.Collisions.GetObjectsOverObject</a>(<tt>objid</tt>, [<tt>classid</tt>], [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br />
+<a href="mmfi_col_listpoint.htm">mmf.Collisions.GetObjectsOverPoint</a>(<tt>x</tt>, <tt>y</tt>, [<tt>classid</tt>], [<tt>layer</tt>])<br />
+<a href="mmfi_col_listrect.htm">mmf.Collisions.GetObjectsOverRect</a>(<tt>x</tt>, <tt>y</tt>, w, h, [<tt>classid</tt>], [<tt>layer</tt>])<br />
+<a href="mmfi_col_classobj.htm">mmf.Collisions.ObjectClassTestObject</a>(<tt>classid</tt>, <tt>objid</tt>, [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br />
+<a href="mmfi_col_classpoint.htm">mmf.Collisions.ObjectClassTestPoint</a>(<tt>classid</tt>, <tt>x</tt>, <tt>y</tt>, [<tt>layer</tt>])<br />
+<a href="mmfi_col_classrect.htm">mmf.Collisions.ObjectClassTestRect</a>(<tt>classid</tt>, <tt>x</tt>, <tt>y</tt>, w, h, [<tt>layer</tt>])<br />
+<a href="mmfi_col_objobj.htm">mmf.Collisions.ObjectTestObject</a>(<tt>objid</tt>, <tt>objid</tt>, [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br />
+<a href="mmfi_col_objpoint.htm">mmf.Collisions.ObjectTestPoint</a>(<tt>objid</tt>, <tt>x</tt>, <tt>y</tt>, [<tt>layer</tt>])<br />
+<a href="mmfi_col_objrect.htm">mmf.Collisions.ObjectTestRect</a>(<tt>objid</tt>, <tt>x</tt>, <tt>y</tt>, w, h, [<tt>layer</tt>])<br />
+<br />
+<a href="mmfi_destroycallback.htm">mmf.DestroyCallback</a>(<tt>objid</tt>)<br />
+<a href="mmfi_exportcallback.htm">mmf.ExportCallback</a>(<tt>objid</tt>)<br />
+<br />
+<a href="mmfi_frame_getheight.htm">mmf.Frame.GetHeight</a>()<br />
+<a href="mmfi_frame_getvheight.htm">mmf.Frame.GetVHeight</a>()<br />
+<a href="mmfi_frame_getvwidth.htm">mmf.Frame.GetVWidth</a>()<br />
+<a href="mmfi_frame_getwidth.htm">mmf.Frame.GetWidth</a>()<br />
+<a href="mmfi_frame_getxleft.htm">mmf.Frame.GetXLeft</a>()<br />
+<a href="mmfi_frame_getxright.htm">mmf.Frame.GetXRight</a>()<br />
+<a href="mmfi_frame_getybottom.htm">mmf.Frame.GetYBottom</a>()<br />
+<a href="mmfi_frame_getytop.htm">mmf.Frame.GetYTop</a>()<br />
+<br />
+<a href="mmfi_global_getstring.htm">mmf.Global.GetString</a>(<tt>id</tt>)<br />
+<a href="mmfi_global_getvalue.htm">mmf.Global.GetValue</a>(<tt>id</tt>)<br />
+<a href="mmfi_global_setstring.htm">mmf.Global.SetString</a>(<tt>id</tt>, <tt>string</tt>)<br />
+<a href="mmfi_global_setvalue.htm">mmf.Global.SetValue</a>(<tt>id</tt>, <tt>value</tt>)<br />
+<br />
+<a href="mmfi_keyboard_iskeydown.htm">mmf.Keyboard.KeyDown</a>(<tt>key</tt>)<br />
+<a href="mmfi_keyboard_iskeyup.htm">mmf.Keyboard.KeyUp</a>(<tt>key</tt>)<br />
+<br />
+<a href="mmfi_local_getstring.htm">mmf.LocalStore.GetString</a>(<tt>id</tt>)<br />
+<a href="mmfi_local_getvalue.htm">mmf.LocalStore.GetValue</a>(<tt>id</tt>)<br />
+<a href="mmfi_local_setstring.htm">mmf.LocalStore.SetString</a>(<tt>id</tt>, <tt>string</tt>)<br />
+<a href="mmfi_local_setvalue.htm">mmf.LocalStore.SetValue</a>(<tt>id</tt>, <tt>value</tt>)<br />
+<br />
+<a href="mmfi_mouse_isbuttondown.htm">mmf.Mouse.ButtonDown</a>(<tt>button</tt>)<br />
+<a href="mmfi_mouse_isbuttonup.htm">mmf.Mouse.ButtonUp</a>(<tt>button</tt>)<br />
+<a href="mmfi_mouse_getclientx.htm">mmf.Mouse.GetClientX</a>()<br />
+<a href="mmfi_mouse_getclienty.htm">mmf.Mouse.GetClientY</a>()<br />
+<a href="mmfi_mouse_getx.htm">mmf.Mouse.GetX</a>()<br />
+<a href="mmfi_mouse_gety.htm">mmf.Mouse.GetY</a>()<br />
+<br />
+<a href="mmfi_object_destroy.htm">mmf.Object.Destroy</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_export.htm">mmf.Object.Export</a>(<tt>fixed</tt>, <tt>objid</tt>)<br />
+<a href="mmfi_object_getangle.htm">mmf.Object.GetAngle</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getanimation.htm">mmf.Object.GetAnimation</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getanimationframe.htm">mmf.Object.GetAnimationFrame</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getclass.htm">mmf.Object.GetClass</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getdirection.htm">mmf.Object.GetDirection</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getfixed.htm">mmf.Object.GetFixed</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getflag.htm">mmf.Object.GetFlag</a>(<tt>objid</tt>, <tt>flagid</tt>)<br />
+<a href="mmfi_object_getheight.htm">mmf.Object.GetHeight</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_gethotspot.htm">mmf.Object.GetHotspot</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_gethotspotx.htm">mmf.Object.GetHotspotX</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_gethotspoty.htm">mmf.Object.GetHotspotY</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getident.htm">mmf.Object.GetIdentifier</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getlayer.htm">mmf.Object.GetLayer</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getname.htm">mmf.Object.GetName</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getposition.htm">mmf.Object.GetPosition</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getscale.htm">mmf.Object.GetScale</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getscalex.htm">mmf.Object.GetScaleX</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getscaley.htm">mmf.Object.GetScaleY</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getstring.htm">mmf.Object.GetString</a>(<tt>objid</tt>, <tt>stringid</tt>)<br />
+<a href="mmfi_object_getvalue.htm">mmf.Object.GetValue</a>(<tt>objid</tt>, <tt>valueid</tt>)<br />
+<a href="mmfi_object_getvisibility.htm">mmf.Object.GetVisibility</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getwidth.htm">mmf.Object.GetWidth</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getx.htm">mmf.Object.GetX</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getxleft.htm">mmf.Object.GetXLeft</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getxright.htm">mmf.Object.GetXRight</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_gety.htm">mmf.Object.GetY</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getybottom.htm">mmf.Object.GetYBottom</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getytop.htm">mmf.Object.GetYTop</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_getzorder.htm">mmf.Object.GetZOrder</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_isabove.htm">mmf.Object.IsAbove</a>(<tt>objid</tt>, <tt>objid</tt>)<br />
+<a href="mmfi_object_isbelow.htm">mmf.Object.IsBelow</a>(<tt>objid</tt>, <tt>objid</tt>)<br />
+<a href="mmfi_object_moveabove.htm">mmf.Object.MoveAbove</a>(<tt>objid</tt>, <tt>objid</tt>)<br />
+<a href="mmfi_object_movebelow.htm">mmf.Object.MoveBelow</a>(<tt>objid</tt>, <tt>objid</tt>)<br />
+<a href="mmfi_object_movetoback.htm">mmf.Object.MoveToBack</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_movetofront.htm">mmf.Object.MoveToFront</a>(<tt>objid</tt>)<br />
+<a href="mmfi_object_setangle.htm">mmf.Object.SetAngle</a>(<tt>objid</tt>, <tt>angle</tt>, [<tt>smooth</tt>])<br />
+<a href="mmfi_object_setanimation.htm">mmf.Object.SetAnimation</a>(<tt>objid</tt>, <tt>anim</tt>)<br />
+<a href="mmfi_object_setanimationframe.htm">mmf.Object.SetAnimationFrame</a>(<tt>objid</tt>, <tt>frame</tt>)<br />
+<a href="mmfi_object_setdirection.htm">mmf.Object.SetDirection</a>(<tt>objid</tt>, <tt>dir</tt>)<br />
+<a href="mmfi_object_setflag.htm">mmf.Object.SetFlag</a>(<tt>objid</tt>, <tt>flagid</tt>, <tt>state</tt>)<br />
+<a href="mmfi_object_setlayer.htm">mmf.Object.SetLayer</a>(<tt>objid</tt>, <tt>layer</tt>)<br />
+<a href="mmfi_object_setposition.htm">mmf.Object.SetPosition</a>(<tt>objid</tt>, <tt>x</tt>, <tt>y</tt>)<br />
+<a href="mmfi_object_setscale.htm">mmf.Object.SetScale</a>(<tt>objid</tt>, <tt>scalex</tt>, <tt>scaley</tt>, [<tt>smooth</tt>])<br />
+<a href="mmfi_object_setscalex.htm">mmf.Object.SetScaleX</a>(<tt>objid</tt>, <tt>scalex</tt>)<br />
+<a href="mmfi_object_setscaley.htm">mmf.Object.SetScaleY</a>(<tt>objid</tt>, <tt>scaley</tt>)<br />
+<a href="mmfi_object_setstring.htm">mmf.Object.SetString</a>(<tt>objid</tt>, <tt>valueid</tt>, <tt>value</tt>)<br />
+<a href="mmfi_object_setvalue.htm">mmf.Object.SetValue</a>(<tt>objid</tt>, <tt>valueid</tt>, <tt>value</tt>)<br />
+<a href="mmfi_object_setvisibility.htm">mmf.Object.SetVisibility</a>(<tt>objid</tt>, <tt>state</tt>)<br />
+<a href="mmfi_object_setx.htm">mmf.Object.SetX</a>(<tt>objid</tt>, <tt>x</tt>)<br />
+<a href="mmfi_object_sety.htm">mmf.Object.SetY</a>(<tt>objid</tt>, <tt>y</tt>)<br />
+<a href="mmfi_object_swaporder.htm">mmf.Object.SwapOrder</a>(<tt>objid</tt>, <tt>objid</tt>)<br />
+<a href="mmfi_object_update.htm">mmf.Object.Update</a>(<tt>objid</tt>)<br />
+<br />
+<a href="mmfi_window_getcheight.htm">mmf.Window.GetCHeight</a>()<br />
+<a href="mmfi_window_getcwidth.htm">mmf.Window.GetCWidth</a>()<br />
+<a href="mmfi_window_gethedit.htm">mmf.Window.GetEditHandle</a>()<br />
+<a href="mmfi_window_getframeheight.htm">mmf.Window.GetFrameHeight</a>()<br />
+<a href="mmfi_window_getframewidth.htm">mmf.Window.GetFrameWidth</a>()<br />
+<a href="mmfi_window_getheight.htm">mmf.Window.GetHeight</a>()<br />
+<a href="mmfi_window_gethmain.htm">mmf.Window.GetMainHandle</a>()<br />
+<a href="mmfi_window_getwidth.htm">mmf.Window.GetWidth</a>()<br />

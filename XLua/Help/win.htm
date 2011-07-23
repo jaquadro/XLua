@@ -1,0 +1,11 @@
+<center><h1>WIN Interface</h1></center>
+
+<p>The WIN Interface consists of a single function that allows you to bind a lua function to a windows message.  When the appropriate message fires, the bound lua function will be executed with the message's WPARAM and LPARAM parameters.  The interface must be explicitly enabled by the appropriate action, otherwise it will be unavailable.</p>
+
+<p><b>Note:</b> Only use this interface if you know what you're doing.  Be aware when running any third part code, because this interface can potentially expose any windows message that passes through your application and may pose a security risk.</p>
+
+<p>The WIN Interface is layed out in the global table <tt>win</tt>.
+
+<h2>Quick Reference</h2>
+
+<a href="win_exportmessage.htm">win.ExportMessage</a>(<tt>message</tt>, <tt>function</tt>)<br />

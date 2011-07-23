@@ -1,0 +1,25 @@
+<h1>MMFI: Object Overlaps Object</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>mmf.Object.OverlapsObject</b> ( number <tt>objectID</tt>, number <tt>targetObjectID</tt> [, number <tt>layerMode</tt> [, number <tt>xOffset</tt> [, number <tt>yOffset</tt>] ] ] )
+<p>Tests if the current object is overlapping any part of a second target object.  This function only tests overlap between two specific object instances; it does not test for overlap between an object and an object class.</p>
+<p>An optional third parameter controls whether the overlapping objects can be on different layers.</p>
+<p>An optional fourth and fifth parameter can perform the overlap test as if the first object had been offset in the X and Y directions.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>objectID</i>
+<div style="margin-left: 1em;">ID of an exported object</div>
+<i>targetObjectID</i>
+<div style="margin-left: 1em;">ID of an exported object to test overlap with</div>
+<i>layerMode</i>
+<div style="margin-left: 1em;">An optional value that takes one of two constants from the mmf namespace: <tt>mmf.SAME_LAYER</tt> or <tt>mmf.ANY_LAYER</tt>.  If <tt>mmf.ANY_LAYER</tt> is specified, the overlap test will ignore layers.  If <tt>mmf.SAME_LAYER</tt> is specified, the test will fail if the two objects are on separate layers.  mmf.SAME_LAYER is the default value.</div>
+<i>xOffset</i>
+<div style="margin-left: 1em;">An optional value that is added to the first object's X coordinate prior to the overlap test.  The object's coordinate is not actually changed.</div>
+<i>yOffset</i>
+<div style="margin-left: 1em;">An optional value that is added to the first object's Y coordinate prior to the overlap test.  The object's coordinate is not actually changed.</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>boolean</tt>
+<div style="margin-left: 1em;"><tt>true</tt> if the object is overlapping the target object, <tt>false</tt> otherwise</div>
+</div>

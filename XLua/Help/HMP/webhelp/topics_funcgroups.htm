@@ -1,0 +1,75 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Function Groups</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_violet">Topics</TD>
+<TD class=titleline2><helpmatic autotopictitle>Function Groups</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="topics.htm">Topics</A></LI></UL>
+<P>In addition to the default <A href="cond.htm#on_function"><FONT color=#800080>On Function</FONT></A> condition, XLua contains several alteranate On Function conditions, which can facilitate separating or grouping MMF functions. These alternate conditions are functionally identical.</P>
+<P>Whenever an MMF function is called from a Lua script, either via a registered function call, or through <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/other_docall.htm"><FONT color=#800080>DoCall</FONT></A>, every On Function condition must be checked to see if it is the correct function to call. This is not a large overhead, but if you have&nbsp;hundreds of these conditions defined, and you need to call a single MMF function many times per frame in a tight loop, this overhead can add up to a significant amount.</P>
+<P>Function groups help mitigate this bottleneck because a function call to one group does not need to inspect the conditions of another group. Therefor registering an MMF function that is called often to a sparsely populated group mitigates a large accrual of overhead.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('topics_funcgroups.htm'); 
+HMSelectTopic('topics_funcgroups.htm');</script></body>
+</html>

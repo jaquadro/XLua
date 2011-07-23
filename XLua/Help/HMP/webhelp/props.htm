@@ -1,0 +1,89 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>XLua Properties</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_cyan">Properties</TD>
+<TD class=titleline2><helpmatic autotopictitle>XLua Properties</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » Properties</LI></UL>
+<P></P>
+<P class=section_title>Property&nbsp;Subgroups</P>
+<UL>
+<LI><A href="props_state.htm">Lua State</A> 
+<LI><A href="props_interface.htm">Interfaces</A> 
+<LI><A href="props_io.htm">Standard I/O </A>
+<LI><A href="props_script.htm">Script</A></LI></UL>
+<P>The above Property Subgroups describe the options available in XLua's property panel.&nbsp; XLua also supports a full script editor / manager that can be launched by double-clicking the XLua icon, or pressing the "Edit Scripts" button in the property panel.</P>
+<P class=action>The Script Editor</P>
+<P><IMG align=bottom src="images/xlua_editor.png"></P>
+<P>The XLua setup dialog doubles as both a Script Editor and a Script Manager.&nbsp; You can create any number of embedded script "files", and switch between them on the fly to pull them up with complete syntax highlighting for the Lua language.&nbsp; The setup dialog will even remember separate undo history for all your files.&nbsp; The dialog is organized as follows:</P>
+<OL>
+<LI>List of embedded scripts in the object.&nbsp; Scripts can be added, renamed, or removed at any time.&nbsp; By default, every XLua object is created with a default "Main" script.<BR>&nbsp; 
+<LI>This section is currently unused, and may be removed at a future date.<BR>&nbsp; 
+<LI>The script editor.&nbsp; The box will display the currently selected script from (1).&nbsp; The editor features syntax highlighting, line numbers, and code folding.&nbsp; It supports a persistant undo stack for each script.<BR>&nbsp; 
+<LI>If the Run At Start box is checked, then the script will be loaded immediately at runtime if a Lua State is also bound.&nbsp; If multiple scripts have this option checked, then the order they're loaded is ambiguous.</LI></OL>
+<P>It is possible to directly&nbsp;"require" any script by name that is stored as an embedded script.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('props.htm'); 
+HMSelectTopic('props.htm');</script></body>
+</html>

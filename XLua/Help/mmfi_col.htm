@@ -1,0 +1,37 @@
+<h1>MMFI: Collisions</h1>
+<p>XLua supports a comprehensive array of collision (overlap) detection functions that exceed even the capabilities of the native event-based collision detection conditions.  Although the reliability of these functions has increased over the original collision detection functions offered by XLua, they still remain an experimental component of the MMF Interface.</p>
+<p>There are 4 groups of collision detection functions, and each group has functions for testing against points, rectangles, or objects (sprites).  The groups are:</p>
+<ul>
+<li>Backdrop Testing</li>
+<li>Object Testing</li>
+<li>Object Class Testing</li>
+<li>Overlap Listing</li>
+</ul>
+<p>The backdrop testing functions test for the presence of a backdrop with the obstacle property set, on any layer.  Object testing checks for the presence of a single, specific object using fine detection.  Object Class testing tests for the presence of any object of a given class (every duplicate of an object on the frame is part of the same class).  The overlap listing functions return a list of all objects overlapping a given position or area, by their fixed IDs.</p>
+<p>By default, all collision testing is done on all layers at once.  All functions take an optional layer parameter, which can be the 1-based layer number to test for objects or backgrounds, or can be one of these special enumerations:</p>
+<ul>
+<li>mmf.ANY_LAYER (default)</li>
+<li>mmf.SAME_LAYER</li>
+<li>mmf.DIFF_LAYER</li>
+</ul>
+<p>The SAME_LAYER and DIFF_LAYER values only have meaning for the functions that test against an object, rather than a point or rectangle, and will implicitly use the object's layer information.</p>
+<p>All functions that test against an object also take optional X-offset and Y-offset parameters, which allow using an object's sprite as a collision mask without needing to move the object into position first.</p>
+<p>The overlap listing set of functions also take an optional Class ID parameter, which allows restricting the list objects returned to only the objects of a specific class.</p>
+
+<p><b>Quick Reference</b></p>
+
+<a href="mmfi_col_backpoint.htm">mmf.Collisions.BackdropTestPoint</a>(<tt>x</tt>, <tt>y</tt>, [<tt>layer</tt>])<br />
+<a href="mmfi_col_backrect.htm">mmf.Collisions.BackdropTestRect</a>(<tt>x</tt>, <tt>y</tt>, w, h, [<tt>layer</tt>])<br />
+<a href="mmfi_col_backobj.htm">mmf.Collisions.BackdropTestObject</a>(<tt>objid</tt>, [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br /><br />
+
+<a href="mmfi_col_objpoint.htm">mmf.Collisions.ObjectTestPoint</a>(<tt>objid</tt>, <tt>x</tt>, <tt>y</tt>, [<tt>layer</tt>])<br />
+<a href="mmfi_col_objrect.htm">mmf.Collisions.ObjectTestRect</a>(<tt>objid</tt>, <tt>x</tt>, <tt>y</tt>, w, h, [<tt>layer</tt>])<br />
+<a href="mmfi_col_objobj.htm">mmf.Collisions.ObjectTestObject</a>(<tt>objid</tt>, <tt>objid</tt>, [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br /><br />
+
+<a href="mmfi_col_classpoint.htm">mmf.Collisions.ObjectClassTestPoint</a>(<tt>classid</tt>, <tt>x</tt>, <tt>y</tt>, [<tt>layer</tt>])<br />
+<a href="mmfi_col_classrect.htm">mmf.Collisions.ObjectClassTestRect</a>(<tt>classid</tt>, <tt>x</tt>, <tt>y</tt>, w, h, [<tt>layer</tt>])<br />
+<a href="mmfi_col_classobj.htm">mmf.Collisions.ObjectClassTestObject</a>(<tt>classid</tt>, <tt>objid</tt>, [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br /><br />
+
+<a href="mmfi_col_listpoint.htm">mmf.Collisions.GetObjectsOverPoint</a>(<tt>x</tt>, <tt>y</tt>, [<tt>classid</tt>], [<tt>layer</tt>])<br />
+<a href="mmfi_col_listrect.htm">mmf.Collisions.GetObjectsOverRect</a>(<tt>x</tt>, <tt>y</tt>, w, h, [<tt>classid</tt>], [<tt>layer</tt>])<br />
+<a href="mmfi_col_listobj.htm">mmf.Collisions.GetObjectsOverObject</a>(<tt>objid</tt>, [<tt>classid</tt>], [<tt>layer</tt>], [<tt>xoff</tt>], [<tt>yoff</tt>])<br />

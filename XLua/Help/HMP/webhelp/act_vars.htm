@@ -1,0 +1,140 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Variables</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Variables</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;Variables</LI></UL>
+<P>This group of actions lets you directly set the values of any globally-defined variables in the Lua state. All variables are global unless they are prefixed with the "local" keyword, or if they are part of a module.</P>
+<P>XLua supports the complete Lua syntax for variable names, including accessing tables and arrays. Some examples of valid names are:</P>
+<UL>
+<LI>apple 
+<LI>fruit.grapes 
+<LI>mylist[1] 
+<LI>colors['blue'] 
+<LI>position[20][30] 
+<LI>complex.tables['rock'].my['socks'] </LI></UL>
+<P>Be aware of the difference between numeric and string indices. [1] and ['1'] are both valid, but different indices. A name such as <TT>mylist.1</TT> is an invalid Lua name, but is valid in XLua and is the same as <TT>mylist['1']</TT>.</P>
+<P>Currently there is the limitation that <TT>.</TT>, <TT>[]</TT>, <TT>'</TT>, and <TT>"</TT> characters cannot be used in string indices.</P>
+<P class=action>Set Integer Variable</P>
+<P>Sets a variable in lua's global namespace to the specified&nbsp;floating-point value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Integer&nbsp;value</TD></TR></TBODY></TABLE></P>
+<P class=action>Set&nbsp;Floating Variable</P>
+<P>Sets a variable in lua's global namespace to the specified&nbsp;floating-point value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Floating-point value</TD></TR></TBODY></TABLE></P>
+<P class=action>Set&nbsp;String Variable</P>
+<P>Sets a variable in lua's global namespace to the specified string value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>String value</TD></TR></TBODY></TABLE></P>
+<P class=action>Set&nbsp;Boolean Variable</P>
+<P>Sets a variable in lua's global namespace to the specified&nbsp;boolean value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>1 = true, 0 = false</TD></TR></TBODY></TABLE></P>
+<P class=action>Delete&nbsp;Variable</P>
+<P>Sets a variable in lua's global namespace to <TT>nil</TT>, effectively deleting it.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Variable name</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_vars.htm'); 
+HMSelectTopic('act_vars.htm');</script></body>
+</html>

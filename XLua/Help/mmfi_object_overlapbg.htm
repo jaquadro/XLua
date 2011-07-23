@@ -1,0 +1,21 @@
+<h1>MMFI: Object Overlaps Background</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>mmf.Object.OverlapsBackground</b> ( number <tt>objectID</tt> [, number <tt>xOffset</tt> [, number <tt>yOffset</tt>] ] )
+<p>Tests if the current sprite of the given object overlaps part of the background collision mask.  The object must be on the same layer as the background to test positive.</p>
+<p>An optional second and third parameter can perform the overlap test as if the object had been offset in the X and Y directions.</p>
+<p>This function is an alias for <a href="mmfi_cmask_testsprite.htm">mmf.CollisionMask.TestSprite</a>.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>objectID</i>
+<div style="margin-left: 1em;">ID of an exported object</div>
+<i>xOffset</i>
+<div style="margin-left: 1em;">An optional value that is added to the object's X coordinate prior to the overlap test.  The object's coordinate is not actually changed.</div>
+<i>yOffset</i>
+<div style="margin-left: 1em;">An optional value that is added to the object's Y coordinate prior to the overlap test.  The object's coordinate is not actually changed.</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>boolean</tt>
+<div style="margin-left: 1em;"><tt>true</tt> if the object is overlapping an obsticle, <tt>false</tt> otherwise</div>
+</div>

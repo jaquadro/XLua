@@ -1,0 +1,122 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Array Object</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><HELPMATIC autotopictitle>Array&nbsp;Object</TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A> » <A href="ext_mmfi_object.htm">Objects</A></LI></UL>
+<P>The&nbsp;Array Object is one of the objects directly supported by the MMFI, and contains several fields beyond those provided by the various generic traits.&nbsp; Only&nbsp;array objects will contain these extra fields.&nbsp; The MMFI can read from both text and numerical arrays, but can only write to numerical arrays.</P>
+<P>MMF Array objects support 0- ir 1-based indexing, but the MMFI will always treat them as 1-based.</P>
+<P class=section_title>Array&nbsp;Fields</P>
+<P>These fields can be read from or written to directly</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>curX</TD>
+<TD>Array's current X dimension index</TD></TR>
+<TR>
+<TD class=parameter_id>number</TD>
+<TD class=parameter_name>curY</TD>
+<TD>Array's current Y dimension index</TD></TR>
+<TR>
+<TD class=parameter_id>number</TD>
+<TD class=parameter_name>curZ</TD>
+<TD>Array's current Z dimension index</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Array&nbsp;Fields (read-only)</P>
+<P>These fields can be read from, but not modified.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>dimX</TD>
+<TD>Size of X dimension</TD></TR>
+<TR>
+<TD class=parameter_id>number</TD>
+<TD class=parameter_name>dimY</TD>
+<TD>Size of Y dimension</TD></TR>
+<TR>
+<TD class=parameter_id>number</TD>
+<TD class=parameter_name>dimZ</TD>
+<TD>Size of Z dimension</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Array&nbsp;Methods</P>
+<P>Click on each function for more information.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_array_clear.htm">clear()</A></TD></TR>
+<TR>
+<TD class=parameter_type>mixed</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_array_get.htm">get()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_array_set.htm">set()</A></TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_array.htm'); 
+HMSelectTopic('ext_mmfi_object_array.htm');</script></body>
+</html>

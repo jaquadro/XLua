@@ -1,0 +1,82 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Table Parameters</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Table Parameters</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> » <A href="act_lua.htm">Lua Functions</A> » Push Table Parameter</LI></UL>
+<P></P>
+<P>XLua supports tables as parameters to Lua functions, which will be interpreted as native Lua tables.&nbsp; These two events control how parameters are grouped into tables.</P>
+<P class=action>Begin Table</P>
+<P>Starts a new table parameter at the current parameter position.&nbsp; Any parameters pushed into the queue after will be part of the table instead.&nbsp; These actions can be nested, so a second call to Begin Table will start a new table within the parent table, and begin consuming any new parameters.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>End Table</P>
+<P>Terminates a currently open table parameter.&nbsp; Any parameters pushed after will be part of the normal parameter queue, or part of the parent table if a nested table was closed.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_lua_table.htm'); 
+HMSelectTopic('act_lua_table.htm');</script></body>
+</html>

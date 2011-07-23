@@ -1,0 +1,14 @@
+<h1>XLua: New State</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>xlua.NewState</b> ( number <tt>stateID</tt> )
+<p>Creates a new, empty Lua state that is not currently bound to any XLua object.  If the specified stateID is already in use, this function will fail.</p>
+<p>On success, the calling state will have REMOTE_LOAD and REMOTE_DESTROY permissions in the newly created state (esentially, the calling state owns the new state).</p>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>stateID</i>
+<div style="margin-left: 1em;">ID to associate with the new State</div>
+</div>
+<p><b>Return Values:</b></p>
+<i>boolean</i>
+<div style="margin-left: 1em;">true on Success, false otherwise</div>
+</div>

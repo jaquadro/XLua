@@ -1,0 +1,110 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>State Actions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>State Actions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> » State</LI></UL>
+<P></P>
+<P>&nbsp;</P>
+<P class=action>Bind State</P>
+<P>Binds an instance of the XLua object to the global lua state associated with the given ID.</P>
+<P>If the state does not exist, it will be created (You don't need to call <A href="act_state.htm">Create State</A> first). You must bind the XLua object to a state before it will do anything.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>State ID</TD></TR></TBODY></TABLE>
+<P class=action>Create&nbsp;State</P>
+<P>Creates a new global lua state associated with the given ID. This does not automatically bind the object.&nbsp; In most cases, you will not need to explicitly call this action, because a state is automatically created when you use the <A href="act_state.htm">Bind State action</A> or Bind State property.</P>
+<P class=section_title>Parameters</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Integer ID value to associate the new state with</TD></TR></TBODY></TABLE></P>
+<P class=action>Destroy&nbsp;State</P>
+<P>Destroys the Lua state associated with the given ID value.&nbsp; If the ID does not match a valid state, the action is ignored.&nbsp; If there is an XLua object currently bound to the state, it will be detached.</P>
+<P>If this action is called from within an active call stack, any XLua objects bound to the state will be detached at the end of the event where this action was called. The call stack will safely unwind, and then the state will be destroyed. Neveretheless, you should always exercise caution when destroying an XLua state from within an active call stack.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>State ID</TD></TR></TBODY></TABLE>
+<P class=action>Unbind&nbsp;State</P>
+<P>Unbinds an instance of the XLua object from the global lua state associated with the given ID.</P>
+<P>If this action is called from within an active call stack, the XLua object will be detached from its state at the end of the event where this action was called. The call stack will safely unwind, leaving the previously bound state in-tact. Nevertheless, you should exercise caution when unbinding a state from within an active call stack.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>State ID</TD></TR></TBODY></TABLE><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_state.htm'); 
+HMSelectTopic('act_state.htm');</script></body>
+</html>

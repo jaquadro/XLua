@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; MMF Functions &#8227; Function Groups</div>
+<div class="lv2 active">Register MMF Function.B</div>
+</div>
+
+<p>Registers a function in lua's global namespace which will call the corresponding <tt>On Function.B</tt> triggered event.  See <a href="other_func_groups.htm">function groups</a>.  The function will check that it passes at least as many parameters as you specify.</p>
+<p>You may use the global <a href="other_docall.htm">DoCall</a> function in your Lua code as an alternative to registering functions, by passing the function name as the first argument, and the parameters as subsequent arguments.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">String</td><td class="desc">Function name</td></tr><tr>
+<td class="type">Value</td><td class="desc">Minimum parameter count</td>
+</tr></table>

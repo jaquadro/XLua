@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; Variables</div>
+</div>
+
+<p>This group of actions lets you directly set the values of any globally-defined variables in the Lua state.  All variables are global unless they are prefixed with the "local" keyword, or if they are part of a module.</p>
+
+<p>XLua supports the complete Lua syntax for variable names, including accessing tables and arrays.  Some examples of valid names are:</p>
+
+<ul>
+<li>apple</li>
+<li>fruit.grapes</li>
+<li>mylist[1]</li>
+<li>colors['blue']</li>
+<li>position[20][30]</li>
+<li>complex.tables['rock'].my['socks']</li>
+</ul>
+
+<p>Be aware of the difference between numeric and string indices.  [1] and ['1'] are both valid, but different indices.  A name such as <tt>mylist.1</tt> is an invalid Lua name, but is valid in XLua and is the same as <tt>mylist['1']</tt>.</p>
+
+<p>Currently there is the limitation that <tt>.</tt>, <tt>[]</tt>, <tt>'</tt>, and <tt>"</tt> characters cannot be used in string indices.</p>

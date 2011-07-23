@@ -1,0 +1,93 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>DoCall</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_violet">Topics</TD>
+<TD class=titleline2><helpmatic autotopictitle>DoCall</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="topics.htm">Topics</A>&nbsp;» <A href="topics_lualib.htm">Lua Library</A></LI></UL>
+<P><FONT face="Courier New">...&nbsp;<STRONG>DoCall</STRONG> ( string <EM>function</EM>, ... )</FONT> </P>
+<P><TT>DoCall</TT> is a top-level Lua function that can be used to call an MMF function. It is an alternative to using function registration. All registered functions, in fact, are simple wrappers around a DoCall function.</P>
+<P>DoCall takes the function name to call as its first parameter, then all parameters intended for the target function. It returns all values returned by the target function.</P>
+<P>For calling MMF functions set up in <A href="topics_funcgroups.htm"><FONT color=#800080>function groups</FONT></A>, the functions <TT>DoCallA</TT>, <TT>DoCallB</TT>, <TT>DoCallC</TT>, <TT>DoCallD</TT>, <TT>DoCallE</TT>, <TT>DoCallF</TT>, and <TT>DoCallG</TT> are defined in the global table and follow the same semantics.</P>
+<P class=section_title>Parameters</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>function</TD>
+<TD>Name of an MMF function</TD></TR>
+<TR>
+<TD class=parameter_id>...</TD>
+<TD>Zero&nbsp;or more parameters of type <FONT face="Courier New">number</FONT>, <FONT face="Courier New">string</FONT>, <FONT face="Courier New">nil</FONT>, or <FONT face="Courier New">boolean</FONT></TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>...</TD>
+<TD>Zero&nbsp;or more&nbsp;return values&nbsp;of type <FONT face="Courier New">number</FONT>, <FONT face="Courier New">string</FONT>, <FONT face="Courier New">nil</FONT>, <FONT face="Courier New">table</FONT>,&nbsp;or <FONT face="Courier New">boolean</FONT></TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('topics_lualib_docall.htm'); 
+HMSelectTopic('topics_lualib_docall.htm');</script></body>
+</html>

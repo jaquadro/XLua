@@ -1,0 +1,171 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Display Traits</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><HELPMATIC autotopictitle>Display Traits</TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A> » <A href="ext_mmfi_object.htm">Objects</A></LI></UL>
+<P>Display Traits correspond to the <EM>Order</EM> and <EM>Visibility</EM> action menus, and <EM>Collisions</EM> and <EM>Visibility</EM> expression menus exposed by many objects, including the Active Objects.&nbsp; These additionally expose Active Object's&nbsp;<EM>Scale / Angle</EM> action menu.&nbsp; The MMFI is able to determine at runtime without additional help&nbsp;whether an object supports these traits, and will expose the corresponding fields and methods if it does.</P>
+<P class=section_title>Display&nbsp;Fields</P>
+<P>These fields can be read from or written to directly</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>angle</TD>
+<TD>Object's rotational angle, may be integer or float depending on runtime</TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name>edgeAA</TD>
+<TD>Whether or not an object's edges are antialiased with the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>inkCoef</TD>
+<TD>Coeficient used for some ink effects, e.g. semitransparency</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>inkEffect</TD>
+<TD>Object's current ink effect</TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name>rotationAA</TD>
+<TD>Whether or not antialiasing is enabled for rotation</TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name>scaleAA</TD>
+<TD>Whether or not antialiasing is enabled for scaling</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>scaleX</TD>
+<TD>Object's scaling factor on the X axis</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>scaleY</TD>
+<TD>
+<P>Object's scaling factor on the&nbsp;Y axis</P></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name>transparent</TD>
+<TD>Whether or not an object's background is transparent</TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name>visible</TD>
+<TD>
+<P>Whether or not an object is visible in the frame</P></TD></TR></TBODY></TABLE></P>
+<P class=section_title>Display&nbsp;Fields (Read-Only)</P>
+<P>These fields can be accessed, but not updated.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>zorder</TD>
+<TD>Object's Z ordering index</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Display&nbsp;Methods</P>
+<P>These methods may be called by objects with display traits.&nbsp; They are protected, so they cannot be overwritten.&nbsp; The colon operator, which is used by most Lua object tables, is optional here.&nbsp; Click on each function for more information.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_isabove.htm">isAbove()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_isbelow.htm">isBelow()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_moveabove.htm">moveAbove()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_movebelow.htm">moveBelow()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_movetoback.htm">moveToBack()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_movetofront.htm">moveToFront()</A></TD></TR>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_funcname><A href="ext_mmfi_object_display_swaporder.htm">swapOrder()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_display_testbackdrop.htm">testBackdrop()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_display_testclass.htm">testClass()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_display_testobject.htm">testObject()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_display_testpoint.htm">testPoint()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_display_testrect.htm">testRect()</A></TD></TR></TBODY></TABLE></P>
+<P class=section_title><FONT color=#008080> </FONT></P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_object.htm">Object API</a>, <a href="ext_mmfi_object_common.htm">Common Traits</a>, <a href="ext_mmfi_object_movement.htm">Movement Traits</a>, <a href="ext_mmfi_object_anim.htm">Animation Traits</a>, <a href="ext_mmfi_object_values.htm">Value Traits</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_display.htm'); 
+HMSelectTopic('ext_mmfi_object_display.htm');</script></body>
+</html>

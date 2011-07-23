@@ -1,0 +1,188 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Common Traits</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Common Traits</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<DIV class=subheader>&nbsp;</DIV>
+<DIV class=subheader><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi_object.htm">Object API</A></DIV>
+<P>The MMFI Object API is able to discern between different kinds of objects (where 'kind' here refers to a unique MFX extension file, not a unique instance of said extension).&nbsp; When creating a new object, this allows the module to only add the fields and methods that are compatible with it.&nbsp; The API only has limited support for object-specific functionality, so most objects will only support the functionality that is common to all objects.&nbsp; That functionality is documented below.</P>
+<P class=section_title>Common Object Fields</P>
+<P>These fields can be read from or written to directly, and are supported by all objects.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>x</TD>
+<TD>Object's X coordinate in pixels</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>y</TD>
+<TD>Object's&nbsp;Y coordinate in pixels</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>layer</TD>
+<TD>
+<P>Object's&nbsp;layer (limited support)</P></TD></TR></TBODY></TABLE></P>
+<P class=section_title>Common Object Fields (Read-Only)</P>
+<P>These fields can be accessed, but not updated.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>fixed</TD>
+<TD>Object's unqiue fixed value (unique to every creation instance)</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>instance</TD>
+<TD>Object's instance identifier (shared by all creation instances of object)</TD></TR>
+<TR>
+<TD class=parameter_type>string</TD>
+<TD class=parameter_name>name</TD>
+<TD>Object's instance name (as defined in the frame editor)</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>type</TD>
+<TD>Object's extension id (unique to each MFX extension file)</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>xleft</TD>
+<TD>X coordinate of left edge of object</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>xright</TD>
+<TD>X&nbsp;coordinate of right edge of object</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>ytop</TD>
+<TD>
+<P>Y coordinate of top edge of object</P></TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>ybottom</TD>
+<TD>Y coordinate of bottom edge of object</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>xhot</TD>
+<TD>X coordinate of object's hotspot, relative to object origin</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>yhot</TD>
+<TD>Y coordinate of object's hotspot, relative to object origin</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>height</TD>
+<TD>Object's height in pixels</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>width</TD>
+<TD>Object's width in pixels</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Common Object Methods</P>
+<P>These methods may be called by any object.&nbsp; They are protected, so they cannot be overwritten.&nbsp; The colon operator, which is used by most Lua object tables, is optional here.&nbsp; Click on each function for more information.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>void</TD>
+<TD class=parameter_name><A href="ext_mmfi_object_common_destroy.htm">destroy()</A></TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have a table&nbsp;of objects indexed by ID</FONT></DIV>
+<DIV class=luatable>object = mmf.objects[1]</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Verify the distance between object edges matches</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- width and height</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> w = object.xright - object.xleft</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>local</STRONG></FONT> h = object.ybottom - object.ytop</DIV>
+<DIV class=luatable><FONT color=#800080>assert</FONT>(object.width == w <FONT color=#000080><STRONG>and</STRONG></FONT> object.height == h)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- Swap an object's X and Y coordinates using a</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- neat Lua trick</FONT></DIV>
+<DIV class=luatable>object.x, object.y = object.y, object.x</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- We can also assign our own fields to the object,</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- as long as they don't conflict with predefined</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- fields and methods</FONT></DIV>
+<DIV class=luatable>object.color = <FONT color=#008080>"green"</FONT></DIV>
+<DIV class=luatable>object.bogey = true</DIV>
+<DIV class=luatable>object:setColor = <FONT color=#000080><STRONG>function</STRONG></FONT> (c) self.color = c <FONT color=#000080><STRONG>end</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- This will throw an error (trying to mutate a</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- read-only field)</FONT></DIV>
+<DIV class=luatable>object.xhot = 0</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- This will throw an error (trying to overwrite</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- an object method)</FONT></DIV>
+<DIV class=luatable>object.destroy = <FONT color=#008080>"not a function"</FONT></DIV><p align="right"><font size=1>Created using <a href="http://www.helpmatic.net" target="_blank">Helpmatic Pro HTML</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_fields.htm'); 
+HMSelectTopic('ext_mmfi_object_fields.htm');</script>
+<p align=center><font face="Arial, Helvetica, sans-serif" color="#4444FF">
+This help file has been produced using <b> Helpmatic Pro HTML V6.5.3 Shareware </b></font><br>
+<a href="http://www.helpmatic.net"> http://www.helpmatic.net </a><br><br>
+<font face="Arial, Helvetica, sans-serif" color="#FF4444">
+The above message will not appear in the registered version
+</font>
+</body>
+</html>

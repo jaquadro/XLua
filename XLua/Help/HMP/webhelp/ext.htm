@@ -1,0 +1,77 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Beyond Lua and XLua</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Beyond Lua and XLua</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<P>The XLua object can interact with certain 3rd party extensions through C Modules proivded by the extension author. C Modules are a powerful tool for adding functionality to Lua, but in particular extension authors can write a C Module that exposes some or all of their extension's capabilities to XLua without needing to pass through MMF's event loop. Objects can be exposed to the C Modules using the generic Export Object action in the MMF Interface.</P>
+<P>C Modules can be included in a variety of ways. One is to use the Open External C Module action, where you browse for the module's DLL and specify the package name (e.g., ext.opengl). The other way is to use Lua's <FONT face="Courier New">require</FONT> function in your lua code, which can import C Modules from a relative directory, or from MMF's binary data list.</P>
+<P>Although extension-specific C Modules are maintained and supported by their respective authors, some of them are documented here for example and convenience.</P>
+<P><STRONG>Supported Modules:</STRONG></P>
+<UL>
+<LI><A href="ext_mmfi.htm">MMF Interface</A> 
+<LI><A href="ext_array.htm">Static Array</A></LI></UL><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext.htm'); 
+HMSelectTopic('ext.htm');</script></body>
+</html>

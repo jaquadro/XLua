@@ -1,0 +1,74 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>A Lua Framework for MMF2</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">XLua</TD>
+<TD class=titleline2><helpmatic autotopictitle>A Lua Framework for MMF2</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<P><IMG align=bottom src="images/exticon.gif"></P>
+<P>The XLua object is an object for embedding lua code in your applications. MMF events can call lua functions, pass parameters, and receive return values. Lua scripts have the same capability with calling MMF events. The XLua object also has a substantial MMF Interface for directly querying and modifying game objects and state without the overhead of using the call stack and MMF's event execution.</P>
+<P>The XLua object has a key difference from other Lua objects in that the object itself is just a viewport that can be bound to any of multiple global lua states. This allows you to both share state between frames, switch between multiple states, or have several XLua objects each operating in an independent state.&nbsp; XLua also supports extensions via C modules, which allows new functionality to be added during runtime, or direct communication with other MMF extensions whose authors have written or supported a C module that&nbsp;interacts with their extension.</P>
+<P>The XLua object is inspired by the Lua+ object by Jamie McLaughlin.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('xlua.htm'); 
+HMSelectTopic('xlua.htm');</script></body>
+</html>

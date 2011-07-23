@@ -1,0 +1,112 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>XLua Conditions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_yellow">Conditions</TD>
+<TD class=titleline2><helpmatic autotopictitle>XLua Conditions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » Conditions</LI></UL>
+<P></P>
+<P class=section_title>Condition&nbsp;Subgroups</P>
+<UL>
+<LI><A href="cond_groups.htm">Function Groups</A> 
+<LI><A href="cond_selections.htm">Selections</A></LI></UL>
+<P>The main conditions of interest in XLua are the triggered events that signal errors, print requests, or function invocations.</P>
+<P class=action><A name="on_error"></A>On Error</P>
+<P><FONT color=#ff0000>Triggered Event</FONT></P>
+<P>Runs when an error is reported either by the object, or by the lua code being run.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action><A name="on_print"></A>On Print</P>
+<P><FONT color=#ff0000>Triggered Event</FONT></P>
+<P>Runs when the lua print function is used.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action><A name="on_function"></A>On Function</P>
+<P><FONT color=#ff0000>Triggered Event</FONT></P>
+<P>Runs when lua code calls an MMF function in the default function group.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Function name</TD></TR></TBODY></TABLE></P>
+<P class=action>MMF Interface Enabled</P>
+<P><STRONG>Deprecated</STRONG></P>
+<P>Returns true if the MMF Interface has been enabled.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>WIN&nbsp;Interface Enabled</P>
+<P><STRONG>Deprecated</STRONG></P>
+<P>Returns true if the&nbsp;WIN Interface has been enabled.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Bound to Lua State</P>
+<P>Returns true if the XLua object is currently bound to any valid Lua state.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('cond.htm'); 
+HMSelectTopic('cond.htm');</script></body>
+</html>

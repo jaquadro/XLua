@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; Lua Functions</div>
+<div class="lv2 active">Call Lua Function</div>
+</div>
+
+<p>Suspends the current event and executes a lua function.  All parameters pushed since the last function call will be passed as function parameters.</p>
+<p>Any valid non-local function can be called, including functions in subtables or using the colon operator.  Example function names are:</p>
+<ul>
+<li><tt>dosomething</tt></li>
+<li><tt>do.something</tt></li>
+<li><tt>do:something</tt></li>
+<li><tt>a.b.c:d</tt></li>
+</ul>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">String</td><td class="desc">Function name</td>
+</tr></table>

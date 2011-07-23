@@ -1,0 +1,19 @@
+<h1>MMFI: Get Object Overlap List</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>table</tt> <b>mmf.Object.GetOverlapList</b> ( number <tt>objectID</tt>, number <tt>classID</tt> [, number <tt>layerMode</tt>] )
+<p>Tests if the current object is overlapping any object that is a member of the object class, and returns the fixed ID of each overlapping instance.  An object class is the unique identifier that is shared by all instances of the same object.  See <a href="mmfi_object_getclass.htm">mmf.Object.GetClass</a>.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>objectID</i>
+<div style="margin-left: 1em;">ID of an exported object</div>
+<i>classID</i>
+<div style="margin-left: 1em;">ID of an object class.  If this value is set to the special value <tt>mmf.ANY_CLASS</tt>, every overlapping object will be returned.</div>
+<i>layerMode</i>
+<div style="margin-left: 1em;">An optional value that takes one of two constants from the mmf namespace: <tt>mmf.SAME_LAYER</tt> or <tt>mmf.ANY_LAYER</tt>.  If <tt>mmf.ANY_LAYER</tt> is specified, the overlap test will ignore layers.  If <tt>mmf.SAME_LAYER</tt> is specified, the test will fail if the two objects are on separate layers.  mmf.SAME_LAYER is the default value.</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>table</tt>
+<div style="margin-left: 1em;">Table containing the fixed ID of each overlapping object.</div>
+</div>

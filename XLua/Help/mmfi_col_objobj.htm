@@ -1,0 +1,24 @@
+<h1>MMFI: Object Test Object</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>mmf.Collisions.ObjectTestObject</b> ( number <tt>objid</tt>, number <tt>objid2</tt>, number <tt>objid2</tt> [, number <tt>layer</tt> [, number <tt>xoff</tt> [, number <tt>yoff</tt>] ] ] )
+<p>Tests if the collision masks of two different objects are intersecting.  If layer is specified, only that layer will be tested (the first object must exist on that layer).  If an X-offset or Y-offset are specified, they will be added to the second object's coordinates before testing.</p>
+<p>The layer parameter may additionally be either of the special constants mmf.SAME_LAYER or mmf.DIFF_LAYER.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>objid</i>
+<div style="margin-left: 1em;">ID of first object</div>
+<i>objid2</i>
+<div style="margin-left: 1em;">ID of second object</div>
+<i>layer</i>
+<div style="margin-left: 1em;">1-based layer to test on</div>
+<i>xoff</i>
+<div style="margin-left: 1em;">Distance in pixels to offset second object's mask on the X axis</div>
+<i>yoff</i>
+<div style="margin-left: 1em;">Distance in pixels to offset second object's mask on the Y axis</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>boolean</tt>
+<div style="margin-left: 1em;"><tt>true</tt> if the two objects intersect (overlap), <tt>false</tt> otherwise</div>
+</div>

@@ -1,0 +1,498 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+<HTML>
+	<HEAD>
+		<TITLE></TITLE>
+	<LINK REL="stylesheet" TYPE="text/css" HREF="webhelp1.css"></LINK>
+</HEAD>
+	<BODY onLoad="javascript:PopulateIndex();" bgcolor="#FFFFFF">
+		<p><b>Type in the keyword to find:</b></p>
+		
+			<table width="100%">
+				<tr>
+					<td nowrap>
+						<input type="text" id="txtSearchIndex" onkeydown="javascript:KeyDownHandler(event,'cmdDisplay');" onkeyup="javascript:SearchForIndex();" style="width:98%">
+					</td>
+				</tr>
+			</table>
+			<select id="lstIndexList" size="700" ondblclick="javascript:ShowIndexItem();" style="width:98%; height:75%;">
+			</select>
+			<center>
+			<br>
+				<input type="button" id="cmdDisplay" value="Display" onClick="javascript:ShowIndexItem();">
+			</center>
+	<script language='javascript'>
+var saIndexData = [];
+
+	var g_sSearchFor="";	
+	var g_iCurrentNode=0;
+	
+	function PopulateIndex()
+	{
+		var iCount=0;
+		var objOption;
+		
+		if (saIndexData.length==0)
+		{
+			lstIndexList.disabled=true;
+			return;
+		}
+		
+		
+		for(iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			objOption=document.createElement("OPTION");
+			objOption.text=saIndexData[iCount][0];
+			objOption.value=iCount;
+			lstIndexList[lstIndexList.length]=objOption;
+		}
+	}
+	
+	
+	function BrowseToURL(sURL)
+	{ 
+        GetBaseFrameDocument().location.href=sURL;
+	} 
+	
+	function GetBaseFrameDocument()
+	{ 
+        var frames = parent.frames;
+        var iframecount = frames.length;
+        for(var i=0; i < iframecount; i++) 
+                if(frames[i].name == "frmText") 
+                        return frames[i].document;
+	} 
+	
+	
+	function ShowIndexItem()
+	{	
+		if (lstIndexList.selectedIndex==-1)
+		{
+			return;
+		}
+		
+		
+		var iCount=0;
+		for(var iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			if (saIndexData[iCount][0] == lstIndexList.options[lstIndexList.selectedIndex].text)
+			{
+				BrowseToURL(saIndexData[iCount][1]);	
+			}
+		}				
+	}
+	
+	function SearchForIndex()
+	{
+		var iCount=0;
+		for(var iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			if (saIndexData[iCount][0].toLowerCase().indexOf(txtSearchIndex.value.toLowerCase())==0)
+			{
+				lstIndexList.selectedIndex=iCount;
+				return;
+			}
+		}		
+	}
+	
+	
+	function KeyDownHandler(event,btn) 
+	{
+		if (event.keyCode == 13) 
+		{ 
+			event.returnValue=false; 
+			event.cancel = true; 
+			document.getElementById(btn).click(); 
+		} 
+	} 
+	
+	
+	function SearchForWord()
+	{
+		var iCount=0;
+		var iWordCount=0;
+		var iTopicsSearch=0;
+		var objOption;
+		var asWords;
+		var sWord;
+		var bMulti;
+		var sWordsToAdd="*";
+		var sNewWordsToAdd="*";
+		
+		// clear list
+		removeOptions(lstIndexList);
+		
+		// get words
+		if (txtSearchIndex.value.toLowerCase().indexOf(' ') > 1)
+		{
+			asWords = txtSearchIndex.value.toLowerCase().split(' ');
+		}
+		else
+		{
+			asWords=[txtSearchIndex.value.toLowerCase()];
+		}
+		
+		for(var iWordCount=0; iWordCount < asWords.length; iWordCount++)
+		{
+			sWord = asWords[iWordCount];
+				
+			for(var iCount=0; iCount < saWordData.length; iCount++)
+			{
+				if (saWordData[iCount][0] == sWord)
+				{
+					// add topics for this word
+					for(var iTopicsSearch=0; iTopicsSearch < saWordData[iCount][1].length; iTopicsSearch++)
+					{
+						if(iWordCount>0)
+						{	// this is the second or more word
+							if (sWordsToAdd.indexOf("*" + saWordData[iCount][1][iTopicsSearch] + "*") != -1)
+							{
+								sNewWordsToAdd = sNewWordsToAdd + saWordData[iCount][1][iTopicsSearch] + "*";							
+							}
+						}
+						else
+						{
+							// add this topic filename
+							sNewWordsToAdd = sNewWordsToAdd + saWordData[iCount][1][iTopicsSearch] + "*";
+						}
+						
+					}
+				}
+			}
+			
+			sWordsToAdd = sNewWordsToAdd;
+			sNewWordsToAdd = "*";
+		}
+		
+		if(sWordsToAdd=="*")
+		{
+			alert("No matching words found");
+			lstIndexList.disabled=true;
+		}
+		else
+		{				
+			lstIndexList.disabled=false;
+			asWords = sWordsToAdd.split("*");
+			for(var iCount=0; iCount < asWords.length; iCount++)
+			{
+				if (asWords[iCount] !="")
+				{
+					// add this topic
+					objOption=document.createElement("OPTION");
+					objOption.text=saIndexData[asWords[iCount]][0];
+					objOption.value=saIndexData[asWords[iCount]][1];
+					lstIndexList[lstIndexList.length]=objOption;	
+				}
+			}
+		}
+	}
+	
+	
+	function DoWordSearch(sSearchFor)
+	{
+		
+		var sPageState=GetBaseFrameDocument().readyState;
+
+		g_sSearchFor = sSearchFor;
+		
+		if (sPageState != "undefined" && sPageState != null)
+		{
+			if (sPageState == 'complete')
+			{
+				// page loaded, do search
+				findInPage();
+			}
+			else
+			{
+				// not loaded page yet, so wait
+				var t=setTimeout('DoWordSearch(g_sSearchFor)',100);
+			}
+		}
+	
+	}
+              
+    function findInPage() 
+    { 
+		var bFound=false;
+		var objDOMRange
+		var iCount;
+		var asWords;
+		var iWords;
+		
+		// get words
+		if (g_sSearchFor.indexOf(' ') > 1)
+		{
+			asWords = g_sSearchFor.split(' ');
+		}
+		else
+		{
+			asWords=[g_sSearchFor];
+		}
+		
+		for(var iWords=0; iWords < asWords.length; iWords++)
+		{	
+			objDOMRange = GetBaseFrameDocument().body.createTextRange(); 	
+			bFound=false;
+			
+			for (iCount = 0; iCount <= 125; iCount++)			// max of 125 occurances
+			{ 
+				objDOMRange.moveStart("word",1);				// move to start of next word
+				bFound = objDOMRange.findText(asWords[iWords]);	// search for our text
+				if (bFound == true)
+				{
+					objDOMRange.pasteHTML( "<font style='background:#eeccaa'>" + objDOMRange.text + "</font>"); 
+				}
+				else
+				{
+					// no more occurances
+					break;
+				}
+			} 		
+		}
+	}
+	
+	function removeOptions(oSelect) 
+	{ 
+		var o = oSelect.options; 
+		if (o && o.length) 
+		{ 
+			// shortcut if "length" property is not read-only 
+			o.length = 0; 
+		
+			while (o.length > 0) 
+			{ 
+				if (o.remove) 
+				{ 
+					o.remove(o.length - 1); 
+				} 
+				else 
+				{ 
+					o[o.length - 1] = null; 
+				} 
+			} 
+			
+			return true; 
+		} 
+	} 
+
+    function ClickedTopic(v_sFilename, v_iNodeNumber)
+    {
+        BrowseToURL(v_sFilename);
+		//SelectNode(v_iNodeNumber);
+    }
+	
+	    
+    function ClickedHeading(v_iHeadingNumber)
+    {
+		var objItem = document.getElementById("imgh" + v_iHeadingNumber);
+    
+        //if(objItem.tagName.toLowerCase()=="img")
+      //  {
+            if(objItem.src.toLowerCase().indexOf("open")>0)
+            {
+                objItem.src = "whsupport/closedfolder.gif";
+				if (document.getElementById(objItem.getAttribute('divid')) !=null)
+					document.getElementById(objItem.getAttribute('divid')).style.display="none";
+				
+				if (document.getElementById("imghtl" + v_iHeadingNumber).getAttribute('lilev')=="e")
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/etlhclosedm.gif";
+				}
+				else
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/tlhclosedm.gif";
+				}
+            }
+            else
+            {
+                objItem.src = "whsupport/openfolder.gif";
+				if (document.getElementById(objItem.getAttribute('divid')) != null)
+					document.getElementById(objItem.getAttribute('divid')).style.display="block";
+				
+				if (document.getElementById("imghtl" + v_iHeadingNumber).getAttribute('lilev')=="e")
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/etlhopenm.gif";
+				}
+				else
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/tlhopenm.gif";
+				}
+            }
+        //}
+    }
+	
+	function SelectNode(v_iNodeNumber)
+    {
+		var iCount=0;
+		var iMax=10000;
+		
+		for(iCount=1; iCount < iMax; iCount++)
+		{
+			try
+			{
+				var objItem = document.getElementById("topicnode" + iCount);
+			}
+			catch (ex)
+			{
+				objItem=null;
+				
+			}
+			
+			if (objItem==null)
+			{
+				return;
+			}
+			
+            if(iCount==v_iNodeNumber)
+            {
+                objItem.style.fontWeight="bold";
+				g_iCurrentNode=iCount;
+				OpenParent(objItem.getAttribute('pf'));
+            }
+            else
+            {
+                objItem.style.fontWeight="normal";
+            }
+        }
+    }
+	
+	function SelectNodeByFilename(v_sFileName)
+    {
+		var iCount=0;
+		var iMax=10000;
+		
+		v_sFileName=decodeURI(v_sFileName);
+		
+		for(iCount=1; iCount < iMax; iCount++)
+		{
+			try
+			{
+				var objItem = document.getElementById("topicnode" + iCount);
+			}
+			catch (ex)
+			{
+				objItem=null;
+				
+			}
+			
+			if (objItem==null)
+			{
+				return;
+			}
+			
+            if(objItem.getAttribute('sfilename')==v_sFileName)
+            {
+                objItem.style.fontWeight="bold";
+				g_iCurrentNode=iCount;
+				if (objItem.getAttribute('rootlevel') !='yes')
+				{
+					OpenParent(objItem.getAttribute('pf'));
+				}
+            }
+            else
+            {
+                objItem.style.fontWeight="normal";
+            }
+        }
+    }
+	
+	function MoveNextTopic()
+	{
+		var iNewNode = g_iCurrentNode+1;
+		
+		try
+		{
+			var objItem = document.getElementById("topicnode" + iNewNode);
+		}
+		catch (ex)
+		{
+			objItem=null;
+			
+		}
+			
+		if (objItem==null)
+		{
+			return;
+		}
+		
+		if(objItem.getAttribute('sfilename')=="")
+		{
+			g_iCurrentNode=g_iCurrentNode+1;
+			MoveNextTopic();
+		}
+		else
+		{
+			ClickedTopic(objItem.getAttribute('sfilename'),iNewNode);
+		}
+	}
+	
+	function MovePrevTopic()
+	{
+		var iNewNode = g_iCurrentNode-1;
+		
+		try
+		{
+			var objItem = document.getElementById("topicnode" + iNewNode);
+		}
+		catch (ex)
+		{
+			objItem=null;
+			
+		}
+			
+		if (objItem==null)
+		{
+			return;
+		}
+		
+		if(objItem.getAttribute('sfilename')=="")
+		{
+			g_iCurrentNode=g_iCurrentNode-1;
+			MovePrevTopic();
+		}
+		else
+		{
+			ClickedTopic(objItem.getAttribute('sfilename'),iNewNode);
+		}
+	}
+	
+	function OpenParent(v_iParentHeadingNumber)
+	{
+		
+		var objItem = document.getElementById("imgh" + v_iParentHeadingNumber);
+		
+		if(objItem==null)
+			return;
+				
+		if(objItem.src.toLowerCase().indexOf("open")==-1)
+		{
+			objItem.src = "whsupport/openfolder.gif";
+			if (document.getElementById(objItem.getAttribute('divid')) != null)
+				document.getElementById(objItem.getAttribute('divid')).style.display="block";
+			
+			if (document.getElementById("imghtl" + v_iParentHeadingNumber).getAttribute('lilev')=="e")
+			{
+				document.getElementById("imghtl" + v_iParentHeadingNumber).src="whsupport/etlhopenm.gif";
+			}
+			else
+			{
+				document.getElementById("imghtl" + v_iParentHeadingNumber).src="whsupport/tlhopenm.gif";
+			}
+		}
+		
+		if (objItem.getAttribute('rootlevel') =='yes')
+		{
+			return;
+		}
+		
+		if (objItem.getAttribute('pf') !=null)
+		{
+			OpenParent(objItem.getAttribute('pf'));
+		}
+	
+	}
+</script>
+
+</body>
+</HTML>
+
+

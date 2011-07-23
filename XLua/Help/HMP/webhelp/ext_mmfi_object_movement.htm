@@ -1,0 +1,84 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Movement Traits</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><HELPMATIC autotopictitle>Movement&nbsp;Traits</TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A> » <A href="ext_mmfi_object.htm">Objects</A></LI></UL>
+<P>Movement&nbsp;Traits correspond to the <EM>Movement </EM>and <EM>Direction </EM>action and expression menus exposed by&nbsp;some objects, including the Active Objects.&nbsp; The MMFI is able to determine at runtime without additional help&nbsp;whether an object supports these traits, and will expose the corresponding fields and methods if it does.</P>
+<P>Since the MMFI is usually used in an environment of static movement, there is little support for directly interacting with MMF movements.</P>
+<P class=section_title>Movement&nbsp;Fields</P>
+<P>These fields can be read from or written to directly</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>direction</TD>
+<TD>Object's current direction value (1 - 32)&nbsp;</TD></TR></TBODY></TABLE></P>
+<P><FONT color=#008080> </FONT></P><hr><div><span class='seealso'>See also:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ext_mmfi_object.htm">Object API</a>, <a href="ext_mmfi_object_display.htm">Display Traits</a>, <a href="ext_mmfi_object_common.htm">Common Traits</a>, <a href="ext_mmfi_object_anim.htm">Animation Traits</a>, <a href="ext_mmfi_object_values.htm">Value Traits</a></div><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_movement.htm'); 
+HMSelectTopic('ext_mmfi_object_movement.htm');</script></body>
+</html>

@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; State</div>
+<div class="lv2 active">Destroy State</div>
+</div>
+
+<p>Destroys the global lua state associated with the given ID.</p>
+<p>If this action is called from within an active call stack, any XLua objects bound to the state will be detached at the end of the event where this action was called.  The call stack will safely unwind, and then the state will be destroyed.  Neveretheless, you should always exercise caution when destroying an XLua state from within an active call stack.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">Value</td><td class="desc">State ID</td>
+</tr></table>

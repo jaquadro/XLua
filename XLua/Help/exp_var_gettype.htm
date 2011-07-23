@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Expressions &#8227; Variables</div>
+<div class="lv2 active">Get Variable Type</div>
+</div>
+
+<div class="exp">Function: <tt>VarType$</tt></div>
+<div class="exp-return">Returns: <tt>String</tt></div>
+
+<p>Returns the type of a variable in Lua.  The most common types that will be returned are <tt>nil</tt>, <tt>boolean</tt>, <tt>number</tt>, <tt>string</tt>, <tt>table</tt>, and <tt>function</tt>.  Other valid types that may be returned are <tt>userdata</tt>, <tt>thread</tt>, <tt>proto</tt>, and <tt>upval</tt>.</p>
+<p>If the requested variable does not exist, the return type is <tt>nil</tt>.  If the XLua object is currently unbound, the return type is the empty string.  <a href="act_var.htm">Click here</a> for more information on valid naming.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">String</td><td class="desc">Variable name</td>
+</tr></table>

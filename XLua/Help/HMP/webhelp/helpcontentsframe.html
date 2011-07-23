@@ -1,0 +1,639 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+<HTML>
+	<HEAD>
+		<TITLE></TITLE>
+		
+		<STYLE type="text/css">
+			.treenode  { 
+						font-family: Tahoma, Verdana; 
+						font-size: 11px; 
+						color: #000000; 
+						text-decoration: none 
+					} 
+			
+			.treeimage { 
+						border: 0px; 
+						width: 16px; 
+						height: 17px; 
+					}
+		</STYLE>
+		
+	<LINK REL="stylesheet" TYPE="text/css" HREF="webhelp1.css"></LINK>
+</HEAD>
+	
+	
+<script language="javascript">
+
+	function LoadFrames()
+	{
+		var sdefault="";
+		
+		try
+		{
+			sdefault=parent.window.frames["frmText"].location.href;
+			if (sdefault.indexOf("/") > -1)
+			{
+				sdefault = sdefault.substring(sdefault.lastIndexOf("/")+1);
+			}
+		}
+		catch (e)
+		{
+			sdefault="";
+		}
+	
+		if (sdefault !="")
+		{
+			SelectNodeByFilename(sdefault);
+		}
+	}
+</script>
+	
+	<BODY bgcolor="#FFFFFF" onselectstart="return false;" onLoad="javascript:LoadFrames();">
+	
+		<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><td height=16 width=16><img class='treeimage' rootlevel='yes'  pf="0" id="imghtl1" divid="divHeader1" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(1);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh1" pf="0" divid="divHeader1" rootlevel='yes'  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(1);" style="cursor:pointer" ></td><td><span divid="divHeader1" rootlevel='yes' style="cursor:pointer" onClick="javascript:ClickedHeading(1);ClickedTopic('xlua.htm','1');" id="topicnode1" sfilename="xlua.htm" pf="0">&nbsp;XLua</span></td></tr></table><div id="divHeader1" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage'  pf="1" id="imghtl2" divid="divHeader2" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(2);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh2" pf="1" divid="divHeader2"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(2);" style="cursor:pointer" ></td><td><span divid="divHeader2" style="cursor:pointer" onClick="javascript:ClickedHeading(2);ClickedTopic('props.htm','2');" id="topicnode2" sfilename="props.htm" pf="1">&nbsp;Properties</span></td></tr></table><div id="divHeader2" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode3" sfilename="props_state.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('props_state.htm','3');"  pf="2">&nbsp;Lua State</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode4" sfilename="props_interface.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('props_interface.htm','4');"  pf="2">&nbsp;Interfaces</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode5" sfilename="props_io.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('props_io.htm','5');"  pf="2">&nbsp;Standard I/O</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode6" sfilename="props_script.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('props_script.htm','6');"  pf="2">&nbsp;Script</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage'  pf="1" id="imghtl3" divid="divHeader3" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(3);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh3" pf="1" divid="divHeader3"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(3);" style="cursor:pointer" ></td><td><span divid="divHeader3" style="cursor:pointer" onClick="javascript:ClickedHeading(3);ClickedTopic('act.htm','7');" id="topicnode7" sfilename="act.htm" pf="1">&nbsp;Actions</span></td></tr></table><div id="divHeader3" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode8" sfilename="act_state.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_state.htm','8');"  pf="3">&nbsp;State</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="3" id="imghtl4" divid="divHeader4" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(4);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh4" pf="3" divid="divHeader4"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(4);" style="cursor:pointer" ></td><td><span divid="divHeader4" style="cursor:pointer" onClick="javascript:ClickedHeading(4);ClickedTopic('act_config.htm','9');" id="topicnode9" sfilename="act_config.htm" pf="3">&nbsp;Config</span></td></tr></table><div id="divHeader4" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode10" sfilename="act_config_error.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_config_error.htm','10');"  pf="4">&nbsp;Error Event Mode</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode11" sfilename="act_config_print.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_config_print.htm','11');"  pf="4">&nbsp;Print Event Mode</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode12" sfilename="act_config_backtraces.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_config_backtraces.htm','12');"  pf="4">&nbsp;Report Backtraces</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="3" id="imghtl5" divid="divHeader5" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(5);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh5" pf="3" divid="divHeader5"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(5);" style="cursor:pointer" ></td><td><span divid="divHeader5" style="cursor:pointer" onClick="javascript:ClickedHeading(5);ClickedTopic('act_lua.htm','13');" id="topicnode13" sfilename="act_lua.htm" pf="3">&nbsp;Lua Functions</span></td></tr></table><div id="divHeader5" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode14" sfilename="act_lua_table.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_lua_table.htm','14');"  pf="5">&nbsp;Table Parameters</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode15" sfilename="act_lua_inline.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_lua_inline.htm','15');"  pf="5">&nbsp;Inline Parameters</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="3" id="imghtl6" divid="divHeader6" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(6);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh6" pf="3" divid="divHeader6"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(6);" style="cursor:pointer" ></td><td><span divid="divHeader6" style="cursor:pointer" onClick="javascript:ClickedHeading(6);ClickedTopic('act_mmf.htm','16');" id="topicnode16" sfilename="act_mmf.htm" pf="3">&nbsp;MMF Functions</span></td></tr></table><div id="divHeader6" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode17" sfilename="act_mmf_table.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_mmf_table.htm','17');"  pf="6">&nbsp;Table Return Values</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode18" sfilename="act_mmf_group.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_mmf_group.htm','18');"  pf="6">&nbsp;Function Groups</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode19" sfilename="act_vars.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_vars.htm','19');"  pf="3">&nbsp;Variables</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode20" sfilename="act_localstore.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_localstore.htm','20');"  pf="3">&nbsp;Local Storage</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode21" sfilename="act_libraries.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_libraries.htm','21');"  pf="3">&nbsp;Libraries</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode22" sfilename="act_mmfi.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_mmfi.htm','22');"  pf="3">&nbsp;MMF Interface</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode23" sfilename="act_wini.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('act_wini.htm','23');"  pf="3">&nbsp;WIN Interface</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage'  pf="1" id="imghtl7" divid="divHeader7" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(7);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh7" pf="1" divid="divHeader7"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(7);" style="cursor:pointer" ></td><td><span divid="divHeader7" style="cursor:pointer" onClick="javascript:ClickedHeading(7);ClickedTopic('cond.htm','24');" id="topicnode24" sfilename="cond.htm" pf="1">&nbsp;Conditions</span></td></tr></table><div id="divHeader7" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode25" sfilename="cond_groups.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('cond_groups.htm','25');"  pf="7">&nbsp;Function Groups</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode26" sfilename="cond_selections.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('cond_selections.htm','26');"  pf="7">&nbsp;Selections</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage'  pf="1" id="imghtl8" divid="divHeader8" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(8);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh8" pf="1" divid="divHeader8"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(8);" style="cursor:pointer" ></td><td><span divid="divHeader8" style="cursor:pointer" onClick="javascript:ClickedHeading(8);ClickedTopic('expr.htm','27');" id="topicnode27" sfilename="expr.htm" pf="1">&nbsp;Expressions</span></td></tr></table><div id="divHeader8" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode28" sfilename="expr_config.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('expr_config.htm','28');"  pf="8">&nbsp;Config</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="8" id="imghtl9" divid="divHeader9" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(9);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh9" pf="8" divid="divHeader9"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(9);" style="cursor:pointer" ></td><td><span divid="divHeader9" style="cursor:pointer" onClick="javascript:ClickedHeading(9);ClickedTopic('expr_lua.htm','29');" id="topicnode29" sfilename="expr_lua.htm" pf="8">&nbsp;Lua Functions</span></td></tr></table><div id="divHeader9" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="9" id="imghtl10" divid="divHeader10" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(10);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh10" pf="9" divid="divHeader10"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(10);" style="cursor:pointer" ></td><td><span divid="divHeader10" style="cursor:pointer" onClick="javascript:ClickedHeading(10);ClickedTopic('expr_lua_call.htm','30');" id="topicnode30" sfilename="expr_lua_call.htm" pf="9">&nbsp;Call Lua Function</span></td></tr></table><div id="divHeader10" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode31" sfilename="expr_lua_call_numeric.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('expr_lua_call_numeric.htm','31');"  pf="10">&nbsp;Numeric Return</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode32" sfilename="expr_lua_call_string.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('expr_lua_call_string.htm','32');"  pf="10">&nbsp;String Return</span></td></tr></table>
+</div></div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode33" sfilename="expr_mmf.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('expr_mmf.htm','33');"  pf="8">&nbsp;MMF Functions</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode34" sfilename="expr_vars.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('expr_vars.htm','34');"  pf="8">&nbsp;Variables</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode35" sfilename="expr_localstore.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('expr_localstore.htm','35');"  pf="8">&nbsp;Local Storage</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage'  pf="1" id="imghtl11" divid="divHeader11" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(11);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh11" pf="1" divid="divHeader11"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(11);" style="cursor:pointer" ></td><td><span divid="divHeader11" style="cursor:pointer" onClick="javascript:ClickedHeading(11);ClickedTopic('topics.htm','36');" id="topicnode36" sfilename="topics.htm" pf="1">&nbsp;Other Topics</span></td></tr></table><div id="divHeader11" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode37" sfilename="topics_build.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('topics_build.htm','37');"  pf="11">&nbsp;Building C Modules</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode38" sfilename="topics_lualib.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('topics_lualib.htm','38');"  pf="11">&nbsp;Extensions to the Lua Library</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode39" sfilename="topics_funcgroups.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('topics_funcgroups.htm','39');"  pf="11">&nbsp;Function Groups</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode40" sfilename="topics_require.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('topics_require.htm','40');"  pf="11">&nbsp;The require Function</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage'  pf="1" id="imghtl12" divid="divHeader12" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(12);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh12" pf="1" divid="divHeader12"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(12);" style="cursor:pointer" ></td><td><span divid="divHeader12" style="cursor:pointer" onClick="javascript:ClickedHeading(12);ClickedTopic('ext.htm','41');" id="topicnode41" sfilename="ext.htm" pf="1">&nbsp;Extensions</span></td></tr></table><div id="divHeader12" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="12" id="imghtl13" divid="divHeader13" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(13);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh13" pf="12" divid="divHeader13"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(13);" style="cursor:pointer" ></td><td><span divid="divHeader13" style="cursor:pointer" onClick="javascript:ClickedHeading(13);ClickedTopic('ext_mmfi.htm','42');" id="topicnode42" sfilename="ext_mmfi.htm" pf="12">&nbsp;MMFI</span></td></tr></table><div id="divHeader13" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode43" sfilename="ext_mmfi_api.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_api.htm','43');"  pf="13">&nbsp;API</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode44" sfilename="ext_mmfi_constants.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_constants.htm','44');"  pf="13">&nbsp;Constants</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="13" id="imghtl14" divid="divHeader14" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(14);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh14" pf="13" divid="divHeader14"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(14);" style="cursor:pointer" ></td><td><span divid="divHeader14" style="cursor:pointer" onClick="javascript:ClickedHeading(14);ClickedTopic('ext_mmfi_object.htm','45');" id="topicnode45" sfilename="ext_mmfi_object.htm" pf="13">&nbsp;Objects</span></td></tr></table><div id="divHeader14" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode46" sfilename="ext_mmfi_object_anim.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_anim.htm','46');"  pf="14">&nbsp;Animation Traits</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="14" id="imghtl15" divid="divHeader15" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(15);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh15" pf="14" divid="divHeader15"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(15);" style="cursor:pointer" ></td><td><span divid="divHeader15" style="cursor:pointer" onClick="javascript:ClickedHeading(15);ClickedTopic('ext_mmfi_object_array.htm','47');" id="topicnode47" sfilename="ext_mmfi_object_array.htm" pf="14">&nbsp;Array</span></td></tr></table><div id="divHeader15" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode48" sfilename="ext_mmfi_object_array_clear.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_array_clear.htm','48');"  pf="15">&nbsp;Clear</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode49" sfilename="ext_mmfi_object_array_get.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_array_get.htm','49');"  pf="15">&nbsp;Get Value</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode50" sfilename="ext_mmfi_object_array_set.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_array_set.htm','50');"  pf="15">&nbsp;Set Value</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="14" id="imghtl16" divid="divHeader16" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(16);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh16" pf="14" divid="divHeader16"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(16);" style="cursor:pointer" ></td><td><span divid="divHeader16" style="cursor:pointer" onClick="javascript:ClickedHeading(16);ClickedTopic('ext_mmfi_object_common.htm','51');" id="topicnode51" sfilename="ext_mmfi_object_common.htm" pf="14">&nbsp;Common Traits</span></td></tr></table><div id="divHeader16" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode52" sfilename="ext_mmfi_object_common_destroy.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_common_destroy.htm','52');"  pf="16">&nbsp;Destroy</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode53" sfilename="ext_mmfi_object_counter.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_counter.htm','53');"  pf="14">&nbsp;Counter</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="14" id="imghtl17" divid="divHeader17" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(17);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh17" pf="14" divid="divHeader17"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(17);" style="cursor:pointer" ></td><td><span divid="divHeader17" style="cursor:pointer" onClick="javascript:ClickedHeading(17);ClickedTopic('ext_mmfi_object_display.htm','54');" id="topicnode54" sfilename="ext_mmfi_object_display.htm" pf="14">&nbsp;Display Traits</span></td></tr></table><div id="divHeader17" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode55" sfilename="ext_mmfi_object_display_isabove.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_isabove.htm','55');"  pf="17">&nbsp;Is Above</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode56" sfilename="ext_mmfi_object_display_isbelow.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_isbelow.htm','56');"  pf="17">&nbsp;Is Below</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode57" sfilename="ext_mmfi_object_display_moveabove.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_moveabove.htm','57');"  pf="17">&nbsp;Move Above</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode58" sfilename="ext_mmfi_object_display_movebelow.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_movebelow.htm','58');"  pf="17">&nbsp;MoveBelow</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode59" sfilename="ext_mmfi_object_display_movetoback.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_movetoback.htm','59');"  pf="17">&nbsp;Move To Back</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode60" sfilename="ext_mmfi_object_display_movetofront.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_movetofront.htm','60');"  pf="17">&nbsp;Move To Front</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode61" sfilename="ext_mmfi_object_display_swaporder.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_swaporder.htm','61');"  pf="17">&nbsp;Swap Order</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode62" sfilename="ext_mmfi_object_display_testbackdrop.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_testbackdrop.htm','62');"  pf="17">&nbsp;Test Backdrop</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode63" sfilename="ext_mmfi_object_display_testclass.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_testclass.htm','63');"  pf="17">&nbsp;Test Class</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode64" sfilename="ext_mmfi_object_display_testobject.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_testobject.htm','64');"  pf="17">&nbsp;Test Object</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode65" sfilename="ext_mmfi_object_display_testpoint.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_testpoint.htm','65');"  pf="17">&nbsp;Test Point</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode66" sfilename="ext_mmfi_object_display_testrect.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_display_testrect.htm','66');"  pf="17">&nbsp;Test Rectangle</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode67" sfilename="ext_mmfi_object_movement.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_movement.htm','67');"  pf="14">&nbsp;Movement Traits</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode68" sfilename="ext_mmfi_object_string.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_string.htm','68');"  pf="14">&nbsp;String</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode69" sfilename="ext_mmfi_object_values.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_object_values.htm','69');"  pf="14">&nbsp;Value Traits</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="13" id="imghtl18" divid="divHeader18" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(18);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh18" pf="13" divid="divHeader18"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(18);" style="cursor:pointer" ></td><td><span divid="divHeader18" style="cursor:pointer" onClick="javascript:ClickedHeading(18);ClickedTopic('ext_mmfi_class.htm','70');" id="topicnode70" sfilename="ext_mmfi_class.htm" pf="13">&nbsp;Object Classes</span></td></tr></table><div id="divHeader18" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode71" sfilename="ext_mmfi_class_randomobject.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_randomobject.htm','71');"  pf="18">&nbsp;Random Object</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode72" sfilename="ext_mmfi_class_testbackdrop.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testbackdrop.htm','72');"  pf="18">&nbsp;Test Backdrop</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode73" sfilename="ext_mmfi_class_testbackdropget.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testbackdropget.htm','73');"  pf="18">&nbsp;Test Backdrop Get</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode74" sfilename="ext_mmfi_class_testclass.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testclass.htm','74');"  pf="18">&nbsp;Test Class</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode75" sfilename="ext_mmfi_class_testclassget.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testclassget.htm','75');"  pf="18">&nbsp;Test Class Get</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode76" sfilename="ext_mmfi_class_testclassgetex.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testclassgetex.htm','76');"  pf="18">&nbsp;Test Class Get Extended</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode77" sfilename="ext_mmfi_class_testobject.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testobject.htm','77');"  pf="18">&nbsp;Test Object</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode78" sfilename="ext_mmfi_class_testobjectget.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testobjectget.htm','78');"  pf="18">&nbsp;Test Object Get</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode79" sfilename="ext_mmfi_class_testpoint.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testpoint.htm','79');"  pf="18">&nbsp;Test Point</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode80" sfilename="ext_mmfi_class_testpointget.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testpointget.htm','80');"  pf="18">&nbsp;Test Point Get</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode81" sfilename="ext_mmfi_class_testrect.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testrect.htm','81');"  pf="18">&nbsp;Test Rectangle</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode82" sfilename="ext_mmfi_class_testrectget.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_class_testrectget.htm','82');"  pf="18">&nbsp;Test Rectangle Get</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="13" id="imghtl19" divid="divHeader19" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(19);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh19" pf="13" divid="divHeader19"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(19);" style="cursor:pointer" ></td><td><span divid="divHeader19" style="cursor:pointer" onClick="javascript:ClickedHeading(19);ClickedTopic('ext_mmfi_frame.htm','83');" id="topicnode83" sfilename="ext_mmfi_frame.htm" pf="13">&nbsp;Frame</span></td></tr></table><div id="divHeader19" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode84" sfilename="ext_mmfi_frame_testpoint.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_frame_testpoint.htm','84');"  pf="19">&nbsp;Test Point</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode85" sfilename="ext_mmfi_frame_testrect.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_frame_testrect.htm','85');"  pf="19">&nbsp;Test Rectangle</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="13" id="imghtl20" divid="divHeader20" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(20);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh20" pf="13" divid="divHeader20"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(20);" style="cursor:pointer" ></td><td><span divid="divHeader20" style="cursor:pointer" onClick="javascript:ClickedHeading(20);ClickedTopic('ext_mmfi_keyboard.htm','86');" id="topicnode86" sfilename="ext_mmfi_keyboard.htm" pf="13">&nbsp;Keyboard</span></td></tr></table><div id="divHeader20" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode87" sfilename="ext_mmfi_keyboard_keydown.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_keyboard_keydown.htm','87');"  pf="20">&nbsp;Key Down</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode88" sfilename="ext_mmfi_keyboard_keyup.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_keyboard_keyup.htm','88');"  pf="20">&nbsp;Key Up</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="13" id="imghtl21" divid="divHeader21" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(21);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh21" pf="13" divid="divHeader21"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(21);" style="cursor:pointer" ></td><td><span divid="divHeader21" style="cursor:pointer" onClick="javascript:ClickedHeading(21);ClickedTopic('ext_mmfi_mouse.htm','89');" id="topicnode89" sfilename="ext_mmfi_mouse.htm" pf="13">&nbsp;Mouse</span></td></tr></table><div id="divHeader21" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode90" sfilename="ext_mmfi_mouse_buttondown.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_mouse_buttondown.htm','90');"  pf="21">&nbsp;Button Down</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode91" sfilename="ext_mmfi_mouse_buttonup.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_mouse_buttonup.htm','91');"  pf="21">&nbsp;Button Up</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="13" id="imghtl22" divid="divHeader22" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(22);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh22" pf="13" divid="divHeader22"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(22);" style="cursor:pointer" ></td><td><span divid="divHeader22" style="cursor:pointer" onClick="javascript:ClickedHeading(22);ClickedTopic('ext_mmfi_runtime.htm','92');" id="topicnode92" sfilename="ext_mmfi_runtime.htm" pf="13">&nbsp;Runtime</span></td></tr></table><div id="divHeader22" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode93" sfilename="ext_mmfi_runtime_playerlives.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_runtime_playerlives.htm','93');"  pf="22">&nbsp;Player Lives</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode94" sfilename="ext_mmfi_runtime_playerscore.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_runtime_playerscore.htm','94');"  pf="22">&nbsp;Player Score</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode95" sfilename="ext_mmfi_runtime_setplayerlives.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_runtime_setplayerlives.htm','95');"  pf="22">&nbsp;Set Player Lives</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode96" sfilename="ext_mmfi_runtime_setplayerscore.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_runtime_setplayerscore.htm','96');"  pf="22">&nbsp;Set Player Score</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode97" sfilename="ext_mmfi_window.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_mmfi_window.htm','97');"  pf="13">&nbsp;Window</span></td></tr></table>
+</div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><td height=16 width=16><img class='treeimage'  pf="12" id="imghtl23" divid="divHeader23" align='absmiddle' lilev='e' src='whsupport/etlhclosedm.gif' onClick="javascript:ClickedHeading(23);" style="cursor:pointer" ></td><td height=16 width=16><img id="imgh23" pf="12" divid="divHeader23"  align='absmiddle' src='whsupport/closedfolder.gif' onClick="javascript:ClickedHeading(23);" style="cursor:pointer" ></td><td><span divid="divHeader23" style="cursor:pointer" onClick="javascript:ClickedHeading(23);ClickedTopic('ext_array.htm','98');" id="topicnode98" sfilename="ext_array.htm" pf="12">&nbsp;Static Array</span></td></tr></table><div id="divHeader23" style='display:none;'>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode99" sfilename="ext_array_at.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_at.htm','99');"  pf="23">&nbsp;At</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode100" sfilename="ext_array_clone.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_clone.htm','100');"  pf="23">&nbsp;Clone</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode101" sfilename="ext_array_destroy.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_destroy.htm','101');"  pf="23">&nbsp;Destroy</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode102" sfilename="ext_array_dimensions.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_dimensions.htm','102');"  pf="23">&nbsp;Dimensions</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode103" sfilename="ext_array_dimsize.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_dimsize.htm','103');"  pf="23">&nbsp;Dimension Size</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode104" sfilename="ext_array_reset.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_reset.htm','104');"  pf="23">&nbsp;Reset</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode105" sfilename="ext_array_resize.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_resize.htm','105');"  pf="23">&nbsp;Resize</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopicmiddle.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode106" sfilename="ext_array_set.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_set.htm','106');"  pf="23">&nbsp;Set</span></td></tr></table>
+<table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><Td height=16 width=16><img src='whsupport/tlvm.gif'></td><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode107" sfilename="ext_array_size.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('ext_array_size.htm','107');"  pf="23">&nbsp;Size</span></td></tr></table>
+</div></div><table border=0 style='TABLE-LAYOUT:fixed; border-collapse:collapse;' cellPadding=0 cellSpacing=0><tr><Td height=16 width=16>&nbsp;</td><td height=16 width=16><img class='treeimage' src='whsupport/tltopiclast.gif'></td><td height=16 width=16><img class='treeimage' align='absmiddle' src='whsupport/contentstopic.gif' style="cursor:pointer" ></td><td><span id="topicnode108" sfilename="xlua_lic.htm" style="cursor:pointer" onClick="javascript:ClickedTopic('xlua_lic.htm','108');"  pf="1">&nbsp;License</span></td></tr></table>
+</div>
+			
+			
+				
+		
+	<script language='javascript'>
+	var g_sSearchFor="";	
+	var g_iCurrentNode=0;
+	
+	function PopulateIndex()
+	{
+		var iCount=0;
+		var objOption;
+		
+		if (saIndexData.length==0)
+		{
+			lstIndexList.disabled=true;
+			return;
+		}
+		
+		
+		for(iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			objOption=document.createElement("OPTION");
+			objOption.text=saIndexData[iCount][0];
+			objOption.value=iCount;
+			lstIndexList[lstIndexList.length]=objOption;
+		}
+	}
+	
+	
+	function BrowseToURL(sURL)
+	{ 
+        GetBaseFrameDocument().location.href=sURL;
+	} 
+	
+	function GetBaseFrameDocument()
+	{ 
+        var frames = parent.frames;
+        var iframecount = frames.length;
+        for(var i=0; i < iframecount; i++) 
+                if(frames[i].name == "frmText") 
+                        return frames[i].document;
+	} 
+	
+	
+	function ShowIndexItem()
+	{	
+		if (lstIndexList.selectedIndex==-1)
+		{
+			return;
+		}
+		
+		
+		var iCount=0;
+		for(var iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			if (saIndexData[iCount][0] == lstIndexList.options[lstIndexList.selectedIndex].text)
+			{
+				BrowseToURL(saIndexData[iCount][1]);	
+			}
+		}				
+	}
+	
+	function SearchForIndex()
+	{
+		var iCount=0;
+		for(var iCount=0; iCount < saIndexData.length; iCount++)
+		{
+			if (saIndexData[iCount][0].toLowerCase().indexOf(txtSearchIndex.value.toLowerCase())==0)
+			{
+				lstIndexList.selectedIndex=iCount;
+				return;
+			}
+		}		
+	}
+	
+	
+	function KeyDownHandler(event,btn) 
+	{
+		if (event.keyCode == 13) 
+		{ 
+			event.returnValue=false; 
+			event.cancel = true; 
+			document.getElementById(btn).click(); 
+		} 
+	} 
+	
+	
+	function SearchForWord()
+	{
+		var iCount=0;
+		var iWordCount=0;
+		var iTopicsSearch=0;
+		var objOption;
+		var asWords;
+		var sWord;
+		var bMulti;
+		var sWordsToAdd="*";
+		var sNewWordsToAdd="*";
+		
+		// clear list
+		removeOptions(lstIndexList);
+		
+		// get words
+		if (txtSearchIndex.value.toLowerCase().indexOf(' ') > 1)
+		{
+			asWords = txtSearchIndex.value.toLowerCase().split(' ');
+		}
+		else
+		{
+			asWords=[txtSearchIndex.value.toLowerCase()];
+		}
+		
+		for(var iWordCount=0; iWordCount < asWords.length; iWordCount++)
+		{
+			sWord = asWords[iWordCount];
+				
+			for(var iCount=0; iCount < saWordData.length; iCount++)
+			{
+				if (saWordData[iCount][0] == sWord)
+				{
+					// add topics for this word
+					for(var iTopicsSearch=0; iTopicsSearch < saWordData[iCount][1].length; iTopicsSearch++)
+					{
+						if(iWordCount>0)
+						{	// this is the second or more word
+							if (sWordsToAdd.indexOf("*" + saWordData[iCount][1][iTopicsSearch] + "*") != -1)
+							{
+								sNewWordsToAdd = sNewWordsToAdd + saWordData[iCount][1][iTopicsSearch] + "*";							
+							}
+						}
+						else
+						{
+							// add this topic filename
+							sNewWordsToAdd = sNewWordsToAdd + saWordData[iCount][1][iTopicsSearch] + "*";
+						}
+						
+					}
+				}
+			}
+			
+			sWordsToAdd = sNewWordsToAdd;
+			sNewWordsToAdd = "*";
+		}
+		
+		if(sWordsToAdd=="*")
+		{
+			alert("No matching words found");
+			lstIndexList.disabled=true;
+		}
+		else
+		{				
+			lstIndexList.disabled=false;
+			asWords = sWordsToAdd.split("*");
+			for(var iCount=0; iCount < asWords.length; iCount++)
+			{
+				if (asWords[iCount] !="")
+				{
+					// add this topic
+					objOption=document.createElement("OPTION");
+					objOption.text=saIndexData[asWords[iCount]][0];
+					objOption.value=saIndexData[asWords[iCount]][1];
+					lstIndexList[lstIndexList.length]=objOption;	
+				}
+			}
+		}
+	}
+	
+	
+	function DoWordSearch(sSearchFor)
+	{
+		
+		var sPageState=GetBaseFrameDocument().readyState;
+
+		g_sSearchFor = sSearchFor;
+		
+		if (sPageState != "undefined" && sPageState != null)
+		{
+			if (sPageState == 'complete')
+			{
+				// page loaded, do search
+				findInPage();
+			}
+			else
+			{
+				// not loaded page yet, so wait
+				var t=setTimeout('DoWordSearch(g_sSearchFor)',100);
+			}
+		}
+	
+	}
+              
+    function findInPage() 
+    { 
+		var bFound=false;
+		var objDOMRange
+		var iCount;
+		var asWords;
+		var iWords;
+		
+		// get words
+		if (g_sSearchFor.indexOf(' ') > 1)
+		{
+			asWords = g_sSearchFor.split(' ');
+		}
+		else
+		{
+			asWords=[g_sSearchFor];
+		}
+		
+		for(var iWords=0; iWords < asWords.length; iWords++)
+		{	
+			objDOMRange = GetBaseFrameDocument().body.createTextRange(); 	
+			bFound=false;
+			
+			for (iCount = 0; iCount <= 125; iCount++)			// max of 125 occurances
+			{ 
+				objDOMRange.moveStart("word",1);				// move to start of next word
+				bFound = objDOMRange.findText(asWords[iWords]);	// search for our text
+				if (bFound == true)
+				{
+					objDOMRange.pasteHTML( "<font style='background:#eeccaa'>" + objDOMRange.text + "</font>"); 
+				}
+				else
+				{
+					// no more occurances
+					break;
+				}
+			} 		
+		}
+	}
+	
+	function removeOptions(oSelect) 
+	{ 
+		var o = oSelect.options; 
+		if (o && o.length) 
+		{ 
+			// shortcut if "length" property is not read-only 
+			o.length = 0; 
+		
+			while (o.length > 0) 
+			{ 
+				if (o.remove) 
+				{ 
+					o.remove(o.length - 1); 
+				} 
+				else 
+				{ 
+					o[o.length - 1] = null; 
+				} 
+			} 
+			
+			return true; 
+		} 
+	} 
+
+    function ClickedTopic(v_sFilename, v_iNodeNumber)
+    {
+        BrowseToURL(v_sFilename);
+		//SelectNode(v_iNodeNumber);
+    }
+	
+	    
+    function ClickedHeading(v_iHeadingNumber)
+    {
+		var objItem = document.getElementById("imgh" + v_iHeadingNumber);
+    
+        //if(objItem.tagName.toLowerCase()=="img")
+      //  {
+            if(objItem.src.toLowerCase().indexOf("open")>0)
+            {
+                objItem.src = "whsupport/closedfolder.gif";
+				if (document.getElementById(objItem.getAttribute('divid')) !=null)
+					document.getElementById(objItem.getAttribute('divid')).style.display="none";
+				
+				if (document.getElementById("imghtl" + v_iHeadingNumber).getAttribute('lilev')=="e")
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/etlhclosedm.gif";
+				}
+				else
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/tlhclosedm.gif";
+				}
+            }
+            else
+            {
+                objItem.src = "whsupport/openfolder.gif";
+				if (document.getElementById(objItem.getAttribute('divid')) != null)
+					document.getElementById(objItem.getAttribute('divid')).style.display="block";
+				
+				if (document.getElementById("imghtl" + v_iHeadingNumber).getAttribute('lilev')=="e")
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/etlhopenm.gif";
+				}
+				else
+				{
+					document.getElementById("imghtl" + v_iHeadingNumber).src="whsupport/tlhopenm.gif";
+				}
+            }
+        //}
+    }
+	
+	function SelectNode(v_iNodeNumber)
+    {
+		var iCount=0;
+		var iMax=10000;
+		
+		for(iCount=1; iCount < iMax; iCount++)
+		{
+			try
+			{
+				var objItem = document.getElementById("topicnode" + iCount);
+			}
+			catch (ex)
+			{
+				objItem=null;
+				
+			}
+			
+			if (objItem==null)
+			{
+				return;
+			}
+			
+            if(iCount==v_iNodeNumber)
+            {
+                objItem.style.fontWeight="bold";
+				g_iCurrentNode=iCount;
+				OpenParent(objItem.getAttribute('pf'));
+            }
+            else
+            {
+                objItem.style.fontWeight="normal";
+            }
+        }
+    }
+	
+	function SelectNodeByFilename(v_sFileName)
+    {
+		var iCount=0;
+		var iMax=10000;
+		
+		v_sFileName=decodeURI(v_sFileName);
+		
+		for(iCount=1; iCount < iMax; iCount++)
+		{
+			try
+			{
+				var objItem = document.getElementById("topicnode" + iCount);
+			}
+			catch (ex)
+			{
+				objItem=null;
+				
+			}
+			
+			if (objItem==null)
+			{
+				return;
+			}
+			
+            if(objItem.getAttribute('sfilename')==v_sFileName)
+            {
+                objItem.style.fontWeight="bold";
+				g_iCurrentNode=iCount;
+				if (objItem.getAttribute('rootlevel') !='yes')
+				{
+					OpenParent(objItem.getAttribute('pf'));
+				}
+            }
+            else
+            {
+                objItem.style.fontWeight="normal";
+            }
+        }
+    }
+	
+	function MoveNextTopic()
+	{
+		var iNewNode = g_iCurrentNode+1;
+		
+		try
+		{
+			var objItem = document.getElementById("topicnode" + iNewNode);
+		}
+		catch (ex)
+		{
+			objItem=null;
+			
+		}
+			
+		if (objItem==null)
+		{
+			return;
+		}
+		
+		if(objItem.getAttribute('sfilename')=="")
+		{
+			g_iCurrentNode=g_iCurrentNode+1;
+			MoveNextTopic();
+		}
+		else
+		{
+			ClickedTopic(objItem.getAttribute('sfilename'),iNewNode);
+		}
+	}
+	
+	function MovePrevTopic()
+	{
+		var iNewNode = g_iCurrentNode-1;
+		
+		try
+		{
+			var objItem = document.getElementById("topicnode" + iNewNode);
+		}
+		catch (ex)
+		{
+			objItem=null;
+			
+		}
+			
+		if (objItem==null)
+		{
+			return;
+		}
+		
+		if(objItem.getAttribute('sfilename')=="")
+		{
+			g_iCurrentNode=g_iCurrentNode-1;
+			MovePrevTopic();
+		}
+		else
+		{
+			ClickedTopic(objItem.getAttribute('sfilename'),iNewNode);
+		}
+	}
+	
+	function OpenParent(v_iParentHeadingNumber)
+	{
+		
+		var objItem = document.getElementById("imgh" + v_iParentHeadingNumber);
+		
+		if(objItem==null)
+			return;
+				
+		if(objItem.src.toLowerCase().indexOf("open")==-1)
+		{
+			objItem.src = "whsupport/openfolder.gif";
+			if (document.getElementById(objItem.getAttribute('divid')) != null)
+				document.getElementById(objItem.getAttribute('divid')).style.display="block";
+			
+			if (document.getElementById("imghtl" + v_iParentHeadingNumber).getAttribute('lilev')=="e")
+			{
+				document.getElementById("imghtl" + v_iParentHeadingNumber).src="whsupport/etlhopenm.gif";
+			}
+			else
+			{
+				document.getElementById("imghtl" + v_iParentHeadingNumber).src="whsupport/tlhopenm.gif";
+			}
+		}
+		
+		if (objItem.getAttribute('rootlevel') =='yes')
+		{
+			return;
+		}
+		
+		if (objItem.getAttribute('pf') !=null)
+		{
+			OpenParent(objItem.getAttribute('pf'));
+		}
+	
+	}
+</script>
+
+</body>
+</HTML>
+
+

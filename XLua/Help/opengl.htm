@@ -1,0 +1,326 @@
+<center><h1>OpenGL Object Support</h1></center>
+
+<p>A C Module for OpenGL support via the OpenGL Object is provided with the XLua distribution.  Using the included LuaGL library, OpenGL can be used directly from your Lua code.  The OpenGL object is another 3rd party extension, written by Looki.</p>
+
+<h2>Usage</h2>
+
+<p>Package Name: ext.opengl</p>
+<p>The OpenGL module is ext/opengl.dll.  By either using the <tt>Open External C Module</tt> action and using MMF's include external files feature, or by adding the DLL to MMF's Binary Data list, the DLL file can be embedded directly into your built application.</p>
+<p>Once included, standard opengl functions will be placed in gl.*, utility library functions will be placed in glu.*, and OpenGL Object-specific functions will be placed in ext.opengl.*.</p>
+
+<h2>LuaGL</h2>
+
+<p>The LuaGL library includes a full complement of GL functions that mirror the OpenGL API.  You don't need to do anything more than bind an OpenGL object to begin using LuaGL in your code.  Use the following links for more information:</p>
+<ul>
+<li><a href="http://luagl.wikidot.com/howto">Getting Started with LuaGL</a></li>
+<li><a href="http://www.opengl.org/sdk/docs/man/">OpenGL Reference Pages</a></li>
+<li><a href="http://nehe.gamedev.net/">NeHe OpenGL Tutorials</a></li>
+</ul>
+
+<h2>Differences with LuaGL</h2>
+
+<p>The most important difference between the official LuaGL distribution, and the one for XLua, is in handling of OpenGL constants (enumerations).  In the standard C API, these are constants like GL_QUADS that are associated with an equivilent integer value.</p>
+<p>LuaGL converted all GL constants to strings, sl GL_QUADS would instead be passed as the string "QUADS".  XLua goes back to using the original numeric values of the GL constants, which are all stored in named variables in the gl table.  So instead of passing "QUADS" to a function like described in the LuaGL documentation, you would pass <tt>gl.QUADS</tt>.</p>
+<p>All supported GL constants are named by taking the original constant name and stripping off the leading <tt>GL_</tt>.  If the constant's name starts with a number however, it still contains a leading underscore, e.g. <tt>gl._2D</tt>.
+<p>This change allows you to add any missing OpenGL constants without requiring a new version of LuaGL for XLua.  It's also faster.
+
+<h2>Example</h2>
+
+<div style="margin-left: 1em;">
+<pre>
+-- Require the module, which should be stored in /ext/opengl.dll
+-- relative to the application.
+require "ext.opengl"
+
+-- The following variable represents the ID that we exported an
+-- OpenGL object as.
+OBJID = 1
+
+-- Draws a single white pixel in the center of the OpenGL
+-- object's canvas.  This function needs to be called each frame.
+function draw ()
+  ext.opengl.MakeCurrent(OBJID)
+  gl.Translate(0,0,-3)
+  gl.Begin(gl.POINTS)
+  gl.Vertex(0,0,0)
+  gl.End()
+end
+
+draw()
+</pre>
+</div>
+
+<h2>OpenGL Object</h2>
+
+<p>The OpenGL object can be downloaded from its development topic on the Clickteam forums <a href="http://www.clickteam.com/epicenter/ubbthreads.php?ubb=showflat&Number=163152#Post163152">HERE</a>.  For any questions, comments, or problems with the OpenGL object, you should contact Looki.</p>
+
+<h2>Function Reference</h2>
+
+<p>These functions deal with the OpenGL object directly.  Each function requires the exported object id of the OpenGL object as its first parameter.</p>
+
+<ul style="list-style-type: none; line-height: 120%">
+<li><tt><b>ext.opengl.GetCurrentShader</b></tt> (<tt>number</tt> <i>objid</i>) &#8594; <tt>number</tt> <i>shader</i></li>
+<li><tt><b>ext.opengl.GetDisplayList</b></tt> (<tt>number</tt> <i>objid</i>, <tt>number</tt> <i>index</i>) &#8594; <tt>number</tt> <i>list</i></li>
+<li><tt><b>ext.opengl.GetShader</b></tt> (<tt>number</tt> <i>objid</i>, <tt>number</tt> <i>index</i>) &#8594; <tt>number</tt> <i>program</i></li>
+<li><tt><b>ext.opengl.GetTexture</b></tt> (<tt>number</tt> <i>objid</i>, <tt>number</tt> <i>index</i>) &#8594; <tt>number</tt> <i>texture</i></li>
+<li><tt><b>ext.opengl.MakeCurrent</b></tt> (<tt>number</tt> <i>objid</i>)</li>
+<li><tt><b>ext.opengl.MaxDisplayLists</b></tt> (<tt>number</tt> <i>objid</i>) &#8594; <tt>number</tt> <i>count</i></li>
+<li><tt><b>ext.opengl.MaxShaders</b></tt> (<tt>number</tt> <i>objid</i>) &#8594; <tt>number</tt> <i>count</i></li>
+<li><tt><b>ext.opengl.MaxTextures</b></tt> (<tt>number</tt> <i>objid</i>) &#8594; <tt>number</tt> <i>count</i></li>
+</ul>
+
+<p>LuaGL supports most of the OpenGL 1.1 specification.  The XLua inclusion of LuaGL has expanded this to cover most of the OpenGL specification through 2.0.  This reference lists every GL function currently supported.</p>
+<p>Take note, many of the parameter lists differ from their GL counterparts, to better reflect usage or limitations inside Lua.  Follow the ref link by each function to view full SDK documentation for that function.</p>
+
+<ul style="list-style-type: none; line-height: 120%">
+<li><tt><b>gl.Accum</b></tt> (<tt>string</tt> <i>op</i>, <tt>number</tt> <i>value</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glAccum.xml">ref</a></sup></li>
+<li><tt><b>gl.ActiveTexture</b></tt> (<tt>string</tt> <i>texture</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glActiveTexture.xml">ref</a></sup></li>
+<li><tt><b>gl.AlphaFunc</b></tt> (<tt>string</tt> <i>func</i>, <tt>number</tt> <i>ref</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glAlphaFunc.xml">ref</a></sup></li>
+<li><tt><b>gl.AreTexturesResident</b></tt> (<tt>table</tt> <i>textures</i>) &#8594; <tt>table</tt> <i>residences</i> <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glAreTexturesResident.xml">ref</a></sup></li>
+<li><tt><b>gl.ArrayElement</b></tt> (<tt>number</tt> <i>i</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glArrayElement.xml">ref</a></sup></li>
+<li><tt><b>gl.AttachShader</b></tt> (<tt>number</tt> <i>program</i>, <tt>number</tt> <i>shader</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glAttachShader.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Begin</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBegin.xml">ref</a></sup></li>
+<li><tt><b>gl.BindAttribLocation</b></tt> (<tt>number</tt> <i>program</i>, <tt>number</tt> <i>index</i>, <tt>string</tt> <i>name</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindAttribLocation.xml">ref</a></sup></li>
+<li><tt><b>gl.BindBuffer</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>buffer</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindBuffer.xml">ref</a></sup></li>
+<li><tt><b>gl.BindTexture</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>texture</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBindTexture.xml">ref</a></sup></li>
+<li><tt><b>gl.Bitmap</b></tt> (<tt>number</tt> <i>xorig</i>, <tt>number</tt> <i>yorig</i>, <tt>number</tt> <i>xmove</i>, <tt>number</tt> <i>ymove</i>, <tt>table</tt> <i>bitmap</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBitmap.xml">ref</a></sup></li>
+<li><tt><b>gl.BlendColor</b></tt> (<tt>number</tt> <i>red</i>, <tt>number</tt> <i>blue</i>, <tt>number</tt> <i>green</i>, <tt>number</tt> <i>alpha</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendColor.xml">ref</a></sup></li>
+<li><tt><b>gl.BlendEquation</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquation.xml">ref</a></sup></li>
+<li><tt><b>gl.BlendEquationSeparate</b></tt> (<tt>string</tt> <i>modeRGB</i>, <tt>string</tt> <i>modeAlpha</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquationSeparate.xml">ref</a></sup></li>
+<li><tt><b>gl.BlendFunc</b></tt> (<tt>string</tt> <i>sfactor</i>, <tt>string</tt> <i>dfactor</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendFunc.xml">ref</a></sup></li>
+<li><tt><b>gl.BlendFuncSeparate</b></tt> (<tt>string</tt> <i>srcRGB</i>, <tt>string</tt> <i>destRGB</i>, <tt>string</tt> <i>srcAlpha</i>, <tt>string</tt> <i>destAlpha</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBlendFuncSeparate.xml">ref</a></sup></li>
+<li><tt><b>gl.BufferData</b></tt> (<tt>string</tt> <i>target</i>, <tt>table</tt> <i>data</i>, <tt>string</tt> <i>usage</i> [, <tt>number</tt> <i>size</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferData.xml">ref</a></sup></li>
+<li><tt><b>gl.BufferSubData</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>offset</i>, <tt>table</tt> <i>data</i> [, <tt>number</tt> <i>size</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glBufferSubData.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.CallList</b></tt> (<tt>number</tt> <i>list</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCallList.xml">ref</a></sup></li>
+<li><tt><b>gl.CallLists</b></tt> (<tt>table</tt> <i>lists</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCallLists.xml">ref</a></sup></li>
+<li><tt><b>gl.Clear</b></tt> (<tt>string</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClear.xml">ref</a></sup></li>
+<li><tt><b>gl.ClearAccum</b></tt> (<tt>number</tt> <i>red</i>, <tt>number</tt> <i>green</i>, <tt>number</tt> <i>blue</i>, <tt>number</tt> <i>alpha</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearAccum.xml">ref</a></sup></li>
+<li><tt><b>gl.ClearColor</b></tt> (<tt>number</tt> <i>red</i>, <tt>number</tt> <i>green</i>, <tt>number</tt> <i>blue</i>, <tt>number</tt> <i>alpha</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearColor.xml">ref</a></sup></li>
+<li><tt><b>gl.ClearDepth</b></tt> (<tt>number</tt> <i>depth</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearDepth.xml">ref</a></sup></li>
+<li><tt><b>gl.ClearIndex</b></tt> (<tt>number</tt> <i>c</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearIndex.xml">ref</a></sup></li>
+<li><tt><b>gl.ClearStencil</b></tt> (<tt>number</tt> <i>s</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClearStencil.xml">ref</a></sup></li>
+<li><tt><b>gl.ClientActiveTexture</b></tt> (<tt>string</tt> <i>texture</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClientActiveTexture.xml">ref</a></sup></li>
+<li><tt><b>gl.ClipPlane</b></tt> (<tt>string</tt> <i>plane</i>, <tt>table</tt> <i>equation</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glClipPlane.xml">ref</a></sup></li>
+<li><tt><b>gl.Color</b></tt> (<tt>number</tt> <i>red</i>, <tt>number</tt> <i>green</i>, <tt>number</tt> <i>blue</i> [, <tt>number</tt> <i>alpha</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml">ref</a></sup></li>
+<li><tt><b>gl.Color</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml">ref</a></sup></li>
+<li><tt><b>gl.ColorMask</b></tt> (<tt>number</tt> <i>red</i>, <tt>number</tt> <i>green</i>, <tt>number</tt> <i>blue</i>, <tt>number</tt> <i>alpha</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorMask.xml">ref</a></sup></li>
+<li><tt><b>gl.ColorMaterial</b></tt> (<tt>string</tt> <i>face</i>, <tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorMaterial.xml">ref</a></sup></li>
+<li><tt><b>gl.ColorPointer</b></tt> (<tt>table</tt> <i>colors</i> [, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.ColorPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i>, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glColorPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.CompileShader</b></tt> (<tt>number</tt> <i>shader</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCompileShader.xml">ref</a></sup></li>
+<li><tt><b>gl.CopyPixels</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>width</i>, <tt>number</tt> <i>height</i>, <tt>string</tt> <i>type</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyPixels.xml">ref</a></sup></li>
+<li><tt><b>gl.CopyTexImage</b></tt> (<tt>number</tt> <i>level</i>, <tt>string</tt> <i>internalFormat</i>, <tt>number</tt> <i>border</i>, <tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>width</i> [, <tt>number</tt> <i>height</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexImage.xml">ref</a></sup></li>
+<li><tt><b>gl.CopyTexSubImage</b></tt> (<tt>number</tt> <i>level</i>, <tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>xoffset</i>, <tt>number</tt> <i>width</i> [, <tt>number</tt> <i>yoffset</i>, <tt>number</tt> <i>height</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCopyTexSubImage.xml">ref</a></sup></li>
+<li><tt><b>gl.CreateProgram</b></tt> ( ) &#8594; <tt>number</tt> <i>program</i> <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCreateProgram.xml">ref</a></sup></li>
+<li><tt><b>gl.CreateShader</b></tt> (<tt>string</tt> <i>shaderType</i>) &#8594; <tt>number</tt> <i>shader</i> <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCreateShader.xml">ref</a></sup></li>
+<li><tt><b>gl.CullFace</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glCullFace.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.DeleteBuffers</b></tt> (<tt>table</tt> <i>buffers</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteBuffers.xml">ref</a></sup></li>
+<li><tt><b>gl.DeleteLists</b></tt> (<tt>number</tt> <i>list</i>, <tt>number</tt> <i>range</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteLists.xml">ref</a></sup></li>
+<li><tt><b>gl.DeleteProgram</b></tt> (<tt>number</tt> <i>program</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteProgram.xml">ref</a></sup></li>
+<li><tt><b>gl.DeleteShader</b></tt> (<tt>number</tt> <i>shader</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteShader.xml">ref</a></sup></li>
+<li><tt><b>gl.DeleteTextures</b></tt> (<tt>table</tt> <i>textures</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDeleteTextures.xml">ref</a></sup></li>
+<li><tt><b>gl.DepthFunc</b></tt> (<tt>string</tt> <i>func</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthFunc.xml">ref</a></sup></li>
+<li><tt><b>gl.DepthMask</b></tt> (<tt>boolean</tt> <i>flag</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthFunc.xml">ref</a></sup></li>
+<li><tt><b>gl.DepthRange</b></tt> (<tt>number</tt> <i>zNear</i>, <tt>number</tt> <i>zFar</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDepthRange.xml">ref</a></sup></li>
+<li><tt><b>gl.DetachShader</b></tt> (<tt>number</tt> <i>program</i>, <tt>number</tt> <i>shader</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDetachShader.xml">ref</a></sup></li>
+<li><tt><b>gl.Disable</b></tt> (<tt>string</tt> <i>cap</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDisable.xml">ref</a></sup></li>
+<li><tt><b>gl.DisableClientState</b></tt> (<tt>string</tt> <i>array</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDisableClientState.xml">ref</a></sup></li>
+<li><tt><b>gl.DisableVertexAttribArray</b></tt> (<tt>number</tt> <i>index</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDisableVertexAttribArray.xml">ref</a></sup></li>
+<li><tt><b>gl.DrawArrays</b></tt> (<tt>string</tt> <i>mode</i>, <tt>number</tt> <i>first</i>, <tt>number</tt> <i>count</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawArrays.xml">ref</a></sup></li>
+<li><tt><b>gl.DrawBuffer</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawBuffer.xml">ref</a></sup></li>
+<li><tt><b>gl.DrawElements</b></tt> (<tt>string</tt> <i>mode</i>, <tt>table</tt> <i>indices</i> [, <tt>number</tt> <i>count</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElements.xml">ref</a></sup></li>
+<li><tt><b>gl.DrawElements</b></tt> (<tt>string</tt> <i>mode</i>, <tt>number</tt> <i>bufferOffset</i>, <tt>number</tt> <i>count</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawElements.xml">ref</a></sup></li>
+<li><tt><b>gl.DrawPixels</b></tt> (<tt>number</tt> <i>width</i>, <tt>number</tt> <i>height</i>, <tt>string</tt> <i>format</i>, <tt>table</tt> <i>pixels</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glDrawPixels.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.EdgeFlag</b></tt> (<tt>boolean</tt> <i>flag</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEdgeFlag.xml">ref</a></sup></li>
+<li><tt><b>gl.EdgeFlagPointer</b></tt> (<tt>table</tt> <i>flags</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEdgeFlagPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.EdgeFlagPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEdgeFlagPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.Enable</b></tt> (<tt>string</tt> <i>cap</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnable.xml">ref</a></sup></li>
+<li><tt><b>gl.EnableClientState</b></tt> (<tt>string</tt> <i>array</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnableClientState.xml">ref</a></sup></li>
+<li><tt><b>gl.EnableVertexAttribArray</b></tt> (<tt>number</tt> <i>index</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnableVertexAttribArray.xml">ref</a></sup></li>
+<li><tt><b>gl.End</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEnd.xml">ref</a></sup></li>
+<li><tt><b>gl.EndList</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEndList.xml">ref</a></sup></li>
+<li><tt><b>gl.EvalCoord</b></tt> (<tt>number</tt> <i>u</i> [, <tt>number</tt> <i>v</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEvalCoord.xml">ref</a></sup></li>
+<li><tt><b>gl.EvalCoord</b></tt> (<tt>table</tt> <i>coords</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEvalCoord.xml">ref</a></sup></li>
+<li><tt><b>gl.EvalMesh</b></tt> (<tt>string</tt> <i>mode</i>, <tt>number</tt> <i>i1</i>, <tt>number</tt> <i>i2</i> [, <tt>number</tt> <i>j1</i>, <tt>number</tt> <i>j2</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEvalMesh.xml">ref</a></sup></li>
+<li><tt><b>gl.EvalPoint</b></tt> (<tt>number</tt> <i>i</i> [, <tt>number</tt> <i>j</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glEvalPoint.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.FeedbackBuffer</b></tt> (<tt>number</tt> <i>size</i>, <tt>string</tt> <i>type</i>) &#8594; <tt>table</tt> <i>buffer</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFeedbackBuffer.xml">ref</a></sup></li>
+<li><tt><b>gl.Finish</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFinish.xml">ref</a></sup></li>
+<li><tt><b>gl.Flush</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFlush.xml">ref</a></sup></li>
+<li><tt><b>gl.Fog</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFog.xml">ref</a></sup></li>
+<li><tt><b>gl.Fog</b></tt> (<tt>string</tt> <i>pname</i>, <tt>string</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFog.xml">ref</a></sup></li>
+<li><tt><b>gl.Fog</b></tt> (<tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFog.xml">ref</a></sup></li>
+<li><tt><b>gl.FogCoord</b></tt> (<tt>number</tt> <i>coord</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFogCoord.xml">ref</a></sup></li>
+<li><tt><b>gl.FogCoordPointer</b></tt> (<tt>table</tt> <i>coords</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFogCoordPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.FogCoordPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFogCoordPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.FrontFace</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFrontFace.xml">ref</a></sup></li>
+<li><tt><b>gl.Frustum</b></tt> (<tt>number</tt> <i>left</i>, <tt>number</tt> <i>right</i>, <tt>number</tt> <i>bottom</i>, <tt>number</tt> <i>top</i>, <tt>number</tt> <i>zNear</i>, <tt>number</tt> <i>zFar</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glFrustum.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.GenBuffers</b></tt> (<tt>number</tt> <i>n</i>) &#8594; <tt>table</tt> <i>buffers</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenBuffers.xml">ref</a></sup></li>
+<li><tt><b>gl.GenLists</b></tt> (<tt>number</tt> <i>range</i>) &#8594; <tt>number</tt> <i>n</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGenLists.xml">ref</a></sup></li>
+<li><tt><b>gl.Get</b></tt> (<tt>string</tt> <i>pname</i>) &#8594; <tt>...</tt> <i>params</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">ref</a></sup></li>
+<li><tt><b>gl.GetArray</b></tt> (<tt>string</tt> <i>pname</i>) &#8594; <tt>table</tt> <i>params</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">ref</a></sup></li>
+<li><tt><b>gl.GetAttribLocation</b></tt> (<tt>number</tt> <i>program</i>, <tt>string</tt> <i>name</i>) &#8594; <tt>number</tt> <i>location</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetAttribLocation.xml">ref</a></sup></li>
+<li><tt><b>gl.GetConst</b></tt> (<tt>string</tt> <i>pname</i>) &#8594; <tt>string</tt> <i>params</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml">ref</a></sup></li>
+<li><tt><b>gl.GetClipPlane</b></tt> (<tt>string</tt> <i>plane</i>) &#8594; <tt>table</tt> <i>equation</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetClipPlane.xml">ref</a></sup></li>
+<li><tt><b>gl.GetError</b></tt> ( ) &#8594; <tt>string</tt> <i>error</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetError.xml">ref</a></sup></li>
+<li><tt><b>gl.GetLight</b></tt> (<tt>string</tt> <i>light</i>, <tt>string</tt> <i>pname</i>) &#8594; <tt>table</tt> <i>params</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetLight.xml">ref</a></sup></li>
+<li><tt><b>gl.GetMap</b></tt> (<tt>string</tt> <i>target</i>, <tt>string</tt> <i>query</i>) &#8594; <tt>table</tt> <i>v</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetMap.xml">ref</a></sup></li>
+<li><tt><b>gl.GetMaterial</b></tt> (<tt>string</tt> <i>face</i>, <tt>string</tt> <i>pname</i>) &#8594; <tt>table</tt> <i>params</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetMaterial.xml">ref</a></sup></li>
+<li><tt><b>gl.GetPixelMap</b></tt> (<tt>string</tt> <i>map</i>) &#8594; <tt>table</tt> <i>values</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetPixelMap.xml">ref</a></sup></li>
+<li><tt><b>gl.GetPointer</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>n</i>) &#8594; <tt>table</tt> <i>values</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetPointerv.xml">ref</a></sup></li>
+<li><tt><b>gl.GetPolygonStipple</b></tt> ( ) &#8594; <tt>table</tt> <i>mask</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetPolygonStipple.xml">ref</a></sup></li>
+<li><tt><b>gl.GetProgram</b></tt> (<tt>number</tt> <i>program</i>, <tt>string</tt> <i>pname</i>) &#8594; <tt>number</tt> <i>param</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgram.xml">ref</a></sup></li>
+<li><tt><b>gl.GetProgramInfoLog</b></tt> (<tt>number</tt> <i>program</i>) &#8594; <tt>string</tt> <i>infoLog</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramInfoLog.xml">ref</a></sup></li>
+<li><tt><b>gl.GetShader</b></tt> (<tt>number</tt> <i>shader</i>, <tt>string</tt> <i>pname</i>) &#8594; <tt>number</tt> <i>param</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShader.xml">ref</a></sup></li>
+<li><tt><b>gl.GetShaderInfoLog</b></tt> (<tt>number</tt> <i>shader</i>) &#8594; <tt>string</tt> <i>infoLog</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShaderInfoLog.xml">ref</a></sup></li>
+<li><tt><b>gl.GetShaderSource</b></tt> (<tt>number</tt> <i>shader</i>) &#8594; <tt>string</tt> <i>source</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetShaderSource.xml">ref</a></sup></li>
+<li><tt><b>gl.GetString</b></tt> (<tt>string</tt> <i>name</i>) &#8594; <tt>string</tt> <i>string</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetString.xml">ref</a></sup></li>
+<li><tt><b>gl.GetTexEnv</b></tt> (<tt>string</tt> <i>pname</i>) &#8594; <tt>...</tt> <i>param(s)</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexEnv.xml">ref</a></sup></li>
+<li><tt><b>gl.GetTexGen</b></tt> (<tt>string</tt> <i>coord</i>, <tt>string</tt> <i>pname</i>) &#8594; <tt>...</tt> <i>param(s)</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexGen.xml">ref</a></sup></li>
+<li><tt><b>gl.GetTexImage</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>level</i>, <tt>string</tt> <i>format</i>) &#8594; <tt>table</tt> <i>pixels</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexImage.xml">ref</a></sup></li>
+<li><tt><b>gl.GetTexLevelParameter</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>level</i>, <tt>string</tt> <i>format</i>) &#8594; <tt>string</tt> <i>param</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexLevelParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.GetTexParameter</b></tt> (<tt>string</tt> <i>target</i>, <tt>string</tt> <i>format</i>) &#8594; <tt>...</tt> <i>param(s)</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetTexParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.GetUniformLocation</b></tt> (<tt>number</tt> <i>program</i>, <tt>string</tt> <i>name</i>) &#8594; <tt>number</tt> <i>location</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glGetUniformLocation.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Hint</b></tt> (<tt>string</tt> <i>target</i>, <tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glHint.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Index</b></tt> (<tt>number</tt> <i>c</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIndex.xml">ref</a></sup></li>
+<li><tt><b>gl.Index</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIndex.xml">ref</a></sup></li>
+<li><tt><b>gl.IndexMask</b></tt> (<tt>number</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIndexMask.xml">ref</a></sup></li>
+<li><tt><b>gl.IndexMask</b></tt> (<tt>string</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIndexMask.xml">ref</a></sup></li>
+<li><tt><b>gl.IndexPointer</b></tt> (<tt>table</tt> <i>indices</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIndexPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.IndexPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIndexPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.InitNames</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glInitNames.xml">ref</a></sup></li>
+<li><tt><b>gl.IsEnabled</b></tt> (<tt>string</tt> <i>cap</i>) &#8594; <tt>boolean</tt> <i>state</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsEnabled.xml">ref</a></sup></li>
+<li><tt><b>gl.IsBuffer</b></tt> (<tt>number</tt> <i>buffer</i>) &#8594; <tt>boolean</tt> <i>state</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsBuffer.xml">ref</a></sup></li>
+<li><tt><b>gl.IsList</b></tt> (<tt>number</tt> <i>list</i>) &#8594; <tt>boolean</tt> <i>state</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsList.xml">ref</a></sup></li>
+<li><tt><b>gl.IsProgram</b></tt> (<tt>number</tt> <i>program</i>) &#8594; <tt>boolean</tt> <i>state</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsProgram.xml">ref</a></sup></li>
+<li><tt><b>gl.IsShader</b></tt> (<tt>number</tt> <i>shader</i>) &#8594; <tt>boolean</tt> <i>state</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsShader.xml">ref</a></sup></li>
+<li><tt><b>gl.IsTexture</b></tt> (<tt>number</tt> <i>texture</i>) &#8594; <tt>boolean</tt> <i>state</i>  <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glIsTexture.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Light</b></tt> (<tt>string</tt> <i>light</i>, <tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLight.xml">ref</a></sup></li>
+<li><tt><b>gl.Light</b></tt> (<tt>string</tt> <i>light</i>, <tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLight.xml">ref</a></sup></li>
+<li><tt><b>gl.LightModel</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLightModel.xml">ref</a></sup></li>
+<li><tt><b>gl.LightModel</b></tt> (<tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLightModel.xml">ref</a></sup></li>
+<li><tt><b>gl.LineStipple</b></tt> (<tt>number</tt> <i>factor</i>, <tt>number</tt> <i>pattern</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLineStipple.xml">ref</a></sup></li>
+<li><tt><b>gl.LineStipple</b></tt> (<tt>number</tt> <i>factor</i>, <tt>string</tt> <i>pattern</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLineStipple.xml">ref</a></sup></li>
+<li><tt><b>gl.LineWidth</b></tt> (<tt>number</tt> <i>width</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLineWidth.xml">ref</a></sup></li>
+<li><tt><b>gl.LinkProgram</b></tt> (<tt>number</tt> <i>program</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLinkProgram.xml">ref</a></sup></li>
+<li><tt><b>gl.ListBase</b></tt> (<tt>number</tt> <i>base</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glListBase.xml">ref</a></sup></li>
+<li><tt><b>gl.LoadIdentity</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLoadIdentity.xml">ref</a></sup></li>
+<li><tt><b>gl.LoadMatrix</b></tt> (<tt>table</tt> <i>m</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLoadMatrix.xml">ref</a></sup></li>
+<li><tt><b>gl.LoadMatrix</b></tt> (<tt>number</tt> <i>m1</i>, <tt>number</tt> <i>m2</i>, ... <tt>number</tt> <i>m16</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLoadMatrix.xml">ref</a></sup></li>
+<li><tt><b>gl.LoadName</b></tt> (<tt>number</tt> <i>name</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLoadName.xml">ref</a></sup></li>
+<li><tt><b>gl.LogicOp</b></tt> (<tt>string</tt> <i>opcode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glLogicOp.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Map</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>u1</i>, <tt>number</tt> <i>u2</i>, <tt>table</tt> <i>points</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMap1.xml">ref</a></sup></li>
+<li><tt><b>gl.Map</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>u1</i>, <tt>number</tt> <i>u2</i>, <tt>number</tt> <i>v1</i>, <tt>number</tt> <i>v2</i>, <tt>table</tt> <i>points</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMap2.xml">ref</a></sup></li>
+<li><tt><b>gl.MapGrid</b></tt> (<tt>number</tt> <i>un</i>, <tt>number</tt> <i>u1</i>, <tt>number</tt> <i>u2</i> [, <tt>number</tt> <i>vn</i>, <tt>number</tt> <i>v1</i>, <tt>number</tt> <i>v2</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMapGrid.xml">ref</a></sup></li>
+<li><tt><b>gl.Material</b></tt> (<tt>string</tt> <i>face</i>, <tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMaterial.xml">ref</a></sup></li>
+<li><tt><b>gl.Material</b></tt> (<tt>string</tt> <i>face</i>, <tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMaterial.xml">ref</a></sup></li>
+<li><tt><b>gl.MatrixMode</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMatrixMode.xml">ref</a></sup></li>
+<li><tt><b>gl.MultiTexCoord</b></tt> (<tt>string</tt> <i>target</i>, <tt>number</tt> <i>s</i> [, <tt>number</tt> <i>t</i> [, <tt>number</tt> <i>r</i> [, <tt>number</tt> <i>q</i>]]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoord.xml">ref</a></sup></li>
+<li><tt><b>gl.MultMatrix</b></tt> (<tt>table</tt> <i>m</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultMatrix.xml">ref</a></sup></li>
+<li><tt><b>gl.MultMatrix</b></tt> (<tt>number</tt> <i>m1</i>, <tt>number</tt> <i>m2</i>, ... <tt>number</tt> <i>m16</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glMultMatrix.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.NewList</b></tt> (<tt>number</tt> <i>list</i>, <tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glNewList.xml">ref</a></sup></li>
+<li><tt><b>gl.Normal</b></tt> (<tt>number</tt> <i>nx</i>, <tt>number</tt> <i>ny</i>, <tt>number</tt> <i>nz</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormal.xml">ref</a></sup></li>
+<li><tt><b>gl.Normal</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormal.xml">ref</a></sup></li>
+<li><tt><b>gl.NormalPointer</b></tt> (<tt>table</tt> <i>normals</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormalPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.NormalPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glNormalPointer.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Ortho</b></tt> (<tt>number</tt> <i>left</i>, <tt>number</tt> <i>right</i>, <tt>number</tt> <i>bottom</i>, <tt>number</tt> <i>top</i>, <tt>number</tt> <i>zNear</i>, <tt>number</tt> <i>zFar</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glOrtho.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.PassThrough</b></tt> (<tt>number</tt> <i>token</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPassThrough.xml">ref</a></sup></li>
+<li><tt><b>gl.PixelMap</b></tt> (<tt>string</tt> <i>map</i>, <tt>table</tt> <i>values</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelMap.xml">ref</a></sup></li>
+<li><tt><b>gl.PixelStore</b></tt> (<tt>string</tt> <i>pname</i>, <tt>boolean</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelStore.xml">ref</a></sup></li>
+<li><tt><b>gl.PixelStore</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelStore.xml">ref</a></sup></li>
+<li><tt><b>gl.PixelTransfer</b></tt> (<tt>string</tt> <i>pname</i>, <tt>boolean</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelTransfer.xml">ref</a></sup></li>
+<li><tt><b>gl.PixelTransfer</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelTransfer.xml">ref</a></sup></li>
+<li><tt><b>gl.PixelZoom</b></tt> (<tt>number</tt> <i>xfactor</i>, <tt>number</tt> <i>yfactor</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPixelZoom.xml">ref</a></sup></li>
+<li><tt><b>gl.PointParameter</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.PointParameter</b></tt> (<tt>string</tt> <i>pname</i>, <tt>string</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.PointSize</b></tt> (<tt>number</tt> <i>size</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPointSize.xml">ref</a></sup></li>
+<li><tt><b>gl.PolygonMode</b></tt> (<tt>string</tt> <i>face</i>, <tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPolygonMode.xml">ref</a></sup></li>
+<li><tt><b>gl.PolygonOffset</b></tt> (<tt>number</tt> <i>factor</i>, <tt>number</tt> <i>units</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPolygonOffset.xml">ref</a></sup></li>
+<li><tt><b>gl.PolygonStipple</b></tt> (<tt>table</tt> <i>pattern</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPolygonStipple.xml">ref</a></sup></li>
+<li><tt><b>gl.PopAttrib</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPopAttrib.xml">ref</a></sup></li>
+<li><tt><b>gl.PopClientState</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPopClientState.xml">ref</a></sup></li>
+<li><tt><b>gl.PopMatrix</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPopMatrix.xml">ref</a></sup></li>
+<li><tt><b>gl.PopName</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPopName.xml">ref</a></sup></li>
+<li><tt><b>gl.PrioritizeTextures</b></tt> (<tt>table</tt> <i>textures</i>, <tt>table</tt> <i>priorities</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPrioritizeTextures.xml">ref</a></sup></li>
+<li><tt><b>gl.PushAttrib</b></tt> (<tt>string</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPushAttrib.xml">ref</a></sup></li>
+<li><tt><b>gl.PushClientAttrib</b></tt> (<tt>string</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPushClientAttrib.xml">ref</a></sup></li>
+<li><tt><b>gl.PushMatrix</b></tt> ( ) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPushMatrix.xml">ref</a></sup></li>
+<li><tt><b>gl.PushName</b></tt> (<tt>number</tt> <i>name</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glPushName.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.RasterPos</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i> [, <tt>number</tt> <i>z</i> [, <tt>number</tt> <i>w</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glRasterPos.xml">ref</a></sup></li>
+<li><tt><b>gl.RasterPos</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glRasterPos.xml">ref</a></sup></li>
+<li><tt><b>gl.ReadBuffer</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glReadBuffer.xml">ref</a></sup></li>
+<li><tt><b>gl.ReadPixels</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>width</i>, <tt>number</tt> <i>height</i>, <tt>string</tt> <i>format</i>, <tt>table</tt> <i>pixels</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glReadPixels.xml">ref</a></sup></li>
+<li><tt><b>gl.Rect</b></tt> (<tt>number</tt> <i>x1</i>, <tt>number</tt> <i>y1</i>, <tt>number</tt> <i>x2</i>, <tt>number</tt> <i>y2</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glRect.xml">ref</a></sup></li>
+<li><tt><b>gl.Rect</b></tt> (<tt>table</tt> <i>v1</i>, <tt>table</tt> <i>v2</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glRect.xml">ref</a></sup></li>
+<li><tt><b>gl.RenderMode</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glRenderMode.xml">ref</a></sup></li>
+<li><tt><b>gl.Rotate</b></tt> (<tt>number</tt> <i>angle</i>, <tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>z</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glRotate.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Scale</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>z</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glScale.xml">ref</a></sup></li>
+<li><tt><b>gl.Scissor</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>width</i>, <tt>number</tt> <i>height</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glScissor.xml">ref</a></sup></li>
+<li><tt><b>gl.SecondaryColor</b></tt> (<tt>number</tt> <i>red</i>, <tt>number</tt> <i>green</i>, <tt>number</tt> <i>blue</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColor.xml">ref</a></sup></li>
+<li><tt><b>gl.SecondaryColor</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColor.xml">ref</a></sup></li>
+<li><tt><b>gl.SecondaryColorPointer</b></tt> (<tt>table</tt> <i>colors</i> [, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColorPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.SecondaryColorPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i>, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColorPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.SelectBuffer</b></tt> (<tt>number</tt> <i>size</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glSelectBuffer.xml">ref</a></sup></li>
+<li><tt><b>gl.ShadeModel</b></tt> (<tt>string</tt> <i>mode</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glShadeModel.xml">ref</a></sup></li>
+<li><tt><b>gl.ShaderSource</b></tt> (<tt>number</tt> <i>shader</i>, <tt>string</tt> <i>source</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glShaderSource.xml">ref</a></sup></li>
+<li><tt><b>gl.StencilFunc</b></tt> (<tt>string</tt> <i>func</i>, <tt>number</tt> <i>ref</i>, <tt>number</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilFunc.xml">ref</a></sup></li>
+<li><tt><b>gl.StencilFunc</b></tt> (<tt>string</tt> <i>func</i>, <tt>number</tt> <i>ref</i>, <tt>string</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilFunc.xml">ref</a></sup></li>
+<li><tt><b>gl.StencilMask</b></tt> (<tt>number</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilMask.xml">ref</a></sup></li>
+<li><tt><b>gl.StencilMask</b></tt> (<tt>string</tt> <i>mask</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilMask.xml">ref</a></sup></li>
+<li><tt><b>gl.StencilOp</b></tt> (<tt>string</tt> <i>fail</i>, <tt>string</tt> <i>zfail</i>, <tt>string</tt> <i>zpass</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glStencilOp.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.TexCoord</b></tt> (<tt>number</tt> <i>s</i> [, <tt>number</tt> <i>t</i> [, <tt>number</tt> <i>r</i> [, <tt>number</tt> <i>q</i>]]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoord.xml">ref</a></sup></li>
+<li><tt><b>gl.TexCoord</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoord.xml">ref</a></sup></li>
+<li><tt><b>gl.TexCoordPointer</b></tt> (<tt>table</tt> <i>coords</i> [, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.TexCoordPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i>, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexCoordPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.TexEnv</b></tt> (<tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i> [, <tt>string</tt> <i>target</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">ref</a></sup></li>
+<li><tt><b>gl.TexEnv</b></tt> (<tt>string</tt> <i>pname</i>, <tt>string</tt> <i>param</i> [, <tt>string</tt> <i>target</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">ref</a></sup></li>
+<li><tt><b>gl.TexEnv</b></tt> (<tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i> [, <tt>string</tt> <i>target</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml">ref</a></sup></li>
+<li><tt><b>gl.TexGen</b></tt> (<tt>string</tt> <i>coord</i>, <tt>string</tt> <i>pname</i>, <tt>string</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexGen.xml">ref</a></sup></li>
+<li><tt><b>gl.TexGen</b></tt> (<tt>string</tt> <i>coord</i>, <tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexGen.xml">ref</a></sup></li>
+<li><tt><b>gl.TexImage</b></tt> (<tt>number</tt> <i>level</i>, <tt>number</tt> <i>internalFormat</i>, <tt>string</tt> <i>format</i>, <tt>table</tt> <i>pixels</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexImage.xml">ref</a></sup></li>
+<li><tt><b>gl.TexSubImage</b></tt> (<tt>number</tt> <i>level</i>, <tt>string</tt> <i>format</i>, <tt>table</tt> <i>pixels</i>, <tt>number</tt> <i>xoffset</i> [, <tt>number</tt> <i>yoffset</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexSubImage.xml">ref</a></sup></li>
+<li><tt><b>gl.TexParameter</b></tt> (<tt>string</tt> <i>target</i>, <tt>string</tt> <i>pname</i>, <tt>number</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.TexParameter</b></tt> (<tt>string</tt> <i>target</i>, <tt>string</tt> <i>pname</i>, <tt>string</tt> <i>param</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.TexParameter</b></tt> (<tt>string</tt> <i>target</i>, <tt>string</tt> <i>pname</i>, <tt>table</tt> <i>params</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml">ref</a></sup></li>
+<li><tt><b>gl.Translate</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>z</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glTranslate.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.Uniformf</b></tt> (<tt>number</tt> <i>location</i>, <tt>number</tt> <i>v0</i> [, <tt>number</tt> <i>v1</i> [, <tt>number</tt> <i>v2</i> [, <tt>number</tt> <i>v3</i>]]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform.xml">ref</a></sup></li>
+<li><tt><b>gl.Uniformi</b></tt> (<tt>number</tt> <i>location</i>, <tt>number</tt> <i>v0</i> [, <tt>number</tt> <i>v1</i> [, <tt>number</tt> <i>v2</i> [, <tt>number</tt> <i>v3</i>]]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniform.xml">ref</a></sup></li>
+<li><tt><b>gl.UniformMatrix</b></tt> (<tt>number</tt> <i>location</i>, <tt>table</tt> <i>value</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glUniformMatrix.xml">ref</a></sup></li>
+<li><tt><b>gl.UseProgram</b></tt> (<tt>number</tt> <i>program</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glUseProgram.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.ValidateProgram</b></tt> (<tt>number</tt> <i>program</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glValidateProgram.xml">ref</a></sup></li>
+<li><tt><b>gl.Vertex</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i> [, <tt>number</tt> <i>z</i> [, <tt>number</tt> <i>w</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml">ref</a></sup></li>
+<li><tt><b>gl.Vertex</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml">ref</a></sup></li>
+<li><tt><b>gl.VertexAttribf</b></tt> (<tt>number</tt> <i>index</i>, <tt>number</tt> <i>v0</i> [, <tt>number</tt> <i>v1</i> [, <tt>number</tt> <i>v2</i> [, <tt>number</tt> <i>v3</i>]]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml">ref</a></sup></li>
+<li><tt><b>gl.VertexAttribPointer</b></tt> (<tt>number</tt> <i>index</i>, <tt>table</tt> <i>attribs</i> [, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.VertexAttribPointer</b></tt> (<tt>number</tt> <i>index</i>, <tt>number</tt> <i>bufferOffset</i>, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttribPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.VertexPointer</b></tt> (<tt>table</tt> <i>coords</i> [, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.VertexPointer</b></tt> (<tt>number</tt> <i>bufferOffset</i>, <tt>number</tt> <i>size</i> [, <tt>number</tt> <i>stride</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glVertexPointer.xml">ref</a></sup></li>
+<li><tt><b>gl.Viewport</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i>, <tt>number</tt> <i>width</i>, <tt>number</tt> <i>height</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glViewport.xml">ref</a></sup></li>
+<li></li>
+<li><tt><b>gl.WindowPos</b></tt> (<tt>number</tt> <i>x</i>, <tt>number</tt> <i>y</i> [, <tt>number</tt> <i>z</i>]) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glWindowPos.xml">ref</a></sup></li>
+<li><tt><b>gl.WindowPos</b></tt> (<tt>table</tt> <i>v</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/glWindowPos.xml">ref</a></sup></li>
+<li>&nbsp;</li>
+<li><tt><b>glu.LookAt</b></tt> (<tt>number</tt> <i>eyeX</i>, <tt>number</tt> <i>eyeY</i>, <tt>number</tt> <i>eyeZ</i>, <tt>number</tt> <i>centerX</i>, <tt>number</tt> <i>centerY</i>, <tt>number</tt> <i>centerZ</i>, <tt>number</tt> <i>upX</i>, <tt>number</tt> <i>upY</i>, <tt>number</tt> <i>upZ</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/gluLookAt.xml">ref</a></sup></li>
+<li><tt><b>glu.Ortho2D</b></tt> (<tt>number</tt> <i>left</i>, <tt>number</tt> <i>right</i>, <tt>number</tt> <i>bottom</i>, <tt>number</tt> <i>top</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/gluOrtho2D.xml">ref</a></sup></li>
+<li><tt><b>glu.Perspective</b></tt> (<tt>number</tt> <i>fovy</i>, <tt>number</tt> <i>aspect</i>, <tt>number</tt> <i>zNear</i>, <tt>number</tt> <i>zFar</i>) <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/gluPerspective.xml">ref</a></sup></li>
+<li><tt><b>glu.Project</b></tt> (<tt>number</tt> <i>objX</i>, <tt>number</tt> <i>objY</i>, <tt>number</tt> <i>objZ</i>) &#8594; <tt>number</tt> <i>winX</i>, <tt>number</tt> <i>winY</i>, <tt>number</tt> <i>winZ</i> <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/gluProject.xml">ref</a></sup></li>
+<li><tt><b>glu.UnProject</b></tt> (<tt>number</tt> <i>winX</i>, <tt>number</tt> <i>winY</i>, <tt>number</tt> <i>winZ</i>) &#8594; <tt>number</tt> <i>objX</i>, <tt>number</tt> <i>objY</i>, <tt>number</tt> <i>objZ</i> <sup><a href="http://www.opengl.org/sdk/docs/man/xhtml/gluUnProject.xml">ref</a></sup></li>
+
+</ul>

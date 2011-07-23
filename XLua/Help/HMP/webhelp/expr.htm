@@ -1,0 +1,100 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>XLua Expressions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>XLua Expressions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » Expressions</LI></UL>
+<P></P>
+<P class=section_title>Expression&nbsp;Subgroups</P>
+<UL>
+<LI><A href="expr_config.htm">Config</A> 
+<LI><A href="expr_lua.htm">Lua Functions</A> 
+<LI><A href="expr_mmf.htm">MMF Functions</A> 
+<LI><A href="expr_vars.htm">Variables</A> 
+<LI><A href="expr_localstore.htm">Local Storage</A></LI></UL>
+<P class=action>Get Error String</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">ErrorString$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns the last error reported. This is best used with the <A href="cond.htm#on_error">On Error</A> condition.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Get&nbsp;Print String</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">PrintString$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns the last string returned from a lua print statement. This is best used with the&nbsp;<A href="cond.htm#on_print">On Print</A>&nbsp;condition.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Get Embedded Script</P>
+<P><STRONG>Function:</STRONG> <FONT face="Courier New">EmbeddedScript$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns a Lua script embedded in the XLua object, if it has been defined.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Embedded script name</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr.htm'); 
+HMSelectTopic('expr.htm');</script></body>
+</html>

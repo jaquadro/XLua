@@ -1,0 +1,200 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+<HTML>
+	<HEAD>
+		<TITLE></TITLE>
+	<LINK REL="stylesheet" TYPE="text/css" HREF="webhelp1.css"></LINK>
+</HEAD>
+	<BODY bgcolor="#7696E0">
+			<TABLE border=0 cellpadding="0" cellspacing="0" width="100%">
+				<TR>
+					<TD width="60" nowrap align="center">
+						<A target="frmText" href="xlua.htm">
+						<img src="home.png" alt="Home" border="0">
+						</a>
+					</TD>
+					<TD width="20" nowrap align="center">
+						&nbsp;
+					</TD>
+					<TD width="80" nowrap align="center">
+						<A target="frmNav" href="helpcontentsframe.html"><img src="contents.png" alt="Contents" border="0">
+						
+						</A>
+					</TD>
+					
+					<TD width="60" nowrap align="center">
+						<A target="frmNav" href="helpindexframe.html"><img src="index.png" alt="Index" border="0">
+						
+						</A>
+					</TD>
+					
+					
+					<TD width="60" nowrap align="center">
+						<A target="frmNav" href="helpsearchframe.html"><img src="search.png" alt="Search" border="0">
+						
+						</A>
+					</TD>
+					
+					
+					<TD width="20" nowrap align="center">
+						&nbsp;
+					</TD>
+					<TD width="100" nowrap align="center">
+						<A href="#" onClick="javascript:MoveNext(true);"><img src="right.png" alt="Previous Topic" border="0">
+						
+						</A>
+					</TD>
+					<TD width="100" nowrap align="center">
+						<A href="#" onClick="javascript:MoveNext(false);"><img src="left.png" alt="Next Topic" border="0">
+						
+						</A>
+					</TD>
+					
+					
+					<TD width="20" nowrap align="center">
+						&nbsp;
+					</TD>
+					<TD width="80" nowrap align="center">
+						<A href="#" onClick="javascript:DoPrint();">
+						<img src="printer.png" alt="Print Topic" border="0">
+						</A>
+					</TD>
+					
+					<TD align="right" nowrap rowspan=2>
+						<img src="helpicon.png" border="0" align="absmiddle" alt="XLua Documentation"> 
+						
+						<span style="color:#FFFFFF; font-size:10pt; font-weight:bold;">
+							XLua Documentation
+						</span>
+						
+					</TD>
+				</TR>
+				
+				
+				<TR>
+					<TD width="60" nowrap align="center">
+						<A target="frmText" href="xlua.htm">
+						<span style="color:#FFFFFF;">
+							Home
+						</span>
+						</a>
+					</TD>
+					<TD width="20" nowrap align="center">
+						&nbsp;
+					</TD>
+					<TD width="80" nowrap align="center">
+						<A target="frmNav" href="helpcontentsframe.html">
+						<span style="color:#FFFFFF;">
+							Contents
+						</span>
+						</A>
+					</TD>
+					
+					<TD width="60" nowrap align="center">
+						<A target="frmNav" href="helpindexframe.html">
+						<span style="color:#FFFFFF;">
+							Index
+						</span>
+						</A>
+					</TD>
+					
+					
+					<TD width="60" nowrap align="center">
+						<A target="frmNav" href="helpsearchframe.html">
+						<span style="color:#FFFFFF;">
+							Search
+						</span>
+						</A>
+					</TD>
+					
+					
+					<TD width="20" nowrap align="center">
+						&nbsp;
+					</TD>
+					<TD width="100" nowrap align="center">
+						<A href="#" onClick="javascript:MoveNext(true);">
+						<span style="color:#FFFFFF;">
+							Previous Topic
+						</span>
+						</A>
+					</TD>
+					<TD width="100" nowrap align="center">
+						<A href="#" onClick="javascript:MoveNext(false);">
+						<span style="color:#FFFFFF;">
+							Next Topic
+						</span>
+						</A>
+					</TD>
+					
+					
+					<TD width="20" nowrap align="center">
+						&nbsp;
+					</TD>
+					<TD width="80" nowrap align="center">
+						<A href="#" onClick="javascript:DoPrint();">
+						<span style="color:#FFFFFF;">
+							Print Topic
+						</span>
+						</a>
+					</TD>
+					
+				</TR>
+			</TABLE>
+			
+			<script language="javascript">
+				function DoPrint()
+				{
+					try
+					{
+						var frames = parent.frames;
+						var iframecount = frames.length;
+						for(var i=0; i < iframecount; i++) 
+						{
+							if(frames[i].name == "frmText") 
+							{
+								frames[i].focus();
+								frames[i].print();
+								break;
+							}
+						}
+					}
+					catch (ex)
+					{
+						alert("Sorry, your browser does not support printing of topics.");
+					}
+				}	
+
+				function MoveNext(v_bPrev)
+				{
+					try
+					{
+						var frames = parent.frames;
+						var iframecount = frames.length;
+						for(var i=0; i < iframecount; i++) 
+						{
+							if(frames[i].name == "frmNav") 
+							{
+								if(v_bPrev==false)
+								{
+									frames[i].MoveNextTopic();
+								}
+								else
+								{
+									frames[i].MovePrevTopic();
+								}
+								
+								break;
+							}
+						}
+					}
+					catch (ex)
+					{
+					}
+				}	
+				
+				function SelectTopic(v_sTopicName)
+				{			
+				}
+			</script>
+	</BODY>
+</HTML>
+

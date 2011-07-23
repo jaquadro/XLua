@@ -1,0 +1,22 @@
+<h1>MMFI: Object Class Test Point</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>mmf.Collisions.ObjectClassTestPoint</b> ( number <tt>classid</tt>, number <tt>x</tt>, number <tt>y</tt> [, number <tt>layer</tt>] )
+<p>Tests a single pixel of the frame for the presence of a collision mask belonging to any object of the specified class.  If layer is specified, only that layer will be tested.</p>
+<p>To get an object's class ID, use <a href="mmfi_object_getclass.htm">mmf.Object.GetClass</a>.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>classid</i>
+<div style="margin-left: 1em;">ID of object class to test for</div>
+<i>x</i>
+<div style="margin-left: 1em;">X coordinate</div>
+<i>y</i>
+<div style="margin-left: 1em;">Y coordinate</div>
+<i>layer</i>
+<div style="margin-left: 1em;">1-based layer to test on</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<tt>boolean</tt>
+<div style="margin-left: 1em;"><tt>true</tt> if an object of the specified class overlaps the specified point, <tt>false</tt> otherwise</div>
+</div>

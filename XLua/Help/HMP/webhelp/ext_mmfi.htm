@@ -1,0 +1,93 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>MMF Interface</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>MMF Interface</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A></LI></UL>
+<P><STRONG>Package: <FONT color=#ff0000>mmfi</FONT></STRONG></P>
+<P>The MMF Interface extension is a C Module that reimplements and extends the MMF Interface already embedded into the XLua object.&nbsp; To further increase the modularity of XLua and reduce its heavy footprint, the embedded MMFI may eventually be removed in favor of this module.</P>
+<P>The main difference between this module and the embedded MMFI is that the module takes an object-oriented approach to managing objects in the frame.&nbsp; It also supports a clear distinction between object instances, and object classes.&nbsp; To make this terminology clear, when you duplicate an object in the frame, you're creating a new instance of the object that shares the same class as the object you're duplicating from.&nbsp; When you clone an object in the frame, you're creating a new instance of an entirely new object class.&nbsp; By separating instances and classes, some operations become less ambiguous.&nbsp; In addition to object-oriented object instances and classes, the MMFI module still supports global operations on the frame, runtime, keyboard, etc.</P>
+<P>By separating out the MMFI from the main XLua extension, future fixes or improvements to the MMFI no longer require updating the XLua extension itself, and adding specialized support for other objects should be easier to accomplish in a clean, integrated way.</P>
+<P class=section_title>Topics</P>
+<UL>
+<LI><A href="ext_mmfi_api.htm">API</A> 
+<LI><A href="ext_mmfi_constants.htm">Constants</A> 
+<LI><A href="ext_mmfi_frame.htm">Frame</A> 
+<LI><A href="ext_mmfi_keyboard.htm">Keyboard</A> 
+<LI><A href="ext_mmfi_mouse.htm">Mouse</A> 
+<LI><A href="ext_mmfi_object.htm">Objects</A> 
+<UL>
+<LI><A href="ext_mmfi_object_anim.htm">Animations</A> 
+<LI><A href="ext_mmfi_object_common.htm">Common</A> 
+<LI><A href="ext_mmfi_object_display.htm">Display</A> 
+<LI><A href="ext_mmfi_object_movement.htm">Movement</A> 
+<LI><A href="ext_mmfi_object_values.htm">Values</A></LI></UL>
+<LI><A href="ext_mmfi_class.htm">Object Classes</A> 
+<LI><A href="ext_mmfi_runtime.htm">Runtime</A> 
+<LI><A href="ext_mmfi_window.htm">Window</A></LI></UL><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi.htm'); 
+HMSelectTopic('ext_mmfi.htm');</script></body>
+</html>

@@ -1,0 +1,31 @@
+<h1>WINI: Export Message</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>void</tt> <b>win.ExportMessage</b> ( number <tt>message</tt>, function <tt>func</tt> )
+<p>Binds the specified message to the specified lua function.  Message identifiers are predefined by Microsoft in the Windows API; refer to MSDN or other documentation for the values and meanings.</p>
+<p>When the specified message is triggered, the associated function will be executed with the message's two parameters: WPARAM and LPARAM.  Refer to MSDN or other documentation for the meaning of these parameters.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>message</i>
+<div style="margin-left: 1em;">An integer message identifier</div>
+<i>value</i>
+<div style="margin-left: 1em;">A predefined lua function</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">None</div>
+
+<p><b>Example:</b></p>
+<div style="margin-left: 1em;">
+<pre>
+-- WM_ENTERMENULOOP is a message that is triggered when an application or context menu is opened.
+
+menuOpen = false
+local WM_ENTERMENULOOP = 0x211
+
+function OnMenuOpen (wparam, lparam)
+  menuOpen = true
+end
+
+win.ExportMessage(WM_ENTERMENULOOP, OnMenuOpen)
+</pre>
+</div>

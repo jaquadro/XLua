@@ -1,0 +1,84 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Error Event Modes</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Error Event Modes</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;<A href="act_config.htm">Config</A> » Error Event Mode</LI></UL>
+<P></P>
+<P>XLua supports two modes of triggering error reporting events: Immediate and Queued modes.&nbsp; In Immediate Mode, when an error is detected in XLua, any On Error events will be triggerred for immediate execution.&nbsp; In Queued Mode, the On Error events will wait to be executed at the end of the event loop.</P>
+<P>In most instances, Immediate Mode will give the desired application behavior, but because it interrupts whatever is currently executing (which may be a chunk of Lua code, or some condition, or an expression behing evaluated), it may interact in unexpected ways with the rest of the application, and cause it to crash.&nbsp; This is particular true for error reporting, because errors are in general unexpected and often uncontrolled.</P>
+<P>Queued Mode will instead delay reporting errors until the end of the current event loop, at which point all events will be reported in bulk.&nbsp; Due to MMF limitations however, only a small number (empirically, 20) of events can be queued, at which point any further errors will simply go unreported.</P>
+<P class=action>Set Immediate</P>
+<P>Sets future error events to immediate mode. Immediate mode causes any <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/cond_onerror.htm"><FONT color=#0066cc>On Error</FONT></A> triggered events to execute immediately when an error occurs.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Set Queued</P>
+<P>Sets future error events to queued mode. Queued mode causes any <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/cond_onerror.htm"><FONT color=#0066cc>On Error</FONT></A> triggered events from when errors occur to be queued up and executed at the end of MMF's event loop.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_config_error.htm'); 
+HMSelectTopic('act_config_error.htm');</script></body>
+</html>

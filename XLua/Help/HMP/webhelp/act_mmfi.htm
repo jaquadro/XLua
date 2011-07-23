@@ -1,0 +1,117 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>MMF Interface</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>MMF Interface</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> »&nbsp;MMF Interface</LI></UL>
+<P>This feature is <STRONG>deprecated</STRONG>.&nbsp; Use of this feature in new projects is discouraged.</P>
+<P>The MMF Interface is a set of functions that allow directly accessing and manipulating objects (typically active objects) from within Lua.&nbsp; Objects are exported with an index value, which is used to identify the object in the MMFI functions.&nbsp; The MMF Interface was also responsible for exposing some other functions, like the Local Store functions.</P>
+<P>The embedded MMF Interface has now been superceded by the <A href="ext_mmfi.htm">MMFI C Module</A>, which exposes an even richer set of functions and creates a fully object-oriented environment.</P>
+<P class=action>Enable</P>
+<P>Enables the MMF Interface, which is a collection of functions that can directly access and manipulate internal object and application state. These functions are stored in the global <TT>mmf</TT> table.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Export Object</P>
+<P>Exports an object, associated by a numeric ID, to the <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/mmfi.htm"><FONT color=#800080>MMF Interface</FONT></A>. This object can be used in any function that requires an object ID, such as changing an object's position. This event exports a single instance of an object.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Index</TD></TR>
+<TR>
+<TD class=parameter_id>Object</TD>
+<TD>Object to export</TD></TR></TBODY></TABLE></P>
+<P class=action>Export Object By Fixed ID</P>
+<P>Exports an object, associated by a numeric ID, to the <A href="mk:@msitstore:c:/users/justin/appdata/local/temp/rar$di00.373/xlua.chm::/mmfi.htm"><FONT color=#800080>MMF Interface</FONT></A>. This object can be used in any function that requires an object ID, such as changing an object's position. This event exports a single instance of an object, passed by fixed value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Index</TD></TR>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Fixed value of object to export</TD></TR></TBODY></TABLE></P>
+<P class=action>Clear Export</P>
+<P>Removes a previously exported object from the internal object list available to Lua.</P>
+<P>Objects should be removed even if they are destroyed, because their references still remain exported. Exporting a new object with the same ID automatically clears the old object from the export list.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>Index</TD></TR></TBODY></TABLE></P>
+<P class=action>Reset Exports</P>
+<P>Removes all objects from the export list.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_mmfi.htm'); 
+HMSelectTopic('act_mmfi.htm');</script></body>
+</html>

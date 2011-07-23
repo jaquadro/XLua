@@ -1,0 +1,148 @@
+#ifndef MAIN_H_
+#define MAIN_H_
+
+#include "Information.h"
+#include "Data.h"
+
+// ------------------------------
+// DEFINITION OF CONDITIONS CODES
+// ------------------------------
+#define	CND_ON_ERROR				0
+#define CND_ON_FUNCTION				1
+#define CND_ON_PRINT				2
+#define CND_MMFI_ENABLED			3	// Dep
+#define CND_WINI_ENABLED			4	// Dep
+#define CND_BOUND_LUA_STATE			5
+#define CND_CAPTURE_SEL_OBJECTS		6
+#define CND_CAPTURE_SEL_LIST		7
+#define CND_RESTORE_SEL_LIST		8
+#define CND_ON_FUNCTION_A			9
+#define CND_ON_FUNCTION_B			10
+#define CND_ON_FUNCTION_C			11
+#define CND_ON_FUNCTION_D			12
+#define CND_ON_FUNCTION_E			13
+#define CND_ON_FUNCTION_F			14
+#define CND_ON_FUNCTION_G			15
+#define	CND_LAST					16
+
+// ---------------------------
+// DEFINITION OF ACTIONS CODES
+// ---------------------------
+#define	ACT_RUN_SOURCE_FILE			0
+#define ACT_RUN_SOURCE_STRING		1
+#define ACT_PUSH_INT_PARAM			2
+#define ACT_PUSH_STRING_PARAM		3
+#define ACT_PUSH_BOOL_PARAM			4
+#define ACT_CALL_FUNCTION			5
+#define ACT_PUSH_INT_RETURN			6
+#define ACT_PUSH_STRING_RETURN		7
+#define ACT_PUSH_BOOL_RETURN		8
+#define ACT_OPEN_LIBS_ALL			9
+#define ACT_OPEN_LIBS_BASE			10
+#define ACT_OPEN_LIBS_PACKAGE		11
+#define ACT_OPEN_LIBS_TABLE			12
+#define ACT_OPEN_LIBS_IO			13
+#define ACT_OPEN_LIBS_OS			14
+#define ACT_OPEN_LIBS_STRING		15
+#define ACT_OPEN_LIBS_MATH			16
+#define ACT_OPEN_LIBS_DEBUG			17
+#define ACT_OPEN_LIBS_BIT			18
+#define ACT_REGISTER_FUNCTION		19
+#define ACT_SET_INT_VAR				20
+#define ACT_SET_STRING_VAR			21
+#define ACT_SET_BOOL_VAR			22
+#define ACT_EXPORT_OBJECT			23	// Dep
+#define ACT_SET_LOCAL_VAL			24	// Dep
+#define ACT_SET_LOCAL_STRING		25	// Dep
+#define ACT_ENABLE_MMFI				26	// Dep
+#define ACT_ENABLE_JIT				27
+#define ACT_OPEN_LIBS_JIT			28
+#define ACT_ENABLE_WINI				29	// Dep
+#define ACT_RESET_STATE				30	// Removed
+#define ACT_RESET_LOCAL_STORE		31	// Dep
+#define ACT_RESET_MMFI_EXPORTS		32	// Dep
+#define ACT_RESET_WINI_EXPORTS		33	// Dep
+#define ACT_CREATE_STATE			34
+#define ACT_DESTROY_STATE			35
+#define ACT_BIND_STATE				36
+#define ACT_UNBIND_STATE			37
+#define ACT_INVOKE_MMF_FUNCTION		38
+#define ACT_PUSH_FLOAT_PARAM		39
+#define ACT_PUSH_FLOAT_RETURN		40
+#define ACT_PUSH_NIL_PARAM			41
+#define ACT_PUSH_NIL_RETURN			42
+#define ACT_BIND_OPENGL_OBJECT		43	// Removed
+#define ACT_OPEN_LIBS_OPENGL		44	// Removed
+#define ACT_OPEN_C_LIB				45
+#define ACT_SET_FLOAT_VAR			46
+#define ACT_CLEAR_MMFI_EXPORT		47	// Dep
+#define ACT_DELETE_VAR				48
+#define ACT_CALL_FUNC_INLINE_1		49
+#define ACT_CALL_FUNC_INLINE_2		50
+#define ACT_CALL_FUNC_INLINE_3		51
+#define ACT_CALL_FUNC_INLINE_4		52
+#define ACT_CALL_FUNC_INLINE_DELIM	53
+#define ACT_SET_ERROR_MODE_I		54
+#define ACT_SET_ERROR_MODE_Q		55
+#define ACT_SET_PRINT_MODE_I		56
+#define ACT_SET_PRINT_MODE_Q		57
+#define ACT_CAPTURE_SEL_LIST		58
+#define ACT_CAPTURE_SEL_OBJECTS		59	// Removed
+#define ACT_RUN_SOURCE_STRING_NAMED	60
+#define ACT_ENABLE_BACKTRACE		61
+#define ACT_DISABLE_BACKTRACE		62
+#define ACT_REGISTER_FUNCTION_A		63
+#define ACT_REGISTER_FUNCTION_B		64
+#define ACT_REGISTER_FUNCTION_C		65
+#define ACT_REGISTER_FUNCTION_D		66
+#define ACT_REGISTER_FUNCTION_E		67
+#define ACT_REGISTER_FUNCTION_F		68
+#define ACT_REGISTER_FUNCTION_G		69
+#define ACT_EXPORT_OBJECT_FIXED		70	// Dep
+#define ACT_RUN_SOURCE_EMBEDDED		71
+#define ACT_PUSH_TABLE_PARAM_BEGIN	72
+#define ACT_PUSH_TABLE_PARAM_END	73
+#define ACT_PUSH_TABLE_RETURN_BEGIN	74
+#define ACT_PUSH_TABLE_RETURN_END	75
+#define	ACT_LAST					76
+
+// -------------------------------
+// DEFINITION OF EXPRESSIONS CODES
+// -------------------------------
+#define	EXP_ERROR_STRING			0
+#define EXP_INT_RETURN				1
+#define EXP_STRING_RETURN			2
+#define EXP_BOOL_RETURN				3
+#define EXP_RETURN_COUNT			4
+#define EXP_INT_PARAM				5
+#define EXP_STRING_PARAM			6
+#define EXP_BOOL_PARAM				7
+#define EXP_PARAM_COUNT				8
+#define EXP_INT_VAR					9
+#define EXP_STRING_VAR				10
+#define EXP_BOOL_VAR				11
+#define EXP_LOCAL_VAL				12	// Dep
+#define EXP_LOCAL_STRING			13	// Dep
+#define EXP_PRINT_STRING			14
+#define EXP_INT_FUNCTION			15
+#define EXP_STRING_FUNCTION			16
+#define EXP_INT_FUNCTION_NP			17
+#define EXP_INT_FUNCTION_SP			18
+#define EXP_STRING_FUNCTION_NP		19
+#define EXP_STRING_FUNCTION_SP		20
+#define EXP_FLOAT_RETURN			21
+#define EXP_FLOAT_PARAM				22
+#define EXP_FLOAT_FUNCTION			23
+#define EXP_FLOAT_FUNCTION_FP		24
+#define EXP_FLOAT_FUNCTION_SP		25
+#define EXP_FLOAT_VAR				26
+#define EXP_TABLE_LENGTH			27
+#define EXP_TABLE_MAXN				28
+#define EXP_EMBEDDED_DEP			29	// Dep
+#define EXP_ERROR_MODE				30
+#define EXP_PRINT_MODE				31
+#define EXP_VAR_TYPE				32
+#define EXP_EMBEDDED				33
+#define	EXP_LAST                    34
+
+#endif

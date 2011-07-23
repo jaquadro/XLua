@@ -1,0 +1,140 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Lua Functions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Lua Functions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> » Lua Functions</LI></UL>
+<P></P>
+<P class=section_title>Action Subgroups</P>
+<UL>
+<LI><A href="act_lua_table.htm">Push Table Parameter</A> 
+<LI><A href="act_lua_inline.htm">Inline Parameters</A></LI></UL>
+<P>One of the basic XLua operations is to invoke a Lua function that has been loaded from a string or a file.&nbsp; One of the data structures XLua uses for communication with Lua functions is an implicit parameter queue.&nbsp; Before calling a Lua function, any number of supported parameter types can be pushed onto the parameter queue, and will be passed in the same order as the arguments of the Lua function.</P>
+<P>Once a Lua function is invoked, MMF execution is suspended, and the Lua code executes.&nbsp; Once the function returns, MMF execution will resume where it left off.&nbsp; A Lua function may itself call back into MMF via an <A href="act_mmf.htm">MMF Function</A>, and thus control may pass back and forth between Lua and MMF several times, creating a call stack.&nbsp; Only the top frame of the call stack is currently executing; every other frame is suspended, waiting for the frame above it to return.</P>
+<P>Supported parameter types to pass to a Lua function include:</P>
+<UL>
+<LI>Integers 
+<LI>Floating-Point Values 
+<LI>Strings 
+<LI>Boolean Values 
+<LI>NIL 
+<LI><A href="act_lua_table.htm">Tables</A></LI></UL>
+<P>NIL is a special empty-value native to Lua, similar to null in other languages.&nbsp; Tables are a collection of parameters and may themselves contain other tables nested within.</P>
+<P>As a convenience, several <A href="act_lua_inline.htm">inline-parameter</A> versions of the Call Lua Function action are provided, bypassing the need to separately push parameters onto the parameter queue.</P>
+<P class=action>Push Integer Parameter</P>
+<P>Pushes an integer value into a parameter queue, which will be passed with the next lua<FONT color=#0066cc> </FONT>function<FONT color=#0066cc> </FONT>call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Integer value</TD></TR></TBODY></TABLE></P>
+<P class=action>Push&nbsp;Floating Parameter</P>
+<P>Pushes a floating-point value into a parameter queue, which will be passed with the next lua<FONT color=#0066cc> </FONT>function<FONT color=#0066cc> </FONT>call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>Floating-point&nbsp;value</TD></TR></TBODY></TABLE></P>
+<P class=action>Push&nbsp;String Parameter</P>
+<P>Pushes a string value into a parameter queue, which will be passed with the next lua<FONT color=#0066cc> </FONT>function<FONT color=#0066cc> </FONT>call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>String parameter</TD></TR></TBODY></TABLE></P>
+<P class=action>Push&nbsp;Boolean Parameter</P>
+<P>Pushes a boolean value into a parameter queue, which will be passed with the next lua<FONT color=#0066cc> </FONT>function<FONT color=#0066cc> </FONT>call.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>Value</TD>
+<TD>1 = <FONT face="Courier New">true</FONT>, 0 = <FONT face="Courier New">false</FONT></TD></TR></TBODY></TABLE></P>
+<P class=action>Push NIL</P>
+<P>Pushes a nil value into a parameter queue, which will be passed with the next lua<FONT color=#0066cc> </FONT>function<FONT color=#0066cc> </FONT>call.</P>
+<P>Note: the receiving function may require special handling if it uses varargs.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P>
+<P class=action>Call Lua Function</P>
+<P>Suspends the current event and executes a lua function. All parameters pushed since the last function call will be passed as function parameters.</P>
+<P>Any valid non-local function can be called, including functions in subtables or using the colon operator.&nbsp; Acceptable function name syntax is described in more detail here.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_lua.htm'); 
+HMSelectTopic('act_lua.htm');</script></body>
+</html>

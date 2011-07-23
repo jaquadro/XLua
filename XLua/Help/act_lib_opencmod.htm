@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; Libraries</div>
+<div class="lv2 active">Open External C Module</div>
+</div>
+
+<p>C Modules are special DLL files that can add functionality to Lua.  They can be included in Lua code with the "require" statement, or they can be included with this action.</p>
+<p>This action allows you to browse for a DLL to open, and asks for the package name of the C Module.  The DLL should be located in the same directory of your application file, or in a relative subdirectory.  If "Include External Files" is enabled in your application properties, the DLL file will be embedded in your compiled EXE (but this is not true if you define the path with an expression).</p>
+<p>The package name should be provided to you with the module's instructions.  The package name is the same identifier used in "require" statements, and typically follows the same conventions.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">Filename</td><td class="desc">Path to DLL file</td></tr><tr>
+<td class="type">String</td><td class="desc">Package name</td>
+</tr></table>
+
+<div class="sec">See Also</div>
+<ul>
+<li><a href="extensions.htm">Extensions</a></li>
+</ul>

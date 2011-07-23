@@ -1,0 +1,20 @@
+<h1>XLua: Load</h1>
+<p><b>Description:</b></p>
+<div style="margin-left: 1em;"><tt>boolean</tt> <b>xlua.Load</b> ( number <tt>stateID</tt>, string <tt>source</tt>, [string <tt>name</tt>] )
+<p>Loads a string containing Lua code into a remote state and executes it.  If the call succeeds, it will return true.</p>
+<p>A state can only load Lua code into a target state if the target state has granted the REMOTE_LOAD permission to the calling state.</p>
+</div>
+<p><b>Parameters:</b></p>
+<div style="margin-left: 1em;">
+<i>stateID</i>
+<div style="margin-left: 1em;">The remote state in which to load Lua code</div>
+<i>name</i>
+<div style="margin-left: 1em;">A string containing Lua code</div>
+<i>name</i>
+<div style="margin-left: 1em;">An optional identifier for the chunk of code</div>
+</div>
+<p><b>Return Values:</b></p>
+<div style="margin-left: 1em;">
+<i>boolean</i>
+<div style="margin-left: 1em;">true if the call succeeds, false otherwise</div>
+</div>

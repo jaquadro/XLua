@@ -1,0 +1,101 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Resize</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Resize</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_array.htm">Static Array</A></LI></UL>
+<P class=prototype>void&nbsp;<STRONG><EM>array</EM>:resize</STRONG> (&nbsp;number i1,&nbsp;i2, ... in&nbsp;) </P>
+<P>Resizes and/or changes the dimensionality of the array.&nbsp; The number of dimensions provided as parameters does not need to match the previous dimensionality of the array.&nbsp; The new size of the array will be product of the parameters.</P>
+<P>The contents of the array (from a linear perspective) are not changed by a call to resize.&nbsp; That is, if an array is expanded, the existing contents will persist, but if an array is truncated, then the elements at the end will be lost.&nbsp; However, if any dimension size&nbsp;(after the first dimension) of a multi-dimensional array is changed, then the data will no longer be at their previous indexes.</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>in</TD>
+<TD>One or more dimension sizes&nbsp;</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>None.</P>
+<P class=section_title>Error Conditions</P>
+<P>If there is not enough available&nbsp;memory in the system to satisfy the reqested size, this function will&nbsp;signal an error.&nbsp; The existing array will be left unchanged at its original size.</P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Create an array of 1000 doubles</FONT></DIV>
+<DIV class=luatable><STRONG><FONT color=#000080>local</FONT></STRONG>&nbsp;arr = array.new(1000)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- This call effectively leaves the array unchanged,</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- but adds 3D indexing to the linear array</FONT></DIV>
+<DIV class=luatable>arr:resize(10, 10, 10)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- This call physically extends the array without</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- destroying the existing indexing</FONT></DIV>
+<DIV class=luatable>arr:resize(15, 10, 10)</DIV>
+<DIV class=luatable>&nbsp;</DIV>
+<DIV class=luatable><FONT color=#008000>-- This call extends the array and destroys the</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- existing indexing</FONT></DIV>
+<DIV class=luatable>arr:resize(15, 10, 15)</DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_array_resize.htm'); 
+HMSelectTopic('ext_array_resize.htm');</script></body>
+</html>

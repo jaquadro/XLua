@@ -1,0 +1,149 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Function Calls with Inline Parameters</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_green">Actions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Function Calls with Inline Parameters</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="act.htm">Actions</A> » <A href="act_lua.htm">Lua Functions</A> » Inline Parameters</LI></UL>
+<P></P>
+<P>The following group of actions performs a standard Lua function call, but instead of passing parameters previously pushed to the stack, passes inlined string parameters instead.&nbsp; Any previously pushed parameters will be discarded.</P>
+<P>As with the <A href="act_lua.htm">Call Lua Function</A> action, any valid non-local function may be called.&nbsp; Acceptable function name syntax is described in more detail here.</P>
+<P class=action>Call With 1 Parameter</P>
+<P>Suspends the current event and executes a lua function, passing 1 string parameter included in the action.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>1st Parameter</TD></TR></TBODY></TABLE>
+<P class=action>Call With&nbsp;2 Parameters</P>
+<P>Suspends the current event and executes a lua function, passing&nbsp;2 string parameters included in the action.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>1st Parameter</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>2nd Parameter</TD></TR></TBODY></TABLE>
+<P class=action>Call With&nbsp;3 Parameters</P>
+<P>Suspends the current event and executes a lua function, passing&nbsp;3 string parameters included in the action.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>1st Parameter</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>2nd Parameter</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>3rd Parameter</TD></TR></TBODY></TABLE>
+<P class=action>Call With&nbsp;4 Parameters</P>
+<P>Suspends the current event and executes a lua function, passing&nbsp;4 string parameters included in the action.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>1st Parameter</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>2nd Parameter</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>3rd Parameter</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>4th Parameter</TD></TR></TBODY></TABLE>
+<P class=action>Call With Delimited String</P>
+<P>Suspends the current event and executes a lua function, passing a delimited string which will be parsed into multiple parameters.</P>
+<P>The delimited string takes the form of "var<SUB>1</SUB>|var<SUB>2</SUB>|var<SUB>3</SUB>|...|var<SUB>n</SUB>", with the pipe character (|) used as the delimiter. The string will be split apart into multiple string paramters before being passed to the Lua function. This calling method provides direct compatibility with the original <TT>Lua Object</TT> calling convention, but does have some limitations.</P>
+<P class=section_title>Parameters</P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>String</TD>
+<TD>Function Name</TD></TR>
+<TR>
+<TD class=parameter_type>String</TD>
+<TD>Delimited Parameter String</TD></TR></TBODY></TABLE><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('act_lua_inline.htm'); 
+HMSelectTopic('act_lua_inline.htm');</script></body>
+</html>

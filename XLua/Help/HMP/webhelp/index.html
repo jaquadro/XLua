@@ -1,0 +1,37 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+<html>
+<head>
+<title>XLua Documentation</title>
+</head>
+
+<script language="javascript">
+
+	function LoadFrames()
+	{
+		var data = window.location.search.substring(1); // trims "?" from beginning
+		var sdefault="";
+		
+		if(data.length > 0)
+		{ 
+	        sdefault=data;
+	    } 
+		else
+		{
+			sdefault="xlua.htm";
+		}
+		window.frames["frmText"].location.href=sdefault;
+		window.frames["frmNav"].SelectNodeByFilename(sdefault);
+	}
+</script>
+
+<frameset rows="52,*" frameborder="yes" framespacing="2" border="2" bordercolor="#7696E0" onLoad="javascript:LoadFrames();">
+<frame name="frmheading" src="helpheaderframe.html" scrolling="no" frameborder=0>
+
+<frameset cols="220,*" framespacing="2" border="2" bordercolor="#7696E0"> 
+  <frame src="helpcontentsframe.html" name="frmNav" > 
+  <frame SRC="" name="frmText"> 
+</frameset> 
+</frameset> 
+
+</HTML>
+

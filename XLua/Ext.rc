@@ -1,0 +1,584 @@
+#include "information.h"
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+#include "..\rSDK\Inc\ccx.h"
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifndef _MAC
+
+1 VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x10001L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "XLua Object\0"
+            VALUE "FileVersion", "1.5\0"
+            VALUE "InternalName", "XLUA\0"
+            VALUE "LegalCopyright", "Copyright © 2009 Justin Aquadro\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "XLua.mfx\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "\0"
+            VALUE "ProductVersion", "1, 5, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Data
+//
+
+KPX_MAGICNUMBER RCDATA MOVEABLE PURE 
+BEGIN
+    0x2516, 0x5908
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(EDITOR)
+#if defined(APSTUDIO_INVOKED)
+EXO_ICON$(EDITOR)       BITMAP  MOVEABLE PURE   "EXTICON.BMP"
+#else
+EXO_ICON                BITMAP  MOVEABLE PURE   "EXTICON.BMP"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(EDITOR)
+#if defined(APSTUDIO_INVOKED)
+EXO_IMAGE$(EDITOR)      BITMAP  MOVEABLE PURE   "EXTIMG.BMP"
+#else
+EXO_IMAGE               BITMAP  MOVEABLE PURE   "EXTIMG.BMP"
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(EDITOR)
+#if defined(APSTUDIO_INVOKED)
+MN_CONDITIONS$(EDITOR) MENU DISCARDABLE 
+#else
+MN_CONDITIONS MENU DISCARDABLE 
+#endif
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "On Error", IDMN_CND_ON_ERROR
+		MENUITEM "On Print", IDMN_CND_ON_PRINT
+		MENUITEM "On Fucntion", IDMN_CND_ON_FUNCTION
+		POPUP "Function Groups"
+		BEGIN
+			MENUITEM "On Function.A", IDMN_CND_ON_FUNCTION_A
+			MENUITEM "On Function.B", IDMN_CND_ON_FUNCTION_B
+			MENUITEM "On Function.C", IDMN_CND_ON_FUNCTION_C
+			MENUITEM "On Function.D", IDMN_CND_ON_FUNCTION_D
+			MENUITEM "On Function.E", IDMN_CND_ON_FUNCTION_E
+			MENUITEM "On Function.F", IDMN_CND_ON_FUNCTION_F
+			MENUITEM "On Function.G", IDMN_CND_ON_FUNCTION_G
+		END
+		MENUITEM SEPARATOR
+		MENUITEM "MMF Interface Enabled", IDMN_CND_MMFI_ENABLED
+		MENUITEM "WIN Interface Enabled", IDMN_CND_WINI_ENABLED
+		MENUITEM "Bound to Lua State", IDMN_CND_BOUND_LUA_STATE
+		MENUITEM SEPARATOR
+		POPUP "Selections"
+		BEGIN
+			MENUITEM "Capture Selection List", IDMN_CND_CAPTURE_SEL_LIST
+			MENUITEM "Capture Selections By Type", IDMN_CND_CAPTURE_SEL_OBJECTS
+			MENUITEM SEPARATOR
+			MENUITEM "Restore Selection List", IDMN_CND_RESTORE_SEL_LIST
+		END
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(EDITOR)
+#if defined(APSTUDIO_INVOKED)
+MN_ACTIONS$(EDITOR) MENU DISCARDABLE 
+#else
+MN_ACTIONS MENU DISCARDABLE 
+#endif
+BEGIN
+    POPUP ""
+    BEGIN
+        POPUP "State"
+		BEGIN
+			MENUITEM "Create State", IDMN_ACT_CREATE_STATE
+			MENUITEM "Destroy State", IDMN_ACT_DESTROY_STATE
+			MENUITEM SEPARATOR
+			MENUITEM "Bind State", IDMN_ACT_BIND_STATE
+			MENUITEM "Unbind State", IDMN_ACT_UNBIND_STATE
+		END
+		POPUP "Config"
+		BEGIN
+			POPUP "Error Event Mode"
+			BEGIN
+				MENUITEM "Set Immediate", IDMN_ACT_SET_ERROR_MODE_I
+				MENUITEM "Set Queued", IDMN_ACT_SET_ERROR_MODE_Q
+			END
+			POPUP "Print Event Mode"
+			BEGIN
+				MENUITEM "Set Immediate", IDMN_ACT_SET_PRINT_MODE_I
+				MENUITEM "Set Queued", IDMN_ACT_SET_PRINT_MODE_I
+			END
+			MENUITEM SEPARATOR
+			POPUP "Report Backtraces"
+			BEGIN
+				MENUITEM "Enable", IDMN_ACT_ENABLE_BACKTRACE
+				MENUITEM "Disable", IDMN_ACT_DISABLE_BACKTRACE
+			END
+		END
+		MENUITEM SEPARATOR
+		MENUITEM "Run File", IDMN_ACT_RUN_SOURCE_FILE
+		MENUITEM "Run String", IDMN_ACT_RUN_SOURCE_STRING
+		MENUITEM "Run Named String", IDMN_ACT_RUN_SOURCE_STRING_NAMED
+		MENUITEM "Run Embedded Script", IDMN_ACT_RUN_SOURCE_EMBEDDED
+		MENUITEM SEPARATOR
+		POPUP "Lua Functions"
+		BEGIN
+			MENUITEM "Push Integer Parameter", IDMN_ACT_PUSH_INT_PARAM
+			MENUITEM "Push Floating Parameter", IDMN_ACT_PUSH_FLOAT_PARAM
+			MENUITEM "Push String Parameter", IDMN_ACT_PUSH_STRING_PARAM
+			MENUITEM "Push Boolean Parameter", IDMN_ACT_PUSH_BOOL_PARAM
+			POPUP "Push Table Parameter"
+			BEGIN
+				MENUITEM "Begin Table", IDMN_ACT_PUSH_TABLE_PARAM_BEGIN
+				MENUITEM "End Table", IDMN_ACT_PUSH_TABLE_PARAM_END
+			END
+			MENUITEM "Push NIL", IDMN_ACT_PUSH_NIL_PARAM
+			MENUITEM SEPARATOR
+			MENUITEM "Call Lua Function", IDMN_ACT_CALL_FUNCTION
+			POPUP "Inline Parameters"
+			BEGIN
+				MENUITEM "Call With 1 Parameter", IDMN_ACT_CALL_FUNC_INLINE_1
+				MENUITEM "Call With 2 Parameters", IDMN_ACT_CALL_FUNC_INLINE_2
+				MENUITEM "Call With 3 Parameters", IDMN_ACT_CALL_FUNC_INLINE_3
+				MENUITEM "Call With 4 Parameters", IDMN_ACT_CALL_FUNC_INLINE_4
+				MENUITEM SEPARATOR
+				MENUITEM "Call With Delimited String", IDMN_ACT_CALL_FUNC_INLINE_DELIM
+			END
+		END
+		POPUP "MMF Functions"
+		BEGIN
+			MENUITEM "Push Integer Return Value", IDMN_ACT_PUSH_INT_RETURN
+			MENUITEM "Push Floating Return Value", IDMN_ACT_PUSH_FLOAT_RETURN
+			MENUITEM "Push String Return Value", IDMN_ACT_PUSH_STRING_RETURN
+			MENUITEM "Push Boolean Return Value", IDMN_ACT_PUSH_BOOL_RETURN
+			POPUP "Push Table Return Value"
+			BEGIN
+				MENUITEM "Begin Table", IDMN_ACT_PUSH_TABLE_RETURN_BEGIN
+				MENUITEM "End Table", IDMN_ACT_PUSH_TABLE_RETURN_END
+			END
+			MENUITEM "Push NIL", IDMN_ACT_PUSH_NIL_RETURN
+			MENUITEM SEPARATOR
+			MENUITEM "Register MMF Function", IDMN_ACT_REGISTER_FUNCTION
+			MENUITEM "Invoke MMF Function", IDMN_ACT_INVOKE_MMF_FUNCTION
+			MENUITEM SEPARATOR
+			POPUP "Function Groups"
+			BEGIN
+				MENUITEM "Register MMF Function.A", IDMN_ACT_REGISTER_FUNCTION_A
+				MENUITEM "Register MMF Function.B", IDMN_ACT_REGISTER_FUNCTION_B
+				MENUITEM "Register MMF Function.C", IDMN_ACT_REGISTER_FUNCTION_C
+				MENUITEM "Register MMF Function.D", IDMN_ACT_REGISTER_FUNCTION_D
+				MENUITEM "Register MMF Function.E", IDMN_ACT_REGISTER_FUNCTION_E
+				MENUITEM "Register MMF Function.F", IDMN_ACT_REGISTER_FUNCTION_F
+				MENUITEM "Register MMF Function.G", IDMN_ACT_REGISTER_FUNCTION_G
+			END
+		END
+		MENUITEM SEPARATOR
+		POPUP "Variables"
+		BEGIN
+			MENUITEM "Set Integer Variable", IDMN_ACT_SET_INT_VAR
+			MENUITEM "Set Floating Variable", IDMN_ACT_SET_FLOAT_VAR
+			MENUITEM "Set String Variable", IDMN_ACT_SET_STRING_VAR
+			MENUITEM "Set Boolean Variable", IDMN_ACT_SET_BOOL_VAR
+			MENUITEM SEPARATOR
+			MENUITEM "Delete Variable", IDMN_ACT_DELETE_VAR
+		END
+		POPUP "Local Storage"
+		BEGIN
+			MENUITEM "Set Local Value", IDMN_ACT_SET_LOCAL_VAL
+			MENUITEM "Set Local String", IDMN_ACT_SET_LOCAL_STRING
+			MENUITEM SEPARATOR
+			MENUITEM "Reset Local Storage", IDMN_ACT_RESET_LOCAL_STORE
+		END
+		MENUITEM SEPARATOR
+		POPUP "Libraries"
+		BEGIN
+			MENUITEM "Open All Libraries", IDMN_ACT_OPEN_LIBS_ALL
+			MENUITEM "Open External C Module", IDMN_ACT_OPEN_C_LIB
+			MENUITEM SEPARATOR
+			MENUITEM "Open Base", IDMN_ACT_OPEN_LIBS_BASE
+			MENUITEM "Open 'package'", IDMN_ACT_OPEN_LIBS_PACKAGE
+			MENUITEM "Open 'table'", IDMN_ACT_OPEN_LIBS_TABLE
+			MENUITEM "Open 'io'", IDMN_ACT_OPEN_LIBS_IO
+			MENUITEM "Open 'os'", IDMN_ACT_OPEN_LIBS_OS
+			MENUITEM "Open 'string'", IDMN_ACT_OPEN_LIBS_STRING
+			MENUITEM "Open 'math'", IDMN_ACT_OPEN_LIBS_MATH
+			MENUITEM "Open 'debug'", IDMN_ACT_OPEN_LIBS_DEBUG
+			MENUITEM "Open 'bit'", IDMN_ACT_OPEN_LIBS_BIT
+			MENUITEM "Open 'jit'", IDMN_ACT_OPEN_LIBS_JIT
+			MENUITEM SEPARATOR
+			MENUITEM "Enable LuaJIT", IDMN_ACT_ENABLE_JIT
+		END
+		POPUP "MMF Interface"
+		BEGIN
+			MENUITEM "Enable", IDMN_ACT_ENABLE_MMFI
+			MENUITEM SEPARATOR
+			MENUITEM "Export Object", IDMN_ACT_EXPORT_OBJECT
+			MENUITEM "Export Object by Fixed ID", IDMN_ACT_EXPORT_OBJECT_FIXED
+			MENUITEM "Clear Export", IDMN_ACT_CLEAR_MMFI_EXPORT
+			MENUITEM "Reset Exports", IDMN_ACT_RESET_MMFI_EXPORTS
+			MENUITEM SEPARATOR
+			MENUITEM "Capture Selection List", IDMN_ACT_CAPTURE_SEL_LIST
+		END
+		POPUP "WIN Interface"
+		BEGIN
+			MENUITEM "Enable", IDMN_ACT_ENABLE_WINI
+			MENUITEM SEPARATOR
+			MENUITEM "Reset Exports", IDMN_ACT_RESET_WINI_EXPORTS
+		END
+    END
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(EDITOR)
+#if defined(APSTUDIO_INVOKED)
+MN_EXPRESSIONS$(EDITOR) MENU DISCARDABLE 
+#else
+MN_EXPRESSIONS MENU DISCARDABLE 
+#endif
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "Get Error String", IDMN_EXP_ERROR_STRING
+		MENUITEM "Get Print String", IDMN_EXP_PRINT_STRING
+		MENUITEM SEPARATOR
+		MENUITEM "Get Embedded Script", IDMN_EXP_EMBEDDED
+		POPUP "Config"
+		BEGIN
+			MENUITEM "Get Error Event Mode", IDMN_EXP_ERROR_MODE
+			MENUITEM "Get Print Event Mode", IDMN_EXP_PRINT_MODE
+		END
+		MENUITEM SEPARATOR
+		POPUP "Lua Functions"
+		BEGIN
+			MENUITEM "Get Integer Return", IDMN_EXP_INT_RETURN
+			MENUITEM "Get Floating Return", IDMN_EXP_FLOAT_RETURN
+			MENUITEM "Get String Return", IDMN_EXP_STRING_RETURN
+			MENUITEM "Get Boolean Return", IDMN_EXP_BOOL_RETURN
+			MENUITEM SEPARATOR
+			MENUITEM "Get Return Count", IDMN_EXP_RETURN_COUNT
+			POPUP "Call Lua Function"
+			BEGIN
+				POPUP "Numeric Return"
+				BEGIN
+					MENUITEM "Call with existing parameters", IDMN_EXP_INT_FUNCTION
+					MENUITEM SEPARATOR
+					MENUITEM "Call with numeric parameter", IDMN_EXP_INT_FUNCTION_NP
+					MENUITEM "Call with string parameter", IDMN_EXP_INT_FUNCTION_SP
+				END
+				POPUP "String Return"
+				BEGIN
+					MENUITEM "Call with existing parameters", IDMN_EXP_STRING_FUNCTION
+					MENUITEM SEPARATOR
+					MENUITEM "Call with numeric parameter", IDMN_EXP_STRING_FUNCTION_NP
+					MENUITEM "Call with string parameter", IDMN_EXP_STRING_FUNCTION_SP
+				END
+			END
+		END
+		POPUP "MMF Functions"
+		BEGIN
+			MENUITEM "Get Integer Parameter", IDMN_EXP_INT_PARAM
+			MENUITEM "Get Floating Parameter", IDMN_EXP_FLOAT_PARAM
+			MENUITEM "Get String Parameter", IDMN_EXP_STRING_PARAM
+			MENUITEM "Get Boolean Parameter", IDMN_EXP_BOOL_PARAM
+			MENUITEM SEPARATOR
+			MENUITEM "Get Parameter Count", IDMN_EXP_PARAM_COUNT
+		END
+		MENUITEM SEPARATOR
+		POPUP "Variables"
+		BEGIN
+			MENUITEM "Get Integer Variable", IDMN_EXP_INT_VAR
+			MENUITEM "Get Floating Variable", IDMN_EXP_FLOAT_VAR
+			MENUITEM "Get String Variable", IDMN_EXP_STRING_VAR
+			MENUITEM "Get Boolean Variable", IDMN_EXP_BOOL_VAR
+			MENUITEM SEPARATOR
+			MENUITEM "Get Variable Type", IDMN_EXP_VAR_TYPE
+			MENUITEM "Get Table Length", IDMN_EXP_TABLE_LENGTH
+			MENUITEM "Get Table Max Index", IDMN_EXP_TABLE_MAXN
+		END
+		POPUP "Local Storage"
+		BEGIN
+			MENUITEM "Get Local Value", IDMN_EXP_LOCAL_VAL
+			MENUITEM "Get Local String", IDMN_EXP_LOCAL_STRING
+		END
+		MENUITEM SEPARATOR
+    END
+END
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+#ifdef APSTUDIO_INVOKED
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""..\\..\\Inc\\ccx.h""\r\n"
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""ver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    KPX_MARK                "MF2"
+    KPX_NAME                ObjectName
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+	IDS_DB_LASTERROR		"Last Error: %s"
+	IDS_DB_LASTPRINT		"Last Print: %s"
+	IDS_DB_ERRORMODE		"Error Mode: %s"
+	IDS_DB_PRINTMODE		"Print Mode: %s"
+	IDS_DB_STATE			"Bound State: %s"
+	IDS_DB_STATEN			"Bound State: %i"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	M_CND_ON_ERROR				"%o: On Error"
+	M_CND_ON_FUNCTION			"%o: On Function %0"
+	M_CND_ON_PRINT				"%o: On Print"
+	M_CND_MMFI_ENABLED			"%o: MMF Interface Enabled"
+	M_CND_WINI_ENABLED			"%o: WIN Interface Enabled"
+	M_CND_BOUND_LUA_STATE		"%o: Bound to Lua State"
+	M_CND_CAPTURE_SEL_OBJECTS	"%o: Capture Selected %0 to %1"
+	M_CND_CAPTURE_SEL_LIST		"%o: Capture Selection List to %0"
+	M_CND_RESTORE_SEL_LIST		"%o: Restore Selection List from %0"
+	M_CND_ON_FUNCTION_A			"%o: On Function.A %0"
+	M_CND_ON_FUNCTION_B			"%o: On Function.B %0"
+	M_CND_ON_FUNCTION_C			"%o: On Function.C %0"
+	M_CND_ON_FUNCTION_D			"%o: On Function.D %0"
+	M_CND_ON_FUNCTION_E			"%o: On Function.E %0"
+	M_CND_ON_FUNCTION_F			"%o: On Function.F %0"
+	M_CND_ON_FUNCTION_G			"%o: On Function.G %0"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	M_ACT_RUN_SOURCE_FILE			"Run Source File %0"
+	M_ACT_RUN_SOURCE_STRING			"Run Source String %0"
+	M_ACT_PUSH_INT_PARAM			"Push Integer Parameter: %0"
+	M_ACT_PUSH_STRING_PARAM			"Push String Parameter: %0"
+	M_ACT_PUSH_BOOL_PARAM			"Push Boolean Parameter: %0"
+	M_ACT_CALL_FUNCTION				"Call Function: %0"
+	M_ACT_PUSH_INT_RETURN			"Push Integer Return Value: %0"
+	M_ACT_PUSH_STRING_RETURN		"Push String Return Value: %0"
+	M_ACT_PUSH_BOOL_RETURN			"Push Boolean Return Value: %0"
+	M_ACT_OPEN_LIBS_ALL				"Open All Libraries"
+	M_ACT_OPEN_LIBS_BASE			"Open Base"
+	M_ACT_OPEN_LIBS_PACKAGE			"Open 'package'"
+	M_ACT_OPEN_LIBS_TABLE			"Open 'table'"
+	M_ACT_OPEN_LIBS_IO				"Open 'io'"
+	M_ACT_OPEN_LIBS_OS				"Open 'os'"
+	M_ACT_OPEN_LIBS_STRING			"Open 'string'"
+	M_ACT_OPEN_LIBS_MATH			"Open 'math'"
+	M_ACT_OPEN_LIBS_DEBUG			"Open 'debug'"
+	M_ACT_OPEN_LIBS_BIT				"Open 'bit'"
+	M_ACT_REGISTER_FUNCTION			"Register MMF Function %0 with %1 params"
+	M_ACT_SET_INT_VAR				"Set Integer Variable %0 to %1"
+	M_ACT_SET_STRING_VAR			"Set String Variable %0 to %1"
+	M_ACT_SET_BOOL_VAR				"Set Boolean Variable %0 to %1"
+	M_ACT_EXPORT_OBJECT				"Export Object %0 with ID %1"
+	M_ACT_SET_LOCAL_VAL				"Set Local Storage Value %0 = %1"
+	M_ACT_SET_LOCAL_STRING			"Set Local Storage String %0 = %1"
+	M_ACT_ENABLE_MMFI				"Enable MMF Interface"
+	M_ACT_ENABLE_JIT				"Enable LuaJIT"
+	M_ACT_OPEN_LIBS_JIT				"Open 'jit'"
+	M_ACT_ENABLE_WINI				"Enable WIN Interface"
+	M_ACT_RESET_STATE				"Reset Lua State"
+	M_ACT_RESET_LOCAL_STORE			"Reset Local Storage"
+	M_ACT_RESET_MMFI_EXPORTS		"Reset MMFI Exports"
+	M_ACT_RESET_WINI_EXPORTS		"Reset WINI Exports"
+	M_ACT_CREATE_STATE				"Create Lua State %0"
+	M_ACT_DESTROY_STATE				"Destroy Lua State %0"
+	M_ACT_BIND_STATE				"Bind Lua State %0"
+	M_ACT_UNBIND_STATE				"Unbind Lua State"
+	M_ACT_INVOKE_MMF_FUNCTION		"Invoke MMF Function: %0"
+	M_ACT_PUSH_FLOAT_PARAM			"Push Floating Parameter: %0"
+	M_ACT_PUSH_FLOAT_RETURN			"Push Floating Return Value: %0"
+	M_ACT_PUSH_NIL_PARAM			"Push NIL Parameter"
+	M_ACT_PUSH_NIL_RETURN			"Push NIL Return Value"
+	M_ACT_BIND_OPENGL_OBJECT		"Deprecated"
+	M_ACT_OPEN_LIBS_OPENGL			"Deprecated"
+	M_ACT_OPEN_C_LIB				"Open %1 in External C Module %0"
+	M_ACT_SET_FLOAT_VAR				"Set Floating Variable %0 to %1"
+	M_ACT_CLEAR_MMFI_EXPORT			"Clear object %1 from export list"
+	M_ACT_DELETE_VAR				"Delete Variable %0"
+	M_ACT_CALL_FUNC_INLINE_1		"Call Function %0 with parameters: %1"
+	M_ACT_CALL_FUNC_INLINE_2		"Call Function %0 with parameters: %1, %2"
+	M_ACT_CALL_FUNC_INLINE_3		"Call Function %0 with parameters: %1, %2, %3"
+	M_ACT_CALL_FUNC_INLINE_4		"Call Function %0 with parameters: %1, %2, %3, %4"
+	M_ACT_CALL_FUNC_INLINE_DELIM	"Call Function %0 with delimited list: %1"
+	M_ACT_SET_ERROR_MODE_I			"Set Error Event Mode: Immediate"
+	M_ACT_SET_ERROR_MODE_Q			"Set Error Event Mode: Queued"
+	M_ACT_SET_PRINT_MODE_I			"Set Print Event Mode: Immediate"
+	M_ACT_SET_PRINT_MODE_Q			"Set Print Event Mode: Queued"
+	M_ACT_CAPTURE_SEL_LIST			"Capture Selection List to %0"
+	M_ACT_CAPTURE_SEL_OBJECTS		"Capture Selected %0 to %1"
+	M_ACT_RUN_SOURCE_STRING_NAMED	"Run Named Source String %1 = %0"
+	M_ACT_ENABLE_BACKTRACE			"Enable Backtrace Reporting"
+	M_ACT_DISABLE_BACKTRACE			"Disable Backtrace Reporting"
+	M_ACT_REGISTER_FUNCTION_A		"Register MMF Function %0 in Group A with %1 params"
+	M_ACT_REGISTER_FUNCTION_B		"Register MMF Function %0 in Group B with %1 params"
+	M_ACT_REGISTER_FUNCTION_C		"Register MMF Function %0 in Group C with %1 params"
+	M_ACT_REGISTER_FUNCTION_D		"Register MMF Function %0 in Group D with %1 params"
+	M_ACT_REGISTER_FUNCTION_E		"Register MMF Function %0 in Group E with %1 params"
+	M_ACT_REGISTER_FUNCTION_F		"Register MMF Function %0 in Group F with %1 params"
+	M_ACT_REGISTER_FUNCTION_G		"Register MMF Function %0 in Group G with %1 params"
+	M_ACT_EXPORT_OBJECT_FIXED		"Export Object by Fixed ID %0 with ID %1"
+	M_ACT_RUN_SOURCE_EMBEDDED		"Run embedded script %0"
+	M_ACT_PUSH_TABLE_PARAM_BEGIN	"Begin Pushing Table Parameter"
+	M_ACT_PUSH_TABLE_PARAM_END		"End Table Parameter"
+	M_ACT_PUSH_TABLE_RETURN_BEGIN	"Begin Pushing Table Return Value"
+	M_ACT_PUSH_TABLE_RETURN_END		"End Table Return Value"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	M_EXP_ERROR_STRING			"ErrorString$("
+	M_EXP_INT_RETURN			"LF_NumericReturn("
+	M_EXP_STRING_RETURN			"LF_StringReturn$("
+	M_EXP_BOOL_RETURN			"LF_BooleanReturn("
+	M_EXP_RETURN_COUNT			"LF_ReturnCount("
+	M_EXP_INT_PARAM				"MF_NumericParam("
+	M_EXP_STRING_PARAM			"MF_StringParam$("
+	M_EXP_BOOL_PARAM			"MF_BooleanParam("
+	M_EXP_PARAM_COUNT			"MF_ParamCount("
+	M_EXP_INT_VAR				"NumericVar("
+	M_EXP_STRING_VAR			"StringVar$("
+	M_EXP_BOOL_VAR				"BooleanVar("
+	M_EXP_LOCAL_VAL				"LocalVal("
+	M_EXP_LOCAL_STRING			"LocalStr$("
+	M_EXP_PRINT_STRING			"PrintString$("
+	M_EXP_INT_FUNCTION			"LuaFunction("
+	M_EXP_STRING_FUNCTION		"LuaFunction$("
+	M_EXP_INT_FUNCTION_NP		"LuaFunctionNP("
+	M_EXP_INT_FUNCTION_SP		"LuaFunctionSP("
+	M_EXP_STRING_FUNCTION_NP	"LuaFunctionNP$("
+	M_EXP_STRING_FUNCTION_SP	"LuaFunctionSP$("
+	M_EXP_FLOAT_RETURN			"LF_FloatingReturn("
+	M_EXP_FLOAT_PARAM			"MF_FloatingParam("
+	M_EXP_FLOAT_FUNCTION		"LuaFunctionF("
+	M_EXP_FLOAT_FUNCTION_FP		"LuaFunctionFP("
+	M_EXP_FLOAT_FUNCTION_SP		"LuaFunctionFP$("
+	M_EXP_FLOAT_VAR				"FloatingVar("
+	M_EXP_TABLE_LENGTH			"TableLength("
+	M_EXP_TABLE_MAXN			"TableMaxN("
+	M_EXP_EMBEDDED_DEP			"EmbeddedScriptDEP$("
+	M_EXP_ERROR_MODE			"ErrEventMode$("
+	M_EXP_PRINT_MODE			"PrintEventMode$("
+	M_EXP_VAR_TYPE				"VarType$("
+	M_EXP_EMBEDDED				"EmbeddedScript$("
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+	M_FUNCTION_NAME			"Function Name"
+	M_OBJECT_TYPE			"Object Type"
+	M_DEST_VAR				"Destination Variable"
+	M_SRC_VAR				"Source Variable"
+	M_FILE					"File"
+	M_STRING				"String Value"
+	M_INTEGER				"Integer Value"
+	M_BOOLEAN				"Boolean Value"
+	M_MIN_PARAMS			"Minimum Parameters"
+	M_VAR_NAME				"Variable Name"
+	M_OBJECT_EXPORT			"Object to Export"
+	M_IDENTIFIER			"Identifier"
+	M_VALUE					"Value"
+	M_FLOAT					"Float Value"
+	M_DLL_PATH				"Path to DLL"
+	M_PACKAGE_NAME			"Package Name"
+	M_PARAM_1				"1st Parameter"
+	M_PARAM_2				"2nd Parameter"
+	M_PARAM_3				"3rd Parameter"
+	M_PARAM_4				"4th Parameter"
+	M_PARAM_DELIM			"Delimited String"
+	M_NAME					"Name"
+	M_OBJECT_EXPORT_FIXED	"Object Fixed Value"
+	M_SCRIPT_NAME			"Script Name"
+	M_INDEX_1				"1-Based Index"
+	M_TABLE_NAME			"Table name"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+#ifndef APSTUDIO_INVOKED
+
+#endif    // !APSTUDIO_INVOKED
+

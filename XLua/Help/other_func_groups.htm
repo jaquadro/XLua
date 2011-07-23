@@ -1,0 +1,9 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Other Topics</div>
+<div class="lv2 active">Function Groups</div>
+</div>
+
+<p>In addition to the default <a href="cond_onfunc.htm">On Function</a> condition, XLua contains several alteranate On Function conditions, which can facilitate separating or grouping MMF functions.  These alternate conditions are functionally identical.</p>
+
+<p>Whenever an MMF function is called from a Lua script, either via a registered function call, or through <a href="other_docall.htm">DoCall</a>, every On Function condition must be checked to see if it is the correct function to call.  This is not a large overhead, but if you have hundreds of these conditions defined, and you need to call a single MMF function many times per frame in a tight loop, this overhead can add up to a significant amount.  Function groups help mitigate this bottleneck because a function call to one group does not need to inspect the conditions of another group.  Therefor registering an MMF function that is called often to a sparsely populated group mitigates a large accrual of overhead.</p>

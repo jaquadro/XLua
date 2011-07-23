@@ -1,0 +1,119 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>MMF Functions</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_blue">Expressions</TD>
+<TD class=titleline2><helpmatic autotopictitle>MMF Functions</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="expr.htm">Expressions</A> »&nbsp;MMF Functions</LI></UL>
+<P>This group of expressions is applicable once an MMF function has been invoked, and allows access to any parameters passed to the MMF function by the Lua code.&nbsp; The values will remain valid until the MMF function returns.</P>
+<P>When the call stack contains multiple frames (recusive function calling between Lua and MMF), each MMF frame will have its own set of parameters available to it, even if it invokes another MMF function or calls a Lua function that invokes an MMF function.</P>
+<P class=action>Get Integer Parameter</P>
+<P><STRONG>Function:</STRONG> M<FONT face="Courier New">F_NumericParam</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns one of the parameters passed in an MMF function call from Lua as an integer value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based&nbsp;parameter index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Floating Parameter</P>
+<P><STRONG>Function:</STRONG> M<FONT face="Courier New">F_FloatingParam</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns one of the parameters passed in an MMF function call from Lua as a floating-point value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based&nbsp;parameter index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;String Parameter</P>
+<P><STRONG>Function:</STRONG> M<FONT face="Courier New">F_StringParam$</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">String</FONT></P>
+<P>Returns one of the parameters passed in an MMF function call from Lua as a string value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based&nbsp;parameter index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get&nbsp;Boolean Parameter</P>
+<P><STRONG>Function:</STRONG> M<FONT face="Courier New">F_BooleanParam</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns one of the parameters passed in an MMF function call from Lua as a boolean value.</P>
+<P class=section_title>Parameters</P>
+<P class=section_title>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>Value</TD>
+<TD>1-based&nbsp;parameter index</TD></TR></TBODY></TABLE></P>
+<P class=action>Get Parameter Count</P>
+<P><STRONG>Function:</STRONG> M<FONT face="Courier New">F_ParamCount</FONT><BR><STRONG>Returns:</STRONG> <FONT face="Courier New">Value</FONT></P>
+<P>Returns the number of parameters passed in the MMF function call.</P>
+<P class=section_title>Parameters</P>
+<P>None.</P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('expr_mmf.htm'); 
+HMSelectTopic('expr_mmf.htm');</script></body>
+</html>

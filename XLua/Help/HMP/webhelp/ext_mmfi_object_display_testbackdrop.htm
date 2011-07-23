@@ -1,0 +1,101 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Test Backdrop</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Test Backdrop</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A>&nbsp;»&nbsp;<A href="ext_mmfi_object.htm">Objects</A>&nbsp;» <A href="ext_mmfi_object_display.htm">Display Traits</A></LI></UL>
+<P class=prototype>boolean <STRONG><EM>object</EM>.testBackdrop</STRONG> (&nbsp;[number&nbsp;<EM>layer</EM> [, number <EM>xoff</EM> [, number <EM>yoff</EM>] ] ]&nbsp;) </P>
+<P>Tests if the object is currently overlapping a backdrop obstacle.</P>
+<P>If&nbsp;a layer is specified, the test is limited to that layer.&nbsp; By default, layer is equal to mmf.ANY_LAYER.&nbsp; If the xoff or yoff parameters are specified, the test is made as if the object had first been moved by those amounts (but without actually moving the object).</P>
+<P class=section_title>Parameters</P>
+<P style="MARGIN-RIGHT: 0px" dir=ltr>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>layer</TD>
+<TD><EM>Optional.</EM>&nbsp; 1-based layer index, or constants mmf.ANY_LAYER, mmf.SAME_LAYER, or mmf.DIFF_LAYER&nbsp;</TD></TR>
+<TR>
+<TD class=parameter_id>xoff</TD>
+<TD><EM>Optional.</EM>&nbsp; X coordinate offset to shift object before making the test</TD></TR>
+<TR>
+<TD class=parameter_id>yoff</TD>
+<TD><EM>Optional.</EM>&nbsp; Y coordinate offset to shift object before making the test</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Return Values</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_id>boolean</TD>
+<TD>true if object is overlapping a backdrop obstacle, false otherwise</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Example</P>
+<DIV class=luatable><FONT color=#008000>-- Assume we have an object "goomba"</FONT></DIV>
+<DIV class=luatable><FONT color=#008000>-- Attempt to dig our goomba out of the background</FONT></DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>while</STRONG></FONT> (goomba.testBackdrop()) <FONT color=#000080><STRONG>do</STRONG></FONT></DIV>
+<DIV class=luatable>&nbsp; goomba.y = goomba.y - 1</DIV>
+<DIV class=luatable><FONT color=#000080><STRONG>end</STRONG></FONT></DIV><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_object_display_testbackdrop.htm'); 
+HMSelectTopic('ext_mmfi_object_display_testbackdrop.htm');</script></body>
+</html>

@@ -1,0 +1,122 @@
+<!-- saved from url=(0025)http://www.helpmatic.net/ -->
+
+<!-- Created using Helpmatic Pro HTML V6.5.3 -->
+
+<html>
+<head>
+<title>Frame</title>
+<LINK REL="stylesheet" TYPE="text/css" HREF="default.css"></LINK>
+
+</head>
+
+<BODY><TABLE class=headertable border=0 cellSpacing=0 cellPadding=0 width="100%" cols=2>
+<TBODY>
+<TR>
+<TD class="title_common title_red">Extensions</TD>
+<TD class=titleline2><helpmatic autotopictitle>Frame</helpmatic></TD>
+<TD></TD></TR></TBODY></TABLE>
+<UL class=subheader>
+<LI><A href="xlua.htm">XLua</A> » <A href="ext.htm">Extensions</A> » <A href="ext_mmfi.htm">MMFI</A></LI></UL>
+<P>The frame table exposes several read-only fields that give information about current frame.&nbsp; It also exposes a couple methods relating to the frame's collision mask.</P>
+<P class=section_title>Frame&nbsp;Fields (Read-Only)</P>
+<P>These fields can be accessed, but not updated.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>height</TD>
+<TD>Height of the frame</TD></TR>
+<TR></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>virtualHeight</TD>
+<TD>Virtual height of the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>virtualWidth</TD>
+<TD>Virtual width of the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>width</TD>
+<TD>Width of the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>xLeft</TD>
+<TD>X coordinate of the left edge of the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>xRight</TD>
+<TD>X coordinate of the right edge of the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>yBottom</TD>
+<TD>Y coordinate of the bottom edge of the frame</TD></TR>
+<TR>
+<TD class=parameter_type>number</TD>
+<TD class=parameter_name>yTop</TD>
+<TD>Y coordinate of the top edge of the frame</TD></TR></TBODY></TABLE></P>
+<P class=section_title>Frame&nbsp;Methods</P>
+<P>Click on each function for more information.</P>
+<P>
+<TABLE class=parameter_block border=0 cellSpacing=1 cellPadding=2 cols=2>
+<TBODY>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_frame_testpoint.htm">testPoint()</A></TD></TR>
+<TR>
+<TD class=parameter_type>boolean</TD>
+<TD class=parameter_name><A href="ext_mmfi_frame_testrect.htm">testRect()</A></TD></TR></TBODY></TABLE></P><p align="right"><font size=1>Copyright 2010 Justin Aquadro</a></font></p>
+<script language="javascript">
+	function HMSelectTopic(v_sTopicName)
+	{			
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					frames[i].SelectNodeByFilename(v_sTopicName);
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+		}
+	}
+	
+	
+	function ReloadFrame(v_sTopicName)
+	{
+		var bFound=false;
+		
+		try
+		{
+			var frames = parent.frames;
+			var iframecount = frames.length;
+			for(var i=0; i < iframecount; i++) 
+			{
+				if(frames[i].name == "frmNav") 
+				{
+					bFound=true;
+					break;
+				}
+			}
+		}
+		catch (e)
+		{
+			bFound=true;
+		}
+		
+		if(bFound==false)
+		{
+			window.location.href="index.html?" + v_sTopicName;
+		}
+	}
+</script>
+<script language='javascript'>ReloadFrame('ext_mmfi_frame.htm'); 
+HMSelectTopic('ext_mmfi_frame.htm');</script></body>
+</html>

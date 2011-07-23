@@ -1,0 +1,29 @@
+
+/***********************************************/
+/* these class styles are used for the expanding and collapsing text files (expand function in shared.js)  */
+
+#expand 	{margin-bottom: 0.6em; margin-left: 0em; margin-right: 0em;}
+
+#expandshowalways {margin-bottom: 0.6em; margin-left: 0em; margin-right: 0em;}
+
+a:link.expandToggle, a:visited.expandToggle 	{color:#000000; font-weight: bold; text-decoration:none;}
+
+a:hover.expandToggle, a:active.expandToggle 	{color:#0000FF;}
+ 
+img.expand 	{ border: none; margin-right: 0.5em; width:.8em;}
+		
+div.expand	{ margin-left: 1.5em; margin-right: 1.5em;margin-bottom: 1em; display:none; background-color:#ffffdd;}
+
+div.expandshowalways	{ margin-left: 1.5em; margin-right: 1.5em;margin-bottom: 1em; background-color:#ffffff;}
+
+
+/*************************************************/
+/* general small height paragraphs		 */
+.PSmall
+{
+
+margin-top: .6em; 
+margin-bottom: .6em;
+
+}
+

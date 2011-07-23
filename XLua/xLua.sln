@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xLua", "xLua.vcproj", "{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release_Small|Win32 = Release_Small|Win32
+		Release|Win32 = Release|Win32
+		Run_Only_Debug|Win32 = Run_Only_Debug|Win32
+		Run_Only_Nolegacy|Win32 = Run_Only_Nolegacy|Win32
+		Run_Only_Small|Win32 = Run_Only_Small|Win32
+		Run_Only|Win32 = Run_Only|Win32
+		Vitalize_Small|Win32 = Vitalize_Small|Win32
+		Vitalize|Win32 = Vitalize|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Debug|Win32.Build.0 = Debug|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Release_Small|Win32.ActiveCfg = Release_Small|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Release_Small|Win32.Build.0 = Release_Small|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Release|Win32.ActiveCfg = Release|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Release|Win32.Build.0 = Release|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only_Debug|Win32.ActiveCfg = Run_Only_Debug|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only_Debug|Win32.Build.0 = Run_Only_Debug|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only_Nolegacy|Win32.ActiveCfg = Run_Only_Nolegacy|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only_Nolegacy|Win32.Build.0 = Run_Only_Nolegacy|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only_Small|Win32.ActiveCfg = Run_Only_Small|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only_Small|Win32.Build.0 = Run_Only_Small|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only|Win32.ActiveCfg = Run_Only|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Run_Only|Win32.Build.0 = Run_Only|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Vitalize_Small|Win32.ActiveCfg = Vitalize_Small|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Vitalize_Small|Win32.Build.0 = Vitalize_Small|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Vitalize|Win32.ActiveCfg = Vitalize|Win32
+		{5B944B67-24E5-4F6A-A389-A1BDCCEB29B4}.Vitalize|Win32.Build.0 = Vitalize|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,167 @@
+BODY {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+}
+H1 {
+	font-size: 130%;
+}
+H2 {
+	font-size: 120%;
+}
+H3 {
+	font-size: 115%;
+}
+H4 {
+	font-size: 100%;
+	font-style: Italic;
+}
+H5 {
+	font-size: 100%;
+}
+a:hover {
+	color: blue;
+	font-weight: bold;
+}
+A {
+	color: #5566AA;
+}
+.headertable {
+	color: #000000;
+	font-size: 1.8em;
+	padding: 0px;
+}
+.titleline1 {
+	background: transparent;
+	font-style: italic;
+}
+.titleline2 {
+	font-size: 0.8em;
+	font-weight: bold;
+	background-color: #EEEEEE;
+	padding-left: 0.3em;
+}
+TABLE {
+	cellpadding: 2;
+	border: 1;
+	bordercolor: #FFFFFF;
+	bordercolordark: #FFFFFF;
+	bordercolorlight: #FFFFFF;
+	background-color: #F9F9F9;
+}
+LI {
+	list-style-position: inside;
+	text-indent: 0pt;
+}
+IMG {
+	border: 0;
+}
+UL {
+	list-style-type: disc;
+	margin-left: 2em;
+	padding-left: 0em;
+}
+.seealso {
+	font-weight: bold;
+}
+.luatable {
+	border-left-color: #800080;
+	border-left-style: dotted;
+	border-left-width: 1px;
+	font-family: Courier New, Courier, monospace;
+	margin-left: 2em;
+	padding: 0.2em;
+	padding-left: 0.8em;
+	white-space: pre;
+	line-height: 0.9em;
+}
+.lua_keyword {
+	color: #000080;
+	font-weight: bold;
+}
+.lua_function {
+	color: #800080;
+}
+.lua_comment {
+	color: #008000;
+}
+.title_common {
+	font-size: 0.8em;
+	font-weight: bold;
+	padding-right: 0.3em;
+	padding-left: 0.3em;
+	width: 1%;
+}
+.prototype {
+	font-family: Courier New, Courier, monospace;
+}
+.parameter_block {
+	margin-left: 2em;
+	font-size: 1em;
+	background-color: transparent;
+	border-left-style: solid;
+	border-left-width: 2px;
+	border-left-color: #C0C0C0;
+}
+.parameter_id {
+	font-family: Courier New, Courier, monospace;
+	width: 8em;
+	padding-left: 0.8em;
+}
+.section_title {
+	font-weight: bold;
+}
+.title_green {
+	background-color: #BBEEBA;
+}
+.title_blue {
+	background-color: #BBC9ED;
+}
+.title_red {
+	background-color: #F1AFAD;
+}
+.parameter_name {
+	font-family: Courier New, Courier, monospace;
+	font-weight: bold;
+	width: 9em;
+	white-space: pre;
+}
+.parameter_type {
+	font-family: Courier New, Courier, monospace;
+	padding-left: 0.8em;
+	width: 7em;
+}
+.subheader {
+	margin-left: 2em;
+	margin-top: .5em;
+}
+.parameter_funcname {
+	font-family: Courier New, Courier, monospace;
+	font-weight: bold;
+	white-space: pre;
+}
+.parameter_block th {
+	background-color: #C0C0C0;
+}
+.gen_table {
+	background-color: #F3F3F3;
+	font-size: 1em;
+	border-collapse: collapse;
+}
+.gen_table TD {
+	border: 1px solid black;
+	padding-right: 16px;
+}
+.action {
+	font-size: 1.5em;
+	background-color: #EEE;
+	padding: 2px;
+}
+.title_yellow {
+	background-color: #EEEABA;
+}
+.title_cyan {
+	background-color: #BAEEED;
+}
+.title_violet {
+	background-color: #D5BAEE;
+}

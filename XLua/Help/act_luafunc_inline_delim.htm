@@ -1,0 +1,19 @@
+<link rel="stylesheet" type="text/css" href="style.css" />
+<div class="head">
+<div class="lv1">Actions &#8227; Lua Functions &#8227; Inline Parameters</div>
+<div class="lv2 active">Call With Delimited String</div>
+</div>
+
+<p>Suspends the current event and executes a lua function, passing a delimited string which will be parsed into multiple parameters.  Any previously pushed parameters will be discarded.</p>
+<p>The delimited string takes the form of "var1|var2|var3|...|varn", with the pipe character (|) used as the delimiter.  The string will be split apart into multiple string paramters before being passed to the Lua function.  This calling method provides direct compatibility with the original <tt>Lua Object</tt> calling convention, but does have some limitations.</p>
+<p>Any valid non-local function can be called.  <a href="act_var.htm">Click here</a> for more information on valid naming.  The colon operator (:) for function calls is supported.</p>
+
+<div class="sec">Parameters</div>
+<table border="0" class="param-list"><tr>
+<th>Type</th><th>Description</th></tr><tr>
+<td class="type">String</td><td class="desc">Function name</td></tr><tr>
+<td class="type">String</td><td class="desc">1st Parameter</td></tr><tr>
+<td class="type">String</td><td class="desc">2nd Parameter</td></tr><tr>
+<td class="type">String</td><td class="desc">3rd Parameter</td></tr><tr>
+<td class="type">String</td><td class="desc">4th Parameter</td>
+</tr></table>
