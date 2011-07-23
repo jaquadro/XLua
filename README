@@ -1,0 +1,10 @@
+XLua is a powerful Lua-scripting extension to Clickteam's Multimedia Fusion 2.
+
+An overview of XLua is available at http://www.fusionwiki.com/wiki/XLua
+
+The structure of this repository as as follows:
+- XLua :: The core XLua extension
+- XLua-Java :: A Java-runtime version of the XLua extension
+- XLua-MMFI :: A loadable C Module for directly interfacing with MMF's internal state machine from Lua code
+- XLua-OpenGL :: A loadable C Module for using OpenGL from Lua code, based on LuaGL
+- XLua-Surface :: An incomplete helper extension for performinc CSurface drawing directly from Lua code
