@@ -487,7 +487,7 @@
 				OutputFile="c:\program files (x86)\multimedia fusion 2\extensions\xlua.mfx"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="..\rSDK\Lib\"
+				AdditionalLibraryDirectories="..\..\vendor\SDK\current\Lib\"
 				ModuleDefinitionFile=".\Ext.def"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\Release/xlua.pdb"
