@@ -158,9 +158,6 @@ short WINAPI DLLExport GetRunObjectInfos(mv _far *mV, fpKpxRunInfos infoPtr)
 
 LPCSTR* WINAPI DLLExport GetDependencies()
 {
-	// Do some rSDK stuff
-	#include "rGetDependencies.h"
-	
 	//LPCSTR szDep[] = {
 	//	"MyDll.dll",
 	//	NULL

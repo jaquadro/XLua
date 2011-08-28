@@ -453,7 +453,7 @@
 				AdditionalOptions="/D_CRT_SECURE_NO_WARNINGS /D &quot;_SECURE_SCL=0&quot;"
 				Optimization="3"
 				InlineFunctionExpansion="2"
-				AdditionalIncludeDirectories="..\rSDK\Inc;.\Scintilla\include;.\Scintilla\src;.\Scintilla\lexlib;.\Scintilla\lexers"
+				AdditionalIncludeDirectories="..\..\vendor\SDK\current\Inc;.\Scintilla\include;.\Scintilla\src;.\Scintilla\lexlib;.\Scintilla\lexers"
 				PreprocessorDefinitions="XLUA_LEGACY;NDEBUG;WIN32;_WINDOWS;STRICT;COXSDK;IN_EXT_VERSION2;STATIC_BUILD;SCI_NAMESPACE;SCI_LEXER"
 				StringPooling="true"
 				ExceptionHandling="1"
@@ -4282,248 +4282,124 @@
 			Name="MMF Headers"
 			>
 			<File
-				RelativePath="..\rSDK\Inc\BlitMac.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\BlitMac.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Ccx.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Ccx.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Ccxhdr.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Ccxhdr.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\CfcError.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\CfcError.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\CfcFile.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\CfcFile.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Cncf.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Cncf.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\cncr.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\cncr.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Cncy.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Cncy.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Cnpdll.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Cnpdll.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\colors.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\colors.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\EVTCCX.H"
+				RelativePath="..\..\vendor\SDK\current\Inc\EVTCCX.H"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Fill.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Fill.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\FilterMgr.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\FilterMgr.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\ImageFlt.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\ImageFlt.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\ImgFlt.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\ImgFlt.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\ImgFltDefs.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\MagicRDATA.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\Mvt.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\ImgFltDefs.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\oop_ext.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\Palet.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Mvt.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\PaletCpp.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\Palet.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\PictEdDefs.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\PaletCpp.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\Props.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\PictEdDefs.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\PTYPE.H"
+				RelativePath="..\..\vendor\SDK\current\Inc\Props.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\rCreateObject.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\rCreateRunObject.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\rGetDependencies.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\rTemplate.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\SndDefs.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\SoundFilter.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\PTYPE.H"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\SoundFilterMgr.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\SndDefs.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\StdDefs.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\Surface.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\SoundFilter.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\SurfaceDefs.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\TemplateInc.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath="..\rSDK\Inc\WinMacro.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\SoundFilterMgr.h"
 				>
 			</File>
 			<File
-				RelativePath="..\rSDK\Inc\WrapFunctions.h"
+				RelativePath="..\..\vendor\SDK\current\Inc\StdDefs.h"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-					/>
-				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\vendor\SDK\current\Inc\Surface.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\vendor\SDK\current\Inc\SurfaceDefs.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\vendor\SDK\current\Inc\TigsExt.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\vendor\SDK\current\Inc\WinMacro.h"
+				>
 			</File>
 		</Filter>
 	</Files>
