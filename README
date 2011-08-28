@@ -3,8 +3,16 @@ XLua is a powerful Lua-scripting extension to Clickteam's Multimedia Fusion 2.
 An overview of XLua is available at http://www.fusionwiki.com/wiki/XLua
 
 The structure of this repository as as follows:
-- XLua :: The core XLua extension
-- XLua-Java :: A Java-runtime version of the XLua extension
-- XLua-MMFI :: A loadable C Module for directly interfacing with MMF's internal state machine from Lua code
-- XLua-OpenGL :: A loadable C Module for using OpenGL from Lua code, based on LuaGL
-- XLua-Surface :: An incomplete helper extension for performinc CSurface drawing directly from Lua code
+- Ext-Dyngrid :: An example bridge module between XLua and the Dynamic Grid Object.  Uses the deprecated MMFI and object export model.
+- XLua :: The core XLua extension.
+- XLua-Java :: A Java-runtime version of the XLua extension.
+- XLua-MMFI :: A loadable C Module for directly interfacing with MMF's internal state machine from Lua code.
+- XLua-OpenGL :: A loadable C Module for using OpenGL from Lua code, based on LuaGL.
+- XLua-Static :: A loadable C Module for statically-allocated arrays.
+- XLua-Surface :: An incomplete helper extension for performinc CSurface drawing directly from Lua code.
+- XSDK :: Support code for XLua-MMFI and bridge modules.
+
+External Dependencies:
+
+Most projects depend on either the official MMF SDK (referenced in projects as vendor/SDK/current), or rSDK.
+These dependencies can be obtained from the Extension Development forum on Clickteam's message board.
